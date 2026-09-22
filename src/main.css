@@ -1137,6 +1137,45 @@ html{ overflow-x:clip; }
 .mh-member .mh-quote__mark{ width:48px; height:38px; margin:0; }
 
 
+.mh-compass{ max-width:820px; margin:clamp(56px, 7vw, 90px) auto 0; }
+.mh-compass .mh-quote{ font-size:clamp(24px, 17px + 1.8vw, 38px); }
+.mh-five{
+  display:grid;
+  grid-template-columns:repeat(5, minmax(0,1fr));
+  margin-top:clamp(28px, 4vw, 40px);
+  border-block:1px solid var(--line);
+  counter-reset:f;
+}
+.mh-five li{
+  position:relative;
+  padding:24px 14px 22px;
+  text-align:center;
+}
+.mh-five li + li{ border-inline-start:1px solid var(--line); }
+.mh-five li::before{
+  counter-increment:f;
+  content:counter(f, arabic-indic);
+  display:block;
+  margin-bottom:6px;
+  font-family:var(--mh-font-serif);
+  font-size:20px;
+  line-height:1;
+  color:var(--mh-accent-ink);
+}
+.mh-five small{ display:block; font-size:var(--mh-fs-xs); color:var(--muted); }
+.mh-five b{ display:block; margin-top:4px; font-family:var(--mh-font-serif); font-size:clamp(20px, 16px + .8vw, 26px); line-height:1.5; }
+
+.mh-yaqub{
+  margin:22px 0 18px;
+  padding:4px 20px 4px 0;
+  border-inline-start:2px solid var(--mh-accent);
+  font-family:var(--mh-font-serif);
+  font-size:clamp(18px, 16px + .5vw, 21px);
+  line-height:1.9;
+  color:var(--ink);
+}
+
+
 /* ---------- 04 · METHOD ---------- */
 .mh-method{ --pattern-opacity:.05; }
 .mh-triad{
@@ -1474,6 +1513,62 @@ html{ overflow-x:clip; }
 .mh-booklet:hover .mh-media{ transform:translateY(-6px) rotate(-1deg); }
 .mh-booklet small{ display:block; margin-top:14px; font-size:var(--mh-fs-xs); color:var(--muted); }
 .mh-booklet b{ display:block; font-size:16px; line-height:1.5; }
+
+
+/* worksheet index */
+.mh-files-wrap{ margin-top:clamp(72px, 9vw, 112px); }
+.mh-files{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:clamp(14px, 2vw, 20px);
+}
+.mh-file{
+  display:grid;
+  grid-template-columns:clamp(72px, 8vw, 96px) 1fr;
+  gap:clamp(14px, 2vw, 22px);
+  align-items:start;
+  padding:clamp(16px, 2vw, 22px);
+}
+.mh-file__cover{ display:block; cursor:zoom-in; }
+.mh-file__cover .mh-media{ --ratio:.707; border-radius:3px 8px 8px 3px; box-shadow:inset -4px 0 8px -4px rgba(0,0,0,.18), 0 8px 18px rgba(0,0,0,.10); }
+.mh-file__cover--tag{
+  display:grid;
+  place-items:center;
+  aspect-ratio:.707;
+  border-radius:3px 8px 8px 3px;
+  background:var(--tint);
+  cursor:default;
+}
+.mh-file small{ display:block; font-size:var(--mh-fs-xs); color:var(--muted); line-height:1.6; }
+.mh-file .mh-h4{ margin-bottom:6px; }
+.mh-file p{ font-size:var(--mh-fs-sm); line-height:1.85; }
+.mh-file__q{
+  margin-top:12px !important;
+  padding-top:10px;
+  border-top:1px dashed var(--line-strong);
+  font-family:var(--mh-font-serif);
+  font-size:17px !important;
+  line-height:1.8 !important;
+  color:var(--ink);
+}
+.mh-more{ margin-top:clamp(14px, 2vw, 20px); }
+.mh-more[open] summary{ margin-bottom:clamp(14px, 2vw, 20px); }
+.mh-more summary{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:6px;
+  padding:14px;
+  border:1px dashed var(--line-strong);
+  border-radius:var(--mh-r);
+  cursor:pointer;
+  list-style:none;
+  font-weight:700;
+  color:var(--ink);
+}
+.mh-more summary::-webkit-details-marker{ display:none; }
+.mh-more summary span{ color:var(--muted); font-weight:400; }
+.mh-more[open] summary{ display:none; }
 
 
 /* ---------- 08 · TOGETHER (live + telegram) ---------- */
@@ -2083,7 +2178,8 @@ html{ overflow-x:clip; }
   .mh-fit__grid,
   .mh-creds{ grid-template-columns:1fr; }
   .mh-stick{ position:static; }
-  .mh-fasad{ grid-template-columns:1fr; }
+  .mh-fasad,
+  .mh-files{ grid-template-columns:1fr; }
   .mh-portrait{ margin-inline:auto; width:78%; }
   .mh-guarantee__box{ grid-template-columns:1fr; justify-items:center; text-align:center; }
   .mh-guarantee__facts{ justify-content:center; }
@@ -2112,6 +2208,10 @@ html{ overflow-x:clip; }
   .mh-stats .mh-stat:nth-child(n+3){ border-top:1px solid var(--line); }
   .mh-sessions{ grid-template-columns:1fr 1fr 1fr; gap:8px; }
   .mh-member{ grid-template-columns:1fr; }
+  .mh-five{ grid-template-columns:1fr; border:0; }
+  .mh-five li{ display:grid; grid-template-columns:28px 1fr; align-items:center; column-gap:12px; padding:12px 0; text-align:right; border-bottom:1px solid var(--line); }
+  .mh-five li + li{ border-inline-start:0; }
+  .mh-five li::before{ grid-row:span 2; margin:0; }
   .mh-pick{ padding:16px; gap:14px; }
   .mh-pick__t{ font-size:16.5px; }
   .mh-btn{ white-space:normal; text-align:center; }
