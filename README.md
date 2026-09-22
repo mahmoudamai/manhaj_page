@@ -33,11 +33,20 @@ dist/                 ← ملفات جاهزة للنسخ واللصق في GHL
 ?mh-lab=0                          ← تقفل اللاب
 ```
 
-في اللاب، اختار الـ theme والـ accent والـ type، وبعدين دوس **Copy config for GHL** والصق السطر اللي هيتنسخ في `ghl-head.html` مكان سطر `window.MH_CONFIG`.
+في اللاب، اختار الألوان والخطوط، وبعدين دوس **Copy config for GHL** والصق السطر اللي هيتنسخ في `ghl-head.html` مكان سطر `window.MH_CONFIG`.
 
 **لإضافة palette جديدة:** انسخ أي بلوك `:root[data-mh-theme="…"]` في `main.css`، وغيّر قيم الألوان، وزوّد اسمه في `OPTIONS.theme` في `core.js`.
 
 **سكشن فاتح ↔ غامق:** غيّر `data-tone="deep"` في البلوك لـ `alt` أو `paper`، أو العكس.
+
+## تغيير الخطوط (مركزي زي الألوان)
+
+الخطوط اتقسمت لـ 3 أدوار: **headings** (العناوين)، و**body** (النص)، و**accent** (الكلمة المميزة في كل عنوان والآيات والاقتباسات).
+
+- **`type`**: تركيبة جاهزة: `geometric` (الافتراضي: Alexandria + IBM Plex + Markazi)، `editorial`، `classic` (Tajawal)، `kufi`، `modern`، `warm`، `bold`.
+- **`head` / `body` / `serif`**: تغيّر دور واحد بس فوق التركيبة، مثلًا `head: "tajawal"`.
+- **من غير تعديل:** `?mh-lab=1` هتلاقي في اللاب قسم TYPE ومعاه معاينة حية، أو `?mh-type=kufi&mh-head=cairo` على الرابط.
+- مقارنة التركيبات: `docs-font-pairings.png`.
 
 ## التعديل وإعادة البناء
 

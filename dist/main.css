@@ -23,6 +23,7 @@
   --mh-font-sans:"IBM Plex Sans Arabic","Tajawal",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mh-font-display:var(--mh-font-sans);
   --mh-font-serif:"Amiri","Noto Naskh Arabic","Times New Roman",serif;
+  --mh-serif-scale:1.1;
   --mh-display-weight:700;
 
   --mh-fs-xs:13px;
@@ -203,16 +204,10 @@
 
 
 /* ---------------------------------------------------------------------
-   4. TYPE PRESETS
+   4. TYPE  — fonts are switched centrally from MH_CONFIG (type / head /
+   body / serif) by core.js, which sets the three --mh-font-* tokens above.
+   The values in section 1 are only the no-JS fallback.
    --------------------------------------------------------------------- */
-:root[data-mh-type="classic"]{
-  --mh-font-sans:"Tajawal",system-ui,sans-serif;
-  --mh-display-weight:800;
-}
-:root[data-mh-type="modern"]{
-  --mh-font-sans:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;
-  --mh-display-weight:600;
-}
 
 
 /* ---------------------------------------------------------------------
@@ -320,6 +315,7 @@ html{ overflow-x:clip; }
   font-weight:var(--mh-display-weight);
   color:var(--ink);
   text-wrap:balance;
+  word-spacing:var(--mh-display-ws, normal);
 }
 .mh-h1{ font-size:var(--mh-fs-h1); line-height:1.28; }
 .mh-h2{ font-size:var(--mh-fs-h2); line-height:1.34; }
@@ -332,7 +328,7 @@ html{ overflow-x:clip; }
   font-family:var(--mh-font-serif);
   font-style:normal;
   font-weight:700;
-  font-size:1.1em;
+  font-size:calc(var(--mh-serif-scale, 1.1) * 1em);
   line-height:1;
   color:var(--em);
 }
@@ -2124,7 +2120,9 @@ html{ overflow-x:clip; }
   bottom:16px;
   left:16px;
   z-index:10000;
-  width:250px;
+  width:270px;
+  max-height:calc(100vh - 32px);
+  overflow:auto;
   padding:14px;
   border-radius:14px;
   background:#101818;
@@ -2146,6 +2144,8 @@ html{ overflow-x:clip; }
   color:#EDEAE2;
   font:inherit;
 }
+.mh-lab > small{ display:block; margin:10px 0 6px; font-size:10px; letter-spacing:.12em; color:#7f8f8c; }
+.mh-lab__type{ margin:8px 0 10px; padding:10px; border-radius:8px; background:#EDEAE2; color:#101818; font-size:15px; line-height:1.6; text-align:right; }
 .mh-lab__sw{ display:flex; gap:4px; margin:10px 0; }
 .mh-lab__sw i{ flex:1; height:18px; border-radius:4px; }
 .mh-lab button.mh-lab__copy{ cursor:pointer; background:#EDEAE2; color:#101818; font-weight:700; }

@@ -13,15 +13,52 @@
   var cfg = window.MH_CONFIG || {};
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- FONT CATALOG ----------
+     role: sans = body/UI · head = headings · serif = the accent word in headings, ayat & quotes
+     w  = heading weight to use with this font · sc = size scale when used as the accent serif */
+  var FONT = {
+    "plex":       { f: "IBM Plex Sans Arabic", q: "IBM+Plex+Sans+Arabic:wght@300;400;500;600;700", w: 700 },
+    "tajawal":    { f: "Tajawal",              q: "Tajawal:wght@400;500;700;800",                 w: 800 },
+    "readex":     { f: "Readex Pro",           q: "Readex+Pro:wght@300;400;500;600;700",          w: 600 },
+    "alexandria": { f: "Alexandria",           q: "Alexandria:wght@400;500;600;700;800",          w: 700 },
+    "noto-kufi":  { f: "Noto Kufi Arabic",     q: "Noto+Kufi+Arabic:wght@400;500;600;700;800",    w: 700 },
+    "reem-kufi":  { f: "Reem Kufi",            q: "Reem+Kufi:wght@400;500;600;700",               w: 700, ws: ".22em" },
+    "cairo":      { f: "Cairo",                q: "Cairo:wght@400;500;600;700;800",               w: 800 },
+    "almarai":    { f: "Almarai",              q: "Almarai:wght@300;400;700;800",                 w: 800 },
+    "el-messiri": { f: "El Messiri",           q: "El+Messiri:wght@400;500;600;700",              w: 700 },
+    "rubik":      { f: "Rubik",                q: "Rubik:wght@400;500;600;700",                   w: 700 },
+    "vazirmatn":  { f: "Vazirmatn",            q: "Vazirmatn:wght@400;500;600;700",               w: 700 },
+    "zain":       { f: "Zain",                 q: "Zain:wght@400;700;800",                        w: 800 },
+    "amiri":      { f: "Amiri",                q: "Amiri:wght@400;700",                           w: 700, sc: 1.1 },
+    "noto-naskh": { f: "Noto Naskh Arabic",    q: "Noto+Naskh+Arabic:wght@400;500;600;700",       w: 700, sc: 1 },
+    "markazi":    { f: "Markazi Text",         q: "Markazi+Text:wght@400;500;600;700",            w: 700, sc: 1.12 },
+    "scheherazade": { f: "Scheherazade New",   q: "Scheherazade+New:wght@400;500;600;700",        w: 700, sc: 1.15 },
+    "aref-ruqaa": { f: "Aref Ruqaa",           q: "Aref+Ruqaa:wght@400;700",                      w: 700, sc: 1.05 }
+  };
+  var SANS = ["plex", "tajawal", "readex", "alexandria", "noto-kufi", "cairo", "almarai", "rubik", "vazirmatn", "zain"];
+  var HEAD = SANS.concat(["reem-kufi", "el-messiri", "amiri", "markazi", "noto-naskh"]);
+  var SERIF = ["amiri", "noto-naskh", "markazi", "scheherazade", "aref-ruqaa"];
+
+  /* ready-made pairings; head/body/serif in MH_CONFIG override any single role */
+  var TYPE = {
+    "editorial": { head: "plex",       body: "plex",    serif: "amiri" },
+    "classic":   { head: "tajawal",    body: "tajawal", serif: "amiri" },
+    "geometric": { head: "alexandria", body: "plex",    serif: "markazi" },
+    "kufi":      { head: "reem-kufi",  body: "plex",    serif: "amiri" },
+    "modern":    { head: "readex",     body: "readex",  serif: "noto-naskh" },
+    "warm":      { head: "el-messiri", body: "almarai", serif: "amiri" },
+    "bold":      { head: "noto-kufi",  body: "noto-kufi", serif: "markazi" }
+  };
+
   var OPTIONS = {
     theme: ["petrol", "clay", "sage", "night", "sand"],
     accent: ["", "gold", "coral", "apricot", "terracotta", "mint", "rose"],
-    type: ["editorial", "classic", "modern"]
+    type: Object.keys(TYPE),
+    head: [""].concat(HEAD),
+    body: [""].concat(SANS),
+    serif: [""].concat(SERIF)
   };
-  var FONTS = {
-    classic: "https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap",
-    modern: "https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap"
-  };
+  var KEYS = ["theme", "accent", "type", "head", "body", "serif"];
 
   function store(key, val) {
     try {
@@ -34,7 +71,7 @@
     try { return new URLSearchParams(location.search).get(name); } catch (e) { return null; }
   }
 
-  /* ---------- 1. THEME: config  <  saved lab choice  <  URL ---------- */
+  /* ---------- 1. THEME + TYPE: config  <  saved lab choice  <  URL ---------- */
   var labOn = param("mh-lab") === "1" || cfg.lab === true || store("mh-lab") === "1";
   if (param("mh-lab") === "0") { labOn = false; store("mh-lab", null); }
 
@@ -45,21 +82,38 @@
     return OPTIONS[key].indexOf(v) > -1 ? v : "";
   }
 
+  function stack(id, fallback) {
+    return '"' + FONT[id].f + '", ' + fallback;
+  }
+  function loadFont(id) {
+    if (!FONT[id] || doc.getElementById("mh-font-" + id)) return;
+    var l = doc.createElement("link");
+    l.id = "mh-font-" + id;
+    l.rel = "stylesheet";
+    l.href = "https://fonts.googleapis.com/css2?family=" + FONT[id].q + "&display=swap";
+    doc.head.appendChild(l);
+  }
+
   function applyTheme(t) {
     ["theme", "accent", "type"].forEach(function (k) {
       if (t[k]) root.setAttribute("data-mh-" + k, t[k]);
       else root.removeAttribute("data-mh-" + k);
     });
-    if (FONTS[t.type] && !doc.getElementById("mh-font-" + t.type)) {
-      var l = doc.createElement("link");
-      l.id = "mh-font-" + t.type;
-      l.rel = "stylesheet";
-      l.href = FONTS[t.type];
-      doc.head.appendChild(l);
-    }
+    var preset = TYPE[t.type] || TYPE.editorial;
+    var head = t.head || preset.head, body = t.body || preset.body, serif = t.serif || preset.serif;
+    var isSerifHead = SERIF.indexOf(head) > -1 || head === "markazi";
+    [head, body, serif].forEach(loadFont);
+    var st = root.style;
+    st.setProperty("--mh-font-sans", stack(body, "system-ui, sans-serif"));
+    st.setProperty("--mh-font-display", stack(head, isSerifHead ? "serif" : "system-ui, sans-serif"));
+    st.setProperty("--mh-font-serif", stack(serif, "serif"));
+    st.setProperty("--mh-display-weight", FONT[head].w);
+    st.setProperty("--mh-serif-scale", FONT[serif].sc || 1.1);
+    st.setProperty("--mh-display-ws", FONT[head].ws || "normal");
   }
 
-  var theme = { theme: pick("theme"), accent: pick("accent"), type: pick("type") };
+  var theme = {};
+  KEYS.forEach(function (k) { theme[k] = pick(k); });
   applyTheme(theme);
   root.classList.add("mh-js");
 
@@ -300,20 +354,25 @@
     store("mh-lab", "1");
     var box = doc.createElement("div");
     box.className = "mh-lab";
-    function sel(key) {
-      return '<label>' + key + '<select data-k="' + key + '">' +
+    function sel(key, label) {
+      return '<label>' + label + '<select data-k="' + key + '">' +
         OPTIONS[key].map(function (o) {
-          return '<option value="' + o + '"' + (theme[key] === o ? " selected" : "") + ">" + (o || "(palette default)") + "</option>";
+          var txt = o === "" ? (key === "accent" ? "(palette default)" : "(from type)") : (FONT[o] ? FONT[o].f : o);
+          return '<option value="' + o + '"' + (theme[key] === o ? " selected" : "") + ">" + txt + "</option>";
         }).join("") + "</select></label>";
     }
     box.innerHTML =
       '<b>Palette Lab <span><button type="button" data-min title="minimize">–</button>' +
       '<button type="button" data-off title="close lab">×</button></span></b>' +
-      sel("theme") + sel("accent") + sel("type") +
+      '<small>COLOR</small>' + sel("theme", "palette") + sel("accent", "accent") +
       '<div class="mh-lab__sw">' +
       ["--mh-deep", "--mh-brand", "--mh-support", "--mh-accent", "--mh-paper-2", "--mh-paper"].map(function (v) {
         return '<i style="background:var(' + v + ')" title="' + v + '"></i>';
       }).join("") + "</div>" +
+      '<small>TYPE</small>' + sel("type", "pairing") + sel("head", "headings") + sel("body", "body") + sel("serif", "accent") +
+      '<p class="mh-lab__type" dir="rtl"><span style="font-family:var(--mh-font-display);font-weight:var(--mh-display-weight)">رحلة تعيد ترتيب فهمك </span>' +
+      '<span style="font-family:var(--mh-font-serif);color:var(--mh-accent)">لنفسك</span><br>' +
+      '<span style="font-family:var(--mh-font-sans);font-size:12px">برنامج علمي إيماني ينطلق من القرآن والهدي النبوي.</span></p>' +
       '<button type="button" class="mh-lab__copy">Copy config for GHL</button>';
     doc.body.appendChild(box);
 
@@ -326,12 +385,12 @@
     });
     box.querySelector("[data-min]").addEventListener("click", function () { box.classList.toggle("is-min"); });
     box.querySelector("[data-off]").addEventListener("click", function () {
-      ["lab", "theme", "accent", "type"].forEach(function (k) { store("mh-" + k, null); });
+      ["lab"].concat(KEYS).forEach(function (k) { store("mh-" + k, null); });
       box.remove();
     });
     box.querySelector(".mh-lab__copy").addEventListener("click", function () {
       var out = {};
-      ["theme", "accent", "type"].forEach(function (k) { if (theme[k]) out[k] = theme[k]; });
+      KEYS.forEach(function (k) { if (theme[k]) out[k] = theme[k]; });
       var snippet = "window.MH_CONFIG = " + JSON.stringify(out) + ";";
       var btn = this;
       function ok() { btn.textContent = "Copied ✓"; setTimeout(function () { btn.textContent = "Copy config for GHL"; }, 1600); }
