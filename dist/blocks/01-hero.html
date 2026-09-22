@@ -1,0 +1,93 @@
+<!-- =====================================================================
+     01 · HERO  —  promise + video + key facts + CTA + trust
+     Replaces old blocks 01 → 07 (hero, GHL video, video preview, info,
+     GHL button, trust, PiP) with ONE code block.
+     · Video: set the URL in data-mh-video (YouTube / Vimeo / .mp4 from GHL media)
+     · PiP: the video floats TOP-LEFT on scroll while playing (data-mh-pip)
+     · If you prefer to keep the GHL video element + GHL button (for their
+       analytics), delete <div class="mh-video"> / <a class="mh-btn"> below
+       and drop the GHL elements between two code blocks instead.
+     ===================================================================== -->
+<section class="mh mh-hero mh-pattern" data-tone="deep" id="mh-hero" data-mh-hero>
+
+  <div class="mh-hero__stage">
+    <div class="mh-wrap">
+      <img class="mh-hero__logo" data-reveal
+           src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a031a054d2085f898b0a491.png"
+           alt="منهج الطمأنينة" width="172" height="172" decoding="async">
+
+      <p class="mh-hero__kicker" data-reveal>
+        <span class="mh-star"></span> من التيه إلى الطمأنينة <span class="mh-star"></span>
+      </p>
+
+      <h1 class="mh-h1" data-reveal>
+        رحلة عامٍ كامل تعيد ترتيب فهمك <em>لنفسك</em> ولحياتك
+      </h1>
+
+      <p class="mh-lead" data-reveal>
+        برنامج علمي إيماني ينطلق من القرآن والهدي النبوي، ويستعين بالمعرفة النفسية،
+        ليساعدك تنتقل من التشتت والإرهاق الدائم إلى فهمٍ أوضح وقلبٍ أهدأ.
+      </p>
+    </div>
+  </div>
+
+  <div class="mh-hero__base">
+    <div class="mh-wrap">
+
+      <!-- VIDEO -->
+      <div class="mh-video" data-mh-video="" data-mh-pip data-reveal>
+        <div class="mh-video__spacer" aria-hidden="true"></div>
+        <div class="mh-video__frame">
+          <div class="mh-video__poster" role="button" tabindex="0"
+               aria-label="شاهد تعريف منهج الطمأنينة"
+               >
+            <span class="mh-video__play">
+              <i><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"/></svg></i>
+              شاهد كيف تسير الرحلة
+            </span>
+          </div>
+          <button class="mh-video__close" type="button" aria-label="إغلاق الفيديو"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+        </div>
+      </div>
+
+      <!-- KEY FACTS -->
+      <div class="mh-facts" data-reveal-group>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          <span><small>مدة الرحلة</small><strong>12 شهرًا كاملة</strong></span>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg>
+          <span><small>طريقة التعلم</small><strong>مسجّل + لقاءات مباشرة</strong></span>
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h14v15H6a2 2 0 0 0-2 2Zm0 0a2 2 0 0 0 2 2h14"/></svg>
+          <span><small>المحتوى</small><strong>30 محاضرة + رياضة الفكر</strong></span>
+        </div>
+      </div>
+
+      <!-- CTA + TRUST -->
+      <div class="mh-hero__cta" data-reveal>
+        <a class="mh-btn mh-btn--lg" href="https://courses.mentalhealthmena.com/manhaj/checkout">
+          ابدأ الرحلة الآن بـ 7,500 جنيه
+          <span class="mh-btn__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" stroke-width="2.2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></span>
+        </a>
+
+        <div class="mh-proof">
+          <span class="mh-proof__faces" aria-hidden="true">
+            <img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/694e9d88b62dd311e5d47603.jpg" alt="" width="34" height="34" loading="lazy">
+            <img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/694e9d8842bb1cf1932e31a9.jpg" alt="" width="34" height="34" loading="lazy">
+            <img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/694e9d88afc543fcc2a73ef3.jpg" alt="" width="34" height="34" loading="lazy">
+            <img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/694e9d886caf4945b85baf05.jpg" alt="" width="34" height="34" loading="lazy">
+            <img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/694e9d88dda1920890722120.jpg" alt="" width="34" height="34" loading="lazy">
+          </span>
+          <span><strong>+40 ألف مشترك</strong> في دورات كريم إسماعيل منذ 2018</span>
+          <span class="mh-proof__sep" aria-hidden="true"></span>
+          <span class="mh-proof__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg> وصول فوري</span>
+          <span class="mh-proof__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 19 6v5c0 4.5-2.8 8.5-7 10-4.2-1.5-7-5.5-7-10V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg> ضمان استرداد 7 أيام</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
