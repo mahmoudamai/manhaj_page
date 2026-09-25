@@ -713,7 +713,13 @@ def main():
     spec3.loader.exec_module(ht2)
     ht2.apply(blocks / "03-hero-trust.html")
 
-    # ---- hand-written new blocks (not from the legacy page), e.g. 16b-offer-early ----
+    # ---- block 06 v2: new Faqah intro (tools/m4_faqah_v2.py) ----
+    spec6 = importlib.util.spec_from_file_location("m4faqah", ROOT / "tools" / "m4_faqah_v2.py")
+    fq2 = importlib.util.module_from_spec(spec6)
+    spec6.loader.exec_module(fq2)
+    fq2.apply(blocks / "06-faqah.html")
+
+    # ---- hand-written new blocks (05-pain v2 replaces the generated one) (not from the legacy page), e.g. 16b-offer-early ----
     for f in sorted((ROOT / "tools" / "new-blocks").glob("*.html")):
         (blocks / f.name).write_text(f.read_text(encoding="utf-8"), encoding="utf-8")
     all_css.append(extra)

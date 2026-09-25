@@ -267,3 +267,9 @@ Replaces the old video style/preview code that targeted `.cvideo-U-rJ6WETsJz` (i
 The first line of the trust block (right under the GHL button «ابدأ الآن بـ 7,500 جنيه فقط») shows
 «خصم أكثر من 20% · بدلًا من ~~9,500 جنيه~~ · وفّر 2,000 جنيه». Values in `tools/m4_hero_trust_v2.py`;
 keep them in sync with Blocks 10B and 21. Re-paste `03-hero-trust.html`.
+
+## Block 05 v2 — Pain «المعارك الخفية» and Block 06 v2 — new الفاقة intro
+
+- **05-pain.html** (hand-written, `tools/new-blocks/05-pain.html`): one question + six battles (the learning designer's wording), a custom line icon for each, faint rotating "vicious circle" rings behind the title, and cards that come into focus as they scroll in (live page only; off with reduced motion). The Unsplash photo and the old paragraphs are gone. Light background, so the page goes light (Pain) → dark (الفاقة).
+- **06-faqah.html**: only the text column changed (title «لماذا يستمر الشعور بالفراغ رغم كل ما نحققه؟» + the designer's four paragraphs). Design and definition card unchanged. Text in `tools/m4_faqah_v2.py`.
+- Re-paste both blocks.

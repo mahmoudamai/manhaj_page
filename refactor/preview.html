@@ -2899,7 +2899,8 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 
 <div style="max-width:900px;margin:0 auto;padding:18px;text-align:center;border:2px dashed #bbb;font:14px sans-serif;color:#777;background:#f3f3f3">GHL element: logos marquee</div>
 <!-- =====================================================================
-     M4 · BLOCK 05 — Section 03 — Pain
+     M4 · BLOCK 05 — Pain: «المعارك الخفية» (v2)
+     One question + six hidden battles (wording by the learning designer).
      Section styles are scoped to #m4-pain. Colours, fonts, sizes and
      speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
@@ -2907,12 +2908,16 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 #m4-pain {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   direction: rtl;
   text-align: right;
   font-family: var(--m4-font-primary) !important;
   color: var(--m4-ink);
-  padding: calc(76px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale)) calc(82px * var(--m4-space-scale));
-  background: radial-gradient( circle at 7% 13%, color-mix(in srgb, var(--m4-secondary) 17%, transparent), transparent 27% ), radial-gradient( circle at 94% 86%, color-mix(in srgb, var(--m4-highlight) 10%, transparent), transparent 27% ), linear-gradient( 180deg, color-mix(in srgb, var(--m4-secondary-soft) 50%, var(--m4-white)) 0%, color-mix(in srgb, var(--m4-bg-cloud) 76%, var(--m4-secondary-soft)) 52%, color-mix(in srgb, var(--m4-bg-cloud) 88.5%, var(--m4-secondary)) 100% );
+  padding: calc(92px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale)) calc(96px * var(--m4-space-scale));
+  background:
+    radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--m4-highlight-soft) 22%, transparent), transparent 55%),
+    radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--m4-accent) 8%, transparent), transparent 30%),
+    linear-gradient(180deg, var(--m4-bg-paper) 0%, var(--m4-bg-cream) 100%);
 }
 
 #m4-pain *,
@@ -2921,457 +2926,221 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   box-sizing: border-box;
 }
 
-#m4-pain::before {
-  content: "";
+/* the "vicious circle": faint broken rings turning slowly behind the title */
+#m4-pain .m4-pain__rings {
   position: absolute;
-  width: 430px;
-  height: 430px;
-  top: -260px;
-  left: -180px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--m4-primary) 6.5%, transparent);
-  box-shadow: 0 0 0 54px color-mix(in srgb, var(--m4-secondary) 1.8%, transparent);
+  z-index: -1;
+  top: -250px;
+  left: 50%;
+  width: 760px;
+  height: 760px;
+  translate: -50% 0;
   pointer-events: none;
+  opacity: .45;
 }
 
-#m4-pain::after {
-  content: "";
-  position: absolute;
-  width: 330px;
-  height: 330px;
-  right: -200px;
-  bottom: -185px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--m4-accent) 10%, transparent);
-  pointer-events: none;
+#m4-pain .m4-pain__rings circle {
+  fill: none;
+  stroke: var(--m4-primary);
+  stroke-linecap: round;
+  transform-origin: 50% 50%;
+  animation: m4-pain-turn calc(90s * var(--m4-motion-scale)) linear infinite;
+}
+
+#m4-pain .m4-pain__rings circle:nth-child(2) { animation-direction: reverse; animation-duration: calc(120s * var(--m4-motion-scale)); }
+#m4-pain .m4-pain__rings circle:nth-child(3) { animation-duration: calc(150s * var(--m4-motion-scale)); }
+#m4-pain .m4-pain__rings circle:nth-child(4) { animation-direction: reverse; animation-duration: calc(180s * var(--m4-motion-scale)); }
+
+@keyframes m4-pain-turn {
+  to { transform: rotate(360deg); }
 }
 
 #m4-pain .m4-pain__wrap {
   position: relative;
-  z-index: 2;
-  width: 100%;
   max-width: 1120px;
   margin: 0 auto;
 }
 
 #m4-pain .m4-pain__head {
-  max-width: 860px;
-  margin: 0 auto 30px;
+  max-width: 760px;
+  margin: 0 auto 50px;
   text-align: center;
 }
 
-#m4-pain .m4-pain__kicker {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  margin-bottom: 14px;
-  color: var(--m4-primary);
-  font-size: calc(.80rem * var(--m4-type-scale));
-  line-height: 1.4;
-  font-weight: 900;
-}
-
-#m4-pain .m4-pain__kicker::before {
-  content: "";
-  width: 27px;
-  height: 1px;
-  flex: 0 0 27px;
-  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-primary) 12%, transparent), var(--m4-accent) );
-}
-
-#m4-pain .m4-pain__question {
-  display: block;
-  margin: 0 auto 8px;
-  color: color-mix(in srgb, var(--m4-text) 89%, var(--m4-accent-soft));
-  font-size: calc(clamp( 1rem, 1.7vw, 1.18rem ) * var(--m4-type-scale));
-  line-height: 1.65;
-  font-weight: 700;
-}
-
-#m4-pain .m4-pain__question strong {
-  color: var(--m4-primary);
-  font-weight: 900;
-}
-
-#m4-pain h2 {
+#m4-pain .m4-pain__head h2 {
   margin: 0;
   color: var(--m4-primary-deep);
-  font-size: calc(clamp( 2.05rem, 4.15vw, 3.35rem ) * var(--m4-heading-scale));
-  line-height: 1.22;
-  font-weight: 900;
-  letter-spacing: -.8px;
-  text-wrap: balance;
+  font-size: calc(clamp(1.9rem, 1.2rem + 2.4vw, 3rem) * var(--m4-heading-scale));
+  line-height: 1.45;
+  font-weight: 800;
 }
 
-#m4-pain .m4-pain__intro {
-  max-width: 700px;
-  margin: 15px auto 0;
-  color: var(--m4-text);
-  font-size: calc(clamp( .98rem, 1.5vw, 1.12rem ) * var(--m4-type-scale));
-  line-height: 1.85;
-  font-weight: 500;
-}
-
-#m4-pain .m4-pain__visual {
-  position: relative;
-  width: 100%;
-  height: clamp( 245px, 29vw, 340px );
-  margin: 0 auto 25px;
-  overflow: hidden;
-  border-radius: calc(28px * var(--m4-radius-scale));
-  border: 1px solid color-mix(in srgb, var(--m4-secondary) 32%, transparent);
-  background: var(--m4-primary-deep);
-  box-shadow: 0 22px 50px color-mix(in srgb, var(--m4-ink) 10%, transparent);
-  transition: opacity calc(.8s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.8s * var(--m4-motion-scale)) var(--m4-ease);
-}
-
-#m4-pain .m4-pain__visual.m4-reveal {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-#m4-pain .m4-pain__visual img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 54%;
-  filter: saturate(.72) contrast(.94) brightness(.92);
-  transition: transform calc(8s * var(--m4-motion-scale)) var(--m4-ease);
-}
-
-#m4-pain .m4-pain__visual.m4-reveal img {
-  transform: scale(1.07);
-}
-
-#m4-pain .m4-pain__visual::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-primary-deep) 18%, transparent) 0%, color-mix(in srgb, var(--m4-primary-deep) 4%, transparent) 42%, color-mix(in srgb, var(--m4-ink) 3%, transparent) 70%, color-mix(in srgb, color-mix(in srgb, var(--m4-olive) 88.5%, var(--m4-black)) 14%, transparent) 100% ), linear-gradient( 180deg, color-mix(in srgb, var(--m4-primary) 3%, transparent) 0%, transparent 45%, color-mix(in srgb, color-mix(in srgb, var(--m4-black) 56%, var(--m4-primary)) 18%, transparent) 100% );
-}
-
-#m4-pain .m4-pain__visual::after {
-  content: "";
-  position: absolute;
-  z-index: 3;
-  inset: 0;
-  pointer-events: none;
-  box-shadow: inset 0 0 90px color-mix(in srgb, var(--m4-primary-deep) 11%, transparent);
-  background: radial-gradient( circle at 80% 18%, color-mix(in srgb, var(--m4-accent) 9%, transparent), transparent 26% );
+#m4-pain .m4-pain__head h2 em {
+  font-style: normal;
+  color: var(--m4-primary);
+  background: linear-gradient(transparent 70%, color-mix(in srgb, var(--m4-accent) 38%, transparent) 70%, color-mix(in srgb, var(--m4-accent) 38%, transparent) 92%, transparent 92%);
+  padding: 0 4px;
 }
 
 #m4-pain .m4-pain__grid {
   display: grid;
-  grid-template-columns: repeat(6,minmax(0,1fr));
-  gap: 15px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
 #m4-pain .m4-pain__card {
   position: relative;
-  min-height: 194px;
-  padding: 22px 23px 21px;
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--m4-secondary) 32%, transparent);
+  padding: 26px 26px 28px;
   border-radius: calc(22px * var(--m4-radius-scale));
-  background: radial-gradient( circle at 100% 0%, color-mix(in srgb, var(--m4-highlight) 7%, transparent), transparent 40% ), linear-gradient( 180deg, color-mix(in srgb, var(--m4-bg-paper) 96%, transparent), color-mix(in srgb, color-mix(in srgb, var(--m4-bg-paper) 82%, var(--m4-secondary-soft)) 90%, transparent) );
-  box-shadow: 0 11px 30px color-mix(in srgb, var(--m4-ink) 4.5%, transparent), inset 0 1px 0 rgba(255,255,255,.88);
-  transition: opacity calc(.68s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.68s * var(--m4-motion-scale)) var(--m4-ease), box-shadow calc(.24s * var(--m4-motion-scale)) var(--m4-ease), border-color calc(.24s * var(--m4-motion-scale)) var(--m4-ease);
+  border: 1px solid color-mix(in srgb, var(--m4-primary) 9%, transparent);
+  background: color-mix(in srgb, var(--m4-white) 88%, transparent);
+  box-shadow: 0 1px 0 var(--m4-white) inset, 0 18px 40px -22px color-mix(in srgb, var(--m4-primary-deep) 30%, transparent);
+  transition: transform calc(.35s * var(--m4-motion-scale)) var(--m4-ease), border-color calc(.35s * var(--m4-motion-scale)) var(--m4-ease), background calc(.35s * var(--m4-motion-scale)) var(--m4-ease);
 }
 
-#m4-pain .m4-pain__card:nth-child(even) {
-  background: radial-gradient( circle at 100% 0%, color-mix(in srgb, var(--m4-secondary) 10%, transparent), transparent 44% ), linear-gradient( 180deg, color-mix(in srgb, color-mix(in srgb, var(--m4-bg-paper) 90.5%, var(--m4-highlight-soft)) 96%, transparent), color-mix(in srgb, color-mix(in srgb, var(--m4-bg-paper) 88.5%, var(--m4-highlight)) 92%, transparent) );
-}
-
-#m4-pain .m4-pain__card:nth-child(1),
-#m4-pain .m4-pain__card:nth-child(2),
-#m4-pain .m4-pain__card:nth-child(3) {
-  grid-column: span 2;
-}
-
-#m4-pain .m4-pain__card:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-
-#m4-pain .m4-pain__card:nth-child(5) {
-  grid-column: 4 / span 2;
-}
-
-#m4-pain .m4-pain__card.m4-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#m4-pain .m4-pain__card-top {
+#m4-pain .m4-pain__top {
   display: flex;
   align-items: center;
-  margin-bottom: 13px;
+  justify-content: space-between;
+  margin-bottom: 18px;
 }
 
-#m4-pain .m4-pain__no {
+#m4-pain .m4-pain__icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   color: var(--m4-primary);
-  font-size: calc(.75rem * var(--m4-type-scale));
-  line-height: 1;
-  font-weight: 900;
-  letter-spacing: .5px;
+  border: 1px solid color-mix(in srgb, var(--m4-accent) 55%, transparent);
+  background: color-mix(in srgb, var(--m4-accent-soft) 28%, var(--m4-white));
 }
 
-#m4-pain .m4-pain__no::after {
-  content: "";
-  display: inline-block;
-  width: 28px;
-  height: 1px;
-  margin-right: 8px;
-  vertical-align: middle;
-  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-secondary) 22%, transparent), color-mix(in srgb, var(--m4-accent) 75%, transparent) );
+#m4-pain .m4-pain__icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#m4-pain .m4-pain__num {
+  color: color-mix(in srgb, var(--m4-primary) 16%, transparent);
+  font-size: calc(1.5rem * var(--m4-heading-scale));
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: .04em;
 }
 
 #m4-pain .m4-pain__card h3 {
-  margin: 0 0 8px;
+  margin: 0;
   color: var(--m4-primary-deep);
-  font-size: calc(1.10rem * var(--m4-heading-scale));
-  line-height: 1.45;
-  font-weight: 900;
+  font-size: calc(1.08rem * var(--m4-heading-scale));
+  line-height: 1.55;
+  font-weight: 800;
 }
 
 #m4-pain .m4-pain__card p {
-  margin: 0;
-  color: color-mix(in srgb, var(--m4-text) 59.5%, var(--m4-text-muted));
-  font-size: calc(.86rem * var(--m4-type-scale));
-  line-height: 1.80;
-  font-weight: 500;
-}
-
-#m4-pain .m4-pain__bridge {
-  max-width: 850px;
-  margin: 38px auto 0;
-  text-align: center;
-}
-
-#m4-pain .m4-pain__bridge h3 {
-  margin: 0 0 9px;
-  color: var(--m4-primary-deep);
-  font-size: calc(clamp( 1.22rem, 2vw, 1.55rem ) * var(--m4-heading-scale));
-  line-height: 1.55;
-  font-weight: 900;
-}
-
-#m4-pain .m4-pain__bridge p {
-  max-width: 760px;
-  margin: 0 auto;
+  margin: 10px 0 0;
   color: var(--m4-text);
-  font-size: calc(clamp( .93rem, 1.4vw, 1.04rem ) * var(--m4-type-scale));
-  line-height: 1.9;
+  font-size: calc(.92rem * var(--m4-type-scale));
+  line-height: 1.95;
   font-weight: 500;
 }
 
-#m4-pain .m4-pain__reveal {
-  position: relative;
-  max-width: 900px;
-  margin: 29px auto 0;
-  padding: 27px 31px 26px;
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--m4-primary) 15%, transparent);
-  border-radius: calc(22px * var(--m4-radius-scale));
-  background: radial-gradient( circle at 100% 0%, color-mix(in srgb, var(--m4-secondary) 13%, transparent), transparent 35% ), linear-gradient( 135deg, color-mix(in srgb, var(--m4-bg-paper) 96%, transparent), color-mix(in srgb, color-mix(in srgb, var(--m4-white) 63%, var(--m4-secondary-soft)) 94%, transparent) );
-  box-shadow: 0 15px 40px color-mix(in srgb, var(--m4-ink) 6%, transparent);
-  text-align: right;
-}
-
-#m4-pain .m4-pain__reveal::before {
-  content: "";
-  position: absolute;
-  top: 20%;
-  bottom: 20%;
-  right: 0;
-  width: 4px;
-  border-radius: 0 calc(4px * var(--m4-radius-scale)) calc(4px * var(--m4-radius-scale)) 0;
-  background: linear-gradient( 180deg, var(--m4-accent), var(--m4-primary) );
-}
-
-#m4-pain .m4-pain__reveal-label {
-  display: block;
-  margin-bottom: 6px;
-  color: var(--m4-accent);
-  font-size: calc(.74rem * var(--m4-type-scale));
-  font-weight: 900;
-}
-
-#m4-pain .m4-pain__reveal h3 {
-  margin: 0 0 8px;
-  color: var(--m4-primary-deep);
-  font-size: calc(clamp( 1.28rem, 2.2vw, 1.7rem ) * var(--m4-heading-scale));
-  line-height: 1.55;
-  font-weight: 900;
-}
-
-#m4-pain .m4-pain__reveal p {
-  margin: 0;
-  color: var(--m4-text);
-  font-size: calc(clamp( .93rem, 1.4vw, 1.04rem ) * var(--m4-type-scale));
-  line-height: 1.9;
-  font-weight: 500;
-}
-
-@media(hover:hover) {
+@media (hover: hover) {
   #m4-pain .m4-pain__card:hover {
     transform: translateY(-4px);
-    border-color: color-mix(in srgb, var(--m4-highlight) 45%, transparent);
-    box-shadow: 0 18px 40px color-mix(in srgb, var(--m4-ink) 7.5%, transparent);
+    border-color: color-mix(in srgb, var(--m4-accent) 55%, transparent);
+    background: var(--m4-white);
   }
 }
 
-@media(max-width:850px) {
-  #m4-pain {
-    padding: calc(62px * var(--m4-space-scale)) calc(17px * var(--m4-space-scale)) calc(68px * var(--m4-space-scale));
-  }
+/* "hidden battles": each card comes into focus as it scrolls in (live page only) */
+@keyframes m4-pain-focus {
+  from { opacity: 0; filter: blur(10px); translate: 0 16px; }
+  to   { opacity: 1; filter: blur(0); translate: 0 0; }
+}
 
+.m4-motion #m4-pain .m4-pain__card.m4-reveal.is-revealed {
+  animation-name: m4-pain-focus;
+  animation-duration: calc(1.1s * var(--m4-motion-scale));
+}
+
+@media (max-width: 960px) {
   #m4-pain .m4-pain__grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 13px;
-  }
-
-  #m4-pain .m4-pain__card:nth-child(n) {
-    grid-column: auto;
-  }
-
-  #m4-pain .m4-pain__card:last-child {
-    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media(max-width:560px) {
+@media (max-width: 620px) {
   #m4-pain {
-    padding: calc(52px * var(--m4-space-scale)) calc(12px * var(--m4-space-scale)) calc(58px * var(--m4-space-scale));
+    padding: calc(64px * var(--m4-space-scale)) calc(16px * var(--m4-space-scale)) calc(68px * var(--m4-space-scale));
+  }
+
+  #m4-pain .m4-pain__rings {
+    top: -180px;
+    width: 520px;
+    height: 520px;
   }
 
   #m4-pain .m4-pain__head {
-    margin-bottom: 21px;
+    margin-bottom: 30px;
   }
 
-  #m4-pain .m4-pain__kicker {
-    margin-bottom: 9px;
-    font-size: calc(.70rem * var(--m4-type-scale));
-    gap: 7px;
-  }
-
-  #m4-pain .m4-pain__kicker::before {
-    width: 20px;
-    flex-basis: 20px;
-  }
-
-  #m4-pain .m4-pain__question {
-    margin-bottom: 6px;
-    font-size: calc(.84rem * var(--m4-type-scale));
-    line-height: 1.55;
-  }
-
-  #m4-pain h2 {
-    font-size: calc(1.82rem * var(--m4-heading-scale));
-    line-height: 1.25;
-  }
-
-  #m4-pain .m4-pain__intro {
-    max-width: 360px;
-    margin-top: 10px;
-    font-size: calc(.86rem * var(--m4-type-scale));
-    line-height: 1.72;
-  }
-
-  #m4-pain .m4-pain__visual {
-    height: 210px;
-    margin-bottom: 18px;
-    border-radius: calc(19px * var(--m4-radius-scale));
-  }
-
-  #m4-pain .m4-pain__visual img {
-    object-position: center 55%;
+  #m4-pain .m4-pain__head h2 br {
+    display: none;
   }
 
   #m4-pain .m4-pain__grid {
     grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  #m4-pain .m4-pain__card:nth-child(n) {
-    grid-column: auto;
+    gap: 12px;
   }
 
   #m4-pain .m4-pain__card {
-    min-height: 0;
-    padding: 17px 17px 16px;
-    border-radius: calc(17px * var(--m4-radius-scale));
-  }
-
-  #m4-pain .m4-pain__card-top {
-    margin-bottom: 8px;
-  }
-
-  #m4-pain .m4-pain__no {
-    font-size: calc(.67rem * var(--m4-type-scale));
-  }
-
-  #m4-pain .m4-pain__no::after {
-    width: 20px;
-  }
-
-  #m4-pain .m4-pain__card h3 {
-    margin-bottom: 5px;
-    font-size: calc(.97rem * var(--m4-heading-scale));
-  }
-
-  #m4-pain .m4-pain__card p {
-    font-size: calc(.77rem * var(--m4-type-scale));
-    line-height: 1.70;
-  }
-
-  #m4-pain .m4-pain__bridge {
-    margin-top: 27px;
-    padding: 0 5px;
-  }
-
-  #m4-pain .m4-pain__bridge h3 {
-    margin-bottom: 7px;
-    font-size: calc(1.08rem * var(--m4-heading-scale));
-  }
-
-  #m4-pain .m4-pain__bridge p {
-    font-size: calc(.82rem * var(--m4-type-scale));
-    line-height: 1.76;
-  }
-
-  #m4-pain .m4-pain__reveal {
-    margin-top: 22px;
-    padding: 21px 18px 20px;
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: 14px;
+    padding: 18px 16px 20px;
     border-radius: calc(18px * var(--m4-radius-scale));
   }
 
-  #m4-pain .m4-pain__reveal-label {
-    font-size: calc(.65rem * var(--m4-type-scale));
+  #m4-pain .m4-pain__top {
+    grid-row: span 2;
+    align-self: start;
+    margin: 0;
   }
 
-  #m4-pain .m4-pain__reveal h3 {
-    margin-bottom: 6px;
-    font-size: calc(1.12rem * var(--m4-heading-scale));
+  #m4-pain .m4-pain__num {
+    display: none;
   }
 
-  #m4-pain .m4-pain__reveal p {
-    font-size: calc(.82rem * var(--m4-type-scale));
-    line-height: 1.77;
+  #m4-pain .m4-pain__icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  #m4-pain .m4-pain__icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  #m4-pain .m4-pain__card h3 {
+    font-size: calc(1rem * var(--m4-heading-scale));
+  }
+
+  #m4-pain .m4-pain__card p {
+    margin-top: 6px;
+    font-size: calc(.86rem * var(--m4-type-scale));
+    line-height: 1.85;
   }
 }
 
-@media(prefers-reduced-motion: reduce) {
-  #m4-pain .m4-pain__visual,
-  #m4-pain .m4-pain__card {
-    transition: none;
-  }
-
-  #m4-pain .m4-pain__visual img {
-    transition: none;
+@media (prefers-reduced-motion: reduce) {
+  #m4-pain .m4-pain__rings circle {
+    animation: none;
   }
 }
 
@@ -3385,194 +3154,92 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   id="m4-pain" class="m4-section"
   dir="rtl"
   lang="ar"
+  aria-label="المعارك الخفية"
 >
+
+  <svg class="m4-pain__rings" viewBox="0 0 760 760" aria-hidden="true">
+    <circle cx="380" cy="380" r="370" stroke-width="1" stroke-dasharray="120 40 60 90" stroke-opacity=".35"/>
+    <circle cx="380" cy="380" r="300" stroke-width="1" stroke-dasharray="200 70 30 60" stroke-opacity=".3"/>
+    <circle cx="380" cy="380" r="230" stroke-width="1.2" stroke-dasharray="90 50 150 40" stroke-opacity=".25"/>
+    <circle cx="380" cy="380" r="160" stroke-width="1.2" stroke-dasharray="60 80 120 30" stroke-opacity=".2"/>
+  </svg>
 
   <div class="m4-pain__wrap">
 
-    <div class="m4-pain__head">
-
-      <div class="m4-pain__kicker">
-
-        هل تجد نفسك في بعض هذه المشاعر؟
-
-      </div>
-
-      <p class="m4-pain__question">
-
-        لماذا نعرف الكثير…
-        <strong>
-          ولا نشعر بالطمأنينة؟
-        </strong>
-
-      </p>
-
+    <header class="m4-pain__head m4-reveal">
       <h2>
-
-        حاسس بخنقة…
-        ومش عارف إيه اللي ناقصك؟
-
+        هل تخوض هذه <em>المعارك الخفية</em><br>
+        في يومك؟
       </h2>
-
-      <p class="m4-pain__intro">
-
-        بتحاول تخلي حياتك أحسن،
-        لكن في مشاعر بتتكرر وبتستنزفك
-        وسط كل اللي بتعمله.
-
-      </p>
-
-    </div>
-
-    <div class="m4-pain__visual m4-reveal">
-
-      <img
-        src="https://images.unsplash.com/photo-1578054320990-c8d154a1a32d?auto=format&fit=crop&w=1800&q=85"
-        alt="طريق هادئ يختفي تدريجيًا وسط الضباب"
-        loading="lazy"
-      >
-
-    </div>
+    </header>
 
     <div class="m4-pain__grid">
 
       <article class="m4-pain__card m4-reveal">
-
-        <div class="m4-pain__card-top">
-          <span class="m4-pain__no">
-            01
+        <div class="m4-pain__top">
+          <span class="m4-pain__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v4h-4"/><circle cx="12" cy="12" r="2.2"/></svg>
           </span>
+          <span class="m4-pain__num">01</span>
         </div>
-
-        <h3>
-          شعور دائم بالخنقة
-        </h3>
-
-        <p>
-          حاسس بثِقل وعدم راحة من جوّه،
-          ومش واضح لك إيه اللي محتاج يتغيّر.
-        </p>
-
+        <h3>التيه وفقدان الطمأنينة</h3>
+        <p>تشعر أنك تدور في حلقة مفرغة لا تنتهي. تسعى بلا توقف، دون أن تدري ما الذي تريده أو إلى أين تمضي!</p>
       </article>
 
       <article class="m4-pain__card m4-reveal">
-
-        <div class="m4-pain__card-top">
-          <span class="m4-pain__no">
-            02
+        <div class="m4-pain__top">
+          <span class="m4-pain__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 21V11a7 7 0 0 1 14 0v10"/><path d="M3 21h18"/><path d="M12 7.5V10"/><path d="M10.4 12.2h3.2l-.5 2.6h-2.2z"/></svg>
           </span>
+          <span class="m4-pain__num">02</span>
         </div>
-
-        <h3>
-          قلق من كل شيء
-        </h3>
-
-        <p>
-          دماغك مش بتبطل تفكير،
-          وكل احتمال في اللي جاي
-          بيفتح بابًا جديدًا للقلق.
-        </p>
-
+        <h3>روتينية العبادات / الجفاء الروحي</h3>
+        <p>تشعر أن علاقتك بالدين أصبحت مجرد روتين أو ثقافة اجتماعية، وتريد أن تستشعر القرب الحقيقي وتعيش حالة إيمانية تملأ قلبك وتغير حياتك؟</p>
       </article>
 
       <article class="m4-pain__card m4-reveal">
-
-        <div class="m4-pain__card-top">
-          <span class="m4-pain__no">
-            03
+        <div class="m4-pain__top">
+          <span class="m4-pain__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 17a4 4 0 1 1 .8-7.92A6 6 0 0 1 19 10.5a3.5 3.5 0 0 1-1 6.85"/><path d="m13 12.5-2.2 4h3.2l-2.2 4"/></svg>
           </span>
+          <span class="m4-pain__num">03</span>
         </div>
-
-        <h3>
-          خوف من كل شيء
-        </h3>
-
-        <p>
-          بتخاف تاخد خطوة،
-          وبتخاف كمان تفضل مكانك…
-          وصعب تحس بالأمان تجاه اللي جاي.
-        </p>
-
+        <h3>قلة الحيلة والضعف أمام الابتلاءات والظروف</h3>
+        <p>عندما تمر بأزمة شديدة أو ظروف صعبة تبدأ تنهار وتسأل «ليه بيحصلي كده؟» ولا تستطيع أن تجد ما يجعلك تتجاوز، وتشعر بالتخبط والضغط وقلة الحيلة أحيانًا؟</p>
       </article>
 
       <article class="m4-pain__card m4-reveal">
-
-        <div class="m4-pain__card-top">
-          <span class="m4-pain__no">
-            04
+        <div class="m4-pain__top">
+          <span class="m4-pain__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="9" cy="6" r="2.6"/><path d="M4 21v-4.5a5 5 0 0 1 10 0V21"/><circle cx="17.2" cy="10.6" r="2"/><path d="M14.6 21v-2.6a2.6 2.6 0 0 1 5.2 0V21"/></svg>
           </span>
+          <span class="m4-pain__num">04</span>
         </div>
-
-        <h3>
-          مقارنة مستمرة
-        </h3>
-
-        <p>
-          مهما تعمل،
-          بتبص لغيرك وتحس إنك لسه متأخر،
-          وإن اللي عندك مش كفاية.
-        </p>
-
+        <h3>خوف على الرزق والمستقبل والأبناء</h3>
+        <p>بداخلك خوف على من تحب، وعلى ما هو قادم، وعلى تأمين المستقبل وسط التقلبات الشديدة للأوضاع.</p>
       </article>
 
       <article class="m4-pain__card m4-reveal">
-
-        <div class="m4-pain__card-top">
-          <span class="m4-pain__no">
-            05
+        <div class="m4-pain__top">
+          <span class="m4-pain__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.6 8.4-2.1 5.1-5.1 2.1 2.1-5.1z"/><path d="M12 3v1.6M12 19.4V21M3 12h1.6M19.4 12H21"/></svg>
           </span>
+          <span class="m4-pain__num">05</span>
         </div>
-
-        <h3>
-          إحباط سريع عند تأخر الأهداف
-        </h3>
-
-        <p>
-          أول ما النتيجة تتأخر،
-          حماسك بيقع وبتبدأ تشك
-          في نفسك وفي الطريق.
-        </p>
-
+        <h3>التشتت وضياع البوصلة</h3>
+        <p>تشتتك كثرة التفاصيل، وتستبد بك الحيرة؛ فلا تدري من أين تبدأ أو ماذا تفعل.</p>
       </article>
 
-    </div>
-
-    <div class="m4-pain__bridge">
-
-      <h3>
-        وقد لا تكون المشكلة أنك لا تعرف بما يكفي.
-      </h3>
-
-      <p>
-
-        ممكن تكون قرأت وسمعت كثيرًا،
-        وأصبحت عندك معرفة واسعة،
-        لكن المعرفة المتفرقة وحدها لا تمنحك دائمًا
-        صورة متماسكة تفهم بها نفسك
-        وتستند إليها عندما تصبح الحياة أكثر تعقيدًا.
-
-      </p>
-
-    </div>
-
-    <div class="m4-pain__reveal">
-
-      <span class="m4-pain__reveal-label">
-        من هنا تبدأ الرحلة
-      </span>
-
-      <h3>
-        من هنا يبدأ «منهج الطمأنينة».
-      </h3>
-
-      <p>
-
-        برنامج تأسيسي يساعدك على إعادة بناء فهمك
-        لنفسك وللحياة، بالانطلاق من القرآن والهدي النبوي
-        والاستعانة بالمعرفة النفسية، في رحلة متدرجة
-        تربط ما تتعلمه بما تعيشه من خلال المحاضرات
-        واللقاءات المباشرة والتطبيقات العملية.
-
-      </p>
+      <article class="m4-pain__card m4-reveal">
+        <div class="m4-pain__top">
+          <span class="m4-pain__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 7.2a3 3 0 1 1 6 0"/><path d="M6.6 7.2h10.8l2.1 13.3H4.5z"/><path d="M9.5 14.5h5"/></svg>
+          </span>
+          <span class="m4-pain__num">06</span>
+        </div>
+        <h3>تشعر بالمسؤولية ثقيلة على أكتافك</h3>
+        <p>تَزِنُك المسؤوليات بأثقالها، وتكاد تقصم ظهرك، مستحوذةً على تفكيرك وطاقتك طوال الوقت؟</p>
+      </article>
 
     </div>
 
@@ -3965,76 +3632,38 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
     <div class="m4-faqah__grid">
 
       <div class="m4-faqah__copy m4-faqah__reveal m4-reveal">
-
         <div class="m4-faqah__kicker">
-
-          وسط عالم سريع ومليان أصوات
-
+          سمة هذا العصر
         </div>
-
         <h2>
-
-          ليه دايمًا حاسس إن في حاجة ناقصة؟
-
+          لماذا يستمر الشعور بالفراغ
+          رغم كل ما نحققه؟
         </h2>
-
         <p>
-
-          إحنا عايشين في وقت كل حاجة فيه بتشدّنا
-          في اتجاه:
-
-          أهداف أكتر،
-          اختيارات أكتر،
-          مقارنات أكتر،
-          ومحتوى لا ينتهي بيقول لنا
-          إزاي نعيش وإيه اللي المفروض نحققه.
-
+          نعيش اليوم في زمن يتسارع فيه كل شيء من حولنا:
+          أهداف متزايدة، وخيارات لا حصر لها، ومقارنات لا تتوقف،
+          إلى جانب سيل من المحتوى الذي يملي علينا
+          كيف نعيش وماذا ينبغي أن نملك.
         </p>
-
         <p>
-
-          ومع كل ده،
-          ممكن يفضل جوانا إحساس بالحيرة أو النقص…
-
-          كأننا بنسعى كتير،
-          لكن مش دايمًا عارفين
-          إحنا بندور على إيه بالضبط،
-          أو إمتى هنحس إن اللي عندنا كفاية.
-
+          ورغم السعي، يظل يرافقنا ذلك الشعور الخفي بالحيرة والنقص،
+          فنركض كثيرًا دون أن ندري ما الذي نبحث عنه،
+          أو متى سنصل إلى مرحلة الكفاية والرضا.
         </p>
-
         <p>
-
-          ومن المعاني التي نتوقف عندها
-          في
-
-          <strong>
-            «منهج الطمأنينة»
-          </strong>
-
-          معنى
-
-          <strong>
-            «الفاقة»
-          </strong>
-
-          وعلاقته بالتيه،
-          وبنظرتنا لأنفسنا وللحياة،
-          وما ننتظره منها.
-
+          من هذا المنطلق، نتوقف في
+          <strong>«منهج الطمأنينة»</strong>
+          عند مفهوم
+          <strong>«الفاقة»</strong>
+          وعلاقته العميقة بحالة التيه،
+          وكيف يؤثر على نظرتنا لأنفسنا وللحياة وما ننتظره منها.
         </p>
-
         <p>
-
           ومن هنا نبدأ في مراجعة الصورة الأوسع:
-          ما الذي نسعى إليه؟
-          ماذا ننتظر منه؟
-          وما التصورات والمهارات
-          التي نحتاجها حتى نتعامل مع أنفسنا
-          وحياتنا بوعي أكبر؟
-
+          ما الذي نسعى إليه؟ ماذا ننتظر منه؟
+          وما التصورات والمهارات التي نحتاجها
+          حتى نتعامل مع أنفسنا وحياتنا بوعي أكبر؟
         </p>
-
       </div>
 
       <aside
