@@ -6,6 +6,8 @@ Content, section order, prices, links, images and CTA destinations are unchanged
 
 ---
 
+**Changing the theme / fonts:** see [`refactor/themes/HOW-TO-CHANGE-THEME.md`](refactor/themes/HOW-TO-CHANGE-THEME.md) (5 ready themes + fonts).
+
 ## A. Architecture summary
 
 | Before | After |

@@ -1,0 +1,25 @@
+/* M4 THEME · Emerald & Gold — deep, premium, calm
+   Paste at the very END of page Settings → Custom CSS (after Block 00).
+   To switch theme: replace this block. To go back to the original: delete it. */
+:root {
+  --m4-primary: #0F5B4A;
+  --m4-primary-deep: #06332A;
+  --m4-primary-alt: #1B5E57;
+  --m4-ink: #1F3D37;
+  --m4-secondary: #9FC1B0;
+  --m4-secondary-soft: #DCEBE3;
+  --m4-highlight: #7FCBB6;
+  --m4-highlight-soft: #A8DFCE;
+  --m4-accent: #CFA64E;
+  --m4-accent-soft: #EEDDB0;
+  --m4-accent-deep: #8A6A22;
+  --m4-olive: #2F4A3A;
+  --m4-bg-paper: #FFFDF7;
+  --m4-bg-ivory: #FAF6EC;
+  --m4-bg-cream: #F5EFE2;
+  --m4-bg-cloud: #ECF3EF;
+  --m4-text: #56655F;
+  --m4-text-muted: #74827C;
+  --m4-cta-bg: #D9B25A;
+  --m4-cta-text: #1D1606;
+}

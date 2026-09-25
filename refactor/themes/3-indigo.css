@@ -1,0 +1,25 @@
+/* M4 THEME · Midnight Indigo & Rose Gold — elegant, quiet night
+   Paste at the very END of page Settings → Custom CSS (after Block 00).
+   To switch theme: replace this block. To go back to the original: delete it. */
+:root {
+  --m4-primary: #34427A;
+  --m4-primary-deep: #1C2448;
+  --m4-primary-alt: #3F4F85;
+  --m4-ink: #2C3552;
+  --m4-secondary: #A9B1CF;
+  --m4-secondary-soft: #E1E5F2;
+  --m4-highlight: #9FB8E6;
+  --m4-highlight-soft: #C3D3F2;
+  --m4-accent: #C99A7E;
+  --m4-accent-soft: #EBD5C7;
+  --m4-accent-deep: #8C6048;
+  --m4-olive: #3D4566;
+  --m4-bg-paper: #FFFDFB;
+  --m4-bg-ivory: #FAF7F5;
+  --m4-bg-cream: #F4F0EE;
+  --m4-bg-cloud: #EFF1F6;
+  --m4-text: #5C6173;
+  --m4-text-muted: #7B8093;
+  --m4-cta-bg: #E0B69C;
+  --m4-cta-text: #1C2448;
+}

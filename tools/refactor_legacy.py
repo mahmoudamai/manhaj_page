@@ -544,7 +544,7 @@ def process_block(fname, slug, old_id, label):
                 cta(nd["body"])
             elif nd["t"] == "rule" and re.search(r"m4-offer__cta\b|m4-sticky__checkout-btn\b", nd["sel"]):
                 nd["decls"] = [(p, v.replace("var(--m4-live)", "var(--m4-cta-bg)")
-                                 .replace("var(--m4-white)", "var(--m4-cta-text)") if p in ("background", "background-color", "border-color", "color", "box-shadow") else v)
+                                 .replace("var(--m4-white)", "var(--m4-cta-text)") if (p in ("color", "fill", "stroke") or p.startswith("background") or p.startswith("border") or p in ("box-shadow", "outline")) else v)
                                for p, v in nd["decls"]]
 
     cta(nodes)
@@ -620,10 +620,9 @@ def minify_css(css):
 
 FONTS_LINK = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
               '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-              '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700'
-              '&family=Amiri:wght@400;700&display=swap">\n')
-FONTS_IMPORT = ('@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700'
-                '&family=Amiri:wght@400;700&display=swap");\n\n')
+              '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=Alexandria:wght@400;500;600;700;800&family=Readex+Pro:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&family=Almarai:wght@400;700;800&family=Markazi+Text:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap">\n')
+FONTS_IMPORT = ('@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=Alexandria:wght@400;500;600;700;800&family=Readex+Pro:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&family=Almarai:wght@400;700;800&family=Markazi+Text:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap");\n'
+                '/* fonts are only downloaded when a font is actually used */\n\n')
 
 
 def main():
@@ -640,7 +639,28 @@ def main():
     extra = (ROOT / "tools" / "m4-overrides.css").read_text(encoding="utf-8")
 
     # ---- Block 00: theme + shared system (small: fits any GHL field) ----
-    theme = (":root { --m4-parts: 1; }\n\n" + base.rstrip() + "\n\n" + extra.rstrip() +
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("m4themes", ROOT / "tools" / "m4-themes.py")
+    tm = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(tm)
+    theme_css = ["/* =====================================================================\n"
+                 "   7 · READY-MADE THEMES\n"
+                 "   Preview on the live page:  add ?m4-theme=emerald (sage, indigo, clay, olive)\n"
+                 "   Make one permanent: paste its file from /themes at the END of Custom CSS.\n"
+                 "   ===================================================================== */"]
+    tdir = OUT / "themes"
+    tdir.mkdir(exist_ok=True)
+    for f in tdir.glob("*.css"):
+        f.unlink()
+    for n, (name, (desc, vals)) in enumerate(tm.THEMES.items(), 1):
+        decl = "".join(f"--m4-{k}:{v};" for k, v in vals.items())
+        theme_css.append(f':root[data-m4-theme="{name}"]{{{decl}}}')
+        pretty = "\n".join(f"  --m4-{k}: {v};" for k, v in vals.items())
+        (tdir / f"{n}-{name}.css").write_text(
+            f"/* M4 THEME · {desc}\n   Paste at the very END of page Settings → Custom CSS (after Block 00).\n"
+            f"   To switch theme: replace this block. To go back to the original: delete it. */\n"
+            f":root {{\n{pretty}\n}}\n", encoding="utf-8")
+    theme = (":root { --m4-parts: 1; }\n\n" + base.rstrip() + "\n\n" + extra.rstrip() + "\n\n" + "\n".join(theme_css) +
              "\n\n/* end of Block 00 */\n:root { --m4-part-1: 1; }\n")
     theme = theme.replace("""   4 · SECTIONS
    Each block below is scoped to its own #m4-<section> id, so nothing

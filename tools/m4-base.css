@@ -55,10 +55,12 @@
 
   /* ---------- typography ----------
      primary : body text, UI, numbers
-     heading : section titles (defaults to primary — set to display for an editorial look)
+     heading : section titles (defaults to primary)
      display : quotes, testimonials, emotional one-liners
-     Other good pairs:  "Tajawal" · "Alexandria" · "Readex Pro"  /  "Markazi Text" · "Noto Naskh Arabic"
-     (load any new family in the <link> at the top of Block 00) */
+     Already loaded, ready to use (just type the name):
+       sans  : "IBM Plex Sans Arabic"  "Tajawal"  "Alexandria"  "Readex Pro"  "Cairo"  "Almarai"
+       naskh : "Amiri"  "Markazi Text"  "Noto Naskh Arabic"
+     Example — whole page in Tajawal:  --m4-font-primary: "Tajawal", sans-serif; */
   --m4-font-primary:     "IBM Plex Sans Arabic", "Tajawal", system-ui, -apple-system, "Segoe UI", sans-serif;
   --m4-font-heading:     var(--m4-font-primary);
   --m4-font-display:     "Amiri", "Noto Naskh Arabic", serif;

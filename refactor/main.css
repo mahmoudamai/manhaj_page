@@ -55,10 +55,12 @@
 
   /* ---------- typography ----------
      primary : body text, UI, numbers
-     heading : section titles (defaults to primary — set to display for an editorial look)
+     heading : section titles (defaults to primary)
      display : quotes, testimonials, emotional one-liners
-     Other good pairs:  "Tajawal" · "Alexandria" · "Readex Pro"  /  "Markazi Text" · "Noto Naskh Arabic"
-     (load any new family in the <link> at the top of Block 00) */
+     Already loaded, ready to use (just type the name):
+       sans  : "IBM Plex Sans Arabic"  "Tajawal"  "Alexandria"  "Readex Pro"  "Cairo"  "Almarai"
+       naskh : "Amiri"  "Markazi Text"  "Noto Naskh Arabic"
+     Example — whole page in Tajawal:  --m4-font-primary: "Tajawal", sans-serif; */
   --m4-font-primary:     "IBM Plex Sans Arabic", "Tajawal", system-ui, -apple-system, "Segoe UI", sans-serif;
   --m4-font-heading:     var(--m4-font-primary);
   --m4-font-display:     "Amiri", "Noto Naskh Arabic", serif;
@@ -9612,7 +9614,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 1px solid var(--m4-live);
+  border: 1px solid var(--m4-cta-bg);
   border-radius: calc(15px * var(--m4-radius-scale));
   background: var(--m4-cta-bg);
   color: var(--m4-cta-text);
@@ -10885,7 +10887,7 @@ body {
   gap: 7px;
   padding: 10px 22px;
   border-radius: calc(14px * var(--m4-radius-scale));
-  border: 1px solid var(--m4-live);
+  border: 1px solid var(--m4-cta-bg);
   background: var(--m4-cta-bg);
   color: var(--m4-cta-text) !important;
   font-family: var(--m4-font-primary) !important;

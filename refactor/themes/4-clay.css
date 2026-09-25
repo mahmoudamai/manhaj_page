@@ -1,0 +1,25 @@
+/* M4 THEME · Clay Blue & Coral — the رياضة الفكر covers
+   Paste at the very END of page Settings → Custom CSS (after Block 00).
+   To switch theme: replace this block. To go back to the original: delete it. */
+:root {
+  --m4-primary: #4F68B0;
+  --m4-primary-deep: #27325E;
+  --m4-primary-alt: #4C63A6;
+  --m4-ink: #2E3656;
+  --m4-secondary: #8DD0BF;
+  --m4-secondary-soft: #DDF1EB;
+  --m4-highlight: #9DB8F0;
+  --m4-highlight-soft: #C4D5F7;
+  --m4-accent: #E0533B;
+  --m4-accent-soft: #F6CFC6;
+  --m4-accent-deep: #A83A27;
+  --m4-olive: #3C4870;
+  --m4-bg-paper: #FFFFFF;
+  --m4-bg-ivory: #F8F8FC;
+  --m4-bg-cream: #F2F3F9;
+  --m4-bg-cloud: #EEF1F8;
+  --m4-text: #50566E;
+  --m4-text-muted: #737891;
+  --m4-cta-bg: #E0533B;
+  --m4-cta-text: #FFFFFF;
+}

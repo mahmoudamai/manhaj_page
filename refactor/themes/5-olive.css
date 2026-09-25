@@ -1,0 +1,25 @@
+/* M4 THEME · Olive & Sand — natural, grounded, mature
+   Paste at the very END of page Settings → Custom CSS (after Block 00).
+   To switch theme: replace this block. To go back to the original: delete it. */
+:root {
+  --m4-primary: #56663A;
+  --m4-primary-deep: #2C3620;
+  --m4-primary-alt: #56663F;
+  --m4-ink: #3A4230;
+  --m4-secondary: #C9B98F;
+  --m4-secondary-soft: #EDE6D2;
+  --m4-highlight: #B8C98F;
+  --m4-highlight-soft: #D5E0B5;
+  --m4-accent: #B8893E;
+  --m4-accent-soft: #E8D6AF;
+  --m4-accent-deep: #7E5C24;
+  --m4-olive: #4A5530;
+  --m4-bg-paper: #FFFCF5;
+  --m4-bg-ivory: #FAF5EA;
+  --m4-bg-cream: #F4ECDC;
+  --m4-bg-cloud: #F1F1E6;
+  --m4-text: #62625A;
+  --m4-text-muted: #807F75;
+  --m4-cta-bg: #D2A450;
+  --m4-cta-text: #22290F;
+}

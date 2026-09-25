@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=Alexandria:wght@400;500;600;700;800&family=Readex+Pro:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&family=Almarai:wght@400;700;800&family=Markazi+Text:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap");
+/* fonts are only downloaded when a font is actually used */
 
 /* M4 · BLOCK 00 — for GHL → page Settings → Custom CSS (pure CSS) */
 
@@ -61,10 +62,12 @@
 
   /* ---------- typography ----------
      primary : body text, UI, numbers
-     heading : section titles (defaults to primary — set to display for an editorial look)
+     heading : section titles (defaults to primary)
      display : quotes, testimonials, emotional one-liners
-     Other good pairs:  "Tajawal" · "Alexandria" · "Readex Pro"  /  "Markazi Text" · "Noto Naskh Arabic"
-     (load any new family in the <link> at the top of Block 00) */
+     Already loaded, ready to use (just type the name):
+       sans  : "IBM Plex Sans Arabic"  "Tajawal"  "Alexandria"  "Readex Pro"  "Cairo"  "Almarai"
+       naskh : "Amiri"  "Markazi Text"  "Noto Naskh Arabic"
+     Example — whole page in Tajawal:  --m4-font-primary: "Tajawal", sans-serif; */
   --m4-font-primary:     "IBM Plex Sans Arabic", "Tajawal", system-ui, -apple-system, "Segoe UI", sans-serif;
   --m4-font-heading:     var(--m4-font-primary);
   --m4-font-display:     "Amiri", "Noto Naskh Arabic", serif;
@@ -259,6 +262,17 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   pointer-events: auto !important;
   transform: none !important;
 }
+
+/* =====================================================================
+   7 · READY-MADE THEMES
+   Preview on the live page:  add ?m4-theme=emerald (sage, indigo, clay, olive)
+   Make one permanent: paste its file from /themes at the END of Custom CSS.
+   ===================================================================== */
+:root[data-m4-theme="emerald"]{--m4-primary:#0F5B4A;--m4-primary-deep:#06332A;--m4-primary-alt:#1B5E57;--m4-ink:#1F3D37;--m4-secondary:#9FC1B0;--m4-secondary-soft:#DCEBE3;--m4-highlight:#7FCBB6;--m4-highlight-soft:#A8DFCE;--m4-accent:#CFA64E;--m4-accent-soft:#EEDDB0;--m4-accent-deep:#8A6A22;--m4-olive:#2F4A3A;--m4-bg-paper:#FFFDF7;--m4-bg-ivory:#FAF6EC;--m4-bg-cream:#F5EFE2;--m4-bg-cloud:#ECF3EF;--m4-text:#56655F;--m4-text-muted:#74827C;--m4-cta-bg:#D9B25A;--m4-cta-text:#1D1606;}
+:root[data-m4-theme="sage"]{--m4-primary:#3F6B5C;--m4-primary-deep:#1F3D34;--m4-primary-alt:#4A6E66;--m4-ink:#2F4540;--m4-secondary:#B9C7A5;--m4-secondary-soft:#E4EBDA;--m4-highlight:#9FCBB5;--m4-highlight-soft:#BFE0CF;--m4-accent:#C8784A;--m4-accent-soft:#EBCDB5;--m4-accent-deep:#8E5230;--m4-olive:#4B5A3A;--m4-bg-paper:#FFFCF7;--m4-bg-ivory:#FAF4EA;--m4-bg-cream:#F5EDE0;--m4-bg-cloud:#EEF1EA;--m4-text:#5E6660;--m4-text-muted:#7A827C;--m4-cta-bg:#C8784A;--m4-cta-text:#FFFFFF;}
+:root[data-m4-theme="indigo"]{--m4-primary:#34427A;--m4-primary-deep:#1C2448;--m4-primary-alt:#3F4F85;--m4-ink:#2C3552;--m4-secondary:#A9B1CF;--m4-secondary-soft:#E1E5F2;--m4-highlight:#9FB8E6;--m4-highlight-soft:#C3D3F2;--m4-accent:#C99A7E;--m4-accent-soft:#EBD5C7;--m4-accent-deep:#8C6048;--m4-olive:#3D4566;--m4-bg-paper:#FFFDFB;--m4-bg-ivory:#FAF7F5;--m4-bg-cream:#F4F0EE;--m4-bg-cloud:#EFF1F6;--m4-text:#5C6173;--m4-text-muted:#7B8093;--m4-cta-bg:#E0B69C;--m4-cta-text:#1C2448;}
+:root[data-m4-theme="clay"]{--m4-primary:#4F68B0;--m4-primary-deep:#27325E;--m4-primary-alt:#4C63A6;--m4-ink:#2E3656;--m4-secondary:#8DD0BF;--m4-secondary-soft:#DDF1EB;--m4-highlight:#9DB8F0;--m4-highlight-soft:#C4D5F7;--m4-accent:#E0533B;--m4-accent-soft:#F6CFC6;--m4-accent-deep:#A83A27;--m4-olive:#3C4870;--m4-bg-paper:#FFFFFF;--m4-bg-ivory:#F8F8FC;--m4-bg-cream:#F2F3F9;--m4-bg-cloud:#EEF1F8;--m4-text:#50566E;--m4-text-muted:#737891;--m4-cta-bg:#E0533B;--m4-cta-text:#FFFFFF;}
+:root[data-m4-theme="olive"]{--m4-primary:#56663A;--m4-primary-deep:#2C3620;--m4-primary-alt:#56663F;--m4-ink:#3A4230;--m4-secondary:#C9B98F;--m4-secondary-soft:#EDE6D2;--m4-highlight:#B8C98F;--m4-highlight-soft:#D5E0B5;--m4-accent:#B8893E;--m4-accent-soft:#E8D6AF;--m4-accent-deep:#7E5C24;--m4-olive:#4A5530;--m4-bg-paper:#FFFCF5;--m4-bg-ivory:#FAF5EA;--m4-bg-cream:#F4ECDC;--m4-bg-cloud:#F1F1E6;--m4-text:#62625A;--m4-text-muted:#807F75;--m4-cta-bg:#D2A450;--m4-cta-text:#22290F;}
 
 /* end of Block 00 */
 :root { --m4-part-1: 1; }

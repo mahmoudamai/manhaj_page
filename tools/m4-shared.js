@@ -20,6 +20,21 @@
   var cfg = window.M4_CONFIG || {};
   root.classList.add("m4-js");
 
+  // theme preview: ?m4-theme=emerald | sage | indigo | clay | olive  (or M4_CONFIG.theme)
+  var themeParam = (location.search.match(/[?&]m4-theme=([a-z-]+)/) || [])[1] || cfg.theme;
+  if (themeParam) root.setAttribute("data-m4-theme", themeParam);
+
+  // font preview: ?m4-font=tajawal  ?m4-heading=alexandria  ?m4-display=markazi
+  var FONTS = {
+    plex: '"IBM Plex Sans Arabic", sans-serif', tajawal: '"Tajawal", sans-serif', alexandria: '"Alexandria", sans-serif',
+    readex: '"Readex Pro", sans-serif', cairo: '"Cairo", sans-serif', almarai: '"Almarai", sans-serif',
+    amiri: '"Amiri", serif', markazi: '"Markazi Text", serif', naskh: '"Noto Naskh Arabic", serif'
+  };
+  [["m4-font", "--m4-font-primary"], ["m4-heading", "--m4-font-heading"], ["m4-display", "--m4-font-display"]].forEach(function (pair) {
+    var v = (location.search.match(new RegExp("[?&]" + pair[0] + "=([a-z-]+)")) || [])[1];
+    if (v && FONTS[v]) root.style.setProperty(pair[1], FONTS[v]);
+  });
+
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var inFrame = (function () { try { return window.self !== window.top; } catch (e) { return true; } })();
   var motionOn = cfg.motion !== false &&

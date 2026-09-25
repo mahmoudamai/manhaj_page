@@ -1,0 +1,25 @@
+/* M4 THEME · Sage & Terracotta — warm, earthy, human
+   Paste at the very END of page Settings → Custom CSS (after Block 00).
+   To switch theme: replace this block. To go back to the original: delete it. */
+:root {
+  --m4-primary: #3F6B5C;
+  --m4-primary-deep: #1F3D34;
+  --m4-primary-alt: #4A6E66;
+  --m4-ink: #2F4540;
+  --m4-secondary: #B9C7A5;
+  --m4-secondary-soft: #E4EBDA;
+  --m4-highlight: #9FCBB5;
+  --m4-highlight-soft: #BFE0CF;
+  --m4-accent: #C8784A;
+  --m4-accent-soft: #EBCDB5;
+  --m4-accent-deep: #8E5230;
+  --m4-olive: #4B5A3A;
+  --m4-bg-paper: #FFFCF7;
+  --m4-bg-ivory: #FAF4EA;
+  --m4-bg-cream: #F5EDE0;
+  --m4-bg-cloud: #EEF1EA;
+  --m4-text: #5E6660;
+  --m4-text-muted: #7A827C;
+  --m4-cta-bg: #C8784A;
+  --m4-cta-text: #FFFFFF;
+}
