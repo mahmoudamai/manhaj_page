@@ -16,8 +16,8 @@ CSS = r"""
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 6px 10px;
-  margin: 0 auto 16px;
+  gap: 6px 12px;
+  margin: 0 auto 18px;
   color: var(--m4-text);
   font-size: calc(.95rem * var(--m4-type-scale));
   line-height: 1.5;
@@ -31,16 +31,22 @@ CSS = r"""
   text-decoration-thickness: 2px;
 }
 
-/* saving in green (a gain), next to the red discount (a cut) */
+/* one colour for the gain: the discount lives inside the green pill */
 #m4-hero-trust .m4-hero-trust__price b {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 3px 11px 3px 12px;
+  gap: 6px;
+  padding: 4px 13px 4px 14px;
   border-radius: 999px;
   background: color-mix(in srgb, var(--m4-success, #177A4E) 11%, transparent);
   color: var(--m4-success, #177A4E);
   font-weight: 800;
+}
+
+#m4-hero-trust .m4-hero-trust__price b small {
+  font-size: .84em;
+  font-weight: 600;
+  opacity: .85;
 }
 
 #m4-hero-trust .m4-hero-trust__price b svg {
@@ -53,37 +59,76 @@ CSS = r"""
   stroke-linejoin: round;
 }
 
-#m4-hero-trust .m4-hero-trust__price-badge {
-  padding: 3px 11px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--m4-alert) 12%, transparent);
-  color: var(--m4-alert);
-  font-size: .86em;
-  font-weight: 800;
-}
-
-#m4-hero-trust .m4-hero-trust__price-sep {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--m4-accent);
-}
-
-/* the proof + trust rows sit under a hairline, so the price reads as part of the button */
-#m4-hero-trust .m4-hero-trust__price + .m4-hero-trust__proof {
-  padding-top: 14px;
-  border-top: 1px solid color-mix(in srgb, var(--m4-primary) 10%, transparent);
-}
-
+/* phones: price, then a hairline, then proof and trust stacked */
 @media (max-width: 768px) {
   #m4-hero-trust .m4-hero-trust__price {
-    gap: 5px 8px;
-    margin-bottom: 13px;
-    font-size: calc(.84rem * var(--m4-type-scale));
+    gap: 6px 8px;
+    margin-bottom: 14px;
+    font-size: calc(.86rem * var(--m4-type-scale));
   }
 
   #m4-hero-trust .m4-hero-trust__price + .m4-hero-trust__proof {
-    padding-top: 12px;
+    padding-top: 13px;
+    border-top: 1px solid color-mix(in srgb, var(--m4-primary) 10%, transparent);
+  }
+}
+
+/* desktop: undo the old "smaller on desktop" sizes and put proof + trust on
+   one row with a separator, under the price line */
+@media (min-width: 769px) {
+  #m4-hero-trust .m4-hero-trust__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    column-gap: 30px;
+  }
+
+  #m4-hero-trust .m4-hero-trust__price {
+    flex-basis: 100%;
+  }
+
+  #m4-hero-trust .m4-hero-trust__proof {
+    margin: 0;
+  }
+
+  #m4-hero-trust .m4-hero-trust__trust-row {
+    margin: 0;
+    padding-right: 30px;
+    border-right: 1px solid color-mix(in srgb, var(--m4-primary) 14%, transparent);
+  }
+
+  #m4-hero-trust .m4-hero-trust__avatars span {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  #m4-hero-trust .m4-hero-trust__avatars span:not(:first-child) {
+    margin-right: -10px;
+  }
+
+  #m4-hero-trust .m4-hero-trust__proof-text strong {
+    font-size: calc(.92rem * var(--m4-type-scale));
+  }
+
+  #m4-hero-trust .m4-hero-trust__proof-text small {
+    font-size: calc(.72rem * var(--m4-type-scale));
+  }
+
+  #m4-hero-trust .m4-hero-trust__trust-item {
+    font-size: calc(.82rem * var(--m4-type-scale));
+  }
+
+  #m4-hero-trust .m4-hero-trust__icon {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+  }
+
+  #m4-hero-trust .m4-hero-trust__icon svg {
+    width: 14px;
+    height: 14px;
   }
 }
 """
@@ -92,10 +137,8 @@ CSS = r"""
 def html():
     return f"""
     <div class="m4-hero-trust__price">
-      <span class="m4-hero-trust__price-badge">{DISCOUNT}</span>
       <span>بدلًا من <del>{OLD_PRICE}</del></span>
-      <span class="m4-hero-trust__price-sep" aria-hidden="true"></span>
-      <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>{SAVING}</b>
+      <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>{SAVING} <small>· {DISCOUNT}</small></b>
     </div>
 """
 
