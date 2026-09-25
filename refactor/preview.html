@@ -12084,24 +12084,27 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
     display: none;
   }
 
+  /* the arrow sits on the seam between «قبل» and «مع المنهج», ringed in white */
   #m4-before-after .m4-before-after__arrow span {
-    width: 30px;
-    height: 30px;
+    position: absolute;
+    top: -17px;
+    left: 50%;
+    translate: -50% 0;
+    width: 34px;
+    height: 34px;
     rotate: -90deg;
+    border: 3px solid var(--m4-white);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--m4-primary-deep) 18%, transparent);
   }
 
+  /* room for the arrow: its lower half never touches the text */
   #m4-before-after .m4-before-after__after {
-    padding: 22px 16px 14px;
+    padding: 28px 16px 14px;
     border-radius: 0 0 calc(16px * var(--m4-radius-scale)) calc(16px * var(--m4-radius-scale));
   }
 
   #m4-before-after .m4-before-after__after::before {
-    top: 0;
-    bottom: auto;
-    left: 16px;
-    right: 16px;
-    width: auto;
-    height: 3px;
+    display: none;
   }
 
   #m4-before-after .m4-before-after__after p {
