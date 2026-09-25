@@ -251,3 +251,12 @@ a fanned stack of 3 books in the dark card, and a "مكتبة رياضة الف�
 
 - Covers, their order and the count come from `COVERS` in `tools/m4_practice_v2.py` (the first 3 are the stack).
 - Re-paste `13-practice.html` in GHL (its `<style>` changed too).
+
+## Block 01B — Hero video (premium frame + silent preview)
+
+Replaces the old video style/preview code that targeted `.cvideo-U-rJ6WETsJz` (it broke when GHL changed the element ID).
+
+- Give the GHL Video element the custom class **`hero_main_video`**, then paste `01b-hero-video.html` in a Code Element next to it.
+- Finds the player box by the class (works whether GHL puts the class on the wrapper or on the inner `cvideo-…` box) — no IDs.
+- Silent looping preview on top; a click anywhere on the video starts the real video and removes the preview. The controls stay usable after that.
+- Settings (class name, preview MP4, texts) are at the top of the `<script>`.

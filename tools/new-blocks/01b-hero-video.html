@@ -1,0 +1,491 @@
+<!-- =====================================================================
+     M4 · BLOCK 01B — Hero video: premium frame + silent preview
+     Put this in a Code Element right next to the GHL Video element.
+     The GHL Video element must have the custom class:  hero_main_video
+     (Element → Advanced → Custom class). No element IDs are used, so it
+     keeps working when GHL changes the video's ID.
+     Colours and fonts come from Block 00 (with safe fallbacks).
+     ===================================================================== -->
+<style>
+/* the video box: GHL puts the custom class on the element wrapper; the box
+   that holds the player is its inner "cvideo-…" div. The JS below also marks
+   the box with .mhh-hero-video, so either way it is found. */
+:is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) {
+  --mhh-r: 26px;
+  width: 92% !important;
+  max-width: 1060px !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 10px auto 18px !important;
+  padding: 0 !important;
+  position: relative !important;
+  border: 0 !important;
+  border-radius: var(--mhh-r) !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  background: var(--m4-primary-deep, #123C42) !important;
+  background-image: none !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--m4-accent, #D3B267) 38%, transparent),
+    0 0 0 7px color-mix(in srgb, var(--m4-white, #fff) 55%, transparent),
+    0 0 0 8px color-mix(in srgb, var(--m4-accent, #D3B267) 16%, transparent),
+    0 34px 70px -18px color-mix(in srgb, var(--m4-primary-deep, #123C42) 40%, transparent),
+    0 10px 24px -8px color-mix(in srgb, var(--m4-primary-deep, #123C42) 20%, transparent) !important;
+}
+
+/* GHL's inner wrappers fill the box */
+:is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) > div,
+:is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) :is(.h-100, .w-100) {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* the real player */
+:is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) :is(.video-js, .video-container, video) {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: var(--mhh-r) !important;
+  overflow: hidden !important;
+  background: #0B1416 !important;
+}
+
+:is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) video {
+  object-fit: contain !important;
+}
+
+/* GHL's own play button: invisible, and before the first play it covers the
+   whole video so a click anywhere starts it (after that the controls are free) */
+:is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) .video-js:not(.vjs-has-started) .vjs-big-play-button {
+  opacity: 0 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  transform: none !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  z-index: 50 !important;
+}
+
+/* ---------------- the silent preview laid over the player ---------------- */
+#mhh-preview-portal {
+  position: absolute;
+  z-index: 99990;
+  overflow: hidden;
+  border-radius: 26px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--m4-primary, #1E5960) 70%, transparent), transparent 60%),
+    var(--m4-primary-deep, #123C42);
+  transition: opacity .45s ease, visibility .45s ease;
+}
+
+#mhh-preview-portal.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#mhh-preview-mp4 {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(1.015);
+  filter: brightness(.86) saturate(1.02);
+  transition: opacity .8s ease, transform 1.6s cubic-bezier(.2, .7, .2, 1);
+}
+
+#mhh-preview-portal.is-ready #mhh-preview-mp4 {
+  opacity: 1;
+  transform: none;
+}
+
+/* cinematic shade: soft vignette + darker bottom for the labels */
+#mhh-preview-portal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(8, 20, 22, 0) 45%, rgba(8, 20, 22, .38) 100%),
+    linear-gradient(180deg, rgba(8, 20, 22, 0) 55%, rgba(8, 20, 22, .55) 100%);
+}
+
+#mhh-preview-ui {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  direction: rtl;
+  font-family: var(--m4-font-primary, "Tajawal", Arial, sans-serif);
+}
+
+#mhh-preview-ui .mhh-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+/* play button: frosted glass disc, gold ring, soft pulse */
+#mhh-preview-ui .mhh-play {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--m4-primary-deep, #123C42);
+  background: linear-gradient(145deg, rgba(255, 255, 255, .98), rgba(255, 255, 255, .86));
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, .9),
+    0 0 0 9px color-mix(in srgb, var(--m4-accent, #D3B267) 22%, transparent),
+    0 20px 44px rgba(6, 18, 20, .38);
+  transition: transform .35s cubic-bezier(.2, .7, .2, 1), box-shadow .35s ease;
+}
+
+#mhh-preview-ui .mhh-play svg {
+  width: 30px;
+  height: 30px;
+  margin-left: 4px;
+  fill: currentColor;
+}
+
+#mhh-preview-ui .mhh-play::before,
+#mhh-preview-ui .mhh-play::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--m4-accent, #D3B267) 85%, transparent);
+  animation: mhhPulse 2.6s cubic-bezier(.2, .6, .3, 1) infinite;
+}
+
+#mhh-preview-ui .mhh-play::after {
+  animation-delay: 1.3s;
+}
+
+@keyframes mhhPulse {
+  0% { transform: scale(1); opacity: .8; }
+  80%, 100% { transform: scale(1.45); opacity: 0; }
+}
+
+#mhh-preview-portal.is-hover .mhh-play {
+  transform: scale(1.07);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, .95),
+    0 0 0 11px color-mix(in srgb, var(--m4-accent, #D3B267) 32%, transparent),
+    0 24px 52px rgba(6, 18, 20, .45);
+}
+
+#mhh-preview-ui .mhh-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 20px 10px;
+  border-radius: 16px;
+  color: #fff;
+  background: rgba(10, 30, 33, .55);
+  border: 1px solid rgba(255, 255, 255, .16);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  backdrop-filter: blur(12px) saturate(1.2);
+  box-shadow: 0 12px 30px rgba(6, 18, 20, .25);
+}
+
+#mhh-preview-ui .mhh-label strong {
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 800;
+}
+
+#mhh-preview-ui .mhh-label small {
+  color: color-mix(in srgb, var(--m4-accent-soft, #E9D8A8) 92%, transparent);
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+/* bottom-right chip: tells people this is a muted preview */
+#mhh-preview-ui .mhh-muted {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px 6px 11px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, .92);
+  background: rgba(10, 30, 33, .5);
+  border: 1px solid rgba(255, 255, 255, .14);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+#mhh-preview-ui .mhh-muted svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 900px) {
+  :is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) {
+    --mhh-r: 22px;
+    width: 95% !important;
+  }
+
+  #mhh-preview-portal {
+    border-radius: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  :is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) {
+    --mhh-r: 18px;
+    width: calc(100% - 24px) !important;
+    margin: 8px auto 14px !important;
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--m4-accent, #D3B267) 38%, transparent),
+      0 0 0 5px color-mix(in srgb, var(--m4-white, #fff) 55%, transparent),
+      0 22px 44px -14px color-mix(in srgb, var(--m4-primary-deep, #123C42) 40%, transparent) !important;
+  }
+
+  #mhh-preview-portal {
+    border-radius: 18px;
+  }
+
+  #mhh-preview-ui .mhh-center {
+    gap: 10px;
+  }
+
+  #mhh-preview-ui .mhh-play {
+    width: 58px;
+    height: 58px;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, .9),
+      0 0 0 6px color-mix(in srgb, var(--m4-accent, #D3B267) 22%, transparent),
+      0 14px 30px rgba(6, 18, 20, .35);
+  }
+
+  #mhh-preview-ui .mhh-play svg {
+    width: 21px;
+    height: 21px;
+    margin-left: 3px;
+  }
+
+  #mhh-preview-ui .mhh-play::before,
+  #mhh-preview-ui .mhh-play::after {
+    inset: -6px;
+  }
+
+  #mhh-preview-ui .mhh-label {
+    padding: 6px 13px 7px;
+    border-radius: 12px;
+  }
+
+  #mhh-preview-ui .mhh-label strong {
+    font-size: 12.5px;
+  }
+
+  #mhh-preview-ui .mhh-label small {
+    display: none;
+  }
+
+  #mhh-preview-ui .mhh-muted {
+    right: 10px;
+    bottom: 9px;
+    padding: 4px 9px;
+    font-size: 10.5px;
+  }
+
+  #mhh-preview-ui .mhh-muted svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mhh-preview-ui .mhh-play::before,
+  #mhh-preview-ui .mhh-play::after {
+    animation: none;
+    opacity: 0;
+  }
+
+  #mhh-preview-mp4 {
+    transition: none;
+    transform: none;
+  }
+}
+</style>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- SETTINGS ---------------- */
+  var VIDEO_CLASS = "hero_main_video";   // the custom class on the GHL Video element
+  var PREVIEW_URL = "https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aae645b30b0f957cc84a8af.mp4";
+  var LABEL = "شاهد الفيديو من البداية";
+  var SUBLABEL = "اضغط للمشاهدة بالصوت";
+  var MUTED_CHIP = "معاينة بدون صوت";
+
+  if (window.__MHH_HERO_VIDEO__) return;
+  window.__MHH_HERO_VIDEO__ = true;
+
+  var portal = null, previewVideo = null, box = null, realVideo = null, removed = false;
+
+  /* the box that holds GHL's player: the inner "cvideo-…" div if there is one,
+     otherwise the element that carries the custom class */
+  function findBox() {
+    var el = document.querySelector("." + VIDEO_CLASS);
+    if (!el) return null;
+    var inner = /(^|\s)cvideo-/.test(el.className) ? el : el.querySelector('[class*="cvideo-"]');
+    var found = inner || el;
+    found.classList.add("mhh-hero-video");
+    return found;
+  }
+
+  function createPortal() {
+    portal = document.getElementById("mhh-preview-portal");
+    if (portal) {
+      previewVideo = document.getElementById("mhh-preview-mp4");
+      return;
+    }
+    portal = document.createElement("div");
+    portal.id = "mhh-preview-portal";
+    portal.setAttribute("aria-hidden", "true");
+    portal.innerHTML =
+      '<video id="mhh-preview-mp4" muted autoplay loop playsinline webkit-playsinline preload="auto">' +
+        '<source src="' + PREVIEW_URL + '" type="video/mp4">' +
+      '</video>' +
+      '<div id="mhh-preview-ui">' +
+        '<div class="mhh-center">' +
+          '<span class="mhh-play"><svg viewBox="0 0 24 24"><path d="M8 5.25v13.5L19 12 8 5.25Z"/></svg></span>' +
+          '<span class="mhh-label"><strong>' + LABEL + '</strong><small>' + SUBLABEL + '</small></span>' +
+        '</div>' +
+        '<span class="mhh-muted"><svg viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m22 9-6 6M16 9l6 6"/></svg>' + MUTED_CHIP + '</span>' +
+      '</div>';
+    document.body.appendChild(portal);
+
+    previewVideo = document.getElementById("mhh-preview-mp4");
+    previewVideo.muted = true;
+    previewVideo.defaultMuted = true;
+    previewVideo.playsInline = true;
+    previewVideo.addEventListener("playing", function () { portal.classList.add("is-ready"); }, { once: true });
+    tryPlay();
+    previewVideo.addEventListener("canplay", tryPlay, { once: true });
+  }
+
+  function tryPlay() {
+    try {
+      var p = previewVideo.play();
+      if (p && typeof p.catch === "function") p.catch(function () {});
+    } catch (e) {}
+  }
+
+  function position() {
+    if (!box || !portal || removed) return;
+    var r = box.getBoundingClientRect();
+    portal.style.left = (r.left + window.scrollX) + "px";
+    portal.style.top = (r.top + window.scrollY) + "px";
+    portal.style.width = r.width + "px";
+    portal.style.height = r.height + "px";
+    portal.style.borderRadius = getComputedStyle(box).borderTopLeftRadius;
+  }
+
+  function removePreview() {
+    if (removed) return;
+    removed = true;
+    if (portal) portal.classList.add("is-hidden");
+    setTimeout(function () {
+      try { if (previewVideo) previewVideo.pause(); } catch (e) {}
+      if (portal && portal.parentNode) portal.parentNode.removeChild(portal);
+    }, 480);
+  }
+
+  function connect() {
+    if (!box) return;
+    var v = box.querySelector("video");
+    if (!v || v === realVideo) return;
+    realVideo = v;
+    v.addEventListener("play", removePreview);
+    v.addEventListener("playing", removePreview);
+    box.addEventListener("mouseenter", function () { if (portal) portal.classList.add("is-hover"); });
+    box.addEventListener("mouseleave", function () { if (portal) portal.classList.remove("is-hover"); });
+  }
+
+  function refresh() {
+    if (removed) return;
+    var b = findBox();
+    if (b) box = b;
+    connect();
+    position();
+  }
+
+  function init() {
+    box = findBox();
+    if (!box) return false;
+    createPortal();
+    refresh();
+
+    var observer = new MutationObserver(function () {
+      if (removed) { observer.disconnect(); return; }
+      refresh();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // anything above the video changing size (images, fonts) moves it
+    if ("ResizeObserver" in window) {
+      var ro = new ResizeObserver(function () {
+        if (removed) { ro.disconnect(); return; }
+        position();
+      });
+      ro.observe(document.body);
+      ro.observe(box);
+    }
+    window.addEventListener("resize", refresh);
+    window.addEventListener("load", refresh);
+    [300, 800, 1600, 3000].forEach(function (t) { setTimeout(refresh, t); });
+    return true;
+  }
+
+  // wait for GHL to render the video element (up to 15 s)
+  var tries = 0;
+  var timer = setInterval(function () {
+    tries++;
+    if (init()) { clearInterval(timer); return; }
+    if (tries >= 150) {
+      clearInterval(timer);
+      if (window.console) console.warn('MHH video: no element with the class "' + VIDEO_CLASS + '" was found.');
+    }
+  }, 100);
+})();
+</script>
