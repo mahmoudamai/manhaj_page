@@ -707,6 +707,12 @@ def main():
     spec2.loader.exec_module(pv2)
     print("practice v2:", pv2.apply(blocks / "13-practice.html"))
 
+    # ---- block 03 v2: discount + saving under the hero button (tools/m4_hero_trust_v2.py) ----
+    spec3 = importlib.util.spec_from_file_location("m4herotrust", ROOT / "tools" / "m4_hero_trust_v2.py")
+    ht2 = importlib.util.module_from_spec(spec3)
+    spec3.loader.exec_module(ht2)
+    ht2.apply(blocks / "03-hero-trust.html")
+
     # ---- hand-written new blocks (not from the legacy page), e.g. 16b-offer-early ----
     for f in sorted((ROOT / "tools" / "new-blocks").glob("*.html")):
         (blocks / f.name).write_text(f.read_text(encoding="utf-8"), encoding="utf-8")

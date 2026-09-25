@@ -261,3 +261,9 @@ Replaces the old video style/preview code that targeted `.cvideo-U-rJ6WETsJz` (i
 - Silent looping preview on top; a click anywhere on the video starts the real video and removes the preview. The controls stay usable after that.
 - Settings (class name, preview MP4, texts) are at the top of the `<script>`.
 - Scroll PiP: floats at the top-left (instead of GHL's bottom-right). A small script detects when the hero video (or its wrapper) becomes `position:fixed` (GHL's PiP), whatever its classes/IDs, and moves it with inline `!important` styles; it undoes them when the video returns to the page. Open the page with `?m4-debug=1` to log which element floats.
+
+## Block 03 v2 — price anchor under the hero button
+
+The first line of the trust block (right under the GHL button «ابدأ الآن بـ 7,500 جنيه فقط») shows
+«خصم أكثر من 20% · بدلًا من ~~9,500 جنيه~~ · وفّر 2,000 جنيه». Values in `tools/m4_hero_trust_v2.py`;
+keep them in sync with Blocks 10B and 21. Re-paste `03-hero-trust.html`.
