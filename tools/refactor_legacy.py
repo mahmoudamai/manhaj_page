@@ -707,6 +707,12 @@ def main():
     spec2.loader.exec_module(pv2)
     print("practice v2:", pv2.apply(blocks / "13-practice.html"))
 
+    # ---- block 01 v2: new opening copy (tools/m4_hero_v2.py) ----
+    spec1 = importlib.util.spec_from_file_location("m4hero", ROOT / "tools" / "m4_hero_v2.py")
+    he2 = importlib.util.module_from_spec(spec1)
+    spec1.loader.exec_module(he2)
+    he2.apply(blocks / "01-hero.html")
+
     # ---- block 03 v2: discount + saving under the hero button (tools/m4_hero_trust_v2.py) ----
     spec3 = importlib.util.spec_from_file_location("m4herotrust", ROOT / "tools" / "m4_hero_trust_v2.py")
     ht2 = importlib.util.module_from_spec(spec3)

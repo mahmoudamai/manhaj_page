@@ -316,3 +316,8 @@ The GHL section that holds the hero blocks (01, video, 02, button, 03) gets the 
 Its background continues the hero's colour (`--m4-bg-cloud`) behind the transparent blocks and fades into the
 cream of the next section (`--m4-bg-cream`, Kareem intro), so there is no seam; it follows the theme. The rule
 lives in Block 03 (`tools/m4_hero_trust_v2.py`), so no Block 00 re-paste is needed.
+
+## Block 01 v2 — new opening copy
+
+Kicker «رحلة علمية إيمانية», title «من التيه… / إلى الطمأنينة» (bigger, «الطمأنينة» with the gold marker used
+in the Pain section), subtitle naming both dimensions + skills. Text in `tools/m4_hero_v2.py`. Re-paste `01-hero.html`.

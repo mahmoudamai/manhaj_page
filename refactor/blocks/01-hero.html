@@ -554,6 +554,26 @@
   }
 }
 
+/* v2 · the title is now short, so it can be bigger (relative to every
+   breakpoint's own h1 size) */
+#m4-hero .m4-hero__hero-title-line {
+  font-size: 1.22em;
+}
+
+/* the key word: brand colour + the same gold marker as «المعارك الخفية» */
+#m4-hero .m4-hero__title-accent {
+  font-style: normal;
+  color: var(--m4-primary);
+  padding: 0 .08em;
+  background: linear-gradient(transparent 68%, color-mix(in srgb, var(--m4-accent) 38%, transparent) 68%, color-mix(in srgb, var(--m4-accent) 38%, transparent) 90%, transparent 90%);
+}
+
+@media (max-width: 768px) {
+  #m4-hero .m4-hero__hero-title-line {
+    font-size: 1.1em;
+  }
+}
+
 /* self-check: this block is the current version */
 #m4-hero {
   --m4-styled: 1;
@@ -594,7 +614,7 @@
       <span>✦</span>
 
       <strong>
-        من التيه إلى الطمأنينة
+        رحلة علمية إيمانية
       </strong>
 
       <span>✦</span>
@@ -606,22 +626,16 @@
   <div class="m4-hero__hero-body">
 
     <h1 class="m4-hero__reveal m4-reveal">
-
       <span class="m4-hero__hero-title-line">
-        رحلة علمية إيمانية
+        من التيه…
       </span>
-
       <span class="m4-hero__hero-title-line">
-        تعيد ترتيب فهمك لنفسك ولحياتك
+        إلى <em class="m4-hero__title-accent">الطمأنينة</em>
       </span>
-
     </h1>
 
     <p class="m4-hero__subtitle m4-hero__reveal m4-reveal">
-
-      من خلال دراسة عميقة للنفس من منظور إيماني تساعدك تنتقل
-      من التشتت والإرهاق الدائم إلى الطمأنينة والهدوء
-
+      منهج متدرج على مدار عام، يعيد ترتيب فهمك لنفسك ولحياتك؛ بالجمع بين الفهم النفسي، والمرجعية الإيمانية، والمهارات العملية.
     </p>
   </div>
 
