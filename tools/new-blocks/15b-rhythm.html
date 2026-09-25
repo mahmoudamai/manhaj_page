@@ -306,6 +306,23 @@
   }
 }
 
+/* ---- joining after the start ---- */
+#m4-rhythm .m4-rhythm__join {
+  margin: 4px 0 0;
+  padding: 14px 18px;
+  border-radius: calc(16px * var(--m4-radius-scale));
+  border: 1px dashed color-mix(in srgb, var(--m4-accent) 45%, transparent);
+  color: color-mix(in srgb, var(--m4-white) 82%, transparent);
+  font-size: calc(.9rem * var(--m4-type-scale));
+  line-height: 1.8;
+}
+
+#m4-rhythm .m4-rhythm__join b {
+  display: block;
+  color: var(--m4-accent);
+  font-weight: 800;
+}
+
 /* self-check: this block is the current version */
 #m4-rhythm {
   --m4-styled: 15;
@@ -401,6 +418,11 @@
             <p>المراسلات والتنبيهات تصلك على الإيميل دائمًا، والتفاعل اليومي في جروب التليجرام.</p>
           </div>
         </article>
+
+        <p class="m4-rhythm__join m4-reveal">
+          <b>انضممت بعد بداية الرحلة؟</b>
+          تجد كل المحاضرات السابقة متاحة لك من أول يوم، وتكمل مع باقي الأعضاء من المرحلة الحالية.
+        </p>
 
       </div>
 

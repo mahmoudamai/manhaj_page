@@ -3387,6 +3387,117 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   }
 }
 
+/* ---- the everyday feelings (short intro line, before the six battles) ---- */
+#m4-pain .m4-pain__lead {
+  margin: 16px auto 0;
+  color: var(--m4-text);
+  font-size: calc(1rem * var(--m4-type-scale));
+  line-height: 1.8;
+  font-weight: 600;
+}
+
+#m4-pain .m4-pain__feelings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+#m4-pain .m4-pain__feelings li {
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--m4-white) 80%, transparent);
+  border: 1px solid color-mix(in srgb, var(--m4-primary) 12%, transparent);
+  color: var(--m4-primary-deep);
+  font-size: calc(.88rem * var(--m4-type-scale));
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+/* ---- the quick escapes (short paragraph after the battles) ---- */
+#m4-pain .m4-pain__escape {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 820px;
+  margin: 26px auto 0;
+  padding: 18px 22px;
+  border-radius: calc(18px * var(--m4-radius-scale));
+  border: 1px dashed color-mix(in srgb, var(--m4-primary) 22%, transparent);
+  background: color-mix(in srgb, var(--m4-white) 55%, transparent);
+}
+
+#m4-pain .m4-pain__escape-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--m4-accent) 16%, transparent);
+  color: var(--m4-accent-deep);
+}
+
+#m4-pain .m4-pain__escape-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#m4-pain .m4-pain__escape p {
+  margin: 0;
+  color: var(--m4-text);
+  font-size: calc(.98rem * var(--m4-type-scale));
+  line-height: 1.9;
+  font-weight: 500;
+}
+
+#m4-pain .m4-pain__escape strong {
+  color: var(--m4-primary-deep);
+  font-weight: 800;
+}
+
+@media (max-width: 620px) {
+  #m4-pain .m4-pain__lead {
+    margin-top: 12px;
+    font-size: calc(.92rem * var(--m4-type-scale));
+  }
+
+  #m4-pain .m4-pain__feelings {
+    gap: 6px;
+  }
+
+  #m4-pain .m4-pain__feelings li {
+    padding: 6px 11px;
+    font-size: calc(.8rem * var(--m4-type-scale));
+  }
+
+  #m4-pain .m4-pain__escape {
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 18px;
+    padding: 16px;
+  }
+
+  #m4-pain .m4-pain__escape-icon {
+    flex-basis: 38px;
+    width: 38px;
+    height: 38px;
+  }
+
+  #m4-pain .m4-pain__escape p {
+    font-size: calc(.9rem * var(--m4-type-scale));
+    line-height: 1.85;
+  }
+}
+
 /* self-check: this block is the current version */
 #m4-pain {
   --m4-styled: 5;
@@ -3414,6 +3525,14 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
         هل تخوض هذه <em>المعارك الخفية</em><br>
         في يومك؟
       </h2>
+      <p class="m4-pain__lead">قد تبدأ بمشاعر تتكرر معك كل يوم:</p>
+      <ul class="m4-pain__feelings">
+        <li>شعور دائم بالخنقة</li>
+        <li>قلق من كل شيء</li>
+        <li>خوف من كل شيء</li>
+        <li>مقارنة مستمرة</li>
+        <li>إحباط سريع عند تأخر الأهداف</li>
+      </ul>
     </header>
 
     <div class="m4-pain__grid">
@@ -3484,6 +3603,17 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
         <p>تُثقلك المسؤوليات حتى تكاد تقصم ظهرك، وتستحوذ على تفكيرك وطاقتك طوال الوقت؟</p>
       </article>
 
+    </div>
+
+    <div class="m4-pain__escape m4-reveal">
+      <span class="m4-pain__escape-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M3 12h13"/><path d="m12 7 5 5-5 5"/><path d="M20 4v16"/></svg>
+      </span>
+      <p>
+        وقد تهرب منها دون أن تنتبه: <strong>تأكل دون جوع</strong>،
+        وتقضي <strong>الساعات على الموبايل</strong>، وتبحث عن أي
+        <strong>راحة مؤقتة</strong>… تهدأ قليلًا، ثم يعود كل شيء كما كان.
+      </p>
     </div>
 
   </div>
@@ -7428,12 +7558,6 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   font-weight: 800;
 }
 
-#m4-offer-early .m4-offer-early__monthly {
-  margin-top: 6px;
-  color: color-mix(in srgb, var(--m4-white) 64%, transparent);
-  font-size: calc(.8rem * var(--m4-type-scale));
-}
-
 #m4-offer-early .m4-offer-early__was {
   display: flex;
   flex-wrap: wrap;
@@ -7618,7 +7742,6 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
         <strong>7,500</strong>
         <span>جنيه</span>
       </div>
-      <div class="m4-offer-early__monthly">أي حوالي 625 جنيه في الشهر</div>
       <div class="m4-offer-early__was">
         <span>بدلًا من <del>9,500 جنيه</del></span>
         <b>وفّر 2,000 جنيه</b>
@@ -9761,7 +9884,7 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
         </li>
         <li>
           <i aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M14.5 19a4 4 0 0 1 6-3.4"/></svg></i>
-          تفاعل مع زملائك في نفس الدفعة
+          تفاعل مع باقي أعضاء المنهج
         </li>
       </ul>
       <p class="m4-telegram__note">مساحة تعليمية وتفاعلية ضمن المنهج، وليست متابعة علاجية فردية.</p>
@@ -10100,6 +10223,23 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   }
 }
 
+/* ---- joining after the start ---- */
+#m4-rhythm .m4-rhythm__join {
+  margin: 4px 0 0;
+  padding: 14px 18px;
+  border-radius: calc(16px * var(--m4-radius-scale));
+  border: 1px dashed color-mix(in srgb, var(--m4-accent) 45%, transparent);
+  color: color-mix(in srgb, var(--m4-white) 82%, transparent);
+  font-size: calc(.9rem * var(--m4-type-scale));
+  line-height: 1.8;
+}
+
+#m4-rhythm .m4-rhythm__join b {
+  display: block;
+  color: var(--m4-accent);
+  font-weight: 800;
+}
+
 /* self-check: this block is the current version */
 #m4-rhythm {
   --m4-styled: 15;
@@ -10195,6 +10335,11 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
             <p>المراسلات والتنبيهات تصلك على الإيميل دائمًا، والتفاعل اليومي في جروب التليجرام.</p>
           </div>
         </article>
+
+        <p class="m4-rhythm__join m4-reveal">
+          <b>انضممت بعد بداية الرحلة؟</b>
+          تجد كل المحاضرات السابقة متاحة لك من أول يوم، وتكمل مع باقي الأعضاء من المرحلة الحالية.
+        </p>
 
       </div>
 
@@ -14517,6 +14662,28 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
           aria-expanded="false"
         >
           <span class="m4-faq__question-text">
+            اشتركت بعد بداية الرحلة؛ هل أبدأ من البداية أم أدخل من المرحلة الحالية؟
+          </span>
+          <span
+            class="m4-faq__plus"
+            aria-hidden="true"
+          ></span>
+        </button>
+        <div class="m4-faq__answer">
+          <div class="m4-faq__answer-inner">
+            <div class="m4-faq__answer-content">
+              الاثنان معًا. المنهج رحلة واحدة يسير فيها كل الأعضاء معًا، وعند اشتراكك تجد <strong>كل المحاضرات التي أُضيفت حتى الآن متاحة لك من أول يوم</strong>، فتبدأ من الخطوة الأولى بالسرعة التي تناسبك، وفي الوقت نفسه تكمل مع باقي الأعضاء من المرحلة الحالية: المحاضرات الجديدة واللقاءات المباشرة وجروب التليجرام.<br><br>وتستمر المحاضرات واللقاءات حتى اكتمال الرحلة، ويبقى المحتوى كاملًا مسجلًا على المنصة ومتاحًا لك طوال <strong>12 شهرًا من تاريخ التفعيل</strong>.
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="m4-faq__item">
+        <button
+          class="m4-faq__question"
+          type="button"
+          aria-expanded="false"
+        >
+          <span class="m4-faq__question-text">
             كم من الوقت أحتاج؟
           </span>
           <span
@@ -14615,7 +14782,7 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
         <div class="m4-faq__answer">
           <div class="m4-faq__answer-inner">
             <div class="m4-faq__answer-content">
-              المراسلات تصلك على <strong>الإيميل</strong> دائمًا. وضمن الاشتراك <strong>جروب على تيليجرام</strong> يشارك فيه كريم تسجيلات وخواطر باستمرار، وتتفاعل فيه مع زملائك في نفس الدفعة. المساحة تعليمية وتفاعلية، ولا تشمل جلسات علاجية فردية أو متابعة شخصية علاجية.
+              المراسلات تصلك على <strong>الإيميل</strong> دائمًا. وضمن الاشتراك <strong>جروب على تيليجرام</strong> يشارك فيه كريم تسجيلات وخواطر باستمرار، وتتفاعل فيه مع باقي أعضاء المنهج. المساحة تعليمية وتفاعلية، ولا تشمل جلسات علاجية فردية أو متابعة شخصية علاجية.
             </div>
           </div>
         </div>
