@@ -321,3 +321,14 @@ lives in Block 03 (`tools/m4_hero_trust_v2.py`), so no Block 00 re-paste is need
 
 Kicker «رحلة علمية إيمانية», title «من التيه… / إلى الطمأنينة» (bigger, «الطمأنينة» with the gold marker used
 in the Pain section), subtitle naming both dimensions + skills. Text in `tools/m4_hero_v2.py`. Re-paste `01-hero.html`.
+
+## Block 10B v3 — early price as a clear "price moment"
+
+Light section with a dark card (same colours as the offer's price card): what the subscription includes (4 icons)
++ «7,500 جنيه» (≈625/month), old price, green saving, button and guarantee. On phones the price comes first.
+
+## Light / dark rhythm (new page order)
+
+Block 19 (testimonials) now has a dark tone (`tools/m4_testimonials_dark.py`) to break the long light stretch
+fit → before/after → testimonials → Kareem. The other light sections in the middle already carry a large dark card
+(practice, live, telegram, offer, guarantee). Overview: `refactor/page-rhythm.png`.
