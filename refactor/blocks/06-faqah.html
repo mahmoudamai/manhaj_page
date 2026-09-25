@@ -1,7 +1,377 @@
 <!-- =====================================================================
      M4 · BLOCK 06 — Section 04 — سر الفاقة
-     HTML only. Styles live in Block 00 (Main CSS), behaviour in Block 00B.
+     Section styles are scoped to #m4-faqah. Colours, fonts, sizes and
+     speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
+<style>
+#m4-faqah {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  direction: rtl;
+  text-align: right;
+  font-family: var(--m4-font-primary) !important;
+  color: var(--m4-bg-paper);
+  padding: calc(92px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale)) calc(94px * var(--m4-space-scale));
+  background: radial-gradient( circle at 10% 10%, color-mix(in srgb, var(--m4-accent) 12%, transparent), transparent 25% ), radial-gradient( circle at 91% 84%, color-mix(in srgb, var(--m4-secondary) 13%, transparent), transparent 29% ), radial-gradient( circle at 53% -18%, color-mix(in srgb, var(--m4-highlight) 8%, transparent), transparent 38% ), linear-gradient( 135deg, var(--m4-primary-deep) 0%, color-mix(in srgb, var(--m4-primary) 79%, var(--m4-black)) 48%, color-mix(in srgb, var(--m4-olive) 91.5%, var(--m4-black)) 100% );
+}
+
+#m4-faqah *,
+#m4-faqah *::before,
+#m4-faqah *::after {
+  box-sizing: border-box;
+}
+
+#m4-faqah::before {
+  content: "";
+  position: absolute;
+  width: 470px;
+  height: 470px;
+  top: -310px;
+  left: -220px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--m4-accent) 13%, transparent);
+  box-shadow: 0 0 0 52px color-mix(in srgb, var(--m4-accent) 1.8%, transparent);
+  pointer-events: none;
+}
+
+#m4-faqah::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  right: -205px;
+  bottom: -210px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--m4-highlight-soft) 9%, transparent);
+  pointer-events: none;
+}
+
+#m4-faqah .m4-faqah__wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#m4-faqah .m4-faqah__grid {
+  display: grid;
+  grid-template-columns: minmax(0,1.12fr) minmax(310px,.88fr);
+  gap: 64px;
+  align-items: center;
+}
+
+#m4-faqah .m4-faqah__copy {
+  max-width: 720px;
+}
+
+#m4-faqah .m4-faqah__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  color: color-mix(in srgb, var(--m4-accent-soft) 65.5%, var(--m4-accent));
+  font-size: calc(.80rem * var(--m4-type-scale));
+  line-height: 1.4;
+  font-weight: 900;
+}
+
+#m4-faqah .m4-faqah__kicker::before {
+  content: "";
+  width: 31px;
+  height: 1px;
+  flex: 0 0 31px;
+  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-accent) 18%, transparent), var(--m4-accent) );
+}
+
+#m4-faqah h2 {
+  max-width: 720px;
+  margin: 0 0 23px;
+  color: var(--m4-bg-paper);
+  font-size: calc(clamp( 2.15rem, 4.4vw, 3.55rem ) * var(--m4-heading-scale));
+  line-height: 1.23;
+  letter-spacing: -.8px;
+  font-weight: 900;
+  text-wrap: balance;
+}
+
+#m4-faqah .m4-faqah__copy p {
+  margin: 0 0 14px;
+  color: color-mix(in srgb, var(--m4-bg-ivory) 80%, transparent);
+  font-size: calc(clamp( .98rem, 1.45vw, 1.08rem ) * var(--m4-type-scale));
+  line-height: 1.95;
+  font-weight: 500;
+}
+
+#m4-faqah .m4-faqah__copy p:last-child {
+  margin-bottom: 0;
+}
+
+#m4-faqah .m4-faqah__copy strong {
+  color: #FFF2D6;
+  font-weight: 850;
+}
+
+#m4-faqah .m4-faqah__concept {
+  position: relative;
+  overflow: hidden;
+  padding: 29px 29px 27px;
+  border-radius: calc(27px * var(--m4-radius-scale));
+  border: 1px solid rgba(255,255,255,.26);
+  background: radial-gradient( circle at 100% 0%, color-mix(in srgb, var(--m4-secondary) 15%, transparent), transparent 42% ), linear-gradient( 180deg, var(--m4-bg-paper) 0%, color-mix(in srgb, var(--m4-bg-ivory) 90.5%, var(--m4-highlight-soft)) 100% );
+  box-shadow: 0 28px 65px color-mix(in srgb, color-mix(in srgb, var(--m4-black) 54.5%, var(--m4-primary-deep)) 22%, transparent);
+  color: var(--m4-primary-deep);
+}
+
+#m4-faqah .m4-faqah__concept::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient( 90deg, var(--m4-secondary), var(--m4-accent), var(--m4-primary) );
+}
+
+#m4-faqah .m4-faqah__concept::after {
+  content: "الفاقة";
+  position: absolute;
+  left: -8px;
+  bottom: -25px;
+  color: color-mix(in srgb, var(--m4-primary) 3.5%, transparent);
+  font-size: calc(6.7rem * var(--m4-heading-scale));
+  line-height: 1;
+  font-weight: 900;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+#m4-faqah .m4-faqah__concept-label {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 13px;
+  color: color-mix(in srgb, var(--m4-olive) 65%, var(--m4-bg-cloud));
+  font-size: calc(.66rem * var(--m4-type-scale));
+  line-height: 1.3;
+  font-weight: 900;
+}
+
+#m4-faqah .m4-faqah__concept-label::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--m4-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--m4-accent) 10%, transparent);
+}
+
+#m4-faqah .m4-faqah__term {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 11px;
+  color: var(--m4-primary-deep);
+  font-size: calc(clamp( 2rem, 4vw, 2.8rem ) * var(--m4-heading-scale));
+  line-height: 1.2;
+  font-weight: 900;
+  letter-spacing: -.6px;
+}
+
+#m4-faqah .m4-faqah__definition {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: color-mix(in srgb, var(--m4-text) 87.5%, var(--m4-primary-deep));
+  font-size: calc(clamp( .94rem, 1.6vw, 1.06rem ) * var(--m4-type-scale));
+  line-height: 1.9;
+  font-weight: 600;
+}
+
+#m4-faqah .m4-faqah__definition strong {
+  color: var(--m4-primary);
+  font-weight: 900;
+}
+
+#m4-faqah .m4-faqah__concept-line {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 1px;
+  margin: 20px 0 17px;
+  background: linear-gradient( 90deg, transparent, color-mix(in srgb, var(--m4-primary) 15%, transparent), transparent );
+}
+
+#m4-faqah .m4-faqah__concept-small {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: color-mix(in srgb, var(--m4-olive) 72.5%, var(--m4-white));
+  font-size: calc(.79rem * var(--m4-type-scale));
+  line-height: 1.8;
+  font-weight: 600;
+}
+
+#m4-faqah .m4-faqah__mini {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 18px;
+}
+
+#m4-faqah .m4-faqah__mini span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  border: 1px solid color-mix(in srgb, var(--m4-secondary) 32%, transparent);
+  border-radius: calc(999px * var(--m4-radius-scale));
+  background: color-mix(in srgb, color-mix(in srgb, var(--m4-secondary-soft) 66.5%, var(--m4-white)) 72%, transparent);
+  color: var(--m4-primary);
+  font-size: calc(.65rem * var(--m4-type-scale));
+  line-height: 1.3;
+  font-weight: 850;
+}
+
+#m4-faqah .m4-faqah__reveal {
+  transition: opacity calc(.75s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.75s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+#m4-faqah .m4-faqah__concept.m4-faqah__reveal {
+  transform: translateX(-24px) scale(.98);
+}
+
+#m4-faqah .m4-faqah__reveal.m4-reveal {
+  opacity: 1;
+  transform: translate(0,0) scale(1);
+}
+
+@media(hover:hover) {
+  #m4-faqah .m4-faqah__concept {
+    transition: transform calc(.26s * var(--m4-motion-scale)) var(--m4-ease), box-shadow calc(.26s * var(--m4-motion-scale)) var(--m4-ease);
+  }
+
+  #m4-faqah .m4-faqah__concept:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 34px 72px color-mix(in srgb, color-mix(in srgb, var(--m4-black) 54.5%, var(--m4-primary-deep)) 26%, transparent);
+  }
+}
+
+@media(max-width:850px) {
+  #m4-faqah {
+    padding: calc(76px * var(--m4-space-scale)) calc(18px * var(--m4-space-scale));
+  }
+
+  #m4-faqah .m4-faqah__grid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  #m4-faqah .m4-faqah__concept {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+}
+
+@media(max-width:560px) {
+  #m4-faqah {
+    padding: calc(60px * var(--m4-space-scale)) calc(14px * var(--m4-space-scale)) calc(64px * var(--m4-space-scale));
+  }
+
+  #m4-faqah .m4-faqah__grid {
+    gap: 28px;
+  }
+
+  #m4-faqah .m4-faqah__kicker {
+    margin-bottom: 10px;
+    font-size: calc(.69rem * var(--m4-type-scale));
+    gap: 7px;
+  }
+
+  #m4-faqah .m4-faqah__kicker::before {
+    width: 21px;
+    flex-basis: 21px;
+  }
+
+  #m4-faqah h2 {
+    margin-bottom: 17px;
+    font-size: calc(1.91rem * var(--m4-heading-scale));
+    line-height: 1.27;
+  }
+
+  #m4-faqah .m4-faqah__copy p {
+    margin-bottom: 11px;
+    font-size: calc(.85rem * var(--m4-type-scale));
+    line-height: 1.82;
+  }
+
+  #m4-faqah .m4-faqah__concept {
+    padding: 23px 19px 21px;
+    border-radius: calc(21px * var(--m4-radius-scale));
+  }
+
+  #m4-faqah .m4-faqah__concept-label {
+    margin-bottom: 10px;
+    font-size: calc(.60rem * var(--m4-type-scale));
+  }
+
+  #m4-faqah .m4-faqah__term {
+    margin-bottom: 8px;
+    font-size: calc(2rem * var(--m4-heading-scale));
+  }
+
+  #m4-faqah .m4-faqah__definition {
+    font-size: calc(.86rem * var(--m4-type-scale));
+    line-height: 1.8;
+  }
+
+  #m4-faqah .m4-faqah__concept-line {
+    margin: 16px 0 14px;
+  }
+
+  #m4-faqah .m4-faqah__concept-small {
+    font-size: calc(.72rem * var(--m4-type-scale));
+    line-height: 1.72;
+  }
+
+  #m4-faqah .m4-faqah__mini {
+    margin-top: 14px;
+    gap: 6px;
+  }
+
+  #m4-faqah .m4-faqah__mini span {
+    padding: 6px 9px;
+    font-size: calc(.59rem * var(--m4-type-scale));
+  }
+
+  #m4-faqah .m4-faqah__concept::after {
+    left: -5px;
+    bottom: -17px;
+    font-size: calc(4.9rem * var(--m4-heading-scale));
+  }
+
+  #m4-faqah .m4-faqah__concept.m4-faqah__reveal {
+    transform: translateY(18px) scale(.98);
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  #m4-faqah .m4-faqah__reveal {
+    transition: none;
+  }
+}
+
+/* self-check: this block is the current version */
+#m4-faqah {
+  --m4-styled: 6;
+}
+</style>
+
 <section
   id="m4-faqah" class="m4-section"
   dir="rtl"

@@ -10,7 +10,7 @@ Content, section order, prices, links, images and CTA destinations are unchanged
 
 | Before | After |
 |---|---|
-| 25 code blocks, each with its own `<link>` fonts, `<style>` and `<script>` | **Block 00** (all CSS + fonts), **Block 00B** (all JS), **25 HTML-only blocks** |
+| 25 code blocks, each with its own `<link>` fonts, `<style>` and `<script>` | **Block 00** (fonts + theme + shared system, 10 KB), **Block 00B** (all JS), **25 blocks** that each hold their section's scoped `<style>` + HTML, and no scripts |
 | Tajawal loaded 23 times | Fonts loaded once, in Block 00 |
 | ~400 hard-coded colours, each section redefining `--petrol`, `--gold`… | **24 colour tokens**. Every other colour is derived from them with `color-mix()` (173 tints, max error 7/255, invisible) |
 | ~50 IntersectionObservers in 25 scripts | 1 shared script, 4 small modules (motion, FAQ, sticky, masonry) |
@@ -18,11 +18,13 @@ Content, section order, prices, links, images and CTA destinations are unchanged
 | 230+ `!important` | Kept only where they are needed: the sticky bar (it fights the GHL fixed section) and the hero full-bleed width |
 | Mixed naming: `.reveal`, `.mhhm-card`, `.mhh-sticky-*` | One system: `#m4-<section>` and `.m4-<section>__<part>` |
 
-**How the CSS is organised (Block 00):**
+**Why each section keeps its own `<style>`:** GHL cuts long code. Its Custom CSS box stopped at about 25–30K characters, so everything after the hero was lost. The theme itself stays central: every section's CSS reads the tokens in Block 00 (colours, fonts, sizes, radius, motion). Block 00 is small enough for any GHL field, and the largest section block is 34K characters, under your original 39K block that GHL already accepts.
+
+**How the CSS is organised:**
 1. **Theme controls**: the only place you edit (section B).
 2. **Shared primitives**: `.m4-section`, `.m4-container`, `.m4-kicker`, `.m4-heading`, `.m4-display`, `.m4-card`, `.m4-btn`, `.m4-btn-primary`, `.m4-reveal`. All are wrapped in `:where()`, so they have zero specificity and never override a section's own look. Use them for anything new.
 3. **Motion system**.
-4. **Sections**: each section keeps its own personality, scoped to its own `#m4-…` id. The styles are the same as before, but they now read the tokens.
+4. **Sections** *(inside each block, not in Block 00)*: each section keeps its own personality, scoped to its own `#m4-…` id. The styles are the same as before, but they now read the tokens.
 5. **Typography roles**: which font headings use and which font the quotes use.
 6. **No-JS safety nets**.
 
@@ -118,13 +120,12 @@ Notes:
 
 | File | Where it goes |
 |---|---|
-| `refactor/blocks/00-main-css.html` | **Block 00**: fonts + Main CSS (readable, 300 KB) |
-| `refactor/blocks/00-main-css.min.html` | Same thing minified (260 KB) |
-| `refactor/blocks/00-main-css.css` | **Pure CSS for GHL's Custom CSS box** (fonts via `@import`) |
-| `refactor/blocks/00-main-css-split/` | Main CSS in **6 parts** (< 62 KB each), for Code Elements |
+| `refactor/blocks/00-theme.css` | **Block 00**: pure CSS for page **Settings → Custom CSS** (recommended) |
+| `refactor/blocks/00-theme.html` | The same Block 00 as a Code Element / Tracking Code version (`<link>` + `<style>`) |
 | `refactor/blocks/00B-shared-js.html` | **Block 00B**: shared JavaScript |
-| `refactor/blocks/01-hero.html` … `25-footer.html` | One file per existing code block, in the same order |
+| `refactor/blocks/01-hero.html` … `25-footer.html` | One file per existing code block, in the same order. Each has a scoped `<style>` + HTML |
 | `refactor/preview.html` | The full page for checking (GHL-only elements shown as grey placeholders) |
+| `refactor/main.css` | Everything in one file, for reference or for hosting externally later |
 
 ---
 
@@ -186,13 +187,9 @@ Dead CSS for classes that don't exist in any block (for example `.heroDivider` a
 ## G. Migration steps (in GHL)
 
 1. **Back up**: duplicate the current page in GHL before starting.
-2. **Block 00 (Main CSS)**: pick ONE of these three options.
-   - **A. Custom CSS box (recommended)**: page **Settings → Custom CSS** → paste **`00-main-css.css`**. This is pure CSS with no `<style>` tags; the `.html` files do **not** belong in this box. It also applies in the builder.
-   - **B. Code Elements**: paste `00-main-css-split/part1 … part6` into **6 Code Elements at the very top of the page**, in order. Use this if GHL cuts long code; each part is under 62 KB.
-   - **C. Single Code Element / Tracking Code**: `00-main-css.html` (300 KB). Only if your GHL account accepts that size.
-   Delete any older copy of Block 00 first, so the CSS is never loaded twice.
+2. **Block 00 (theme)**: in page **Settings → Custom CSS**, delete everything, then paste **`00-theme.css`**. Also remove every older copy of the Main CSS (Tracking Code, Code Elements, split parts).
 3. **Block 00B (JS)**: paste `00B-shared-js.html` into **Tracking Code → Head** (after Block 00), or into the **last** Code Element on the page.
-4. **For each existing Code Element**: select all, delete, and paste the matching file from `refactor/blocks/` (01 → 25, same order as the mapping table). Every old `<link>`, `<style>` and `<script>` disappears with this step. Nothing needs to be deleted by hand.
+4. **For each existing Code Element**: select all, delete, and paste the matching file from `refactor/blocks/` (01 → 25, same order as the mapping table). **Paste the whole file, including its `<style>`.** The old `<link>` and `<script>` tags disappear with this step.
 5. **GHL elements stay as they are**: the video (block 02), the button (block 05), the logos marquee and the fixed sticky section. The code for block 03 (video look) and block 07 (PiP) was not in the file, so they were not changed. If they are Code Elements, keep them.
 6. **Sticky section**: in the fixed GHL section's settings, change the custom class `mhh-sticky-cta` → `m4-sticky-host` (optional, the old name still works).
 7. **Publish, then open the live page**, not the editor, to see the entrance animations.
@@ -201,7 +198,7 @@ To try a theme: edit the tokens at the top of Block 00 and republish.
 
 ---
 
-**Self-check:** Block 00B checks that the whole Main CSS arrived. If a part was dropped or cut, it writes a warning to the browser console. On GHL `/preview/` links, or with `?m4-debug=1`, it also shows a red bar that names the missing part.
+**Self-check:** Block 00B checks that Block 00 arrived and that every section block is the current version. Problems go to the browser console only. The red bar appears **only** when you open the page with `?m4-debug=1`; visitors never see it.
 
 ---
 

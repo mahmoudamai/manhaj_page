@@ -1,7 +1,486 @@
 <!-- =====================================================================
      M4 · BLOCK 05 — Section 03 — Pain
-     HTML only. Styles live in Block 00 (Main CSS), behaviour in Block 00B.
+     Section styles are scoped to #m4-pain. Colours, fonts, sizes and
+     speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
+<style>
+#m4-pain {
+  position: relative;
+  overflow: hidden;
+  direction: rtl;
+  text-align: right;
+  font-family: var(--m4-font-primary) !important;
+  color: var(--m4-ink);
+  padding: calc(76px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale)) calc(82px * var(--m4-space-scale));
+  background: radial-gradient( circle at 7% 13%, color-mix(in srgb, var(--m4-secondary) 17%, transparent), transparent 27% ), radial-gradient( circle at 94% 86%, color-mix(in srgb, var(--m4-highlight) 10%, transparent), transparent 27% ), linear-gradient( 180deg, color-mix(in srgb, var(--m4-secondary-soft) 50%, var(--m4-white)) 0%, color-mix(in srgb, var(--m4-bg-cloud) 76%, var(--m4-secondary-soft)) 52%, color-mix(in srgb, var(--m4-bg-cloud) 88.5%, var(--m4-secondary)) 100% );
+}
+
+#m4-pain *,
+#m4-pain *::before,
+#m4-pain *::after {
+  box-sizing: border-box;
+}
+
+#m4-pain::before {
+  content: "";
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  top: -260px;
+  left: -180px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--m4-primary) 6.5%, transparent);
+  box-shadow: 0 0 0 54px color-mix(in srgb, var(--m4-secondary) 1.8%, transparent);
+  pointer-events: none;
+}
+
+#m4-pain::after {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  right: -200px;
+  bottom: -185px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--m4-accent) 10%, transparent);
+  pointer-events: none;
+}
+
+#m4-pain .m4-pain__wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+#m4-pain .m4-pain__head {
+  max-width: 860px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+#m4-pain .m4-pain__kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-bottom: 14px;
+  color: var(--m4-primary);
+  font-size: calc(.80rem * var(--m4-type-scale));
+  line-height: 1.4;
+  font-weight: 900;
+}
+
+#m4-pain .m4-pain__kicker::before {
+  content: "";
+  width: 27px;
+  height: 1px;
+  flex: 0 0 27px;
+  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-primary) 12%, transparent), var(--m4-accent) );
+}
+
+#m4-pain .m4-pain__question {
+  display: block;
+  margin: 0 auto 8px;
+  color: color-mix(in srgb, var(--m4-text) 89%, var(--m4-accent-soft));
+  font-size: calc(clamp( 1rem, 1.7vw, 1.18rem ) * var(--m4-type-scale));
+  line-height: 1.65;
+  font-weight: 700;
+}
+
+#m4-pain .m4-pain__question strong {
+  color: var(--m4-primary);
+  font-weight: 900;
+}
+
+#m4-pain h2 {
+  margin: 0;
+  color: var(--m4-primary-deep);
+  font-size: calc(clamp( 2.05rem, 4.15vw, 3.35rem ) * var(--m4-heading-scale));
+  line-height: 1.22;
+  font-weight: 900;
+  letter-spacing: -.8px;
+  text-wrap: balance;
+}
+
+#m4-pain .m4-pain__intro {
+  max-width: 700px;
+  margin: 15px auto 0;
+  color: var(--m4-text);
+  font-size: calc(clamp( .98rem, 1.5vw, 1.12rem ) * var(--m4-type-scale));
+  line-height: 1.85;
+  font-weight: 500;
+}
+
+#m4-pain .m4-pain__visual {
+  position: relative;
+  width: 100%;
+  height: clamp( 245px, 29vw, 340px );
+  margin: 0 auto 25px;
+  overflow: hidden;
+  border-radius: calc(28px * var(--m4-radius-scale));
+  border: 1px solid color-mix(in srgb, var(--m4-secondary) 32%, transparent);
+  background: var(--m4-primary-deep);
+  box-shadow: 0 22px 50px color-mix(in srgb, var(--m4-ink) 10%, transparent);
+  transition: opacity calc(.8s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.8s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+#m4-pain .m4-pain__visual.m4-reveal {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+#m4-pain .m4-pain__visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 54%;
+  filter: saturate(.72) contrast(.94) brightness(.92);
+  transition: transform calc(8s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+#m4-pain .m4-pain__visual.m4-reveal img {
+  transform: scale(1.07);
+}
+
+#m4-pain .m4-pain__visual::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-primary-deep) 18%, transparent) 0%, color-mix(in srgb, var(--m4-primary-deep) 4%, transparent) 42%, color-mix(in srgb, var(--m4-ink) 3%, transparent) 70%, color-mix(in srgb, color-mix(in srgb, var(--m4-olive) 88.5%, var(--m4-black)) 14%, transparent) 100% ), linear-gradient( 180deg, color-mix(in srgb, var(--m4-primary) 3%, transparent) 0%, transparent 45%, color-mix(in srgb, color-mix(in srgb, var(--m4-black) 56%, var(--m4-primary)) 18%, transparent) 100% );
+}
+
+#m4-pain .m4-pain__visual::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 90px color-mix(in srgb, var(--m4-primary-deep) 11%, transparent);
+  background: radial-gradient( circle at 80% 18%, color-mix(in srgb, var(--m4-accent) 9%, transparent), transparent 26% );
+}
+
+#m4-pain .m4-pain__grid {
+  display: grid;
+  grid-template-columns: repeat(6,minmax(0,1fr));
+  gap: 15px;
+}
+
+#m4-pain .m4-pain__card {
+  position: relative;
+  min-height: 194px;
+  padding: 22px 23px 21px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--m4-secondary) 32%, transparent);
+  border-radius: calc(22px * var(--m4-radius-scale));
+  background: radial-gradient( circle at 100% 0%, color-mix(in srgb, var(--m4-highlight) 7%, transparent), transparent 40% ), linear-gradient( 180deg, color-mix(in srgb, var(--m4-bg-paper) 96%, transparent), color-mix(in srgb, color-mix(in srgb, var(--m4-bg-paper) 82%, var(--m4-secondary-soft)) 90%, transparent) );
+  box-shadow: 0 11px 30px color-mix(in srgb, var(--m4-ink) 4.5%, transparent), inset 0 1px 0 rgba(255,255,255,.88);
+  transition: opacity calc(.68s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.68s * var(--m4-motion-scale)) var(--m4-ease), box-shadow calc(.24s * var(--m4-motion-scale)) var(--m4-ease), border-color calc(.24s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+#m4-pain .m4-pain__card:nth-child(even) {
+  background: radial-gradient( circle at 100% 0%, color-mix(in srgb, var(--m4-secondary) 10%, transparent), transparent 44% ), linear-gradient( 180deg, color-mix(in srgb, color-mix(in srgb, var(--m4-bg-paper) 90.5%, var(--m4-highlight-soft)) 96%, transparent), color-mix(in srgb, color-mix(in srgb, var(--m4-bg-paper) 88.5%, var(--m4-highlight)) 92%, transparent) );
+}
+
+#m4-pain .m4-pain__card:nth-child(1),
+#m4-pain .m4-pain__card:nth-child(2),
+#m4-pain .m4-pain__card:nth-child(3) {
+  grid-column: span 2;
+}
+
+#m4-pain .m4-pain__card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+#m4-pain .m4-pain__card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+#m4-pain .m4-pain__card.m4-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#m4-pain .m4-pain__card-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 13px;
+}
+
+#m4-pain .m4-pain__no {
+  color: var(--m4-primary);
+  font-size: calc(.75rem * var(--m4-type-scale));
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: .5px;
+}
+
+#m4-pain .m4-pain__no::after {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  margin-right: 8px;
+  vertical-align: middle;
+  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-secondary) 22%, transparent), color-mix(in srgb, var(--m4-accent) 75%, transparent) );
+}
+
+#m4-pain .m4-pain__card h3 {
+  margin: 0 0 8px;
+  color: var(--m4-primary-deep);
+  font-size: calc(1.10rem * var(--m4-heading-scale));
+  line-height: 1.45;
+  font-weight: 900;
+}
+
+#m4-pain .m4-pain__card p {
+  margin: 0;
+  color: color-mix(in srgb, var(--m4-text) 59.5%, var(--m4-text-muted));
+  font-size: calc(.86rem * var(--m4-type-scale));
+  line-height: 1.80;
+  font-weight: 500;
+}
+
+#m4-pain .m4-pain__bridge {
+  max-width: 850px;
+  margin: 38px auto 0;
+  text-align: center;
+}
+
+#m4-pain .m4-pain__bridge h3 {
+  margin: 0 0 9px;
+  color: var(--m4-primary-deep);
+  font-size: calc(clamp( 1.22rem, 2vw, 1.55rem ) * var(--m4-heading-scale));
+  line-height: 1.55;
+  font-weight: 900;
+}
+
+#m4-pain .m4-pain__bridge p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--m4-text);
+  font-size: calc(clamp( .93rem, 1.4vw, 1.04rem ) * var(--m4-type-scale));
+  line-height: 1.9;
+  font-weight: 500;
+}
+
+#m4-pain .m4-pain__reveal {
+  position: relative;
+  max-width: 900px;
+  margin: 29px auto 0;
+  padding: 27px 31px 26px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--m4-primary) 15%, transparent);
+  border-radius: calc(22px * var(--m4-radius-scale));
+  background: radial-gradient( circle at 100% 0%, color-mix(in srgb, var(--m4-secondary) 13%, transparent), transparent 35% ), linear-gradient( 135deg, color-mix(in srgb, var(--m4-bg-paper) 96%, transparent), color-mix(in srgb, color-mix(in srgb, var(--m4-white) 63%, var(--m4-secondary-soft)) 94%, transparent) );
+  box-shadow: 0 15px 40px color-mix(in srgb, var(--m4-ink) 6%, transparent);
+  text-align: right;
+}
+
+#m4-pain .m4-pain__reveal::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  right: 0;
+  width: 4px;
+  border-radius: 0 calc(4px * var(--m4-radius-scale)) calc(4px * var(--m4-radius-scale)) 0;
+  background: linear-gradient( 180deg, var(--m4-accent), var(--m4-primary) );
+}
+
+#m4-pain .m4-pain__reveal-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--m4-accent);
+  font-size: calc(.74rem * var(--m4-type-scale));
+  font-weight: 900;
+}
+
+#m4-pain .m4-pain__reveal h3 {
+  margin: 0 0 8px;
+  color: var(--m4-primary-deep);
+  font-size: calc(clamp( 1.28rem, 2.2vw, 1.7rem ) * var(--m4-heading-scale));
+  line-height: 1.55;
+  font-weight: 900;
+}
+
+#m4-pain .m4-pain__reveal p {
+  margin: 0;
+  color: var(--m4-text);
+  font-size: calc(clamp( .93rem, 1.4vw, 1.04rem ) * var(--m4-type-scale));
+  line-height: 1.9;
+  font-weight: 500;
+}
+
+@media(hover:hover) {
+  #m4-pain .m4-pain__card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--m4-highlight) 45%, transparent);
+    box-shadow: 0 18px 40px color-mix(in srgb, var(--m4-ink) 7.5%, transparent);
+  }
+}
+
+@media(max-width:850px) {
+  #m4-pain {
+    padding: calc(62px * var(--m4-space-scale)) calc(17px * var(--m4-space-scale)) calc(68px * var(--m4-space-scale));
+  }
+
+  #m4-pain .m4-pain__grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 13px;
+  }
+
+  #m4-pain .m4-pain__card:nth-child(n) {
+    grid-column: auto;
+  }
+
+  #m4-pain .m4-pain__card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media(max-width:560px) {
+  #m4-pain {
+    padding: calc(52px * var(--m4-space-scale)) calc(12px * var(--m4-space-scale)) calc(58px * var(--m4-space-scale));
+  }
+
+  #m4-pain .m4-pain__head {
+    margin-bottom: 21px;
+  }
+
+  #m4-pain .m4-pain__kicker {
+    margin-bottom: 9px;
+    font-size: calc(.70rem * var(--m4-type-scale));
+    gap: 7px;
+  }
+
+  #m4-pain .m4-pain__kicker::before {
+    width: 20px;
+    flex-basis: 20px;
+  }
+
+  #m4-pain .m4-pain__question {
+    margin-bottom: 6px;
+    font-size: calc(.84rem * var(--m4-type-scale));
+    line-height: 1.55;
+  }
+
+  #m4-pain h2 {
+    font-size: calc(1.82rem * var(--m4-heading-scale));
+    line-height: 1.25;
+  }
+
+  #m4-pain .m4-pain__intro {
+    max-width: 360px;
+    margin-top: 10px;
+    font-size: calc(.86rem * var(--m4-type-scale));
+    line-height: 1.72;
+  }
+
+  #m4-pain .m4-pain__visual {
+    height: 210px;
+    margin-bottom: 18px;
+    border-radius: calc(19px * var(--m4-radius-scale));
+  }
+
+  #m4-pain .m4-pain__visual img {
+    object-position: center 55%;
+  }
+
+  #m4-pain .m4-pain__grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  #m4-pain .m4-pain__card:nth-child(n) {
+    grid-column: auto;
+  }
+
+  #m4-pain .m4-pain__card {
+    min-height: 0;
+    padding: 17px 17px 16px;
+    border-radius: calc(17px * var(--m4-radius-scale));
+  }
+
+  #m4-pain .m4-pain__card-top {
+    margin-bottom: 8px;
+  }
+
+  #m4-pain .m4-pain__no {
+    font-size: calc(.67rem * var(--m4-type-scale));
+  }
+
+  #m4-pain .m4-pain__no::after {
+    width: 20px;
+  }
+
+  #m4-pain .m4-pain__card h3 {
+    margin-bottom: 5px;
+    font-size: calc(.97rem * var(--m4-heading-scale));
+  }
+
+  #m4-pain .m4-pain__card p {
+    font-size: calc(.77rem * var(--m4-type-scale));
+    line-height: 1.70;
+  }
+
+  #m4-pain .m4-pain__bridge {
+    margin-top: 27px;
+    padding: 0 5px;
+  }
+
+  #m4-pain .m4-pain__bridge h3 {
+    margin-bottom: 7px;
+    font-size: calc(1.08rem * var(--m4-heading-scale));
+  }
+
+  #m4-pain .m4-pain__bridge p {
+    font-size: calc(.82rem * var(--m4-type-scale));
+    line-height: 1.76;
+  }
+
+  #m4-pain .m4-pain__reveal {
+    margin-top: 22px;
+    padding: 21px 18px 20px;
+    border-radius: calc(18px * var(--m4-radius-scale));
+  }
+
+  #m4-pain .m4-pain__reveal-label {
+    font-size: calc(.65rem * var(--m4-type-scale));
+  }
+
+  #m4-pain .m4-pain__reveal h3 {
+    margin-bottom: 6px;
+    font-size: calc(1.12rem * var(--m4-heading-scale));
+  }
+
+  #m4-pain .m4-pain__reveal p {
+    font-size: calc(.82rem * var(--m4-type-scale));
+    line-height: 1.77;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  #m4-pain .m4-pain__visual,
+  #m4-pain .m4-pain__card {
+    transition: none;
+  }
+
+  #m4-pain .m4-pain__visual img {
+    transition: none;
+  }
+}
+
+/* self-check: this block is the current version */
+#m4-pain {
+  --m4-styled: 5;
+}
+</style>
+
 <section
   id="m4-pain" class="m4-section"
   dir="rtl"

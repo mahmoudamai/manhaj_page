@@ -1,9 +1,533 @@
 <!-- =====================================================================
      M4 · BLOCK 24 — Section 22 — Sticky bar (inside the fixed GHL section)
-     HTML only. Styles live in Block 00 (Main CSS), behaviour in Block 00B.
+     Section styles are scoped to #m4-sticky. Colours, fonts, sizes and
+     speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
 <!-- The fixed GHL section that holds this block must have the CSS class
      "m4-sticky-host" (the old class "mhh-sticky-cta" still works too). -->
+<style>
+html,
+body {
+  max-width: 100%;
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+@supports not (overflow:clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+.m4-sticky__action-bar,
+.m4-sticky__action-bar *,
+.m4-sticky__action-bar *::before,
+.m4-sticky__action-bar *::after {
+  box-sizing: border-box;
+}
+
+.m4-sticky__action-bar {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  isolation: isolate;
+  direction: rtl;
+  font-family: var(--m4-font-primary) !important;
+  padding: 7px 0 calc( 7px + env(safe-area-inset-bottom) );
+  border-top: 1px solid rgba(255,255,255,.075);
+  background: radial-gradient( circle at 7% 0%, color-mix(in srgb, var(--m4-accent) 7%, transparent), transparent 25% ), linear-gradient( 118deg, color-mix(in srgb, var(--m4-primary-deep) 89.5%, var(--m4-black)) 0%, var(--m4-primary-deep) 55%, color-mix(in srgb, var(--m4-primary-deep) 51.5%, var(--m4-primary)) 100% );
+  box-shadow: 0 -10px 27px color-mix(in srgb, color-mix(in srgb, var(--m4-black) 57%, var(--m4-primary-deep)) 22%, transparent);
+}
+
+.m4-sticky__action-bar::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: radial-gradient( circle at 7% 0%, color-mix(in srgb, var(--m4-accent) 7%, transparent), transparent 25% ), linear-gradient( 118deg, color-mix(in srgb, var(--m4-primary-deep) 89.5%, var(--m4-black)) 0%, var(--m4-primary-deep) 55%, color-mix(in srgb, var(--m4-primary-deep) 51.5%, var(--m4-primary)) 100% );
+  pointer-events: none;
+}
+
+.m4-sticky__action-bar::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient( 90deg, transparent 0%, color-mix(in srgb, var(--m4-accent) 29%, transparent) 35%, color-mix(in srgb, var(--m4-highlight-soft) 25%, transparent) 65%, transparent 100% );
+  pointer-events: none;
+}
+
+.m4-sticky__shell {
+  position: relative;
+  z-index: 3;
+  width: calc(100% - 52px);
+  max-width: 1480px;
+  min-height: 48px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  direction: rtl;
+}
+
+.m4-sticky__text {
+  flex: 1 1 auto;
+  min-width: 280px;
+  padding: 0;
+  text-align: right;
+  color: var(--m4-bg-paper);
+  line-height: 1.3;
+}
+
+.m4-sticky__main {
+  color: var(--m4-bg-paper);
+  font-size: calc(13.5px * var(--m4-type-scale));
+  line-height: 1.35;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.m4-sticky__price-note {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 3px 6px;
+  margin-top: 3px;
+  color: color-mix(in srgb, var(--m4-bg-paper) 67%, transparent);
+  font-size: calc(10.5px * var(--m4-type-scale));
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.m4-sticky__before {
+  color: color-mix(in srgb, var(--m4-bg-paper) 50%, transparent);
+}
+
+.m4-sticky__old-price {
+  display: inline-block;
+  color: color-mix(in srgb, var(--m4-bg-paper) 84%, transparent);
+  font-size: calc(12.5px * var(--m4-type-scale));
+  font-weight: 900;
+  line-height: 1;
+  text-decoration-line: line-through;
+  text-decoration-color: color-mix(in srgb, var(--m4-live) 69%, var(--m4-white));
+  text-decoration-thickness: 1.6px;
+  text-decoration-skip-ink: none;
+}
+
+.m4-sticky__separator {
+  color: rgba(255,255,255,.25);
+}
+
+.m4-sticky__saving {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border: 1px solid color-mix(in srgb, var(--m4-accent) 13%, transparent);
+  border-radius: calc(999px * var(--m4-radius-scale));
+  background: color-mix(in srgb, var(--m4-accent) 11%, transparent);
+  color: color-mix(in srgb, var(--m4-accent-soft) 67.5%, var(--m4-accent));
+  font-size: calc(10.5px * var(--m4-type-scale));
+  line-height: 1.25;
+  font-weight: 900;
+}
+
+.m4-sticky__guarantee {
+  color: color-mix(in srgb, var(--m4-bg-cloud) 79%, var(--m4-primary));
+  font-size: calc(10.5px * var(--m4-type-scale));
+  font-weight: 800;
+}
+
+.m4-sticky__floating-support {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  direction: rtl;
+}
+
+.m4-sticky__float-wa,
+.m4-sticky__float-faq {
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 7px 12px;
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: calc(12px * var(--m4-radius-scale));
+  background: rgba(255,255,255,.047);
+  color: color-mix(in srgb, var(--m4-bg-paper) 88%, transparent) !important;
+  font-family: var(--m4-font-primary) !important;
+  font-size: calc(11.5px * var(--m4-type-scale));
+  line-height: 1;
+  font-weight: 850;
+  white-space: nowrap;
+  text-decoration: none !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+  transition: transform calc(.2s * var(--m4-motion-scale)) var(--m4-ease), background calc(.2s * var(--m4-motion-scale)) var(--m4-ease), border-color calc(.2s * var(--m4-motion-scale)) var(--m4-ease), box-shadow calc(.2s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+.m4-sticky__wa-icon {
+  width: 23px;
+  height: 23px;
+  flex: 0 0 23px;
+  display: grid;
+  place-items: center;
+  border-radius: calc(8px * var(--m4-radius-scale));
+  background: var(--m4-whatsapp);
+  color: var(--m4-white);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--m4-whatsapp) 15%, transparent);
+}
+
+.m4-sticky__wa-icon svg {
+  display: block;
+  width: 15px;
+  height: 15px;
+}
+
+.m4-sticky__faq-icon {
+  width: 21px;
+  height: 21px;
+  flex: 0 0 21px;
+  display: grid;
+  place-items: center;
+  color: color-mix(in srgb, var(--m4-bg-paper) 64.5%, var(--m4-highlight));
+  background: transparent;
+}
+
+.m4-sticky__faq-icon svg {
+  display: block;
+  width: 17px;
+  height: 17px;
+}
+
+.m4-sticky__checkout-btn {
+  flex: 0 0 auto;
+  min-height: 47px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 22px;
+  border-radius: calc(14px * var(--m4-radius-scale));
+  border: 1px solid var(--m4-live);
+  background: var(--m4-cta-bg);
+  color: var(--m4-cta-text) !important;
+  font-family: var(--m4-font-primary) !important;
+  font-size: calc(14.5px * var(--m4-type-scale));
+  line-height: 1;
+  font-weight: 900;
+  white-space: nowrap;
+  text-decoration: none !important;
+  box-shadow: 0 9px 20px color-mix(in srgb, var(--m4-cta-bg) 22%, transparent);
+  transition: transform calc(.2s * var(--m4-motion-scale)) var(--m4-ease), background calc(.2s * var(--m4-motion-scale)) var(--m4-ease), box-shadow calc(.2s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+.m4-sticky__checkout-btn svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+.m4-sticky__back-top {
+  position: fixed;
+  z-index: 999999;
+  right: 18px;
+  bottom: 83px;
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: calc(13px * var(--m4-radius-scale));
+  border: 1px solid color-mix(in srgb, var(--m4-highlight-soft) 30%, transparent);
+  background: color-mix(in srgb, var(--m4-primary-deep) 96%, transparent);
+  color: color-mix(in srgb, var(--m4-white) 91%, var(--m4-highlight)) !important;
+  text-decoration: none !important;
+  box-shadow: 0 10px 25px color-mix(in srgb, color-mix(in srgb, var(--m4-black) 58.5%, var(--m4-primary-deep)) 20%, transparent);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(7px);
+  transition: opacity calc(.22s * var(--m4-motion-scale)) var(--m4-ease), visibility calc(.22s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.22s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+.m4-sticky__back-top svg {
+  width: 21px;
+  height: 21px;
+}
+
+.m4-sticky__back-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media(hover:hover) {
+  .m4-sticky__checkout-btn:hover {
+    transform: translateY(-2px);
+    background: color-mix(in srgb, var(--m4-cta-bg) 91%, var(--m4-black));
+    border-color: color-mix(in srgb, var(--m4-cta-bg) 91%, var(--m4-black));
+    box-shadow: 0 13px 25px color-mix(in srgb, var(--m4-cta-bg) 30%, transparent);
+  }
+
+  .m4-sticky__float-wa:hover,
+  .m4-sticky__float-faq:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.08);
+    border-color: rgba(255,255,255,.17);
+  }
+
+  .m4-sticky__back-top.is-visible:hover {
+    transform: translateY(-2px);
+  }
+}
+
+:is(.m4-sticky-host,
+.mhh-sticky-cta) {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY( calc(100% + 24px) ) !important;
+  transition: opacity calc(.28s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.36s * var(--m4-motion-scale)) var(--m4-ease), visibility calc(.28s * var(--m4-motion-scale)) var(--m4-ease) !important;
+}
+
+:is(.m4-sticky-host,
+.mhh-sticky-cta).is-visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) !important;
+}
+
+@media(
+  min-width:769px
+)
+and
+(
+  max-width:1050px
+) {
+  .m4-sticky__shell {
+    width: calc(100% - 30px);
+    gap: 9px;
+  }
+
+  .m4-sticky__main {
+    font-size: calc(12.5px * var(--m4-type-scale));
+  }
+
+  .m4-sticky__price-note {
+    font-size: calc(9.5px * var(--m4-type-scale));
+  }
+
+  .m4-sticky__float-wa,
+  .m4-sticky__float-faq {
+    padding: 7px 9px;
+    font-size: calc(10.5px * var(--m4-type-scale));
+  }
+
+  .m4-sticky__checkout-btn {
+    padding: 10px 17px;
+    font-size: calc(13.5px * var(--m4-type-scale));
+  }
+}
+
+@media(max-width:768px) {
+  .m4-sticky__action-bar {
+    padding: 8px 0 calc( 8px + env(safe-area-inset-bottom) );
+  }
+
+  .m4-sticky__shell {
+    width: calc(100% - 24px);
+    min-height: 46px;
+    gap: 9px;
+  }
+
+  .m4-sticky__text {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .m4-sticky__main {
+    font-size: calc(11.3px * var(--m4-type-scale));
+    line-height: 1.35;
+    white-space: normal;
+  }
+
+  .m4-sticky__price-note {
+    flex-wrap: nowrap;
+    gap: 2px 4px;
+    margin-top: 2px;
+    font-size: calc(8.8px * var(--m4-type-scale));
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .m4-sticky__before {
+    font-size: calc(8.6px * var(--m4-type-scale));
+  }
+
+  .m4-sticky__old-price {
+    font-size: calc(10.5px * var(--m4-type-scale));
+  }
+
+  .m4-sticky__saving {
+    padding: 1px 5px;
+    font-size: calc(9.2px * var(--m4-type-scale));
+  }
+
+  .m4-sticky__guarantee {
+    font-size: calc(8.8px * var(--m4-type-scale));
+  }
+
+  .m4-sticky__checkout-btn {
+    min-height: 46px;
+    padding: 9px 14px;
+    border-radius: calc(13px * var(--m4-radius-scale));
+    font-size: calc(12.8px * var(--m4-type-scale));
+    gap: 5px;
+  }
+
+  .m4-sticky__checkout-btn svg {
+    width: 14px;
+    height: 14px;
+    flex-basis: 14px;
+  }
+
+  .m4-sticky__float-faq,
+  .m4-sticky__back-top {
+    display: none !important;
+  }
+
+  .m4-sticky__floating-support {
+    position: absolute;
+    z-index: 999999;
+    right: -4px;
+    left: auto;
+    bottom: calc( 100% + 20px );
+    width: 46px;
+    height: 46px;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .m4-sticky__support-label {
+    display: none;
+  }
+
+  .m4-sticky__float-wa {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    min-height: 46px;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: calc(15px * var(--m4-radius-scale));
+    background: var(--m4-whatsapp);
+    color: var(--m4-white) !important;
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--m4-primary-deep) 18%, transparent), 0 5px 15px color-mix(in srgb, var(--m4-whatsapp) 20%, transparent);
+    transition: transform calc(.2s * var(--m4-motion-scale)) var(--m4-ease), background calc(.2s * var(--m4-motion-scale)) var(--m4-ease), box-shadow calc(.2s * var(--m4-motion-scale)) var(--m4-ease);
+  }
+
+  .m4-sticky__wa-icon {
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent !important;
+    color: var(--m4-white);
+    box-shadow: none !important;
+  }
+
+  .m4-sticky__wa-icon svg {
+    display: block;
+    width: 25px;
+    height: 25px;
+  }
+
+  @media(hover:hover) {
+    .m4-sticky__float-wa:hover {
+      transform: translateY(-2px);
+      background: color-mix(in srgb, var(--m4-whatsapp) 92.5%, var(--m4-black));
+      border-color: transparent;
+      box-shadow: 0 13px 27px color-mix(in srgb, var(--m4-primary-deep) 20%, transparent), 0 7px 17px color-mix(in srgb, var(--m4-whatsapp) 22%, transparent);
+    }
+  }
+}
+
+@media(max-width:420px) {
+  .m4-sticky__shell {
+    width: calc(100% - 20px);
+    gap: 7px;
+  }
+
+  .m4-sticky__floating-support {
+    right: -2px;
+    bottom: calc( 100% + 20px );
+  }
+
+  .m4-sticky__main {
+    font-size: calc(10.7px * var(--m4-type-scale));
+  }
+
+  .m4-sticky__before {
+    display: none;
+  }
+
+  .m4-sticky__price-note {
+    font-size: calc(8.3px * var(--m4-type-scale));
+  }
+
+  .m4-sticky__old-price {
+    font-size: calc(9.8px * var(--m4-type-scale));
+  }
+
+  .m4-sticky__saving {
+    font-size: calc(8.6px * var(--m4-type-scale));
+  }
+
+  .m4-sticky__guarantee-separator,
+  .m4-sticky__guarantee {
+    display: none;
+  }
+
+  .m4-sticky__checkout-btn {
+    padding: 9px 11px;
+    font-size: calc(12px * var(--m4-type-scale));
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  :is(.m4-sticky-host,
+  .mhh-sticky-cta),
+  .m4-sticky__checkout-btn,
+  .m4-sticky__float-wa,
+  .m4-sticky__float-faq,
+  .m4-sticky__back-top {
+    transition: none !important;
+  }
+}
+</style>
+
 <div
   class="m4-sticky__action-bar"
   dir="rtl"

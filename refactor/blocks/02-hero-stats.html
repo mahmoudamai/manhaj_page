@@ -1,7 +1,251 @@
 <!-- =====================================================================
      M4 · BLOCK 02 — Section 01 · Block 04 — Course info
-     HTML only. Styles live in Block 00 (Main CSS), behaviour in Block 00B.
+     Section styles are scoped to #m4-hero-stats. Colours, fonts, sizes and
+     speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
+<style>
+#m4-hero-stats {
+  direction: rtl;
+  font-family: var(--m4-font-primary) !important;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: calc(7px * var(--m4-space-scale)) calc(18px * var(--m4-space-scale)) calc(27px * var(--m4-space-scale));
+  background: transparent;
+}
+
+#m4-hero-stats *,
+#m4-hero-stats *::before,
+#m4-hero-stats *::after {
+  box-sizing: border-box;
+}
+
+#m4-hero-stats .m4-hero-stats__wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+#m4-hero-stats .m4-hero-stats__rail {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--m4-secondary) 35%, transparent);
+  border-radius: calc(22px * var(--m4-radius-scale));
+  background: radial-gradient( circle at 50% 0%, color-mix(in srgb, var(--m4-highlight) 7.5%, transparent), transparent 40% ), linear-gradient( 180deg, color-mix(in srgb, var(--m4-bg-paper) 98%, transparent), color-mix(in srgb, color-mix(in srgb, var(--m4-bg-paper) 91.5%, var(--m4-secondary)) 96%, transparent) );
+  box-shadow: 0 14px 38px color-mix(in srgb, var(--m4-ink) 6.5%, transparent), inset 0 1px 0 rgba(255,255,255,.92);
+}
+
+#m4-hero-stats .m4-hero-stats__rail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient( 90deg, transparent, color-mix(in srgb, var(--m4-accent) 52%, transparent), transparent );
+}
+
+#m4-hero-stats .m4-hero-stats__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  min-height: 88px;
+  padding: 15px 19px;
+  text-align: right;
+  transition: opacity calc(.64s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.64s * var(--m4-motion-scale)) var(--m4-ease), background calc(.25s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+#m4-hero-stats .m4-hero-stats__item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 24%;
+  left: 0;
+  width: 1px;
+  height: 52%;
+  background: linear-gradient( 180deg, transparent, color-mix(in srgb, var(--m4-secondary) 42%, transparent), transparent );
+}
+
+#m4-hero-stats .m4-hero-stats__item.m4-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#m4-hero-stats .m4-hero-stats__icon-wrap {
+  position: relative;
+  flex: 0 0 43px;
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: calc(14px * var(--m4-radius-scale));
+  color: color-mix(in srgb, var(--m4-white) 78.5%, var(--m4-highlight));
+  background: radial-gradient( circle at 30% 15%, color-mix(in srgb, var(--m4-highlight-soft) 15%, transparent), transparent 45% ), linear-gradient( 145deg, var(--m4-primary-deep), var(--m4-primary) );
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--m4-primary-deep) 16%, transparent), inset 0 1px 0 rgba(255,255,255,.07);
+}
+
+#m4-hero-stats .m4-hero-stats__icon-wrap::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--m4-accent);
+  border: 2px solid var(--m4-bg-paper);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--m4-accent) 22%, transparent);
+}
+
+#m4-hero-stats svg {
+  width: 19px;
+  height: 19px;
+}
+
+#m4-hero-stats .m4-hero-stats__info {
+  min-width: 0;
+}
+
+#m4-hero-stats strong {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--m4-ink);
+  font-size: calc(.91rem * var(--m4-type-scale));
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+#m4-hero-stats .m4-hero-stats__value {
+  display: block;
+  color: var(--m4-text);
+  font-size: calc(.75rem * var(--m4-type-scale));
+  line-height: 1.55;
+  font-weight: 650;
+}
+
+@media(hover:hover) {
+  #m4-hero-stats .m4-hero-stats__item:hover {
+    background: color-mix(in srgb, color-mix(in srgb, var(--m4-bg-paper) 75%, var(--m4-highlight-soft)) 42%, transparent);
+  }
+}
+
+@media(max-width:900px) {
+  #m4-hero-stats .m4-hero-stats__rail {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  #m4-hero-stats .m4-hero-stats__item {
+    padding: 14px 13px;
+    gap: 10px;
+  }
+
+  #m4-hero-stats .m4-hero-stats__icon-wrap {
+    flex-basis: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  #m4-hero-stats strong {
+    font-size: calc(.86rem * var(--m4-type-scale));
+  }
+
+  #m4-hero-stats .m4-hero-stats__value {
+    font-size: calc(.70rem * var(--m4-type-scale));
+  }
+}
+
+@media(max-width:768px) {
+  #m4-hero-stats {
+    padding: calc(5px * var(--m4-space-scale)) calc(11px * var(--m4-space-scale)) calc(21px * var(--m4-space-scale));
+  }
+
+  #m4-hero-stats .m4-hero-stats__wrap {
+    max-width: 430px;
+  }
+
+  #m4-hero-stats .m4-hero-stats__rail {
+    grid-template-columns: 1fr;
+    border-radius: calc(18px * var(--m4-radius-scale));
+  }
+
+  #m4-hero-stats .m4-hero-stats__item {
+    justify-content: flex-start;
+    min-height: 66px;
+    padding: 10px 14px;
+    gap: 11px;
+  }
+
+  #m4-hero-stats .m4-hero-stats__item:not(:last-child)::after {
+    top: auto;
+    right: 16px;
+    left: 16px;
+    bottom: 0;
+    width: auto;
+    height: 1px;
+    background: linear-gradient( 90deg, transparent, color-mix(in srgb, var(--m4-secondary) 38%, transparent), transparent );
+  }
+
+  #m4-hero-stats .m4-hero-stats__icon-wrap {
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    border-radius: calc(12px * var(--m4-radius-scale));
+  }
+
+  #m4-hero-stats svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  #m4-hero-stats strong {
+    margin-bottom: 1px;
+    font-size: calc(.84rem * var(--m4-type-scale));
+  }
+
+  #m4-hero-stats .m4-hero-stats__value {
+    font-size: calc(.69rem * var(--m4-type-scale));
+    line-height: 1.45;
+  }
+}
+
+@media(max-width:390px) {
+  #m4-hero-stats {
+    padding: calc(4px * var(--m4-space-scale)) calc(9px * var(--m4-space-scale)) calc(19px * var(--m4-space-scale));
+  }
+
+  #m4-hero-stats .m4-hero-stats__item {
+    min-height: 62px;
+    padding: 9px 12px;
+  }
+
+  #m4-hero-stats .m4-hero-stats__icon-wrap {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  #m4-hero-stats .m4-hero-stats__item {
+    transition: none;
+  }
+}
+
+/* self-check: this block is the current version */
+#m4-hero-stats {
+  --m4-styled: 2;
+}
+</style>
+
 <section
   id="m4-hero-stats" class="m4-section"
   dir="rtl"

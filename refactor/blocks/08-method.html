@@ -1,7 +1,283 @@
 <!-- =====================================================================
      M4 · BLOCK 08 — Section 06 — How it was built
-     HTML only. Styles live in Block 00 (Main CSS), behaviour in Block 00B.
+     Section styles are scoped to #m4-method. Colours, fonts, sizes and
+     speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
+<style>
+#m4-method {
+  position: relative;
+  overflow: hidden;
+  direction: rtl;
+  text-align: right;
+  font-family: var(--m4-font-primary) !important;
+  color: var(--m4-ink);
+  padding: calc(84px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale)) calc(90px * var(--m4-space-scale));
+  background: radial-gradient( circle at 7% 12%, color-mix(in srgb, var(--m4-accent) 7%, transparent), transparent 28% ), radial-gradient( circle at 94% 88%, color-mix(in srgb, var(--m4-secondary) 7%, transparent), transparent 27% ), linear-gradient( 180deg, var(--m4-bg-cream) 0%, var(--m4-bg-cream) 54%, color-mix(in srgb, var(--m4-bg-ivory) 67%, var(--m4-secondary-soft)) 100% );
+}
+
+#m4-method *,
+#m4-method *::before,
+#m4-method *::after {
+  box-sizing: border-box;
+}
+
+#m4-method::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  top: -260px;
+  left: -180px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--m4-primary) 5.5%, transparent);
+  pointer-events: none;
+}
+
+#m4-method::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  right: -185px;
+  bottom: -175px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--m4-accent) 8%, transparent);
+  pointer-events: none;
+}
+
+#m4-method .m4-method__wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+#m4-method .m4-method__head {
+  max-width: 850px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+#m4-method .m4-method__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 13px;
+  color: var(--m4-primary);
+  font-size: calc(.79rem * var(--m4-type-scale));
+  line-height: 1.4;
+  font-weight: 900;
+}
+
+#m4-method .m4-method__kicker::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  flex: 0 0 28px;
+  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-primary) 14%, transparent), var(--m4-accent) );
+}
+
+#m4-method h2 {
+  margin: 0;
+  color: var(--m4-primary-deep);
+  font-size: calc(clamp( 2.1rem, 4.1vw, 3.35rem ) * var(--m4-heading-scale));
+  line-height: 1.23;
+  letter-spacing: -.8px;
+  font-weight: 900;
+  text-wrap: balance;
+}
+
+#m4-method .m4-method__lead {
+  max-width: 800px;
+  margin: 17px auto 0;
+  color: var(--m4-text);
+  font-size: calc(clamp( .98rem, 1.5vw, 1.10rem ) * var(--m4-type-scale));
+  line-height: 1.92;
+  font-weight: 500;
+}
+
+#m4-method .m4-method__grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 36px;
+}
+
+#m4-method .m4-method__item {
+  position: relative;
+  padding: 28px 4px 4px;
+  border-top: 1px solid color-mix(in srgb, var(--m4-primary) 18%, transparent);
+  transition: opacity calc(.72s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.72s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+#m4-method .m4-method__item::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: 0;
+  width: 58px;
+  height: 2px;
+  border-radius: calc(999px * var(--m4-radius-scale));
+  background: linear-gradient( 90deg, var(--m4-accent), var(--m4-primary) );
+}
+
+#m4-method .m4-method__item.m4-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#m4-method .m4-method__type {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 11px;
+  color: color-mix(in srgb, var(--m4-olive) 57.5%, var(--m4-bg-cloud));
+  font-size: calc(.68rem * var(--m4-type-scale));
+  line-height: 1.3;
+  font-weight: 900;
+}
+
+#m4-method .m4-method__number {
+  color: var(--m4-accent);
+  font-weight: 900;
+}
+
+#m4-method .m4-method__item h3 {
+  margin: 0 0 9px;
+  color: var(--m4-primary-deep);
+  font-size: calc(clamp( 1.18rem, 1.8vw, 1.4rem ) * var(--m4-heading-scale));
+  line-height: 1.5;
+  font-weight: 900;
+}
+
+#m4-method .m4-method__item p {
+  margin: 0;
+  color: color-mix(in srgb, var(--m4-text) 59.5%, var(--m4-text-muted));
+  font-size: calc(.91rem * var(--m4-type-scale));
+  line-height: 1.88;
+  font-weight: 500;
+}
+
+#m4-method .m4-method__bottom {
+  max-width: 890px;
+  margin: 49px auto 0;
+  padding: 27px 28px 0;
+  border-top: 1px solid color-mix(in srgb, var(--m4-primary) 13%, transparent);
+  text-align: center;
+}
+
+#m4-method .m4-method__bottom p {
+  max-width: 790px;
+  margin: 0 auto;
+  color: var(--m4-primary-deep);
+  font-size: calc(clamp( 1rem, 1.65vw, 1.16rem ) * var(--m4-type-scale));
+  line-height: 1.88;
+  font-weight: 800;
+}
+
+@media(hover:hover) {
+  #m4-method .m4-method__item {
+    transition: opacity calc(.72s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.25s * var(--m4-motion-scale)) var(--m4-ease), border-color calc(.25s * var(--m4-motion-scale)) var(--m4-ease);
+  }
+
+  #m4-method .m4-method__item.m4-reveal:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--m4-primary) 30%, transparent);
+  }
+}
+
+@media(max-width:850px) {
+  #m4-method {
+    padding: calc(70px * var(--m4-space-scale)) calc(18px * var(--m4-space-scale)) calc(75px * var(--m4-space-scale));
+  }
+
+  #m4-method .m4-method__head {
+    margin-bottom: 42px;
+  }
+
+  #m4-method .m4-method__grid {
+    gap: 25px;
+  }
+}
+
+@media(max-width:620px) {
+  #m4-method {
+    padding: calc(56px * var(--m4-space-scale)) calc(15px * var(--m4-space-scale)) calc(62px * var(--m4-space-scale));
+  }
+
+  #m4-method .m4-method__head {
+    margin-bottom: 32px;
+  }
+
+  #m4-method .m4-method__kicker {
+    margin-bottom: 9px;
+    font-size: calc(.69rem * var(--m4-type-scale));
+    gap: 7px;
+  }
+
+  #m4-method .m4-method__kicker::before {
+    width: 20px;
+    flex-basis: 20px;
+  }
+
+  #m4-method h2 {
+    font-size: calc(1.88rem * var(--m4-heading-scale));
+    line-height: 1.27;
+  }
+
+  #m4-method .m4-method__lead {
+    margin-top: 12px;
+    font-size: calc(.86rem * var(--m4-type-scale));
+    line-height: 1.78;
+  }
+
+  #m4-method .m4-method__grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  #m4-method .m4-method__item {
+    padding: 20px 2px 0;
+  }
+
+  #m4-method .m4-method__type {
+    margin-bottom: 7px;
+    font-size: calc(.62rem * var(--m4-type-scale));
+  }
+
+  #m4-method .m4-method__item h3 {
+    margin-bottom: 5px;
+    font-size: calc(1.06rem * var(--m4-heading-scale));
+  }
+
+  #m4-method .m4-method__item p {
+    font-size: calc(.81rem * var(--m4-type-scale));
+    line-height: 1.77;
+  }
+
+  #m4-method .m4-method__bottom {
+    margin-top: 33px;
+    padding: 21px 4px 0;
+  }
+
+  #m4-method .m4-method__bottom p {
+    font-size: calc(.90rem * var(--m4-type-scale));
+    line-height: 1.8;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  #m4-method .m4-method__item {
+    transition: none;
+  }
+}
+
+/* self-check: this block is the current version */
+#m4-method {
+  --m4-styled: 8;
+}
+</style>
+
 <section
   id="m4-method" class="m4-section"
   dir="rtl"

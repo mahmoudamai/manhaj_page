@@ -1,5 +1,5 @@
-<!-- M4 · BLOCK 00B — SHARED JAVASCRIPT. Put it in Settings → Tracking Code → Head
-     (best), or in the LAST Code Element on the page. -->
+<!-- M4 · BLOCK 00B — SHARED JAVASCRIPT. Put it in Settings → Tracking Code → Footer or Head,
+     or in the LAST Code Element on the page. -->
 <script>
 /* =====================================================================
    M4 · BLOCK 00B — SHARED JAVASCRIPT
@@ -212,23 +212,23 @@
 
 
   /* ---------------- 5 · SELF-CHECK ----------------
-     Block 00 ends with markers. If GHL dropped or cut the Main CSS, say so
-     (console always; a small banner on GHL preview links or with ?m4-debug=1). */
+     Checks that Block 00 and every section block are the current version.
+     Problems go to the browser console only; the red bar appears ONLY when
+     the page is opened with ?m4-debug=1 — normal visitors never see it. */
   function selfCheck() {
     var cs = getComputedStyle(root);
     var total = parseInt(cs.getPropertyValue("--m4-parts"), 10) || 0;
     var msg = "";
     if (!total) {
-      msg = "M4: Main CSS (Block 00) was not found, or its first rule was broken. " +
-            "If it is in the Custom CSS box, use 00-main-css.css (pure CSS) there.";
+      msg = "M4: Block 00 (theme) was not found, or its first rule was broken. " +
+            "In the Custom CSS box, use 00-theme.css (pure CSS).";
     } else {
       var missing = [];
       for (var k = 1; k <= total; k++) {
         if (!cs.getPropertyValue("--m4-part-" + k).trim()) missing.push(k);
       }
       if (missing.length) {
-        msg = "M4: Main CSS is incomplete — part " + missing.join(", ") + " of " + total +
-              " did not load (GHL probably cut the code). Use the split version.";
+        msg = "M4: Block 00 (theme) is incomplete — GHL probably cut it. Re-paste 00-theme.css.";
       }
     }
     // per section: which blocks are on the page but got none of their CSS?
@@ -237,12 +237,13 @@
       if (!getComputedStyle(el).getPropertyValue("--m4-styled").trim()) unstyled.push("#" + el.id);
     });
     if (unstyled.length) {
-      msg += (msg ? "  " : "") + "M4: no CSS reached " + unstyled.join(", ") +
-             " — Block 00 on this page is an older/other copy, or GHL dropped that part.";
+      msg += (msg ? "  " : "") + "M4: these blocks are not the current version (their <style> is missing): " +
+             unstyled.join(", ") + " — re-paste them from the latest files.";
     }
     if (!msg) return;
     if (window.console) console.warn(msg);
-    if (!/\/preview\/|[?&]m4-debug=1/.test(location.href)) return;
+    // visitors never see this: the bar only appears when YOU add ?m4-debug=1 to the URL
+    if (!/[?&]m4-debug=1\b/.test(location.search)) return;
     var bar = doc.createElement("div");
     bar.textContent = msg;
     bar.setAttribute("style", "position:fixed;top:0;left:0;right:0;z-index:2147483647;padding:10px 14px;" +

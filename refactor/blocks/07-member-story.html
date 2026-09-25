@@ -1,7 +1,194 @@
 <!-- =====================================================================
      M4 · BLOCK 07 — Section 05 — Member comment
-     HTML only. Styles live in Block 00 (Main CSS), behaviour in Block 00B.
+     Section styles are scoped to #m4-member-story. Colours, fonts, sizes and
+     speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
+<style>
+#m4-member-story {
+  direction: rtl;
+  font-family: var(--m4-font-primary) !important;
+  padding: calc(50px * var(--m4-space-scale)) calc(20px * var(--m4-space-scale)) calc(54px * var(--m4-space-scale));
+  background: radial-gradient( circle at 12% 20%, color-mix(in srgb, var(--m4-highlight) 11%, transparent), transparent 30% ), linear-gradient( 180deg, color-mix(in srgb, var(--m4-bg-cream) 77%, var(--m4-highlight)) 0%, color-mix(in srgb, var(--m4-bg-cloud) 57.5%, var(--m4-secondary-soft)) 100% );
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.42), inset 0 -1px 0 color-mix(in srgb, var(--m4-primary) 6%, transparent);
+}
+
+#m4-member-story *,
+#m4-member-story *::before,
+#m4-member-story *::after {
+  box-sizing: border-box;
+}
+
+#m4-member-story .m4-member-story__wrap {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+#m4-member-story .m4-member-story__block {
+  display: grid;
+  grid-template-columns: minmax(230px,.72fr) minmax(0,1.28fr);
+  gap: 42px;
+  align-items: center;
+  padding: 32px 0;
+  border-top: 1px solid color-mix(in srgb, var(--m4-primary) 14%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--m4-primary) 14%, transparent);
+}
+
+#m4-member-story .m4-member-story__context {
+  position: relative;
+  padding-left: 22px;
+}
+
+#m4-member-story .m4-member-story__context::after {
+  content: "";
+  position: absolute;
+  top: 8%;
+  bottom: 8%;
+  left: 0;
+  width: 1px;
+  background: linear-gradient( 180deg, transparent, color-mix(in srgb, var(--m4-primary) 16%, transparent), transparent );
+}
+
+#m4-member-story .m4-member-story__kicker {
+  display: block;
+  margin-bottom: 9px;
+  color: color-mix(in srgb, var(--m4-accent-deep) 91.5%, var(--m4-text-muted));
+  font-size: calc(.68rem * var(--m4-type-scale));
+  line-height: 1.4;
+  font-weight: 900;
+}
+
+#m4-member-story .m4-member-story__context h3 {
+  margin: 0 0 9px;
+  color: var(--m4-primary-deep);
+  font-size: calc(clamp( 1.15rem, 2vw, 1.42rem ) * var(--m4-heading-scale));
+  line-height: 1.55;
+  font-weight: 900;
+}
+
+#m4-member-story .m4-member-story__context p {
+  margin: 0;
+  color: color-mix(in srgb, var(--m4-olive) 70%, var(--m4-bg-cloud));
+  font-size: calc(.82rem * var(--m4-type-scale));
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+#m4-member-story .m4-member-story__message {
+  position: relative;
+  padding: 4px 0 4px 26px;
+}
+
+#m4-member-story .m4-member-story__message-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--m4-primary);
+  font-size: calc(.67rem * var(--m4-type-scale));
+  line-height: 1.4;
+  font-weight: 900;
+}
+
+#m4-member-story .m4-member-story__message-label::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: linear-gradient( 90deg, var(--m4-accent), color-mix(in srgb, var(--m4-primary) 35%, transparent) );
+}
+
+#m4-member-story .m4-member-story__message p {
+  margin: 0 0 13px;
+  color: color-mix(in srgb, var(--m4-black) 59.5%, var(--m4-highlight-soft));
+  font-size: calc(clamp( .96rem, 1.6vw, 1.08rem ) * var(--m4-type-scale));
+  line-height: 1.95;
+  font-weight: 600;
+}
+
+#m4-member-story .m4-member-story__name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--m4-primary-deep);
+  font-size: calc(.74rem * var(--m4-type-scale));
+  line-height: 1.4;
+  font-weight: 900;
+}
+
+#m4-member-story .m4-member-story__name::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--m4-secondary);
+}
+
+#m4-member-story .m4-member-story__context,
+#m4-member-story .m4-member-story__message {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity calc(.68s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.68s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+#m4-member-story .m4-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media(max-width:680px) {
+  #m4-member-story {
+    padding: calc(38px * var(--m4-space-scale)) calc(15px * var(--m4-space-scale)) calc(42px * var(--m4-space-scale));
+  }
+
+  #m4-member-story .m4-member-story__block {
+    grid-template-columns: 1fr;
+    gap: 23px;
+    padding: 25px 0;
+  }
+
+  #m4-member-story .m4-member-story__context {
+    padding: 0 0 20px;
+    border-bottom: 1px solid color-mix(in srgb, var(--m4-primary) 11%, transparent);
+  }
+
+  #m4-member-story .m4-member-story__context::after {
+    display: none;
+  }
+
+  #m4-member-story .m4-member-story__context h3 {
+    font-size: calc(1.08rem * var(--m4-heading-scale));
+  }
+
+  #m4-member-story .m4-member-story__context p {
+    max-width: 360px;
+    font-size: calc(.76rem * var(--m4-type-scale));
+    line-height: 1.72;
+  }
+
+  #m4-member-story .m4-member-story__message {
+    padding: 0;
+  }
+
+  #m4-member-story .m4-member-story__message p {
+    font-size: calc(.88rem * var(--m4-type-scale));
+    line-height: 1.82;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  #m4-member-story .m4-member-story__context,
+  #m4-member-story .m4-member-story__message {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* self-check: this block is the current version */
+#m4-member-story {
+  --m4-styled: 7;
+}
+</style>
+
 <section
   id="m4-member-story" class="m4-section"
   dir="rtl"

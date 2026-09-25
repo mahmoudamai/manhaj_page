@@ -618,82 +618,71 @@ def minify_css(css):
     return css.replace(";}", "}").strip()
 
 
+FONTS_LINK = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
+              '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
+              '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700'
+              '&family=Amiri:wght@400;700&display=swap">\n')
+FONTS_IMPORT = ('@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700'
+                '&family=Amiri:wght@400;700&display=swap");\n\n')
+
+
 def main():
-    (OUT / "blocks").mkdir(parents=True, exist_ok=True)
-    for f in (OUT / "blocks").glob("*.html"):
-        f.unlink()
-    section_css = []
+    blocks = OUT / "blocks"
+    blocks.mkdir(parents=True, exist_ok=True)
+    for f in list(blocks.rglob("*")):
+        if f.is_file():
+            f.unlink()
+    for d in sorted(blocks.rglob("*"), reverse=True):
+        if d.is_dir():
+            d.rmdir()
+
+    base = (ROOT / "tools" / "m4-base.css").read_text(encoding="utf-8")
+    extra = (ROOT / "tools" / "m4-overrides.css").read_text(encoding="utf-8")
+
+    # ---- Block 00: theme + shared system (small: fits any GHL field) ----
+    theme = (":root { --m4-parts: 1; }\n\n" + base.rstrip() + "\n\n" + extra.rstrip() +
+             "\n\n/* end of Block 00 */\n:root { --m4-part-1: 1; }\n")
+    theme = theme.replace("""   4 · SECTIONS
+   Each block below is scoped to its own #m4-<section> id, so nothing
+   leaks into GHL forms, menus or checkout elements.""", """   4 · SECTIONS
+   Each section's own styles live inside its GHL block (a <style> at the
+   top of the block), scoped to its #m4-<section> id so nothing leaks into
+   GHL forms, menus or checkout. They read the tokens above, so the theme
+   is still edited only here.""")
+    head00 = ("<!-- =====================================================================\n"
+              "     M4 · BLOCK 00 — THEME + SHARED SYSTEM (fonts, tokens, primitives, motion)\n"
+              "     ===================================================================== -->\n")
+    (blocks / "00-theme.css").write_text(
+        FONTS_IMPORT + "/* M4 · BLOCK 00 — for GHL → page Settings → Custom CSS (pure CSS) */\n\n" + theme, encoding="utf-8")
+    (blocks / "00-theme.html").write_text(head00 + FONTS_LINK + "<style>\n" + theme + "</style>\n", encoding="utf-8")
+
+    js = (ROOT / "tools" / "m4-shared.js").read_text(encoding="utf-8")
+    (blocks / "00B-shared-js.html").write_text(
+        "<!-- M4 · BLOCK 00B — SHARED JAVASCRIPT. Put it in Settings → Tracking Code → Footer or Head,\n"
+        "     or in the LAST Code Element on the page. -->\n<script>\n" + js + "</script>\n", encoding="utf-8")
+
+    # ---- section blocks: own <style> + HTML ----
+    all_css = [base]
+    sizes = []
     for i, (fname, slug, old_id, label) in enumerate(BLOCKS, 1):
         nodes, body, _ = process_block(fname, slug, old_id, label)
-        marker = f"\n\n/* self-check marker */\n#m4-{slug} {{\n  --m4-styled: {i};\n}}" if old_id else ""
-        section_css.append((i, slug, label, dump(nodes) + marker))
+        css = dump(nodes)
+        if old_id:
+            css += f"\n\n/* self-check: this block is the current version */\n#m4-{slug} {{\n  --m4-styled: {i};\n}}"
+        all_css.append(f"/* ===== {i:02d} · {label} · #m4-{slug} ===== */\n\n{css}\n")
         header = (f"<!-- =====================================================================\n"
                   f"     M4 · BLOCK {i:02d} — {label}\n"
-                  f"     HTML only. Styles live in Block 00 (Main CSS), behaviour in Block 00B.\n"
+                  f"     Section styles are scoped to #m4-{slug}. Colours, fonts, sizes and\n"
+                  f"     speeds come from Block 00 — edit the theme there, not here.\n"
                   f"     ===================================================================== -->\n")
         if slug == "sticky":
             header += ("<!-- The fixed GHL section that holds this block must have the CSS class\n"
                        "     \"m4-sticky-host\" (the old class \"mhh-sticky-cta\" still works too). -->\n")
-        (OUT / "blocks" / f"{i:02d}-{slug}.html").write_text(header + pretty_html(body), encoding="utf-8")
-
-    base = (ROOT / "tools" / "m4-base.css").read_text(encoding="utf-8")
-    parts = [base]
-    for i, slug, label, css in section_css:
-        parts.append(f"/* =====================================================================\n"
-                     f"   {i:02d} · {label}   ·   #m4-{slug}\n"
-                     f"   ===================================================================== */\n\n{css}\n")
-    extra = (ROOT / "tools" / "m4-overrides.css").read_text(encoding="utf-8")
-    parts.append(extra)
-    css_all = "\n\n".join(parts)
-    (OUT / "main.css").write_text(css_all, encoding="utf-8")
-    # ---- Block 00 + 00B ----
-    fonts = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
-             '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700'
-             '&family=Amiri:wght@400;700&display=swap">\n')
-    head00 = ("<!-- =====================================================================\n"
-              "     M4 · BLOCK 00 — MAIN CSS  (fonts + the whole design system)\n"
-              "     Put this FIRST: top of the page in a Code Element, or in\n"
-              "     Settings → Tracking Code → Head. Theme controls are at the top.\n"
-              "     ===================================================================== -->\n")
-    # completeness markers: Block 00B reads them and reports a missing / cut-off part
-    def with_markers(css, total, k):
-        head = f":root {{ --m4-parts: {total}; }}\n\n" if k == 1 else ""
-        return head + css + f"\n\n/* end of part {k}/{total} */\n:root {{ --m4-part-{k}: 1; }}\n"
-
-    single = with_markers(css_all, 1, 1)
-    (OUT / "blocks" / "00-main-css.html").write_text(head00 + fonts + "<style>\n" + single + "\n</style>\n", encoding="utf-8")
-    (OUT / "blocks" / "00-main-css.min.html").write_text(head00 + fonts + "<style>" + minify_css(single) + "</style>\n", encoding="utf-8")
-
-    # pure CSS (no HTML tags) for GHL's "Custom CSS" box
-    font_import = ('@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700'
-                   '&family=Amiri:wght@400;700&display=swap");\n\n')
-    (OUT / "blocks" / "00-main-css.css").write_text(
-        font_import + "/* M4 · MAIN CSS for GHL → Settings → Custom CSS (pure CSS, no <style> tags) */\n\n" + single, encoding="utf-8")
-
-    # split version: several smaller Code Elements, in case GHL cuts long code
-    LIMIT = 60 * 1024
-    chunks, cur = [], ""
-    for piece in parts:
-        if cur and len(cur) + len(piece) > LIMIT:
-            chunks.append(cur)
-            cur = ""
-        cur += piece + "\n\n"
-    chunks.append(cur)
-    split_dir = OUT / "blocks" / "00-main-css-split"
-    split_dir.mkdir(exist_ok=True)
-    for f in split_dir.glob("*.html"):
-        f.unlink()
-    total = len(chunks)
-    for k, chunk in enumerate(chunks, 1):
-        hdr = (f"<!-- M4 · BLOCK 00 — MAIN CSS · PART {k} of {total}\n"
-               f"     Paste parts 1→{total} into {total} Code Elements at the very TOP of the page, in order. -->\n")
-        (split_dir / f"00-main-css-part{k}.html").write_text(
-            hdr + (fonts if k == 1 else "") + "<style>\n" + with_markers(chunk, total, k) + "</style>\n", encoding="utf-8")
-    js = (ROOT / "tools" / "m4-shared.js").read_text(encoding="utf-8")
-    head00b = ("<!-- M4 · BLOCK 00B — SHARED JAVASCRIPT. Put it in Settings → Tracking Code → Head\n"
-               "     (best), or in the LAST Code Element on the page. -->\n")
-    (OUT / "blocks" / "00B-shared-js.html").write_text(head00b + "<script>\n" + js + "</script>\n", encoding="utf-8")
+        out = header + "<style>\n" + css + "\n</style>\n\n" + pretty_html(body)
+        (blocks / f"{i:02d}-{slug}.html").write_text(out, encoding="utf-8")
+        sizes.append((f"{i:02d}-{slug}", len(out)))
+    all_css.append(extra)
+    (OUT / "main.css").write_text("\n\n".join(all_css), encoding="utf-8")
 
     # ---- preview (GHL elements shown as placeholders in their real positions) ----
     def ph(name):
@@ -702,20 +691,20 @@ def main():
     order = [("01", None), ("GHL", "video (block 02) + video style (03)"), ("02", None), ("GHL", "button (block 05)"),
              ("03", None), ("04", None), ("GHL", "logos marquee"), *[(f"{n:02d}", None) for n in range(5, 24)], ("25", None)]
     parts = []
-    files = {f.name[:2]: f for f in (OUT / "blocks").glob("[0-9][0-9]-*.html")}
+    files = {f.name[:2]: f for f in blocks.glob("[0-9][0-9]-*.html")}
     for key, label in order:
         parts.append(ph(label) if key == "GHL" else files[key].read_text(encoding="utf-8"))
     sticky = files["24"].read_text(encoding="utf-8")
     page = ("<!doctype html>\n<html lang=\"ar\">\n<head>\n<meta charset=\"utf-8\">\n"
             "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>M4 preview</title>\n"
             "<style>body{margin:0}</style>\n"
-            + (OUT / "blocks" / "00-main-css.html").read_text(encoding="utf-8")
-            + (OUT / "blocks" / "00B-shared-js.html").read_text(encoding="utf-8")
+            + (blocks / "00-theme.html").read_text(encoding="utf-8")
+            + (blocks / "00B-shared-js.html").read_text(encoding="utf-8")
             + "</head>\n<body>\n" + "\n".join(parts)
             + '\n<div class="m4-sticky-host" style="position:fixed;left:0;right:0;bottom:0;z-index:999">' + sticky + "</div>\n</body>\n</html>\n")
     (OUT / "preview.html").write_text(page, encoding="utf-8")
     print("colors:", color_stats, "literals left:", sorted(literal_left))
-    print("main.css", round(len(css_all) / 1024, 1), "KB")
+    print("Block 00:", len(theme), "chars; largest blocks:", sorted(sizes, key=lambda x: -x[1])[:4])
 
 
 if __name__ == "__main__":

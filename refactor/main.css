@@ -205,9 +205,7 @@
    ===================================================================== */
 
 
-/* =====================================================================
-   01 · Section 01 · Block 01 — Hero   ·   #m4-hero
-   ===================================================================== */
+/* ===== 01 · Section 01 · Block 01 — Hero · #m4-hero ===== */
 
 #m4-hero {
   direction: rtl;
@@ -759,15 +757,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-hero {
   --m4-styled: 1;
 }
 
 
-/* =====================================================================
-   02 · Section 01 · Block 04 — Course info   ·   #m4-hero-stats
-   ===================================================================== */
+/* ===== 02 · Section 01 · Block 04 — Course info · #m4-hero-stats ===== */
 
 #m4-hero-stats {
   direction: rtl;
@@ -1005,15 +1001,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-hero-stats {
   --m4-styled: 2;
 }
 
 
-/* =====================================================================
-   03 · Section 01 · Block 06 — Trust   ·   #m4-hero-trust
-   ===================================================================== */
+/* ===== 03 · Section 01 · Block 06 — Trust · #m4-hero-trust ===== */
 
 #m4-hero-trust {
   width: 100%;
@@ -1318,15 +1312,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-hero-trust {
   --m4-styled: 3;
 }
 
 
-/* =====================================================================
-   04 · Section 02 · Block 01 — Kareem intro   ·   #m4-kareem-intro
-   ===================================================================== */
+/* ===== 04 · Section 02 · Block 01 — Kareem intro · #m4-kareem-intro ===== */
 
 #m4-kareem-intro {
   direction: rtl;
@@ -1949,15 +1941,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-kareem-intro {
   --m4-styled: 4;
 }
 
 
-/* =====================================================================
-   05 · Section 03 — Pain   ·   #m4-pain
-   ===================================================================== */
+/* ===== 05 · Section 03 — Pain · #m4-pain ===== */
 
 #m4-pain {
   position: relative;
@@ -2430,15 +2420,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-pain {
   --m4-styled: 5;
 }
 
 
-/* =====================================================================
-   06 · Section 04 — سر الفاقة   ·   #m4-faqah
-   ===================================================================== */
+/* ===== 06 · Section 04 — سر الفاقة · #m4-faqah ===== */
 
 #m4-faqah {
   position: relative;
@@ -2802,15 +2790,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-faqah {
   --m4-styled: 6;
 }
 
 
-/* =====================================================================
-   07 · Section 05 — Member comment   ·   #m4-member-story
-   ===================================================================== */
+/* ===== 07 · Section 05 — Member comment · #m4-member-story ===== */
 
 #m4-member-story {
   direction: rtl;
@@ -2991,15 +2977,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-member-story {
   --m4-styled: 7;
 }
 
 
-/* =====================================================================
-   08 · Section 06 — How it was built   ·   #m4-method
-   ===================================================================== */
+/* ===== 08 · Section 06 — How it was built · #m4-method ===== */
 
 #m4-method {
   position: relative;
@@ -3269,15 +3253,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-method {
   --m4-styled: 8;
 }
 
 
-/* =====================================================================
-   09 · Section 07 — The four axes   ·   #m4-curriculum
-   ===================================================================== */
+/* ===== 09 · Section 07 — The four axes · #m4-curriculum ===== */
 
 #m4-curriculum {
   position: relative;
@@ -3830,15 +3812,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-curriculum {
   --m4-styled: 9;
 }
 
 
-/* =====================================================================
-   10 · Section 08 — Surat Yusuf   ·   #m4-yusuf
-   ===================================================================== */
+/* ===== 10 · Section 08 — Surat Yusuf · #m4-yusuf ===== */
 
 #m4-yusuf {
   position: relative;
@@ -4200,15 +4180,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-yusuf {
   --m4-styled: 10;
 }
 
 
-/* =====================================================================
-   11 · Section 09 — Lectures so far   ·   #m4-lectures
-   ===================================================================== */
+/* ===== 11 · Section 09 — Lectures so far · #m4-lectures ===== */
 
 #m4-lectures {
   position: relative;
@@ -4724,15 +4702,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-lectures {
   --m4-styled: 11;
 }
 
 
-/* =====================================================================
-   12 · Section 10 — Attendee comments   ·   #m4-lecture-notes
-   ===================================================================== */
+/* ===== 12 · Section 10 — Attendee comments · #m4-lecture-notes ===== */
 
 #m4-lecture-notes {
   position: relative;
@@ -4938,15 +4914,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-lecture-notes {
   --m4-styled: 12;
 }
 
 
-/* =====================================================================
-   13 · Section 11 — رياضة الفكر   ·   #m4-practice
-   ===================================================================== */
+/* ===== 13 · Section 11 — رياضة الفكر · #m4-practice ===== */
 
 #m4-practice {
   position: relative;
@@ -5829,15 +5803,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-practice {
   --m4-styled: 13;
 }
 
 
-/* =====================================================================
-   14 · Section 12 — Live sessions   ·   #m4-live
-   ===================================================================== */
+/* ===== 14 · Section 12 — Live sessions · #m4-live ===== */
 
 #m4-live {
   position: relative;
@@ -6402,15 +6374,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-live {
   --m4-styled: 14;
 }
 
 
-/* =====================================================================
-   15 · Section 13 — Telegram community   ·   #m4-telegram
-   ===================================================================== */
+/* ===== 15 · Section 13 — Telegram community · #m4-telegram ===== */
 
 #m4-telegram {
   position: relative;
@@ -7149,15 +7119,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-telegram {
   --m4-styled: 15;
 }
 
 
-/* =====================================================================
-   16 · Section 14 — WhatsApp screenshots   ·   #m4-wa-reviews
-   ===================================================================== */
+/* ===== 16 · Section 14 — WhatsApp screenshots · #m4-wa-reviews ===== */
 
 #m4-wa-reviews {
   position: relative;
@@ -7478,15 +7446,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-wa-reviews {
   --m4-styled: 16;
 }
 
 
-/* =====================================================================
-   17 · Section 15 — Is it for you   ·   #m4-fit
-   ===================================================================== */
+/* ===== 17 · Section 15 — Is it for you · #m4-fit ===== */
 
 #m4-fit {
   position: relative;
@@ -7911,15 +7877,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-fit {
   --m4-styled: 17;
 }
 
 
-/* =====================================================================
-   18 · Section 16 — The year journey   ·   #m4-year
-   ===================================================================== */
+/* ===== 18 · Section 16 — The year journey · #m4-year ===== */
 
 #m4-year {
   position: relative;
@@ -8404,15 +8368,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-year {
   --m4-styled: 18;
 }
 
 
-/* =====================================================================
-   19 · Section 17 — Written testimonials   ·   #m4-testimonials
-   ===================================================================== */
+/* ===== 19 · Section 17 — Written testimonials · #m4-testimonials ===== */
 
 #m4-testimonials {
   position: relative;
@@ -8798,15 +8760,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-testimonials {
   --m4-styled: 19;
 }
 
 
-/* =====================================================================
-   20 · Section 18 — Kareem full profile   ·   #m4-kareem
-   ===================================================================== */
+/* ===== 20 · Section 18 — Kareem full profile · #m4-kareem ===== */
 
 #m4-kareem {
   position: relative;
@@ -9418,15 +9378,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-kareem {
   --m4-styled: 20;
 }
 
 
-/* =====================================================================
-   21 · Section 19 — Price & offer   ·   #m4-offer
-   ===================================================================== */
+/* ===== 21 · Section 19 — Price & offer · #m4-offer ===== */
 
 #m4-offer {
   position: relative;
@@ -10055,15 +10013,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-offer {
   --m4-styled: 21;
 }
 
 
-/* =====================================================================
-   22 · Section 20 — 7-day guarantee   ·   #m4-guarantee
-   ===================================================================== */
+/* ===== 22 · Section 20 — 7-day guarantee · #m4-guarantee ===== */
 
 #m4-guarantee {
   position: relative;
@@ -10366,15 +10322,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-guarantee {
   --m4-styled: 22;
 }
 
 
-/* =====================================================================
-   23 · Section 21 — FAQ   ·   #m4-faq
-   ===================================================================== */
+/* ===== 23 · Section 21 — FAQ · #m4-faq ===== */
 
 #m4-faq {
   position: relative;
@@ -10708,15 +10662,13 @@
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-faq {
   --m4-styled: 23;
 }
 
 
-/* =====================================================================
-   24 · Section 22 — Sticky bar (inside the fixed GHL section)   ·   #m4-sticky
-   ===================================================================== */
+/* ===== 24 · Section 22 — Sticky bar (inside the fixed GHL section) · #m4-sticky ===== */
 
 html,
 body {
@@ -11240,9 +11192,7 @@ and
 }
 
 
-/* =====================================================================
-   25 · Section 23 — Footer   ·   #m4-footer
-   ===================================================================== */
+/* ===== 25 · Section 23 — Footer · #m4-footer ===== */
 
 #m4-footer {
   position: relative;
@@ -11435,7 +11385,7 @@ and
   }
 }
 
-/* self-check marker */
+/* self-check: this block is the current version */
 #m4-footer {
   --m4-styled: 25;
 }

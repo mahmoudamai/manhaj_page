@@ -1,7 +1,636 @@
 <!-- =====================================================================
      M4 · BLOCK 04 — Section 02 · Block 01 — Kareem intro
-     HTML only. Styles live in Block 00 (Main CSS), behaviour in Block 00B.
+     Section styles are scoped to #m4-kareem-intro. Colours, fonts, sizes and
+     speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
+<style>
+#m4-kareem-intro {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--m4-font-primary) !important;
+  position: relative;
+  overflow: hidden;
+  padding: calc(46px * var(--m4-space-scale)) calc(18px * var(--m4-space-scale)) calc(52px * var(--m4-space-scale));
+  color: var(--m4-ink);
+  background: radial-gradient( circle at 8% 15%, color-mix(in srgb, var(--m4-secondary) 9%, transparent), transparent 28% ), radial-gradient( circle at 92% 90%, color-mix(in srgb, var(--m4-highlight) 6%, transparent), transparent 25% ), linear-gradient( 180deg, var(--m4-bg-cream) 0%, color-mix(in srgb, var(--m4-bg-paper) 85%, var(--m4-secondary)) 55%, color-mix(in srgb, var(--m4-secondary-soft) 54%, var(--m4-white)) 100% );
+}
+
+#m4-kareem-intro *,
+#m4-kareem-intro *::before,
+#m4-kareem-intro *::after {
+  box-sizing: border-box;
+}
+
+#m4-kareem-intro .m4-kareem-intro__wrap {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+#m4-kareem-intro .m4-kareem-intro__card {
+  position: relative;
+  direction: ltr;
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  min-height: 330px;
+  padding: 30px 38px 30px 28px;
+  border: 1px solid color-mix(in srgb, var(--m4-secondary) 31%, transparent);
+  border-radius: calc(30px * var(--m4-radius-scale));
+  background: radial-gradient( circle at 92% 8%, color-mix(in srgb, var(--m4-highlight) 6.5%, transparent), transparent 28% ), linear-gradient( 180deg, color-mix(in srgb, var(--m4-bg-paper) 98%, transparent), color-mix(in srgb, color-mix(in srgb, var(--m4-white) 87.5%, var(--m4-accent-soft)) 96%, transparent) );
+  box-shadow: 0 20px 52px color-mix(in srgb, var(--m4-ink) 7%, transparent), inset 0 1px 0 rgba(255,255,255,.95);
+  overflow: visible;
+}
+
+#m4-kareem-intro .m4-kareem-intro__card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 16%;
+  right: 16%;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient( 90deg, transparent, color-mix(in srgb, var(--m4-accent) 46%, transparent), transparent );
+}
+
+#m4-kareem-intro .m4-kareem-intro__visual {
+  direction: rtl;
+  position: relative;
+  flex: 0 0 235px;
+  width: 235px;
+  min-height: 285px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -26px;
+}
+
+#m4-kareem-intro .m4-kareem-intro__visual::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 215px;
+  height: 245px;
+  border-radius: 50%;
+  background: radial-gradient( ellipse at center, color-mix(in srgb, var(--m4-primary) 15%, transparent) 0%, color-mix(in srgb, var(--m4-highlight) 6.5%, transparent) 44%, transparent 72% );
+  filter: blur(15px);
+  transform: translateY(9px);
+  pointer-events: none;
+}
+
+#m4-kareem-intro .m4-kareem-intro__photo {
+  position: relative;
+  z-index: 2;
+  width: 210px;
+  height: 262px;
+  overflow: hidden;
+  border-radius: calc(27px * var(--m4-radius-scale));
+  border: 4px solid color-mix(in srgb, var(--m4-bg-paper) 96%, transparent);
+  background: var(--m4-bg-paper);
+  box-shadow: 0 24px 46px color-mix(in srgb, var(--m4-primary-deep) 20%, transparent), 0 7px 18px color-mix(in srgb, var(--m4-ink) 9%, transparent);
+}
+
+#m4-kareem-intro .m4-kareem-intro__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+#m4-kareem-intro .m4-kareem-intro__content {
+  direction: rtl;
+  text-align: right;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#m4-kareem-intro .m4-kareem-intro__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  width: fit-content;
+  margin-bottom: 7px;
+  color: var(--m4-primary);
+  font-size: calc(.75rem * var(--m4-type-scale));
+  line-height: 1.4;
+  font-weight: 900;
+}
+
+#m4-kareem-intro .m4-kareem-intro__kicker::before {
+  content: "";
+  width: 25px;
+  height: 1px;
+  flex: 0 0 25px;
+  border-radius: calc(999px * var(--m4-radius-scale));
+  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-primary) 18%, transparent), var(--m4-accent) );
+}
+
+#m4-kareem-intro h3 {
+  margin: 0 0 7px;
+  color: var(--m4-primary-deep);
+  font-size: calc(clamp( 2rem, 3vw, 2.55rem ) * var(--m4-heading-scale));
+  line-height: 1.13;
+  font-weight: 900;
+  letter-spacing: -.7px;
+}
+
+#m4-kareem-intro .m4-kareem-intro__role {
+  margin: 0;
+  max-width: 720px;
+  color: color-mix(in srgb, var(--m4-primary-alt) 84%, var(--m4-accent));
+  font-size: calc(.96rem * var(--m4-type-scale));
+  line-height: 1.75;
+  font-weight: 650;
+}
+
+#m4-kareem-intro .m4-kareem-intro__role strong {
+  color: var(--m4-primary);
+  font-weight: 850;
+}
+
+#m4-kareem-intro .m4-kareem-intro__description {
+  margin: 10px 0 0;
+  max-width: 735px;
+  color: var(--m4-text-muted);
+  font-size: calc(.84rem * var(--m4-type-scale));
+  line-height: 1.82;
+  font-weight: 500;
+}
+
+#m4-kareem-intro .m4-kareem-intro__proof {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 15px;
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid color-mix(in srgb, var(--m4-secondary) 28%, transparent);
+}
+
+#m4-kareem-intro .m4-kareem-intro__metric {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+#m4-kareem-intro .m4-kareem-intro__value {
+  color: var(--m4-primary-deep);
+  font-size: calc(1rem * var(--m4-type-scale));
+  line-height: 1;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+#m4-kareem-intro .m4-kareem-intro__label {
+  color: var(--m4-text-muted);
+  font-size: calc(.65rem * var(--m4-type-scale));
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+#m4-kareem-intro .m4-kareem-intro__proof-dot {
+  width: 4px;
+  height: 4px;
+  flex: 0 0 4px;
+  border-radius: 50%;
+  background: var(--m4-accent);
+  opacity: .66;
+}
+
+#m4-kareem-intro .m4-kareem-intro__credential {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  color: color-mix(in srgb, var(--m4-text) 90.5%, var(--m4-highlight-soft));
+  font-size: calc(.66rem * var(--m4-type-scale));
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+#m4-kareem-intro .m4-kareem-intro__credential-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--m4-primary);
+  background: color-mix(in srgb, var(--m4-secondary-soft) 78%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--m4-secondary) 34%, transparent);
+}
+
+#m4-kareem-intro .m4-kareem-intro__credential-icon svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#m4-kareem-intro .m4-kareem-intro__credential strong {
+  color: var(--m4-ink);
+  font-weight: 850;
+}
+
+#m4-kareem-intro .m4-kareem-intro__photo-reveal {
+  opacity: 0;
+  transform: translateX(-22px) scale(.975);
+  transition: opacity calc(.76s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.76s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+#m4-kareem-intro .m4-kareem-intro__reveal {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity calc(.66s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.66s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+#m4-kareem-intro .m4-reveal {
+  opacity: 1;
+  transform: translate(0,0) scale(1);
+}
+
+#m4-kareem-intro .m4-kareem-intro__photo-reveal.m4-reveal .m4-kareem-intro__photo {
+  animation: m4-kareem-intro-kareem-float calc(6s * var(--m4-motion-scale)) ease-in-out infinite;
+}
+
+@keyframes m4-kareem-intro-kareem-float {
+  0%, 100%{ transform:translateY(0); }
+  50%{ transform:translateY(-3px); }
+}
+
+@media(hover:hover) {
+  #m4-kareem-intro .m4-kareem-intro__card {
+    transition: transform calc(.24s * var(--m4-motion-scale)) var(--m4-ease), box-shadow calc(.24s * var(--m4-motion-scale)) var(--m4-ease), border-color calc(.24s * var(--m4-motion-scale)) var(--m4-ease);
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--m4-highlight) 40%, transparent);
+    box-shadow: 0 24px 58px color-mix(in srgb, var(--m4-ink) 9%, transparent), inset 0 1px 0 rgba(255,255,255,.96);
+  }
+}
+
+@media(max-width:900px) {
+  #m4-kareem-intro {
+    padding: calc(40px * var(--m4-space-scale)) calc(14px * var(--m4-space-scale)) calc(44px * var(--m4-space-scale));
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__card {
+    gap: 24px;
+    padding: 25px 26px 25px 20px;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__visual {
+    flex-basis: 200px;
+    width: 200px;
+    margin-left: -18px;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__photo {
+    width: 180px;
+    height: 228px;
+  }
+}
+
+@media(max-width:640px) {
+  #m4-kareem-intro {
+    padding: calc(30px * var(--m4-space-scale)) calc(11px * var(--m4-space-scale)) calc(34px * var(--m4-space-scale));
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__card {
+    direction: rtl;
+    flex-direction: column;
+    gap: 12px;
+    padding: 17px 16px 18px;
+    border-radius: calc(23px * var(--m4-radius-scale));
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__visual {
+    flex: none;
+    width: 100%;
+    min-height: 185px;
+    margin-left: 0;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__visual::before {
+    width: 155px;
+    height: 180px;
+    filter: blur(13px);
+    transform: translateY(8px);
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__photo {
+    width: 138px;
+    height: 174px;
+    border-radius: calc(22px * var(--m4-radius-scale));
+    border-width: 3px;
+    box-shadow: 0 18px 34px color-mix(in srgb, var(--m4-primary-deep) 17%, transparent), 0 5px 14px color-mix(in srgb, var(--m4-ink) 7%, transparent);
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__content {
+    width: 100%;
+  }
+
+  #m4-kareem-intro h3 {
+    font-size: calc(1.68rem * var(--m4-heading-scale));
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__role {
+    font-size: calc(.87rem * var(--m4-type-scale));
+    line-height: 1.70;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__description {
+    margin-top: 8px;
+    font-size: calc(.77rem * var(--m4-type-scale));
+    line-height: 1.70;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__kicker::before {
+    width: 20px;
+    flex-basis: 20px;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__proof {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 7px;
+    margin-top: 15px;
+    padding-top: 14px;
+    border-top: 1px solid color-mix(in srgb, var(--m4-secondary) 27%, transparent);
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__proof-dot {
+    display: none;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__metric {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-width: 0;
+    min-height: 68px;
+    padding: 10px 5px;
+    text-align: center;
+    border: 1px solid color-mix(in srgb, var(--m4-secondary) 28%, transparent);
+    border-radius: calc(14px * var(--m4-radius-scale));
+    background: radial-gradient( circle at 50% 0%, color-mix(in srgb, var(--m4-highlight) 9%, transparent), transparent 60% ), color-mix(in srgb, color-mix(in srgb, var(--m4-bg-paper) 90.5%, var(--m4-highlight-soft)) 76%, transparent);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.86);
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__metric::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 24%;
+    right: 24%;
+    height: 1px;
+    background: linear-gradient( 90deg, transparent, color-mix(in srgb, var(--m4-accent) 48%, transparent), transparent );
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__value {
+    display: block;
+    font-size: calc(.94rem * var(--m4-type-scale));
+    line-height: 1.1;
+    font-weight: 900;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__label {
+    display: block;
+    font-size: calc(.57rem * var(--m4-type-scale));
+    line-height: 1.35;
+    white-space: normal;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__credential {
+    width: 100%;
+    margin-top: 9px;
+    padding: 8px 10px;
+    justify-content: center;
+    gap: 7px;
+    border: 1px solid color-mix(in srgb, var(--m4-secondary) 25%, transparent);
+    border-radius: calc(13px * var(--m4-radius-scale));
+    background: color-mix(in srgb, var(--m4-bg-cloud) 60%, transparent);
+    font-size: calc(.59rem * var(--m4-type-scale));
+    text-align: center;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__credential-icon {
+    width: 23px;
+    height: 23px;
+    flex-basis: 23px;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__photo-reveal {
+    transform: translateY(14px) scale(.975);
+  }
+}
+
+@media(max-width:370px) {
+  #m4-kareem-intro .m4-kareem-intro__proof {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 5px;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__metric {
+    min-height: 64px;
+    padding: 9px 3px;
+    border-radius: calc(12px * var(--m4-radius-scale));
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__value {
+    font-size: calc(.84rem * var(--m4-type-scale));
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__label {
+    font-size: calc(.53rem * var(--m4-type-scale));
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  #m4-kareem-intro .m4-kareem-intro__photo-reveal,
+  #m4-kareem-intro .m4-kareem-intro__reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__photo-reveal.m4-reveal .m4-kareem-intro__photo {
+    animation: none;
+  }
+}
+
+@media(max-width:640px) {
+  #m4-kareem-intro .m4-kareem-intro__card {
+    display: grid;
+    direction: ltr;
+    grid-template-columns: 122px minmax(0,1fr);
+    grid-template-rows: auto auto auto auto auto auto;
+    column-gap: 14px;
+    row-gap: 0;
+    align-items: start;
+    padding: 17px 16px 18px;
+    border-radius: calc(23px * var(--m4-radius-scale));
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__content {
+    display: contents;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__visual {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    width: 122px;
+    min-height: 0;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__visual::before {
+    width: 128px;
+    height: 150px;
+    filter: blur(12px);
+    opacity: .72;
+    transform: translate(-3px,6px);
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__photo {
+    width: 118px;
+    height: 150px;
+    margin: 0;
+    border: 3px solid color-mix(in srgb, var(--m4-bg-paper) 96%, transparent);
+    border-radius: calc(20px * var(--m4-radius-scale));
+    box-shadow: 0 15px 29px color-mix(in srgb, var(--m4-primary-deep) 16%, transparent), 0 5px 12px color-mix(in srgb, var(--m4-ink) 6.5%, transparent);
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__kicker {
+    grid-column: 2;
+    grid-row: 1;
+    direction: rtl;
+    justify-self: end;
+    margin: 2px 0 7px;
+    font-size: calc(.68rem * var(--m4-type-scale));
+    line-height: 1.35;
+    gap: 6px;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__kicker::before {
+    width: 16px;
+    flex-basis: 16px;
+  }
+
+  #m4-kareem-intro h3 {
+    grid-column: 2;
+    grid-row: 2;
+    direction: rtl;
+    text-align: right;
+    align-self: start;
+    margin: 0 0 7px;
+    font-size: calc(1.55rem * var(--m4-heading-scale));
+    line-height: 1.16;
+    letter-spacing: -.4px;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__role {
+    grid-column: 2;
+    grid-row: 3;
+    direction: rtl;
+    text-align: right;
+    margin: 0;
+    font-size: calc(.74rem * var(--m4-type-scale));
+    line-height: 1.67;
+    font-weight: 650;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__description {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    direction: rtl;
+    text-align: right;
+    width: 100%;
+    max-width: none;
+    margin: 15px 0 0;
+    padding-top: 13px;
+    border-top: 1px solid color-mix(in srgb, var(--m4-secondary) 22%, transparent);
+    font-size: calc(.76rem * var(--m4-type-scale));
+    line-height: 1.75;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__proof {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    direction: rtl;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 7px;
+    width: 100%;
+    margin-top: 14px;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__proof-dot {
+    display: none;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__metric {
+    min-height: 66px;
+    padding: 9px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+    border: 1px solid color-mix(in srgb, var(--m4-secondary) 28%, transparent);
+    border-radius: calc(14px * var(--m4-radius-scale));
+    background: radial-gradient( circle at 50% 0%, color-mix(in srgb, var(--m4-highlight) 8%, transparent), transparent 60% ), color-mix(in srgb, color-mix(in srgb, var(--m4-bg-paper) 90.5%, var(--m4-highlight-soft)) 72%, transparent);
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__value {
+    font-size: calc(.91rem * var(--m4-type-scale));
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__label {
+    font-size: calc(.56rem * var(--m4-type-scale));
+    line-height: 1.35;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__credential {
+    grid-column: 1 / -1;
+    grid-row: 6;
+    direction: rtl;
+    width: 100%;
+    margin-top: 9px;
+    padding: 8px 9px;
+    justify-content: center;
+    border: 1px solid color-mix(in srgb, var(--m4-secondary) 24%, transparent);
+    border-radius: calc(13px * var(--m4-radius-scale));
+    background: color-mix(in srgb, var(--m4-bg-cloud) 58%, transparent);
+    font-size: calc(.58rem * var(--m4-type-scale));
+    text-align: center;
+  }
+
+  #m4-kareem-intro .m4-kareem-intro__photo-reveal {
+    transform: translateX(-14px) scale(.98);
+  }
+}
+
+/* self-check: this block is the current version */
+#m4-kareem-intro {
+  --m4-styled: 4;
+}
+</style>
+
 <section
   id="m4-kareem-intro" class="m4-section"
   dir="rtl"

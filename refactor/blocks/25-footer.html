@@ -1,7 +1,206 @@
 <!-- =====================================================================
      M4 · BLOCK 25 — Section 23 — Footer
-     HTML only. Styles live in Block 00 (Main CSS), behaviour in Block 00B.
+     Section styles are scoped to #m4-footer. Colours, fonts, sizes and
+     speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
+<style>
+#m4-footer {
+  position: relative;
+  overflow: hidden;
+  direction: rtl;
+  font-family: var(--m4-font-primary) !important;
+  color: var(--m4-bg-paper);
+  padding: calc(46px * var(--m4-space-scale)) calc(20px * var(--m4-space-scale)) calc(25px * var(--m4-space-scale));
+  background: radial-gradient( circle at 8% 15%, color-mix(in srgb, var(--m4-accent) 7.5%, transparent), transparent 27% ), radial-gradient( circle at 92% 88%, color-mix(in srgb, var(--m4-highlight-soft) 5.5%, transparent), transparent 27% ), linear-gradient( 135deg, color-mix(in srgb, var(--m4-primary-deep) 80.5%, var(--m4-black)) 0%, var(--m4-primary-deep) 48%, color-mix(in srgb, var(--m4-primary) 91%, var(--m4-black)) 100% );
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+#m4-footer *,
+#m4-footer *::before,
+#m4-footer *::after {
+  box-sizing: border-box;
+}
+
+#m4-footer::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  top: -215px;
+  left: -165px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.035);
+  box-shadow: 0 0 0 48px rgba(255,255,255,.008);
+  pointer-events: none;
+}
+
+#m4-footer::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  right: -150px;
+  bottom: -160px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--m4-accent) 6%, transparent);
+  pointer-events: none;
+}
+
+#m4-footer .m4-footer__wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+#m4-footer .m4-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#m4-footer .m4-footer__logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 13px;
+}
+
+#m4-footer .m4-footer__logo img {
+  display: block;
+  width: auto;
+  height: 86px;
+  max-width: 230px;
+  object-fit: contain;
+}
+
+#m4-footer .m4-footer__brand-line {
+  color: color-mix(in srgb, var(--m4-bg-paper) 70%, transparent);
+  font-size: calc(.75rem * var(--m4-type-scale));
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+#m4-footer .m4-footer__brand-line strong {
+  color: var(--m4-bg-paper);
+  font-weight: 800;
+}
+
+#m4-footer .m4-footer__divider {
+  position: relative;
+  width: min( 520px, 78% );
+  height: 1px;
+  margin: 23px auto 20px;
+  background: linear-gradient( 90deg, transparent, color-mix(in srgb, var(--m4-accent) 22%, transparent), color-mix(in srgb, var(--m4-highlight-soft) 25%, transparent), color-mix(in srgb, var(--m4-accent) 22%, transparent), transparent );
+}
+
+#m4-footer .m4-footer__info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-bottom: 20px;
+}
+
+#m4-footer .m4-footer__info-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: color-mix(in srgb, var(--m4-bg-paper) 53%, transparent);
+  font-size: calc(.62rem * var(--m4-type-scale));
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+#m4-footer .m4-footer__info-item::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--m4-secondary);
+  opacity: .85;
+}
+
+#m4-footer .m4-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(255,255,255,.055);
+}
+
+#m4-footer .m4-footer__copy {
+  color: color-mix(in srgb, var(--m4-bg-paper) 48%, transparent);
+  font-size: calc(.61rem * var(--m4-type-scale));
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+#m4-footer .m4-footer__company {
+  color: color-mix(in srgb, var(--m4-bg-paper) 48%, transparent);
+  font-size: calc(.61rem * var(--m4-type-scale));
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+#m4-footer .m4-footer__company strong {
+  color: color-mix(in srgb, var(--m4-bg-paper) 68%, transparent);
+  font-weight: 800;
+}
+
+@media(max-width:620px) {
+  #m4-footer {
+    padding: calc(36px * var(--m4-space-scale)) calc(15px * var(--m4-space-scale)) calc(21px * var(--m4-space-scale));
+  }
+
+  #m4-footer .m4-footer__logo img {
+    height: 66px;
+    max-width: 190px;
+  }
+
+  #m4-footer .m4-footer__brand-line {
+    max-width: 310px;
+    font-size: calc(.67rem * var(--m4-type-scale));
+    line-height: 1.65;
+  }
+
+  #m4-footer .m4-footer__divider {
+    width: 84%;
+    margin: 19px auto 17px;
+  }
+
+  #m4-footer .m4-footer__info {
+    gap: 6px 12px;
+    margin-bottom: 17px;
+  }
+
+  #m4-footer .m4-footer__info-item {
+    font-size: calc(.55rem * var(--m4-type-scale));
+  }
+
+  #m4-footer .m4-footer__bottom {
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 14px;
+    text-align: center;
+  }
+
+  #m4-footer .m4-footer__copy,
+  #m4-footer .m4-footer__company {
+    font-size: calc(.55rem * var(--m4-type-scale));
+  }
+}
+
+/* self-check: this block is the current version */
+#m4-footer {
+  --m4-styled: 25;
+}
+</style>
+
 <footer
   id="m4-footer" class="m4-section"
   dir="rtl"
