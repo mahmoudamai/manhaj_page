@@ -719,6 +719,12 @@ def main():
     spec19.loader.exec_module(td)
     td.apply(blocks / "19-testimonials.html")
 
+    # ---- block 02 v2: content hours instead of "30 محاضرة" (tools/m4_hero_stats_v2.py) ----
+    spec2b = importlib.util.spec_from_file_location("m4stats", ROOT / "tools" / "m4_hero_stats_v2.py")
+    hs2 = importlib.util.module_from_spec(spec2b)
+    spec2b.loader.exec_module(hs2)
+    hs2.apply(blocks / "02-hero-stats.html")
+
     # ---- block 03 v2: discount + saving under the hero button (tools/m4_hero_trust_v2.py) ----
     spec3 = importlib.util.spec_from_file_location("m4herotrust", ROOT / "tools" / "m4_hero_trust_v2.py")
     ht2 = importlib.util.module_from_spec(spec3)
@@ -750,7 +756,7 @@ def main():
                 f'font:14px sans-serif;color:#777;background:#f3f3f3">GHL element: {name}</div>')
     order = [("01", None), ("GHL", "video (block 02) + video style (03)"), ("02", None), ("GHL", "button (block 05)"),
              ("03", None), ("04", None), ("GHL", "logos marquee"), ("05", None), ("06", None), ("07", None), ("16", None), ("09", None), ("18", None),
-             ("10", None), ("10b", None), ("11", None), ("12", None), ("13", None), ("14", None), ("15", None),
+             ("10", None), ("10b", None), ("11", None), ("12", None), ("13", None), ("14", None), ("15", None), ("15b", None),
              ("17", None), ("17b", None), ("19", None), ("20", None), ("21", None), ("22", None), ("23", None), ("25", None)]
     parts = []
     files = {f.name.split("-")[0]: f for f in blocks.glob("[0-9][0-9]*-*.html")}

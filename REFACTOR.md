@@ -297,7 +297,7 @@ axis and a closing line. Same map design. Texts in `tools/m4_curriculum_v2.py`.
 | 9 | 10-yusuf |
 | 10 | 10b-offer-early |
 | 11 | 11-lectures · 12-lecture-notes |
-| 12 | 13-practice · 14-live · 15-telegram |
+| 12 | 13-practice · 14-live · 15-telegram · **15b-rhythm** (new) |
 | 13 | 17-fit |
 | 14 | **17b-before-after** (new) |
 | 15 | 19-testimonials · 20-kareem |
@@ -345,3 +345,11 @@ Hand-written (`tools/new-blocks/11-lectures.html`). One slim row per step (0–6
 as chips (فك الحصار 1/2, Yusuf 2 parts), a dashed «+ خطوات جديدة» node at the end, a counter (9 محاضرات · 7 خطوات),
 and the 9 thumbnails as a small mosaic («مكتبة المحاضرات حتى الآن»; sticky on desktop, 6 thumbnails on phones).
 To add a lecture: add a row/chip in the timeline, a thumbnail in the mosaic, and update the counter.
+
+## Block 15B — «إيقاع المنهج» (new) and Block 02 v2
+
+- **15b-rhythm.html** (dark, after Telegram): lectures every 10 days (days 10/20/30, shown on a month calendar),
+  live sessions announced ≥10 days ahead and recorded on the platform within 48 h, email + Telegram group, and
+  «قرابة 17 ساعة» of lectures and live sessions so far (16 recordings, 16 h 54 m). Update the hours as content grows.
+- **02-hero-stats**: «عدد المحاضرات: 30 محاضرة» (read as 30 short videos) → «المحتوى حتى الآن: قرابة 17 ساعة · ويزيد كل 10 أيام»
+  (`tools/m4_hero_stats_v2.py`).

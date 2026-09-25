@@ -1,0 +1,411 @@
+<!-- =====================================================================
+     M4 · BLOCK 15B — «إيقاع المنهج»: how and when the content arrives
+     Lectures every 10 days (10/20/30), live sessions announced ≥10 days ahead
+     and recorded within 48 h, email + Telegram. Dark, for the page rhythm.
+     Place it right after Block 15 (Telegram), before Block 17 (fit).
+     Update CONTENT_HOURS in the text when new lectures are added.
+     Section styles are scoped to #m4-rhythm. Colours, fonts, sizes and
+     speeds come from Block 00 — edit the theme there, not here.
+     ===================================================================== -->
+<style>
+#m4-rhythm {
+  position: relative;
+  overflow: hidden;
+  direction: rtl;
+  text-align: right;
+  font-family: var(--m4-font-primary) !important;
+  color: var(--m4-white);
+  padding: calc(88px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale)) calc(92px * var(--m4-space-scale));
+  background:
+    radial-gradient(circle at 88% 10%, color-mix(in srgb, var(--m4-accent) 12%, transparent), transparent 30%),
+    radial-gradient(circle at 8% 90%, color-mix(in srgb, var(--m4-highlight) 10%, transparent), transparent 30%),
+    linear-gradient(180deg, var(--m4-primary-deep) 0%, color-mix(in srgb, var(--m4-primary-deep) 84%, var(--m4-black)) 100%);
+}
+
+#m4-rhythm *,
+#m4-rhythm *::before,
+#m4-rhythm *::after {
+  box-sizing: border-box;
+}
+
+#m4-rhythm .m4-rhythm__wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ---- head ---- */
+#m4-rhythm .m4-rhythm__head {
+  max-width: 760px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+#m4-rhythm .m4-rhythm__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--m4-accent);
+  font-size: calc(.82rem * var(--m4-type-scale));
+  font-weight: 800;
+}
+
+#m4-rhythm .m4-rhythm__kicker::before,
+#m4-rhythm .m4-rhythm__kicker::after {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--m4-accent);
+}
+
+#m4-rhythm h2 {
+  margin: 12px 0 0;
+  color: var(--m4-white);
+  font-size: calc(clamp(1.9rem, 1.2rem + 2.2vw, 2.8rem) * var(--m4-heading-scale));
+  line-height: 1.4;
+  font-weight: 800;
+  text-wrap: balance;
+}
+
+#m4-rhythm h2 em {
+  font-style: normal;
+  color: var(--m4-accent);
+}
+
+#m4-rhythm .m4-rhythm__lead {
+  margin: 14px auto 0;
+  color: color-mix(in srgb, var(--m4-white) 74%, transparent);
+  font-size: calc(1rem * var(--m4-type-scale));
+  line-height: 1.9;
+}
+
+/* ---- layout ---- */
+#m4-rhythm .m4-rhythm__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* ---- the calendar ---- */
+#m4-rhythm .m4-rhythm__calendar {
+  display: flex;
+  flex-direction: column;
+  padding: 26px 24px 22px;
+  border-radius: calc(24px * var(--m4-radius-scale));
+  border: 1px solid color-mix(in srgb, var(--m4-white) 12%, transparent);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--m4-white) 9%, transparent), color-mix(in srgb, var(--m4-white) 3%, transparent));
+}
+
+#m4-rhythm .m4-rhythm__cal-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#m4-rhythm .m4-rhythm__cal-title strong {
+  font-size: calc(1.15rem * var(--m4-heading-scale));
+  font-weight: 800;
+}
+
+#m4-rhythm .m4-rhythm__cal-title span {
+  color: var(--m4-accent);
+  font-size: calc(.84rem * var(--m4-type-scale));
+  font-weight: 700;
+}
+
+#m4-rhythm .m4-rhythm__days {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: 18px;
+}
+
+#m4-rhythm .m4-rhythm__days span {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 9px;
+  color: color-mix(in srgb, var(--m4-white) 42%, transparent);
+  background: color-mix(in srgb, var(--m4-white) 5%, transparent);
+  font-size: calc(.74rem * var(--m4-type-scale));
+  font-weight: 600;
+}
+
+#m4-rhythm .m4-rhythm__days .is-lecture {
+  position: relative;
+  align-content: center;
+  gap: 1px;
+  color: var(--m4-primary-deep);
+  background: var(--m4-accent);
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--m4-accent) 35%, transparent);
+  font-weight: 900;
+}
+
+#m4-rhythm .m4-rhythm__days .is-lecture b {
+  font-size: 1.02em;
+  line-height: 1;
+}
+
+#m4-rhythm .m4-rhythm__days .is-lecture svg {
+  width: 9px;
+  height: 9px;
+  fill: currentColor;
+}
+
+#m4-rhythm .m4-rhythm__legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  color: color-mix(in srgb, var(--m4-white) 70%, transparent);
+  font-size: calc(.8rem * var(--m4-type-scale));
+}
+
+#m4-rhythm .m4-rhythm__legend i {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background: var(--m4-accent);
+}
+
+#m4-rhythm .m4-rhythm__hours {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid color-mix(in srgb, var(--m4-white) 10%, transparent);
+}
+
+#m4-rhythm .m4-rhythm__legend + .m4-rhythm__hours {
+  margin-top: 18px;
+}
+
+#m4-rhythm .m4-rhythm__hours strong {
+  color: var(--m4-accent);
+  font-size: calc(2rem * var(--m4-heading-scale));
+  line-height: 1;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+#m4-rhythm .m4-rhythm__hours span {
+  color: color-mix(in srgb, var(--m4-white) 78%, transparent);
+  font-size: calc(.86rem * var(--m4-type-scale));
+  line-height: 1.6;
+}
+
+/* ---- the three cards ---- */
+#m4-rhythm .m4-rhythm__cards {
+  display: grid;
+  gap: 12px;
+}
+
+#m4-rhythm .m4-rhythm__card {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 14px;
+  padding: 18px 20px;
+  border-radius: calc(20px * var(--m4-radius-scale));
+  border: 1px solid color-mix(in srgb, var(--m4-white) 10%, transparent);
+  background: color-mix(in srgb, var(--m4-white) 5%, transparent);
+}
+
+#m4-rhythm .m4-rhythm__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  color: var(--m4-accent);
+  background: color-mix(in srgb, var(--m4-accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--m4-accent) 35%, transparent);
+}
+
+#m4-rhythm .m4-rhythm__icon svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#m4-rhythm .m4-rhythm__card h3 {
+  margin: 0;
+  color: var(--m4-white);
+  font-size: calc(1.02rem * var(--m4-heading-scale));
+  line-height: 1.5;
+  font-weight: 800;
+}
+
+#m4-rhythm .m4-rhythm__card p {
+  margin: 5px 0 0;
+  color: color-mix(in srgb, var(--m4-white) 74%, transparent);
+  font-size: calc(.88rem * var(--m4-type-scale));
+  line-height: 1.85;
+}
+
+#m4-rhythm .m4-rhythm__card p b {
+  color: var(--m4-accent-soft);
+  font-weight: 800;
+}
+
+@media (max-width: 860px) {
+  #m4-rhythm {
+    padding: calc(62px * var(--m4-space-scale)) calc(14px * var(--m4-space-scale)) calc(66px * var(--m4-space-scale));
+  }
+
+  #m4-rhythm .m4-rhythm__head {
+    margin-bottom: 28px;
+  }
+
+  #m4-rhythm .m4-rhythm__lead {
+    font-size: calc(.9rem * var(--m4-type-scale));
+  }
+
+  #m4-rhythm .m4-rhythm__layout {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  #m4-rhythm .m4-rhythm__calendar {
+    padding: 20px 16px 18px;
+    border-radius: calc(20px * var(--m4-radius-scale));
+  }
+
+  #m4-rhythm .m4-rhythm__days {
+    gap: 4px;
+  }
+
+  #m4-rhythm .m4-rhythm__days span {
+    border-radius: 7px;
+    font-size: calc(.66rem * var(--m4-type-scale));
+  }
+
+  #m4-rhythm .m4-rhythm__hours strong {
+    font-size: calc(1.6rem * var(--m4-heading-scale));
+  }
+
+  #m4-rhythm .m4-rhythm__card {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 12px;
+    padding: 16px;
+  }
+
+  #m4-rhythm .m4-rhythm__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  #m4-rhythm .m4-rhythm__card p {
+    font-size: calc(.84rem * var(--m4-type-scale));
+  }
+}
+
+/* self-check: this block is the current version */
+#m4-rhythm {
+  --m4-styled: 15;
+}
+</style>
+
+<section
+  id="m4-rhythm" class="m4-section"
+  dir="rtl"
+  lang="ar"
+  aria-label="كيف ينزل محتوى منهج الطمأنينة"
+>
+
+  <div class="m4-rhythm__wrap">
+
+    <header class="m4-rhythm__head m4-reveal">
+      <span class="m4-rhythm__kicker">كيف ينزل المحتوى؟</span>
+      <h2>إيقاع هادئ… <em>يساعدك على الالتزام</em></h2>
+      <p class="m4-rhythm__lead">
+        المحاضرات في «منهج الطمأنينة» مصممة بإيقاع هادئ يساعدك على الالتزام
+        دون أن تشعر بضغط نفسي.
+      </p>
+    </header>
+
+    <div class="m4-rhythm__layout">
+
+      <div class="m4-rhythm__calendar m4-reveal">
+        <div class="m4-rhythm__cal-title">
+          <strong>محاضرة جديدة كل 10 أيام</strong>
+          <span>يوم 10 و20 و30 من كل شهر</span>
+        </div>
+        <div class="m4-rhythm__days" role="img" aria-label="تقويم شهر: محاضرة جديدة يوم 10 و20 و30">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span class="is-lecture" aria-label="محاضرة جديدة يوم 10"><b>10</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+            <span>11</span>
+            <span>12</span>
+            <span>13</span>
+            <span>14</span>
+            <span>15</span>
+            <span>16</span>
+            <span>17</span>
+            <span>18</span>
+            <span>19</span>
+            <span class="is-lecture" aria-label="محاضرة جديدة يوم 20"><b>20</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+            <span>21</span>
+            <span>22</span>
+            <span>23</span>
+            <span>24</span>
+            <span>25</span>
+            <span>26</span>
+            <span>27</span>
+            <span>28</span>
+            <span>29</span>
+            <span class="is-lecture" aria-label="محاضرة جديدة يوم 30"><b>30</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+        </div>
+        <div class="m4-rhythm__legend"><i aria-hidden="true"></i> موعد محاضرة جديدة</div>
+        <div class="m4-rhythm__hours">
+          <strong>قرابة 17 ساعة</strong>
+          <span>من المحاضرات واللقاءات التفاعلية حتى الآن، والمحتوى يزيد مع كل محاضرة جديدة.</span>
+        </div>
+      </div>
+
+      <div class="m4-rhythm__cards">
+
+        <article class="m4-rhythm__card m4-reveal">
+          <span class="m4-rhythm__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="m10.5 13 3.5 2-3.5 2z"/></svg></span>
+          <div>
+            <h3>المحاضرات</h3>
+            <p>محاضرة جديدة مرة كل 10 أيام: <b>يوم 10 و20 و30</b> من كل شهر، وتبقى مسجلة على المنصة لتشاهدها في الوقت المناسب لك.</p>
+          </div>
+        </article>
+
+        <article class="m4-rhythm__card m4-reveal">
+          <span class="m4-rhythm__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18c-2 0-3-1.2-3-3V8c0-1.8 1-3 3-3h7c2 0 3 1.2 3 3v7c0 1.8-1 3-3 3z"/><path d="m17 10 3-2v8l-3-2"/></svg></span>
+          <div>
+            <h3>اللقاءات التفاعلية المباشرة</h3>
+            <p>تُحدَّد مواعيدها حسب المحتوى، ويُعلَن عنها قبل موعدها <b>بـ10 أيام على الأقل</b>. وإن لم تتمكن من الحضور، تجد التسجيل على المنصة <b>خلال 48 ساعة</b>.</p>
+          </div>
+        </article>
+
+        <article class="m4-rhythm__card m4-reveal">
+          <span class="m4-rhythm__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 4 3 11l6 2.5L11.5 20 21 4z"/><path d="m9 13.5 5-4"/></svg></span>
+          <div>
+            <h3>الإيميل وجروب التليجرام</h3>
+            <p>المراسلات تصلك على الإيميل دائمًا. وفي جروب التليجرام يشارك كريم تسجيلات وخواطر باستمرار، وتتفاعل مع زملائك في نفس الدفعة.</p>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
