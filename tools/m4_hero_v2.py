@@ -1,9 +1,9 @@
 """Block 01 (hero) v2 — new opening copy (content phase):
-kicker «رحلة علمية إيمانية», title «من التيه… / إلى الطمأنينة», and a subtitle
+kicker «رحلة نفسية إيمانية», title «من التيه… / إلى الطمأنينة», and a subtitle
 that names both dimensions (psychological + faith) plus skills.
 Only text changes; the design stays as generated."""
 
-KICKER = "رحلة علمية إيمانية"
+KICKER = "رحلة نفسية إيمانية"
 LINE_1 = "من التيه…"
 LINE_2 = 'إلى <em class="m4-hero__title-accent">الطمأنينة</em>'
 SUBTITLE = ("منهج متدرج على مدار عام، يعيد ترتيب فهمك لنفسك ولحياتك؛ "

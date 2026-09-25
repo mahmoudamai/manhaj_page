@@ -727,7 +727,9 @@ def main():
 
     # ---- blocks 21 / 23 v2: offer (hours, lectures/month) and FAQ ----
     for mod, blk in (("m4_offer_v2", "21-offer.html"), ("m4_faq_v2", "23-faq.html"),
-                     ("m4_kareem_intro_v2", "04-kareem-intro.html")):
+                     ("m4_kareem_intro_v2", "04-kareem-intro.html"),
+                     ("m4_kareem_intro_dark", "04-kareem-intro.html"),
+                     ("m4_sticky_v2", "24-sticky.html")):
         sp = importlib.util.spec_from_file_location(mod, ROOT / "tools" / f"{mod}.py")
         mm = importlib.util.module_from_spec(sp)
         sp.loader.exec_module(mm)
