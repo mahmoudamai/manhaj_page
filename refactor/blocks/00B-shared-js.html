@@ -8,7 +8,7 @@
                      anything on screen or already passed; off in the GHL
                      editor/preview iframe and with reduced motion)
      2. faq        — accordion for #m4-faq
-     3. sticky     — show/hide the fixed bar + back-to-top + FAQ link
+     3. sticky     — shows the fixed bar after #m4-pain + back-to-top + FAQ link
      4. masonry    — photo gallery rows in #m4-kareem
    Optional:  window.M4_CONFIG = { motion: false }  (before this script)
               or add ?m4-motion=0 to the URL to switch the entrance off.
@@ -146,16 +146,10 @@
 
     function update() {
       ticking = false;
-      // the bar appears once the whole hero (text, video, button, trust row) is behind us
-      var hero = doc.getElementById("m4-hero-trust") || doc.getElementById("m4-hero");
-      var passed = hero ? hero.getBoundingClientRect().bottom <= 0 : window.scrollY > 650;
-      // hide while either price section (early offer or the main offer) is on screen
-      var offerOnScreen = false;
-      each(doc.querySelectorAll("#m4-offer, #m4-offer-early"), function (offer) {
-        var r = offer.getBoundingClientRect();
-        if (r.top < window.innerHeight * .88 && r.bottom > window.innerHeight * .12) offerOnScreen = true;
-      });
-      var show = passed && !offerOnScreen;
+      // the bar appears once the visitor has read past the Pain section, and then
+      // stays on for the rest of the page (price sections included)
+      var pain = doc.getElementById("m4-pain");
+      var show = pain ? pain.getBoundingClientRect().bottom <= 0 : window.scrollY > 1200;
       host.classList.toggle("is-visible", show);
       if (backTop) backTop.classList.toggle("is-visible", show && window.scrollY > 650 && !goingUp);
     }

@@ -147,13 +147,13 @@ Notes:
 | 08 | Section 06 — How it was built | `#mhhm-methodology` | `#m4-method` | `08-method.html` |
 | 09 | Section 07 — The four axes | `#mhhm-curriculum` | `#m4-curriculum` | `09-curriculum.html` |
 | 10 | Section 08 — Surat Yusuf | `#mhhm-yusuf` | `#m4-yusuf` | `10-yusuf.html` |
+| 10B | **New:** early price (compact strip) | — | `#m4-offer-early` | `10b-offer-early.html` |
 | 11 | Section 09 — Lectures so far | `#mhhm-lectures` | `#m4-lectures` | `11-lectures.html` |
 | 12 | Section 10 — Attendee comments | `#mhhm-content-proofs` | `#m4-lecture-notes` | `12-lecture-notes.html` |
 | 13 | Section 11 — رياضة الفكر | `#mhhm-practice` | `#m4-practice` | `13-practice.html` |
 | 14 | Section 12 — Live sessions | `#mhhm-live` | `#m4-live` | `14-live.html` |
 | 15 | Section 13 — Telegram community | `#mhhm-telegram` | `#m4-telegram` | `15-telegram.html` |
 | 16 | Section 14 — WhatsApp screenshots | `#mhhm-wa-masonry` | `#m4-wa-reviews` | `16-wa-reviews.html` |
-| 16B | **New:** early offer (decision band) | — | `#m4-offer-early` | `16b-offer-early.html` |
 | 17 | Section 15 — Is it for you | `#mhhm-fit` | `#m4-fit` | `17-fit.html` |
 | 18 | Section 16 — The year journey | `#mhhm-yearJourney` | `#m4-year` | `18-year.html` |
 | 19 | Section 17 — Written testimonials | `#mhhm-main-testimonials` | `#m4-testimonials` | `19-testimonials.html` |
@@ -231,12 +231,14 @@ To try a theme: edit the tokens at the top of Block 00 and republish.
 
 ---
 
-## Early offer (Block 16B, new)
+## Early price (Block 10B, new)
 
-A second, compact price section for visitors who are already convinced.
+A small price strip so visitors see the price early: price → the same checkout button → 7-day guarantee → a link to the full offer (#m4-offer).
 
-- **Where:** a new full-width GHL section (row padding 0) with a Code Element, **after Block 16 (WhatsApp screenshots) and before Block 17 (هل هذا المنهج مناسب لك؟)**.
-- **What it shows:** 3-line recap of what they just saw → price 7,500 (was 9,500, save 2,000) → the same checkout button → 7-day guarantee → soft links to #m4-fit and #m4-faq for people who aren't ready.
-- **Sticky bar:** hides while either offer section is on screen. This needs the updated Block 00B.
-- **Keep in sync:** price, old price and checkout link are also in Block 21. Change both when the price changes.
-- Source file: `tools/new-blocks/16b-offer-early.html` (copied into `refactor/blocks/` by the build).
+- **Where:** a new full-width GHL section (row padding 0) with a Code Element, **right after Block 10 (Yusuf), before Block 11 (lectures)**.
+- **Keep in sync:** the price, old price and checkout link are also in Block 21. Change both when the price changes.
+- Source file: `tools/new-blocks/10b-offer-early.html` (copied into `refactor/blocks/` by the build).
+
+## Sticky bar rule
+
+The bar appears once the visitor has scrolled past the Pain section (#m4-pain), then stays on for the rest of the page, including over both price sections. This needs the updated Block 00B.

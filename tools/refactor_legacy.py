@@ -712,8 +712,8 @@ def main():
         return (f'<div style="max-width:900px;margin:0 auto;padding:18px;text-align:center;border:2px dashed #bbb;'
                 f'font:14px sans-serif;color:#777;background:#f3f3f3">GHL element: {name}</div>')
     order = [("01", None), ("GHL", "video (block 02) + video style (03)"), ("02", None), ("GHL", "button (block 05)"),
-             ("03", None), ("04", None), ("GHL", "logos marquee"), *[(f"{n:02d}", None) for n in range(5, 17)], ("16b", None),
-             *[(f"{n:02d}", None) for n in range(17, 24)], ("25", None)]
+             ("03", None), ("04", None), ("GHL", "logos marquee"), *[(f"{n:02d}", None) for n in range(5, 11)], ("10b", None),
+             *[(f"{n:02d}", None) for n in range(11, 24)], ("25", None)]
     parts = []
     files = {f.name.split("-")[0]: f for f in blocks.glob("[0-9][0-9]*-*.html")}
     for key, label in order:
