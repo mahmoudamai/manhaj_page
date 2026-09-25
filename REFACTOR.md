@@ -332,3 +332,9 @@ Light section with a dark card (same colours as the offer's price card): what th
 Block 19 (testimonials) now has a dark tone (`tools/m4_testimonials_dark.py`) to break the long light stretch
 fit → before/after → testimonials → Kareem. The other light sections in the middle already carry a large dark card
 (practice, live, telegram, offer, guarantee). Overview: `refactor/page-rhythm.png`.
+
+## Block 17 v2 — «هل هذا المنهج مناسب لك؟»
+
+Hand-written (`tools/new-blocks/17-fit.html`): the two lists side by side («يناسبك» / «قد لا يكون الأنسب»), the key
+idea «الطمأنينة لا تعني الهروب من الواقع…» as a quote under the title, and the reassurance note under the lists.
+Removed: the middle column «ما الذي ستجده داخل الرحلة؟» (repeated elsewhere) and Kareem's photo (already shown twice).
