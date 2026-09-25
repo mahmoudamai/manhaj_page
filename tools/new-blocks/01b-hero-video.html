@@ -44,8 +44,8 @@
   padding: 0 !important;
 }
 
-/* the real player */
-:is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) :is(.video-js, .video-container, video) {
+/* the real player (not while it floats as the scroll PiP — see below) */
+:is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) :is(.video-js, .video-container, video:not(.is-sticky)) {
   width: 100% !important;
   height: 100% !important;
   max-width: 100% !important;
@@ -59,6 +59,29 @@
 
 :is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) video {
   object-fit: contain !important;
+}
+
+/* ---------------- scroll PiP: top-left instead of bottom-right ----------------
+   GHL positions the floating video with an ID rule + !important, so a class
+   selector alone loses. Each :not(#_) adds the weight of one ID without
+   needing the real ID, so this keeps working when GHL changes it. */
+.hero_main_video video.vjs-tech.is-sticky:not(#_):not(#_) {
+  top: 0 !important;
+  left: 3px !important;
+  right: auto !important;
+  bottom: auto !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--m4-accent, #D3B267) 55%, transparent),
+    0 18px 40px rgba(6, 18, 20, .35) !important;
+}
+
+.hero_main_video .close-button-pip-scroll:not(#_):not(#_) {
+  top: 3px !important;
+  left: 3px !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: 10001 !important;
 }
 
 /* GHL's own play button: invisible, and before the first play it covers the

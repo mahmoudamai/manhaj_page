@@ -260,3 +260,4 @@ Replaces the old video style/preview code that targeted `.cvideo-U-rJ6WETsJz` (i
 - Finds the player box by the class (works whether GHL puts the class on the wrapper or on the inner `cvideo-…` box) — no IDs.
 - Silent looping preview on top; a click anywhere on the video starts the real video and removes the preview. The controls stay usable after that.
 - Settings (class name, preview MP4, texts) are at the top of the `<script>`.
+- Scroll PiP: floats at the top-left (instead of GHL's bottom-right), with its close button. GHL positions it with an ID rule + `!important`; the block wins with `:not(#_):not(#_)` (ID-level weight without the real ID), so no `#video-…_html5_api` rule is needed any more.
