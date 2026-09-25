@@ -8303,7 +8303,7 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
       <div class="m4-lectures__timeline">
 
         <div class="m4-lectures__count m4-reveal">
-          <span><b>9</b> محاضرات متاحة الآن</span>
+          <span><b>12</b> محاضرة متاحة الآن</span>
           <i aria-hidden="true"></i>
           <span><b>7</b> خطوات</span>
           <i aria-hidden="true"></i>
@@ -8372,6 +8372,9 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
               <ul class="m4-lectures__parts">
                 <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>أحسن القصص: مقدمة</li>
                 <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>آيات للسائلين: القصة كاملة</li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>إنه هو العليم الحكيم</li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>إن ربي لطيف</li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>يعقوب المربي (عليه السلام)</li>
               </ul>
             </div>
           </li>
@@ -10231,21 +10234,35 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   }
 }
 
-/* ---- joining after the start ---- */
+/* ---- joining after the start: one full-width line under both columns ---- */
 #m4-rhythm .m4-rhythm__join {
-  margin: 4px 0 0;
-  padding: 14px 18px;
+  margin: 18px 0 0;
+  padding: 14px 22px;
   border-radius: calc(16px * var(--m4-radius-scale));
   border: 1px dashed color-mix(in srgb, var(--m4-accent) 45%, transparent);
   color: color-mix(in srgb, var(--m4-white) 82%, transparent);
-  font-size: calc(.9rem * var(--m4-type-scale));
+  font-size: calc(.92rem * var(--m4-type-scale));
   line-height: 1.8;
+  text-align: center;
 }
 
 #m4-rhythm .m4-rhythm__join b {
-  display: block;
+  margin-left: 6px;
   color: var(--m4-accent);
   font-weight: 800;
+}
+
+@media (max-width: 860px) {
+  #m4-rhythm .m4-rhythm__join {
+    padding: 14px 16px;
+    font-size: calc(.88rem * var(--m4-type-scale));
+    text-align: right;
+  }
+
+  #m4-rhythm .m4-rhythm__join b {
+    display: block;
+    margin: 0;
+  }
 }
 
 /* self-check: this block is the current version */
@@ -10344,14 +10361,14 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
           </div>
         </article>
 
-        <p class="m4-rhythm__join m4-reveal">
-          <b>انضممت بعد بداية الرحلة؟</b>
-          تجد كل المحاضرات السابقة متاحة لك من أول يوم، وتكمل مع باقي الأعضاء من المرحلة الحالية.
-        </p>
-
       </div>
 
     </div>
+
+    <p class="m4-rhythm__join m4-reveal">
+      <b>انضممت بعد بداية الرحلة؟</b>
+      تجد كل المحاضرات السابقة متاحة لك من أول يوم، وتكمل مع باقي الأعضاء من المرحلة الحالية.
+    </p>
 
   </div>
 
