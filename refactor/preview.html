@@ -567,6 +567,7 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 </script>
 </head>
 <body>
+<div class="m4-hero-host">
 <!-- =====================================================================
      M4 · BLOCK 01 — Section 01 · Block 01 — Hero
      Section styles are scoped to #m4-hero. Colours, fonts, sizes and
@@ -1909,6 +1910,15 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   }
 }
 
+/* ---------------- the GHL section that holds the hero blocks ----------------
+   Give that GHL section the CSS class  m4-hero-host
+   It continues the hero's colour behind the video, the stats, the button and
+   this block, then fades into the cream of the next section (Kareem). */
+.m4-hero-host {
+  background:
+    linear-gradient(180deg, var(--m4-bg-cloud) 0%, var(--m4-bg-cloud) 55%, var(--m4-bg-cream) 100%) !important;
+}
+
 /* ---------------- v2 · price anchor under the hero button ---------------- */
 #m4-hero-trust .m4-hero-trust__price {
   display: flex;
@@ -2172,6 +2182,7 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 
 </section>
 
+</div>
 <!-- =====================================================================
      M4 · BLOCK 04 — Section 02 · Block 01 — Kareem intro
      Section styles are scoped to #m4-kareem-intro. Colours, fonts, sizes and

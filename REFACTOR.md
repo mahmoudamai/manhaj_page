@@ -309,3 +309,10 @@ Mirrors the six hidden battles of Block 05 (same order and icons): «قبل» mu
 «مع المنهج» on the left with tags (فهم نفسي / معنى إيماني / مهارة). Every "after" line comes from the program
 designer's wording or existing page content (sources in CONTENT-PLAN.md §3د). On phones each battle is one card.
 **In GHL: a new full-width section right after «هل هذا المنهج مناسب لك؟» (17) with a Code Element → paste `17b-before-after.html`.**
+
+## Hero GHL section background — class `m4-hero-host`
+
+The GHL section that holds the hero blocks (01, video, 02, button, 03) gets the CSS class **`m4-hero-host`**.
+Its background continues the hero's colour (`--m4-bg-cloud`) behind the transparent blocks and fades into the
+cream of the next section (`--m4-bg-cream`, Kareem intro), so there is no seam; it follows the theme. The rule
+lives in Block 03 (`tools/m4_hero_trust_v2.py`), so no Block 00 re-paste is needed.

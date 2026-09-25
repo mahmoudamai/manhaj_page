@@ -743,7 +743,11 @@ def main():
     parts = []
     files = {f.name.split("-")[0]: f for f in blocks.glob("[0-9][0-9]*-*.html")}
     for key, label in order:
+        if key == "01":
+            parts.append('<div class="m4-hero-host">')      # the GHL hero section
         parts.append(ph(label) if key == "GHL" else files[key].read_text(encoding="utf-8"))
+        if key == "03":
+            parts.append("</div>")
     sticky = files["24"].read_text(encoding="utf-8")
     page = ("<!doctype html>\n<html lang=\"ar\">\n<head>\n<meta charset=\"utf-8\">\n"
             "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<title>M4 preview</title>\n"

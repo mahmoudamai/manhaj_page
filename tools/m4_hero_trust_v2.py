@@ -10,6 +10,15 @@ SAVING = "وفّر 2,000 جنيه"
 DISCOUNT = "خصم أكثر من 20%"
 
 CSS = r"""
+/* ---------------- the GHL section that holds the hero blocks ----------------
+   Give that GHL section the CSS class  m4-hero-host
+   It continues the hero's colour behind the video, the stats, the button and
+   this block, then fades into the cream of the next section (Kareem). */
+.m4-hero-host {
+  background:
+    linear-gradient(180deg, var(--m4-bg-cloud) 0%, var(--m4-bg-cloud) 55%, var(--m4-bg-cream) 100%) !important;
+}
+
 /* ---------------- v2 · price anchor under the hero button ---------------- */
 #m4-hero-trust .m4-hero-trust__price {
   display: flex;
