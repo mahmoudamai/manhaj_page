@@ -753,6 +753,8 @@ def main():
     spec9.loader.exec_module(cu2)
     cu2.apply(blocks / "09-curriculum.html")
     (blocks / "08-method.html").unlink()
+    # ---- block 12 (members' lecture notes) now lives inside Block 11 ----
+    (blocks / "12-lecture-notes.html").unlink()
 
     # ---- hand-written new blocks (05-pain v2 replaces the generated one) (not from the legacy page), e.g. 16b-offer-early ----
     for f in sorted((ROOT / "tools" / "new-blocks").glob("*.html")):
@@ -766,7 +768,7 @@ def main():
                 f'font:14px sans-serif;color:#777;background:#f3f3f3">GHL element: {name}</div>')
     order = [("01", None), ("GHL", "video (block 02) + video style (03)"), ("02", None), ("GHL", "button (block 05)"),
              ("03", None), ("04", None), ("GHL", "logos marquee"), ("05", None), ("06", None), ("07", None), ("16", None), ("09", None), ("18", None),
-             ("10", None), ("10b", None), ("11", None), ("12", None), ("13", None), ("14", None), ("15", None), ("15b", None),
+             ("10", None), ("10b", None), ("11", None),("13", None), ("14", None), ("15", None), ("15b", None),
              ("17", None), ("17b", None), ("19", None), ("20", None), ("21", None), ("22", None), ("23", None), ("25", None)]
     parts = []
     files = {f.name.split("-")[0]: f for f in blocks.glob("[0-9][0-9]*-*.html")}

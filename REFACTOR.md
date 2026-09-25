@@ -296,7 +296,7 @@ axis and a closing line. Same map design. Texts in `tools/m4_curriculum_v2.py`.
 | 8 | **18-year** (moved up) |
 | 9 | 10-yusuf |
 | 10 | 10b-offer-early |
-| 11 | 11-lectures · 12-lecture-notes |
+| 11 | 11-lectures (now holds the two members' notes; 12-lecture-notes removed — delete its GHL section) |
 | 12 | 13-practice · 14-live · 15-telegram · **15b-rhythm** (new) |
 | 13 | 17-fit |
 | 14 | **17b-before-after** (new) |
@@ -393,3 +393,9 @@ Hand-written (`tools/new-blocks/15-telegram.html`): one dark card with the promi
 **14-live update:** the image is now a short muted preview video (the session photo is its poster). A small script in the
 block plays it only while it's on screen (nothing is downloaded before the reader reaches the section), pauses it when it
 leaves, and keeps the poster with reduced motion or data saver.
+
+### Round: testimonials / guarantee / FAQ redesign
+- **07 member story** — one featured quote card (dark quote badge, lecture chip «بعد محاضرة نشأة الفاقة», key phrases marked in gold, initial avatar). Member's words unchanged.
+- **11 lectures** — the two members' notes (was Block 12) sit under the lecture library on desktop (fills the empty column) and after the timeline on phones. **Block 12 is gone: delete its GHL section.**
+- **22 guarantee** — a light "certificate" (double gold frame, round seal «7 أيام» with a turning text ring, three check chips) so it no longer looks like the dark price card above it.
+- **23 FAQ** — neutral cool background instead of cream, questions as separate white cards with a round +/− button, head + «لم تجد إجابة سؤالك؟» WhatsApp card in a sticky side column on desktop (after the questions on phones).
