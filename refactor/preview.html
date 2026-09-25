@@ -1454,6 +1454,51 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   }
 }
 
+/* v2 · "available now" chip under the lectures total, with a live dot */
+#m4-hero-stats .m4-hero-stats__now {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 5px;
+  padding: 2px 9px 2px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--m4-success, #177A4E) 10%, transparent);
+  color: var(--m4-success, #177A4E);
+  font-size: calc(.7rem * var(--m4-type-scale));
+  line-height: 1.6;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+#m4-hero-stats .m4-hero-stats__now i {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+#m4-hero-stats .m4-hero-stats__now i::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  opacity: 0;
+  animation: m4-stats-live calc(2s * var(--m4-motion-scale)) ease-out infinite;
+}
+
+@keyframes m4-stats-live {
+  0% { transform: scale(.6); opacity: .8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #m4-hero-stats .m4-hero-stats__now i::after {
+    animation: none;
+  }
+}
+
 /* self-check: this block is the current version */
 #m4-hero-stats {
   --m4-styled: 2;
@@ -1597,11 +1642,14 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
         <div class="m4-hero-stats__info">
 
           <strong>
-            المحتوى حتى الآن
+            عدد المحاضرات
           </strong>
 
           <span class="m4-hero-stats__value">
-            قرابة 17 ساعة · ويزيد كل 10 أيام
+            أكثر من 30 محاضرة على مدار العام
+          </span>
+
+          <span class="m4-hero-stats__now"><i aria-hidden="true"></i>متاح الآن: قرابة 17 ساعة
           </span>
 
         </div>
@@ -7688,7 +7736,7 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
           <i aria-hidden="true"></i>
           <span><b>7</b> خطوات</span>
           <i aria-hidden="true"></i>
-          <span>والرحلة مستمرة</span>
+          <span>من <b>+30</b> على مدار العام</span>
         </div>
 
         <ol class="m4-lectures__steps">
@@ -14552,6 +14600,22 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   font-weight: 800;
 }
 
+/* "available now": live dot, so it reads as the current, growing part */
+#m4-offer .m4-offer__stats .is-now span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+#m4-offer .m4-offer__stats .is-now i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--m4-success, #177A4E) 45%, var(--m4-white));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--m4-success, #177A4E) 35%, transparent);
+}
+
 @media (max-width: 600px) {
   #m4-offer .m4-offer__stats strong {
     font-size: calc(.95rem * var(--m4-heading-scale));
@@ -14647,8 +14711,8 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
         </div>
 
         <div class="m4-offer__stats">
-          <div><strong>قرابة 17 ساعة</strong><span>من المحاضرات واللقاءات متاحة الآن</span></div>
-          <div><strong>3 محاضرات</strong><span>جديدة كل شهر: يوم 10 و20 و30</span></div>
+          <div><strong>+30 محاضرة</strong><span>على مدار العام</span></div>
+          <div class="is-now"><strong>قرابة 17 ساعة</strong><span><i aria-hidden="true"></i>متاحة الآن، وتزيد كل 10 أيام</span></div>
         </div>
 
 
@@ -15792,7 +15856,7 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
         <div class="m4-faq__answer">
           <div class="m4-faq__answer-inner">
             <div class="m4-faq__answer-content">
-              لا، المحتوى يضاف تدريجيًا بإيقاع هادئ يساعدك على الالتزام دون ضغط: <strong>محاضرة جديدة كل 10 أيام، يوم 10 و20 و30 من كل شهر.</strong> وحتى الآن أُضيفت قرابة 17 ساعة من المحاضرات واللقاءات التفاعلية.
+              لا، المحتوى يضاف تدريجيًا بإيقاع هادئ يساعدك على الالتزام دون ضغط: <strong>محاضرة جديدة كل 10 أيام، يوم 10 و20 و30 من كل شهر.</strong> وعلى مدار العام <strong>أكثر من 30 محاضرة</strong>، وحتى الآن أُضيفت قرابة 17 ساعة من المحاضرات واللقاءات التفاعلية.
             </div>
           </div>
         </div>

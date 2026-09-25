@@ -362,3 +362,10 @@ To add a lecture: add a row/chip in the timeline, a thumbnail in the mosaic, and
 - **23-faq**: 12 questions ordered by what stops people from buying, including how the content arrives, time needed,
   missed live sessions, email/Telegram. `tools/m4_faq_v2.py`. Not added yet (need facts): paying from outside Egypt /
   instalments, the exact steps after payment, access to earlier lectures.
+
+## Total vs. available now (Blocks 02, 11, 21, 23)
+
+Two different numbers, told apart by words and a green "live" dot:
+**total over the year** «أكثر من 30 محاضرة على مدار العام» and **available now** «متاح الآن: قرابة 17 ساعة» (grows every 10 days).
+Shown in the hero stats (02), the offer price card (21), the lectures counter (11: «9 محاضرات متاحة الآن … من +30 على مدار العام»)
+and FAQ Q2 (23).

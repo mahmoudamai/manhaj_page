@@ -9,8 +9,8 @@ HOURS = "قرابة 17 ساعة"
 
 STATS = f"""
         <div class="m4-offer__stats">
-          <div><strong>{HOURS}</strong><span>من المحاضرات واللقاءات متاحة الآن</span></div>
-          <div><strong>3 محاضرات</strong><span>جديدة كل شهر: يوم 10 و20 و30</span></div>
+          <div><strong>+30 محاضرة</strong><span>على مدار العام</span></div>
+          <div class="is-now"><strong>{HOURS}</strong><span><i aria-hidden="true"></i>متاحة الآن، وتزيد كل 10 أيام</span></div>
         </div>
 """
 
@@ -63,6 +63,22 @@ CSS = r"""
   background: color-mix(in srgb, var(--m4-success, #177A4E) 32%, transparent);
   color: color-mix(in srgb, var(--m4-success, #177A4E) 35%, var(--m4-white));
   font-weight: 800;
+}
+
+/* "available now": live dot, so it reads as the current, growing part */
+#m4-offer .m4-offer__stats .is-now span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+#m4-offer .m4-offer__stats .is-now i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--m4-success, #177A4E) 45%, var(--m4-white));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--m4-success, #177A4E) 35%, transparent);
 }
 
 @media (max-width: 600px) {
