@@ -45,7 +45,7 @@
 }
 
 /* the real player (not while it floats as the scroll PiP — see below) */
-:is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) :is(.video-js, .video-container, video:not(.is-sticky)) {
+:is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video):not(.mhh-pip-on) :is(.video-js, .video-container, video) {
   width: 100% !important;
   height: 100% !important;
   max-width: 100% !important;
@@ -61,27 +61,15 @@
   object-fit: contain !important;
 }
 
-/* ---------------- scroll PiP: top-left instead of bottom-right ----------------
-   GHL positions the floating video with an ID rule + !important, so a class
-   selector alone loses. Each :not(#_) adds the weight of one ID without
-   needing the real ID, so this keeps working when GHL changes it. */
-.hero_main_video video.vjs-tech.is-sticky:not(#_):not(#_) {
-  top: 0 !important;
-  left: 3px !important;
-  right: auto !important;
-  bottom: auto !important;
+/* ---------------- scroll PiP look ----------------
+   The position (top-left) is set by the script below, because GHL's own PiP
+   rules are stronger than any stylesheet. Here only the look. */
+.mhh-pip-float {
   border-radius: 14px !important;
+  overflow: hidden !important;
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--m4-accent, #D3B267) 55%, transparent),
     0 18px 40px rgba(6, 18, 20, .35) !important;
-}
-
-.hero_main_video .close-button-pip-scroll:not(#_):not(#_) {
-  top: 3px !important;
-  left: 3px !important;
-  right: auto !important;
-  bottom: auto !important;
-  z-index: 10001 !important;
 }
 
 /* GHL's own play button: invisible, and before the first play it covers the
@@ -510,5 +498,118 @@
       if (window.console) console.warn('MHH video: no element with the class "' + VIDEO_CLASS + '" was found.');
     }
   }, 100);
+})();
+
+/* ---------------- SCROLL PiP: top-left instead of bottom-right ----------------
+   Does not depend on GHL's class names or IDs: it watches the hero video and,
+   when the video (or a wrapper around it) becomes position:fixed — that is
+   GHL's floating PiP — it moves it with inline !important styles, which beat
+   every stylesheet rule. When the video goes back into the page it undoes it. */
+(function () {
+  "use strict";
+  var VIDEO_CLASS = "hero_main_video";
+  var PIP = { top: "0px", left: "3px" };          // where the PiP floats
+  var CLOSE = { top: "3px", left: "3px" };        // where its close (x) button goes
+  var PROPS = ["top", "left", "right", "bottom", "inset"];
+  var debug = /[?&]m4-debug=1\b/.test(location.search);
+
+  var video = null, box = null, floated = null, closeBtns = [], ticking = false;
+
+  function findVideo() {
+    if (video && video.isConnected) return video;
+    var host = document.querySelector("." + VIDEO_CLASS);
+    video = host ? host.querySelector("video") : null;
+    box = document.querySelector(".mhh-hero-video") || host;
+    return video;
+  }
+
+  function place(el, pos) {
+    var st = el.style;
+    if (st.getPropertyValue("top") === pos.top && st.getPropertyPriority("top") === "important" &&
+        st.getPropertyValue("left") === pos.left && st.getPropertyValue("right") === "auto") return;
+    st.setProperty("inset", "auto", "important");
+    st.setProperty("top", pos.top, "important");
+    st.setProperty("left", pos.left, "important");
+    st.setProperty("right", "auto", "important");
+    st.setProperty("bottom", "auto", "important");
+  }
+
+  function release(el) {
+    PROPS.forEach(function (p) { el.style.removeProperty(p); });
+    el.classList.remove("mhh-pip-float");
+  }
+
+  // the element that actually floats: the video or its nearest fixed ancestor
+  function floatingElement(v) {
+    for (var el = v; el && el !== document.body; el = el.parentElement) {
+      if (getComputedStyle(el).position === "fixed") return el;
+      if (box && el === box) break;
+    }
+    return null;
+  }
+
+  function findCloseButtons() {
+    var list = document.querySelectorAll('[class*="close"][class*="pip"], [class*="pip"] [class*="close"]');
+    return Array.prototype.filter.call(list, function (el) {
+      var pos = getComputedStyle(el).position;
+      return pos === "fixed" || pos === "absolute";
+    });
+  }
+
+  function check() {
+    ticking = false;
+    var v = findVideo();
+    if (!v) return;
+    var el = floatingElement(v);
+
+    if (el) {
+      if (floated && floated !== el) release(floated);
+      floated = el;
+      el.classList.add("mhh-pip-float");
+      if (box) box.classList.add("mhh-pip-on");
+      place(el, PIP);
+      closeBtns = findCloseButtons();
+      closeBtns.forEach(function (c) {
+        c.style.setProperty("z-index", "10001", "important");
+        place(c, CLOSE);
+      });
+      if (debug && !check.logged) {
+        check.logged = true;
+        console.log("MHH PiP: floating element =", el.tagName, "#" + el.id, "." + String(el.className).split(" ").join("."),
+                    "| close buttons:", closeBtns.length);
+      }
+    } else if (floated) {
+      release(floated);
+      closeBtns.forEach(release);
+      floated = null;
+      closeBtns = [];
+      if (box) box.classList.remove("mhh-pip-on");
+    }
+  }
+
+  function request() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(check);
+  }
+
+  window.addEventListener("scroll", request, { passive: true });
+  window.addEventListener("resize", request);
+
+  // GHL switches the PiP by changing classes/styles: re-check right after it does
+  var mo = new MutationObserver(request);
+  function watch() {
+    var v = findVideo();
+    if (!v) return false;
+    var root = (box && box.closest("." + VIDEO_CLASS)) || box || v.parentElement;
+    mo.observe(root, { attributes: true, attributeFilter: ["class", "style"], subtree: true });
+    request();
+    return true;
+  }
+  var tries = 0, t = setInterval(function () {
+    if (watch() || ++tries > 150) clearInterval(t);
+  }, 100);
+  // safety net while the page is open (cheap: one computed-style read)
+  setInterval(request, 700);
 })();
 </script>
