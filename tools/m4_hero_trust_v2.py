@@ -59,12 +59,23 @@ CSS = r"""
   stroke-linejoin: round;
 }
 
+/* «أكثر من 40 ألف مشترك» at the same weight as the trust points next to it */
+#m4-hero-trust .m4-hero-trust__proof-text strong,
+#m4-hero-trust .m4-hero-trust__trust-item {
+  font-weight: 700;
+}
+
 /* phones: price, then a hairline, then proof and trust stacked */
 @media (max-width: 768px) {
   #m4-hero-trust .m4-hero-trust__price {
     gap: 6px 8px;
     margin-bottom: 14px;
     font-size: calc(.86rem * var(--m4-type-scale));
+  }
+
+  #m4-hero-trust .m4-hero-trust__proof-text strong,
+  #m4-hero-trust .m4-hero-trust__trust-item {
+    font-size: calc(.76rem * var(--m4-type-scale));
   }
 
   #m4-hero-trust .m4-hero-trust__price + .m4-hero-trust__proof {
@@ -99,9 +110,9 @@ CSS = r"""
   }
 
   #m4-hero-trust .m4-hero-trust__avatars span {
-    width: 34px;
-    height: 34px;
-    flex-basis: 34px;
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
   }
 
   #m4-hero-trust .m4-hero-trust__avatars span:not(:first-child) {
@@ -109,11 +120,11 @@ CSS = r"""
   }
 
   #m4-hero-trust .m4-hero-trust__proof-text strong {
-    font-size: calc(.92rem * var(--m4-type-scale));
+    font-size: calc(.82rem * var(--m4-type-scale));
   }
 
   #m4-hero-trust .m4-hero-trust__proof-text small {
-    font-size: calc(.72rem * var(--m4-type-scale));
+    font-size: calc(.7rem * var(--m4-type-scale));
   }
 
   #m4-hero-trust .m4-hero-trust__trust-item {
