@@ -701,6 +701,12 @@ def main():
         out = header + "<style>\n" + css + "\n</style>\n\n" + pretty_html(body)
         (blocks / f"{i:02d}-{slug}.html").write_text(out, encoding="utf-8")
         sizes.append((f"{i:02d}-{slug}", len(out)))
+    # ---- block 13 v2: real cover mockups (tools/m4_practice_v2.py) ----
+    spec2 = importlib.util.spec_from_file_location("m4practice", ROOT / "tools" / "m4_practice_v2.py")
+    pv2 = importlib.util.module_from_spec(spec2)
+    spec2.loader.exec_module(pv2)
+    print("practice v2:", pv2.apply(blocks / "13-practice.html"))
+
     # ---- hand-written new blocks (not from the legacy page), e.g. 16b-offer-early ----
     for f in sorted((ROOT / "tools" / "new-blocks").glob("*.html")):
         (blocks / f.name).write_text(f.read_text(encoding="utf-8"), encoding="utf-8")

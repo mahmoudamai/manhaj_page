@@ -242,3 +242,12 @@ A small price strip so visitors see the price early: price → the same checkout
 ## Sticky bar rule
 
 The bar appears once the visitor has scrolled past the Pain section (#m4-pain), then stays on for the rest of the page, including over both price sections. This needs the updated Block 00B.
+
+## Block 13 v2 — رياضة الفكر with real covers
+
+The 3 sample pages and the 8 cropped cards are replaced by book mockups of the real رياضة الفكر covers:
+a fanned stack of 3 books in the dark card, and a "مكتبة رياضة الفكر" shelf with all 9 covers plus a "ملفات جديدة" slot
+(a swipeable row on phones). The header, text, chips and the member note are unchanged.
+
+- Covers, their order and the count come from `COVERS` in `tools/m4_practice_v2.py` (the first 3 are the stack).
+- Re-paste `13-practice.html` in GHL (its `<style>` changed too).
