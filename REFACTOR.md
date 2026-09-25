@@ -389,3 +389,7 @@ strip ending with «+ اللقاءات مستمرة». Schedule details are in 1
 Hand-written (`tools/new-blocks/15-telegram.html`): one dark card with the promise, three one-line features
 (Kareem's voice notes and reflections · questions and discussion · the cohort) and a small phone showing the group.
 ~43% shorter on desktop. The email/Telegram card in 15B was shortened so it doesn't repeat this section.
+
+**14-live update:** the image is now a short muted preview video (the session photo is its poster). A small script in the
+block plays it only while it's on screen (nothing is downloaded before the reader reaches the section), pauses it when it
+leaves, and keeps the poster with reduced motion or data saver.

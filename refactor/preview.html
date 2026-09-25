@@ -8861,7 +8861,8 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 
 <!-- =====================================================================
      M4 · BLOCK 14 — Live sessions (v2, shorter)
-     One image with a "live" badge (instead of three near-identical cards),
+     A short muted preview video with a "live" badge (instead of three
+     near-identical cards; the session photo is its poster),
      the three things you do in a session, and the sessions held so far as a
      slim strip ending with "+ مستمرة". Schedule details live in Block 15B.
      To add a session: add an <li> before the dashed one and update the count.
@@ -9004,7 +9005,8 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
     0 30px 60px -24px color-mix(in srgb, var(--m4-primary-deep) 50%, transparent);
 }
 
-#m4-live .m4-live__screen img {
+#m4-live .m4-live__screen img,
+#m4-live .m4-live__screen video {
   display: block;
   width: 100%;
   height: 100%;
@@ -9189,11 +9191,17 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
       </div>
 
       <figure class="m4-live__screen m4-reveal">
-        <img
-          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6ab6bdfd974a9da6eec55351.jpg"
-          alt="لقطة من لقاء تفاعلي مباشر في منهج الطمأنينة"
-          loading="lazy"
+        <video
+          class="m4-live__video"
+          muted
+          loop
+          playsinline
+          preload="none"
+          poster="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6ab6bdfd974a9da6eec55351.jpg"
+          aria-label="لقطات من لقاء تفاعلي مباشر في منهج الطمأنينة"
         >
+          <source src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6ab6bf786407f2cbe4daadd0.mp4" type="video/mp4">
+        </video>
         <span class="m4-live__badge"><i aria-hidden="true"></i>لقاء مباشر</span>
         <figcaption class="m4-live__caption">
           <strong>3 لقاءات حتى الآن</strong>
@@ -9213,6 +9221,31 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   </div>
 
 </section>
+
+<script>
+/* M4 · Block 14: the live preview plays only while it is on screen (loads
+   nothing before that), pauses when it leaves, and stays on its poster
+   image with reduced motion or data saver. */
+(function () {
+  var v = document.querySelector("#m4-live .m4-live__video");
+  if (!v || v.__m4) return;
+  v.__m4 = true;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var save = navigator.connection && navigator.connection.saveData;
+  if (reduce || save || !("IntersectionObserver" in window)) return;
+  v.muted = true;
+  new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        var p = v.play();
+        if (p && p.catch) p.catch(function () {});
+      } else {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.35 }).observe(v);
+})();
+</script>
 
 <!-- =====================================================================
      M4 · BLOCK 15 — Telegram community (v2, shorter)
