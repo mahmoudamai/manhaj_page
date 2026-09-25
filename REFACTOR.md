@@ -369,3 +369,11 @@ Two different numbers, told apart by words and a green "live" dot:
 **total over the year** «أكثر من 30 محاضرة على مدار العام» and **available now** «متاح الآن: قرابة 17 ساعة» (grows every 10 days).
 Shown in the hero stats (02), the offer price card (21), the lectures counter (11: «9 محاضرات متاحة الآن … من +30 على مدار العام»)
 and FAQ Q2 (23).
+
+## Block 20 v2 — Kareem full profile
+
+Hand-written (`tools/new-blocks/20-kareem.html`). No repetition (name once in the title, role once, reach numbers
+once in a dark stats band — not again in the lists); credentials grouped by body (ICF / Gallup / PDA); experience as
+4 short lines with icons. Gallery: a fixed **bento** grid (first photo big, 6th wide) where each photo fills its cell
+with `object-fit: cover`, so photos of any size/orientation stay tidy — tested with 13 differently-shaped images.
+No masonry script (new class names, so Block 00B's masonry no longer touches it). Phones: a swipeable strip.

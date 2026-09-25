@@ -12902,7 +12902,15 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 </section>
 
 <!-- =====================================================================
-     M4 · BLOCK 20 — Section 18 — Kareem full profile
+     M4 · BLOCK 20 — Kareem full profile (v2)
+     - no repetition: the name once in the title, the role once, the reach
+       numbers once (stats band) — not again in the lists
+     - credentials grouped by body (ICF / Gallup / PDA)
+     - photos in a fixed "bento" grid: every cell has a set shape and the
+       photo fills it (object-fit: cover), so photos of any size or
+       orientation look tidy. No masonry script. Phones: a swipeable strip.
+     To add a photo: add a <figure class="m4-kareem__shot"> to the bento.
+     The first photo is the big one; the 6th spans two columns.
      Section styles are scoped to #m4-kareem. Colours, fonts, sizes and
      speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
@@ -12914,8 +12922,11 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   text-align: right;
   font-family: var(--m4-font-primary) !important;
   color: var(--m4-ink);
-  padding: calc(86px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale)) calc(94px * var(--m4-space-scale));
-  background: radial-gradient( circle at 8% 12%, color-mix(in srgb, var(--m4-highlight) 7.5%, transparent), transparent 28% ), radial-gradient( circle at 94% 88%, color-mix(in srgb, var(--m4-secondary) 6.5%, transparent), transparent 27% ), linear-gradient( 180deg, var(--m4-bg-cream) 0%, color-mix(in srgb, var(--m4-bg-paper) 85%, var(--m4-secondary)) 54%, color-mix(in srgb, var(--m4-secondary-soft) 54%, var(--m4-white)) 100% );
+  padding: calc(88px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale)) calc(94px * var(--m4-space-scale));
+  background:
+    radial-gradient(circle at 8% 10%, color-mix(in srgb, var(--m4-highlight) 8%, transparent), transparent 28%),
+    radial-gradient(circle at 94% 90%, color-mix(in srgb, var(--m4-accent) 7%, transparent), transparent 28%),
+    linear-gradient(180deg, var(--m4-bg-cream) 0%, var(--m4-bg-paper) 55%, var(--m4-bg-cloud) 100%);
 }
 
 #m4-kareem *,
@@ -12924,596 +12935,500 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   box-sizing: border-box;
 }
 
-#m4-kareem::before {
-  content: "";
-  position: absolute;
-  width: 460px;
-  height: 460px;
-  top: -300px;
-  left: -250px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--m4-primary) 4.5%, transparent);
-  pointer-events: none;
-}
-
-#m4-kareem::after {
-  content: "";
-  position: absolute;
-  width: 330px;
-  height: 330px;
-  right: -195px;
-  bottom: -185px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--m4-accent) 5.5%, transparent);
-  pointer-events: none;
-}
-
 #m4-kareem .m4-kareem__wrap {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1160px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 
+/* ---- head ---- */
 #m4-kareem .m4-kareem__head {
-  max-width: 800px;
-  margin: 0 auto 40px;
+  max-width: 760px;
+  margin: 0 auto 44px;
   text-align: center;
-  transition: opacity calc(.72s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.72s * var(--m4-motion-scale)) var(--m4-ease);
-}
-
-#m4-kareem .m4-kareem__head.m4-reveal {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 #m4-kareem .m4-kareem__kicker {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  margin-bottom: 12px;
-  color: var(--m4-primary);
-  font-size: calc(.76rem * var(--m4-type-scale));
-  font-weight: 900;
-}
-
-#m4-kareem .m4-kareem__kicker::before {
-  content: "";
-  width: 27px;
-  height: 1px;
-  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-primary) 13%, transparent), var(--m4-accent) );
-}
-
-#m4-kareem .m4-kareem__head h2 {
-  margin: 0;
-  color: var(--m4-primary-deep);
-  font-size: calc(clamp( 2rem, 4vw, 3.2rem ) * var(--m4-heading-scale));
-  line-height: 1.27;
-  font-weight: 900;
-  letter-spacing: -.7px;
-}
-
-#m4-kareem .m4-kareem__head p {
-  max-width: 690px;
-  margin: 14px auto 0;
-  color: var(--m4-text);
-  font-size: calc(.96rem * var(--m4-type-scale));
-  line-height: 1.85;
-  font-weight: 500;
-}
-
-#m4-kareem .m4-kareem__profile {
-  display: grid;
-  grid-template-columns: minmax(330px,.90fr) minmax(0,1.10fr);
-  gap: 48px;
-  align-items: center;
-  margin-bottom: 46px;
-  transition: opacity calc(.78s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.78s * var(--m4-motion-scale)) var(--m4-ease);
-}
-
-#m4-kareem .m4-kareem__profile.m4-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#m4-kareem .m4-kareem__photo {
-  position: relative;
-  overflow: hidden;
-  min-height: 535px;
-  border-radius: calc(29px * var(--m4-radius-scale));
-  border: 1px solid color-mix(in srgb, var(--m4-primary) 9%, transparent);
-  background: var(--m4-primary-deep);
-  box-shadow: 0 27px 65px color-mix(in srgb, var(--m4-ink) 15%, transparent);
-}
-
-#m4-kareem .m4-kareem__photo img {
-  display: block;
-  width: 100%;
-  height: 535px;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.015);
-}
-
-#m4-kareem .m4-kareem__photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient( 180deg, color-mix(in srgb, var(--m4-primary-deep) 0%, transparent) 45%, color-mix(in srgb, var(--m4-primary-deep) 90%, transparent) 100% );
-  pointer-events: none;
-}
-
-#m4-kareem .m4-kareem__photo-role {
-  position: absolute;
-  z-index: 3;
-  right: 20px;
-  left: 20px;
-  bottom: 20px;
-  padding: 15px 17px;
-  border: 1px solid rgba(255,255,255,.13);
-  border-radius: calc(17px * var(--m4-radius-scale));
-  background: color-mix(in srgb, var(--m4-primary-deep) 50%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-#m4-kareem .m4-kareem__photo-role span {
-  display: block;
-  margin-bottom: 4px;
-  color: color-mix(in srgb, var(--m4-accent) 72.5%, var(--m4-bg-paper));
-  font-size: calc(.60rem * var(--m4-type-scale));
-  font-weight: 900;
-}
-
-#m4-kareem .m4-kareem__photo-role strong {
-  display: block;
-  color: var(--m4-bg-paper);
-  font-size: calc(.88rem * var(--m4-type-scale));
-  line-height: 1.65;
+  color: var(--m4-accent-deep);
+  font-size: calc(.82rem * var(--m4-type-scale));
   font-weight: 800;
 }
 
-#m4-kareem .m4-kareem__name-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-bottom: 8px;
-  color: color-mix(in srgb, var(--m4-accent) 69.5%, var(--m4-black));
-  font-size: calc(.68rem * var(--m4-type-scale));
-  font-weight: 900;
-}
-
-#m4-kareem .m4-kareem__name-tag::before {
+#m4-kareem .m4-kareem__kicker::before,
+#m4-kareem .m4-kareem__kicker::after {
   content: "";
-  width: 16px;
+  width: 22px;
   height: 1px;
   background: var(--m4-accent);
 }
 
-#m4-kareem .m4-kareem__profile-copy h3 {
-  margin: 0;
+#m4-kareem h2 {
+  margin: 12px 0 0;
   color: var(--m4-primary-deep);
-  font-size: calc(clamp( 1.8rem, 3.2vw, 2.65rem ) * var(--m4-heading-scale));
-  line-height: 1.25;
-  font-weight: 900;
+  font-size: calc(clamp(1.9rem, 1.2rem + 2.3vw, 2.9rem) * var(--m4-heading-scale));
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+#m4-kareem .m4-kareem__lead {
+  margin: 12px auto 0;
+  color: var(--m4-text);
+  font-size: calc(1rem * var(--m4-type-scale));
+  line-height: 1.9;
+}
+
+/* ---- profile: photo + story ---- */
+#m4-kareem .m4-kareem__profile {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: 48px;
+  align-items: center;
+}
+
+#m4-kareem .m4-kareem__portrait {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  border-radius: calc(28px * var(--m4-radius-scale));
+  overflow: hidden;
+  background: var(--m4-primary-deep);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--m4-accent) 35%, transparent),
+    0 0 0 8px color-mix(in srgb, var(--m4-white) 60%, transparent),
+    0 30px 64px -22px color-mix(in srgb, var(--m4-primary-deep) 45%, transparent);
+}
+
+#m4-kareem .m4-kareem__portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+/* the three credential bodies on the photo */
+#m4-kareem .m4-kareem__badges {
+  position: absolute;
+  right: 16px;
+  left: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+#m4-kareem .m4-kareem__badges span {
+  padding: 5px 12px;
+  border-radius: 999px;
+  color: var(--m4-white);
+  background: color-mix(in srgb, var(--m4-primary-deep) 62%, transparent);
+  border: 1px solid color-mix(in srgb, var(--m4-white) 18%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-size: calc(.74rem * var(--m4-type-scale));
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+#m4-kareem .m4-kareem__years {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--m4-accent-deep);
+  font-size: calc(.8rem * var(--m4-type-scale));
+  font-weight: 800;
+}
+
+#m4-kareem .m4-kareem__years::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: var(--m4-accent);
 }
 
 #m4-kareem .m4-kareem__role {
-  margin: 7px 0 0;
-  color: var(--m4-primary);
-  font-size: calc(.82rem * var(--m4-type-scale));
-  line-height: 1.6;
-  font-weight: 900;
+  margin: 8px 0 0;
+  color: var(--m4-primary-deep);
+  font-size: calc(clamp(1.3rem, 1rem + 1vw, 1.7rem) * var(--m4-heading-scale));
+  line-height: 1.5;
+  font-weight: 800;
 }
 
 #m4-kareem .m4-kareem__bio {
-  max-width: 610px;
-  margin: 18px 0 0;
-  color: color-mix(in srgb, var(--m4-text-muted) 57.5%, var(--m4-olive));
-  font-size: calc(.93rem * var(--m4-type-scale));
+  margin: 14px 0 0;
+  color: var(--m4-text);
+  font-size: calc(.95rem * var(--m4-type-scale));
   line-height: 1.95;
-  font-weight: 500;
 }
 
 #m4-kareem .m4-kareem__philosophy {
-  margin-top: 22px;
-  padding: 18px 19px;
+  margin-top: 20px;
+  padding: 16px 20px;
   border-right: 3px solid var(--m4-accent);
-  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-bg-paper) 18%, transparent), color-mix(in srgb, var(--m4-bg-paper) 62%, transparent) );
+  border-radius: 14px 0 0 14px;
+  background: color-mix(in srgb, var(--m4-accent-soft) 20%, var(--m4-white));
 }
 
 #m4-kareem .m4-kareem__philosophy span {
   display: block;
-  margin-bottom: 6px;
-  color: color-mix(in srgb, var(--m4-accent) 67.5%, var(--m4-black));
-  font-size: calc(.62rem * var(--m4-type-scale));
-  font-weight: 900;
+  color: var(--m4-accent-deep);
+  font-size: calc(.74rem * var(--m4-type-scale));
+  font-weight: 800;
 }
 
 #m4-kareem .m4-kareem__philosophy p {
-  margin: 0;
-  color: color-mix(in srgb, var(--m4-olive) 53.5%, var(--m4-text-muted));
-  font-size: calc(.82rem * var(--m4-type-scale));
-  line-height: 1.82;
-  font-weight: 600;
-}
-
-#m4-kareem .m4-kareem__stats {
-  display: grid;
-  grid-template-columns: repeat(5,minmax(0,1fr));
-  gap: 11px;
-  margin-bottom: 45px;
-  transition: opacity calc(.7s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.7s * var(--m4-motion-scale)) var(--m4-ease);
-}
-
-#m4-kareem .m4-kareem__stats.m4-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#m4-kareem .m4-kareem__stat {
-  position: relative;
-  overflow: hidden;
-  min-height: 128px;
-  padding: 17px 15px;
-  border-radius: calc(18px * var(--m4-radius-scale));
-  border: 1px solid color-mix(in srgb, var(--m4-primary) 10%, transparent);
-  background: linear-gradient( 180deg, color-mix(in srgb, var(--m4-bg-paper) 90%, transparent), color-mix(in srgb, color-mix(in srgb, var(--m4-bg-paper) 66%, var(--m4-secondary-soft)) 88%, transparent) );
-  box-shadow: 0 10px 25px color-mix(in srgb, var(--m4-ink) 4.5%, transparent);
-}
-
-#m4-kareem .m4-kareem__stat::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 15px;
-  width: 35px;
-  height: 2px;
-  background: linear-gradient( 90deg, var(--m4-accent), var(--m4-primary) );
-}
-
-#m4-kareem .m4-kareem__stat-value {
+  margin: 4px 0 0;
   color: var(--m4-primary-deep);
-  font-size: calc(1.12rem * var(--m4-type-scale));
-  line-height: 1.3;
-  font-weight: 900;
+  font-size: calc(1rem * var(--m4-type-scale));
+  line-height: 1.85;
 }
 
-#m4-kareem .m4-kareem__stat-label {
-  margin-top: 7px;
-  color: color-mix(in srgb, var(--m4-primary-alt) 63.5%, var(--m4-accent-soft));
-  font-size: calc(.65rem * var(--m4-type-scale));
-  line-height: 1.65;
-  font-weight: 600;
-}
-
-#m4-kareem .m4-kareem__details {
+/* experience: 4 short lines with icons */
+#m4-kareem .m4-kareem__work {
   display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 34px;
-  margin-bottom: 57px;
-}
-
-#m4-kareem .m4-kareem__detail {
-  padding-top: 20px;
-  border-top: 1px solid color-mix(in srgb, var(--m4-primary) 13%, transparent);
-}
-
-#m4-kareem .m4-kareem__detail-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-#m4-kareem .m4-kareem__detail-head h4 {
-  margin: 0;
-  color: var(--m4-primary-deep);
-  font-size: calc(1.05rem * var(--m4-type-scale));
-  font-weight: 900;
-}
-
-#m4-kareem .m4-kareem__detail-no {
-  color: color-mix(in srgb, var(--m4-accent) 70%, var(--m4-black));
-  font-size: calc(.62rem * var(--m4-type-scale));
-  font-weight: 900;
-}
-
-#m4-kareem .m4-kareem__detail ul {
-  display: grid;
-  gap: 9px;
-  margin: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 18px;
+  margin: 20px 0 0;
   padding: 0;
   list-style: none;
 }
 
-#m4-kareem .m4-kareem__detail li {
-  position: relative;
-  padding-right: 19px;
-  color: color-mix(in srgb, var(--m4-text-muted) 66%, var(--m4-olive));
-  font-size: calc(.76rem * var(--m4-type-scale));
+#m4-kareem .m4-kareem__work li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--m4-ink);
+  font-size: calc(.86rem * var(--m4-type-scale));
   line-height: 1.7;
   font-weight: 600;
 }
 
-#m4-kareem .m4-kareem__detail li::before {
-  content: "";
-  position: absolute;
-  top: .72em;
-  right: 0;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--m4-secondary);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--m4-secondary) 8%, transparent);
+#m4-kareem .m4-kareem__work i {
+  flex: 0 0 30px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  color: var(--m4-primary);
+  background: color-mix(in srgb, var(--m4-highlight) 14%, transparent);
 }
 
-#m4-kareem .m4-kareem__gallery-head {
-  max-width: 760px;
-  margin: 0 auto 25px;
+#m4-kareem .m4-kareem__work svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---- reach: one dark band of numbers ---- */
+#m4-kareem .m4-kareem__stats {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 46px;
+  padding: 22px 10px;
+  border-radius: calc(22px * var(--m4-radius-scale));
+  background:
+    radial-gradient(circle at 10% 20%, color-mix(in srgb, var(--m4-accent) 14%, transparent), transparent 35%),
+    linear-gradient(135deg, color-mix(in srgb, var(--m4-primary) 54%, var(--m4-black)) 0%, var(--m4-primary-deep) 55%, color-mix(in srgb, var(--m4-primary) 90%, var(--m4-black)) 100%);
+  box-shadow: 0 24px 50px -24px color-mix(in srgb, var(--m4-primary-deep) 55%, transparent);
+}
+
+#m4-kareem .m4-kareem__stat {
+  padding: 4px 12px;
   text-align: center;
 }
 
-#m4-kareem .m4-kareem__gallery-kicker {
+#m4-kareem .m4-kareem__stat + .m4-kareem__stat {
+  border-right: 1px solid color-mix(in srgb, var(--m4-white) 12%, transparent);
+}
+
+#m4-kareem .m4-kareem__stat strong {
   display: block;
-  margin-bottom: 7px;
-  color: color-mix(in srgb, var(--m4-accent) 68%, var(--m4-black));
-  font-size: calc(.66rem * var(--m4-type-scale));
+  color: var(--m4-accent);
+  font-size: calc(1.6rem * var(--m4-heading-scale));
+  line-height: 1.2;
   font-weight: 900;
+}
+
+#m4-kareem .m4-kareem__stat span {
+  display: block;
+  margin-top: 4px;
+  color: color-mix(in srgb, var(--m4-white) 74%, transparent);
+  font-size: calc(.76rem * var(--m4-type-scale));
+  line-height: 1.55;
+}
+
+/* ---- credentials ---- */
+#m4-kareem .m4-kareem__creds {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* ICF (5 certificates) on the left over two rows; Gallup and PDA stacked */
+#m4-kareem .m4-kareem__cred:first-child {
+  grid-row: span 2;
+}
+
+#m4-kareem .m4-kareem__cred:first-child ul {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 20px;
+}
+
+#m4-kareem .m4-kareem__cred {
+  padding: 16px 18px;
+  border-radius: calc(18px * var(--m4-radius-scale));
+  background: var(--m4-white);
+  border: 1px solid color-mix(in srgb, var(--m4-primary) 10%, transparent);
+  direction: ltr;
+  text-align: left;
+}
+
+#m4-kareem .m4-kareem__cred b {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 8px;
+  color: var(--m4-white);
+  background: var(--m4-primary);
+  font-size: calc(.8rem * var(--m4-type-scale));
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+#m4-kareem .m4-kareem__cred ul {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+}
+
+#m4-kareem .m4-kareem__cred li {
+  color: var(--m4-text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: calc(.8rem * var(--m4-type-scale));
+  line-height: 1.55;
+}
+
+#m4-kareem .m4-kareem__cred li::before {
+  content: "✓ ";
+  color: var(--m4-accent-deep);
+  font-weight: 700;
+}
+
+/* ---- gallery: fixed bento, photos fill their cells ---- */
+#m4-kareem .m4-kareem__gallery-head {
+  max-width: 700px;
+  margin: 64px auto 22px;
+  text-align: center;
+}
+
+#m4-kareem .m4-kareem__gallery-head span {
+  color: var(--m4-accent-deep);
+  font-size: calc(.8rem * var(--m4-type-scale));
+  font-weight: 800;
 }
 
 #m4-kareem .m4-kareem__gallery-head h3 {
-  margin: 0;
+  margin: 6px 0 0;
   color: var(--m4-primary-deep);
-  font-size: calc(clamp( 1.45rem, 2.7vw, 2.15rem ) * var(--m4-heading-scale));
-  line-height: 1.4;
-  font-weight: 900;
+  font-size: calc(clamp(1.4rem, 1.1rem + 1.1vw, 1.9rem) * var(--m4-heading-scale));
+  line-height: 1.45;
+  font-weight: 800;
 }
 
-#m4-kareem .m4-kareem__gallery-head p {
-  max-width: 650px;
-  margin: 8px auto 0;
-  color: color-mix(in srgb, var(--m4-text) 89%, var(--m4-accent-soft));
-  font-size: calc(.80rem * var(--m4-type-scale));
-  line-height: 1.75;
-  font-weight: 500;
-}
-
-#m4-kareem .m4-kareem__gallery {
+#m4-kareem .m4-kareem__bento {
   display: grid;
-  grid-template-columns: repeat(4,minmax(0,1fr));
-  grid-auto-rows: 6px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 170px;
   grid-auto-flow: dense;
   gap: 10px;
-  align-items: start;
 }
 
-#m4-kareem .m4-kareem__event {
+#m4-kareem .m4-kareem__shot {
   position: relative;
-  overflow: hidden;
-  width: 100%;
   margin: 0;
-  min-width: 0;
-  border-radius: calc(17px * var(--m4-radius-scale));
-  border: 1px solid color-mix(in srgb, var(--m4-primary) 7%, transparent);
-  background: color-mix(in srgb, var(--m4-bg-cloud) 76.5%, var(--m4-secondary));
-  box-shadow: 0 10px 25px color-mix(in srgb, var(--m4-ink) 7%, transparent);
-  transition: opacity calc(.65s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.65s * var(--m4-motion-scale)) var(--m4-ease), box-shadow calc(.25s * var(--m4-motion-scale)) var(--m4-ease);
+  overflow: hidden;
+  border-radius: calc(16px * var(--m4-radius-scale));
+  background: color-mix(in srgb, var(--m4-primary) 12%, var(--m4-bg-cloud));
 }
 
-#m4-kareem .m4-kareem__event--featured {
+#m4-kareem .m4-kareem__shot:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+#m4-kareem .m4-kareem__shot:nth-child(6) {
   grid-column: span 2;
 }
 
-#m4-kareem .m4-kareem__event img {
+#m4-kareem .m4-kareem__shot img {
   display: block;
   width: 100%;
-  height: auto;
-  max-width: 100%;
-  object-fit: initial;
-  object-position: center;
-  transition: transform calc(.45s * var(--m4-motion-scale)) var(--m4-ease);
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  transition: transform calc(.5s * var(--m4-motion-scale)) var(--m4-ease);
 }
 
-#m4-kareem .m4-kareem__event::after {
+#m4-kareem .m4-kareem__shot::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient( 180deg, color-mix(in srgb, var(--m4-primary-deep) 0.5%, transparent), color-mix(in srgb, var(--m4-primary-deep) 5.5%, transparent) );
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--m4-black) 6%, transparent);
   pointer-events: none;
 }
 
-#m4-kareem .m4-kareem__event.m4-reveal {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+#m4-kareem .m4-kareem__swipe {
+  display: none;
 }
 
-@media(hover:hover) {
-  #m4-kareem .m4-kareem__event:hover {
-    box-shadow: 0 18px 38px color-mix(in srgb, var(--m4-ink) 12%, transparent);
-  }
-
-  #m4-kareem .m4-kareem__event:hover img {
-    transform: scale(1.025);
+@media (hover: hover) {
+  #m4-kareem .m4-kareem__shot:hover img {
+    transform: scale(1.04);
   }
 }
 
-@media(max-width:950px) {
-  #m4-kareem {
-    padding: calc(74px * var(--m4-space-scale)) calc(18px * var(--m4-space-scale)) calc(80px * var(--m4-space-scale));
-  }
-
+@media (max-width: 900px) {
   #m4-kareem .m4-kareem__profile {
-    grid-template-columns: minmax(280px,.85fr) minmax(0,1.15fr);
-    gap: 32px;
-  }
-
-  #m4-kareem .m4-kareem__photo,
-  #m4-kareem .m4-kareem__photo img {
-    min-height: 470px;
-    height: 470px;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    gap: 30px;
   }
 
   #m4-kareem .m4-kareem__stats {
-    grid-template-columns: repeat(3,minmax(0,1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 16px;
   }
 
-  #m4-kareem .m4-kareem__gallery {
-    grid-template-columns: repeat(3,minmax(0,1fr));
-    gap: 9px;
-    grid-auto-rows: 6px;
+  #m4-kareem .m4-kareem__stat:nth-child(4) {
+    border-right: 0;
+  }
+
+  #m4-kareem .m4-kareem__creds {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #m4-kareem .m4-kareem__cred:first-child {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  #m4-kareem .m4-kareem__bento {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 150px;
   }
 }
 
-@media(max-width:680px) {
+/* phones */
+@media (max-width: 640px) {
   #m4-kareem {
-    padding: calc(56px * var(--m4-space-scale)) calc(13px * var(--m4-space-scale)) calc(62px * var(--m4-space-scale));
+    padding: calc(60px * var(--m4-space-scale)) calc(14px * var(--m4-space-scale)) calc(64px * var(--m4-space-scale));
   }
 
   #m4-kareem .m4-kareem__head {
-    margin-bottom: 30px;
+    margin-bottom: 26px;
   }
 
-  #m4-kareem .m4-kareem__head h2 {
-    font-size: calc(1.82rem * var(--m4-heading-scale));
-  }
-
-  #m4-kareem .m4-kareem__head p {
-    font-size: calc(.81rem * var(--m4-type-scale));
-    line-height: 1.75;
+  #m4-kareem .m4-kareem__lead {
+    font-size: calc(.88rem * var(--m4-type-scale));
   }
 
   #m4-kareem .m4-kareem__profile {
     grid-template-columns: 1fr;
-    gap: 27px;
-    margin-bottom: 37px;
+    gap: 22px;
   }
 
-  #m4-kareem .m4-kareem__profile-copy {
-    order: -1;
-  }
-
-  #m4-kareem .m4-kareem__profile-copy h3 {
-    font-size: calc(1.72rem * var(--m4-heading-scale));
-  }
-
-  #m4-kareem .m4-kareem__bio {
-    font-size: calc(.80rem * var(--m4-type-scale));
-    line-height: 1.8;
-  }
-
-  #m4-kareem .m4-kareem__philosophy {
-    margin-top: 17px;
-    padding: 14px 15px;
-  }
-
-  #m4-kareem .m4-kareem__philosophy p {
-    font-size: calc(.72rem * var(--m4-type-scale));
-  }
-
-  #m4-kareem .m4-kareem__photo {
-    min-height: 390px;
+  #m4-kareem .m4-kareem__portrait {
+    aspect-ratio: 4 / 4.2;
     border-radius: calc(22px * var(--m4-radius-scale));
   }
 
-  #m4-kareem .m4-kareem__photo img {
-    height: 390px;
-    min-height: 390px;
+  #m4-kareem .m4-kareem__role {
+    font-size: calc(1.2rem * var(--m4-heading-scale));
   }
 
-  #m4-kareem .m4-kareem__photo-role {
-    right: 14px;
-    left: 14px;
-    bottom: 14px;
-    padding: 12px 13px;
-    border-radius: calc(14px * var(--m4-radius-scale));
+  #m4-kareem .m4-kareem__bio {
+    font-size: calc(.88rem * var(--m4-type-scale));
   }
 
-  #m4-kareem .m4-kareem__photo-role strong {
-    font-size: calc(.74rem * var(--m4-type-scale));
+  #m4-kareem .m4-kareem__philosophy p {
+    font-size: calc(.9rem * var(--m4-type-scale));
+  }
+
+  #m4-kareem .m4-kareem__work {
+    grid-template-columns: 1fr;
   }
 
   #m4-kareem .m4-kareem__stats {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 8px;
-    margin-bottom: 36px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 30px;
+    padding: 16px 6px;
+  }
+
+  #m4-kareem .m4-kareem__stat {
+    border-right: 0 !important;
   }
 
   #m4-kareem .m4-kareem__stat:last-child {
     grid-column: 1 / -1;
-    width: calc(50% - 4px);
-    justify-self: center;
   }
 
-  #m4-kareem .m4-kareem__stat {
-    min-height: 110px;
-    padding: 14px 12px;
+  #m4-kareem .m4-kareem__stat strong {
+    font-size: calc(1.3rem * var(--m4-heading-scale));
   }
 
-  #m4-kareem .m4-kareem__stat-value {
-    font-size: calc(.94rem * var(--m4-type-scale));
-  }
-
-  #m4-kareem .m4-kareem__stat-label {
-    font-size: calc(.58rem * var(--m4-type-scale));
-  }
-
-  #m4-kareem .m4-kareem__details {
+  #m4-kareem .m4-kareem__creds {
     grid-template-columns: 1fr;
-    gap: 28px;
-    margin-bottom: 43px;
   }
 
-  #m4-kareem .m4-kareem__detail {
-    padding-top: 16px;
+  #m4-kareem .m4-kareem__cred:first-child ul {
+    grid-template-columns: 1fr;
   }
 
-  #m4-kareem .m4-kareem__detail li {
-    font-size: calc(.68rem * var(--m4-type-scale));
+  #m4-kareem .m4-kareem__gallery-head {
+    margin-top: 44px;
   }
 
-  #m4-kareem .m4-kareem__gallery-head h3 {
-    font-size: calc(1.35rem * var(--m4-heading-scale));
+  /* the bento becomes a swipeable strip of same-size photos */
+  #m4-kareem .m4-kareem__bento {
+    display: flex;
+    gap: 10px;
+    margin: 0 calc(-14px * var(--m4-space-scale));
+    padding: 0 calc(14px * var(--m4-space-scale)) 6px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
   }
 
-  #m4-kareem .m4-kareem__gallery-head p {
-    font-size: calc(.72rem * var(--m4-type-scale));
+  #m4-kareem .m4-kareem__bento::-webkit-scrollbar {
+    display: none;
   }
 
-  #m4-kareem .m4-kareem__gallery {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    grid-auto-rows: 5px;
-    gap: 8px;
+  #m4-kareem .m4-kareem__shot,
+  #m4-kareem .m4-kareem__shot:nth-child(1),
+  #m4-kareem .m4-kareem__shot:nth-child(6) {
+    flex: 0 0 78%;
+    aspect-ratio: 4 / 3;
+    scroll-snap-align: center;
   }
 
-  #m4-kareem .m4-kareem__event {
-    border-radius: calc(14px * var(--m4-radius-scale));
-  }
-
-  #m4-kareem .m4-kareem__event--featured {
-    grid-column: 1 / -1;
-  }
-
-  #m4-kareem .m4-kareem__event:last-child {
-    grid-column: 1 / -1;
-  }
-}
-
-@media(max-width:370px) {
-  #m4-kareem .m4-kareem__gallery {
-    gap: 7px;
-    grid-auto-rows: 5px;
-  }
-}
-
-@media(prefers-reduced-motion: reduce) {
-  #m4-kareem .m4-kareem__head,
-  #m4-kareem .m4-kareem__profile,
-  #m4-kareem .m4-kareem__stats,
-  #m4-kareem .m4-kareem__event {
-    transition: none;
+  #m4-kareem .m4-kareem__swipe {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: var(--m4-text-muted);
+    font-size: calc(.76rem * var(--m4-type-scale));
+    font-weight: 600;
   }
 }
 
@@ -13533,395 +13448,124 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   <div class="m4-kareem__wrap">
 
     <header class="m4-kareem__head m4-reveal">
-
-      <div class="m4-kareem__kicker">
-        عن مقدم المنهج
-      </div>
-
-      <h2>
-        تعرف على كريم إسماعيل
-      </h2>
-
-      <p>
-        أكثر من عشر سنوات من التدريب والمحاضرات
-        وبناء المحتوى في مجالات الوعي النفسي
-        والتطوير الشخصي.
+      <span class="m4-kareem__kicker">عن مقدم المنهج</span>
+      <h2>تعرف على كريم إسماعيل</h2>
+      <p class="m4-kareem__lead">
+        أكثر من عشر سنوات من التدريب والمحاضرات وبناء المحتوى
+        في مجالات الوعي النفسي والتطوير الشخصي.
       </p>
-
     </header>
 
-    <div class="m4-kareem__profile m4-reveal">
+    <div class="m4-kareem__profile">
 
-      <div class="m4-kareem__photo">
-
+      <figure class="m4-kareem__portrait m4-reveal">
         <img
-          src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/68ed118ca296246de435e289.jpeg"
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0e4d4fab44d402055fe65.jpeg"
           alt="كريم إسماعيل"
           loading="lazy"
         >
-
-        <div class="m4-kareem__photo-role">
-
-          <span>
-            كريم إسماعيل
-          </span>
-
-          <strong>
-            مدرب ومحاضر في الصحة النفسية وبناء الوعي
-            ومؤسس Mental Health Hub
-          </strong>
-
+        <div class="m4-kareem__badges" aria-label="اعتمادات مهنية">
+          <span>ICF</span>
+          <span>Gallup</span>
+          <span>PDA</span>
         </div>
+      </figure>
 
-      </div>
-
-      <div class="m4-kareem__profile-copy">
-
-        <div class="m4-kareem__name-tag">
-          خبرة تمتد لأكثر من 10 سنوات
-        </div>
-
-        <h3>
-          كريم إسماعيل
-        </h3>
-
+      <div class="m4-kareem__story m4-reveal">
+        <span class="m4-kareem__years">خبرة تمتد لأكثر من 10 سنوات</span>
         <p class="m4-kareem__role">
-          مدرب ومحاضر في الصحة النفسية وبناء الوعي
+          مدرب ومحاضر في الصحة النفسية وبناء الوعي،
+          ومؤسس منصة Mental Health Hub
         </p>
-
         <p class="m4-kareem__bio">
-
-          يقدم كريم طرحا يربط المعرفة النفسية
-          بالخبرة العملية وتفاصيل الحياة اليومية،
-          بعيدا عن التنظير والحلول السطحية.
-
-          وخلال سنوات عمله قدم محاضرات وورش عمل
-          وبرامج تدريبية لجمهور واسع في عدد من الدول العربية،
-          إلى جانب تأسيس منصة Mental Health Hub.
-
+          يقدم كريم طرحًا يربط المعرفة النفسية بالخبرة العملية وتفاصيل الحياة اليومية،
+          بعيدًا عن التنظير والحلول السطحية. وخلال سنوات عمله قدم محاضرات وورش عمل
+          وبرامج تدريبية لجمهور واسع في عدد من الدول العربية.
         </p>
 
         <div class="m4-kareem__philosophy">
-
-          <span>
-            رؤيته في تقديم المحتوى
-          </span>
-
+          <span>رؤيته في تقديم المحتوى</span>
           <p>
-
-            فهم الإنسان لا يبدأ من زاوية واحدة؛
-            بل من النظر إلى أفكاره وعلاقاته وتربيته
-            وعمله والضغوط التي يعيشها داخل سياق
-            حياته الكامل.
-
+            فهم الإنسان لا يبدأ من زاوية واحدة؛ بل من النظر إلى أفكاره وعلاقاته
+            وتربيته وعمله والضغوط التي يعيشها داخل سياق حياته الكامل.
           </p>
-
         </div>
 
-      </div>
-
-    </div>
-
-    <div
-      class="m4-kareem__stats m4-reveal"
-      aria-label="إحصائيات كريم إسماعيل"
-    >
-
-      <div class="m4-kareem__stat">
-
-        <div class="m4-kareem__stat-value">
-          +10 دول
-        </div>
-
-        <div class="m4-kareem__stat-label">
-          حضور وتدريب في دول عربية مختلفة
-        </div>
-
-      </div>
-
-      <div class="m4-kareem__stat">
-
-        <div class="m4-kareem__stat-value">
-          +100 ألف
-        </div>
-
-        <div class="m4-kareem__stat-label">
-          متدرب من خلال البرامج والمحاضرات
-        </div>
-
-      </div>
-
-      <div class="m4-kareem__stat">
-
-        <div class="m4-kareem__stat-value">
-          +200
-        </div>
-
-        <div class="m4-kareem__stat-label">
-          محاضرة وورشة عمل على منصات مختلفة
-        </div>
-
-      </div>
-
-      <div class="m4-kareem__stat">
-
-        <div class="m4-kareem__stat-value">
-          +6 مليون
-        </div>
-
-        <div class="m4-kareem__stat-label">
-          متابع عبر منصات التواصل الاجتماعي
-        </div>
-
-      </div>
-
-      <div class="m4-kareem__stat">
-
-        <div class="m4-kareem__stat-value">
-          +70 مليون
-        </div>
-
-        <div class="m4-kareem__stat-label">
-          تفاعل مع المحتوى التعليمي والتدريبي
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="m4-kareem__details">
-
-      <section class="m4-kareem__detail">
-
-        <div class="m4-kareem__detail-head">
-
-          <h4>
-            اعتمادات مهنية
-          </h4>
-
-          <span class="m4-kareem__detail-no">
-            01
-          </span>
-
-        </div>
-
-        <ul>
-
+        <ul class="m4-kareem__work">
           <li>
-            ACC — International Coaching Federation (ICF)
+            <i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg></i>
+            مؤسس منصة Mental Health Hub المتخصصة في بناء الوعي النفسي
           </li>
-
           <li>
-            Certified Life Coach — ICF
+            <i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 9l9-5 9 5-9 5z"/><path d="M7 11.5V16c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/></svg></i>
+            التعاون مع جامعات ومؤسسات في تصميم وتقديم برامج تدريبية
           </li>
-
           <li>
-            Certified Relationship Coach — ICF
+            <i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2.5"/><path d="M8 21h8M12 18v3"/></svg></i>
+            محاضرات وورش عمل وبرامج تدريبية لجمهور واسع داخل الوطن العربي
           </li>
-
           <li>
-            Certified Parenting Coach — ICF
-          </li>
-
-          <li>
-            Certified Business & Career Coach — ICF
-          </li>
-
-          <li>
-            Certified CliftonStrengths Coach — Gallup
-          </li>
-
-          <li>
-            Positive Discipline Educator — PDA
-          </li>
-
-        </ul>
-
-      </section>
-
-      <section class="m4-kareem__detail">
-
-        <div class="m4-kareem__detail-head">
-
-          <h4>
-            خبرة ومشروعات
-          </h4>
-
-          <span class="m4-kareem__detail-no">
-            02
-          </span>
-
-        </div>
-
-        <ul>
-
-          <li>
-            مؤسس منصة Mental Health Hub
-            المتخصصة في بناء الوعي النفسي
-          </li>
-
-          <li>
-            تقديم محاضرات وورش عمل وبرامج تدريبية
-            لجمهور واسع داخل الوطن العربي
-          </li>
-
-          <li>
-            التعاون مع جامعات ومؤسسات
-            في تصميم وتقديم برامج تدريبية
-          </li>
-
-          <li>
-            بناء مجتمع رقمي يتجاوز
-            6 ملايين متابع
-          </li>
-
-          <li>
-            محتوى تعليمي حقق
-            أكثر من 70 مليون تفاعل
-          </li>
-
-          <li>
+            <i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h9a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h9"/></svg></i>
             مؤلف كتاب «استراحة نفسية»
           </li>
-
         </ul>
-
-      </section>
-
-    </div>
-
-    <div class="m4-kareem__gallery-head">
-
-      <span class="m4-kareem__gallery-kicker">
-        من أرض الواقع
-      </span>
-
-      <h3>
-        محاضرات وفعاليات وورش عمل مباشرة
-      </h3>
-
-      <p>
-        لقطات من بعض المحاضرات والفعاليات
-        التي قدمها كريم إسماعيل أمام الجمهور.
-      </p>
+      </div>
 
     </div>
 
-    <div class="m4-kareem__gallery">
-
-      <figure
-        class="m4-kareem__event m4-kareem__event--featured m4-reveal"
-      >
-
-        <img
-          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d65640534248c59554c7.jpg"
-          alt="كريم إسماعيل في فعالية تدريبية"
-          loading="lazy"
-        >
-
-      </figure>
-
-      <figure class="m4-kareem__event m4-reveal">
-
-        <img
-          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d656c5c98840c847c9cc.jpg"
-          alt="كريم إسماعيل أمام الجمهور"
-          loading="lazy"
-        >
-
-      </figure>
-
-      <figure class="m4-kareem__event m4-reveal">
-
-        <img
-          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d656fab44d402051d28a.jpg"
-          alt="كريم إسماعيل أثناء محاضرة"
-          loading="lazy"
-        >
-
-      </figure>
-
-      <figure class="m4-kareem__event m4-reveal">
-
-        <img
-          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/68ed1180a6b7f922f5a187c8.jpeg"
-          alt="ورشة عمل لكريم إسماعيل"
-          loading="lazy"
-        >
-
-      </figure>
-
-      <figure class="m4-kareem__event m4-reveal">
-
-        <img
-          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d656c428703a0416fda6.jpg"
-          alt="إحدى فعاليات كريم إسماعيل"
-          loading="lazy"
-        >
-
-      </figure>
-
-      <figure class="m4-kareem__event m4-reveal">
-
-        <img
-          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d656d696846120dff92c.jpg"
-          alt="كريم إسماعيل خلال فعالية مباشرة"
-          loading="lazy"
-        >
-
-      </figure>
-
-      <figure class="m4-kareem__event m4-reveal">
-
-        <img
-          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d65667b2088f5007f914.jpg"
-          alt="محاضرة مباشرة لكريم إسماعيل"
-          loading="lazy"
-        >
-
-      </figure>
-
-      <figure class="m4-kareem__event m4-reveal">
-
-        <img
-          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad9959711f85a2aabf96bc.jpeg"
-          alt="لقطة من محاضرة مباشرة"
-          loading="lazy"
-        >
-
-      </figure>
-
-      <figure class="m4-kareem__event m4-reveal">
-
-        <img
-          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad9956568ea1e2273721a9.jpeg"
-          alt="كريم إسماعيل أثناء إحدى الفعاليات"
-          loading="lazy"
-        >
-
-      </figure>
-
-      <figure class="m4-kareem__event m4-reveal">
-
-        <img
-          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad995616266d0c3a799ce3.jpeg"
-          alt="تفاعل كريم إسماعيل مع الجمهور"
-          loading="lazy"
-        >
-
-      </figure>
-
-      <figure class="m4-kareem__event m4-reveal">
-
-        <img
-          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad9956de8ed1c29f5d9edf.jpeg"
-          alt="فعالية تدريبية مباشرة"
-          loading="lazy"
-        >
-
-      </figure>
-
+    <div class="m4-kareem__stats m4-reveal" aria-label="أرقام كريم إسماعيل">
+      <div class="m4-kareem__stat"><strong>+10</strong><span>دول، حضور وتدريب</span></div>
+      <div class="m4-kareem__stat"><strong>+100 ألف</strong><span>متدرب في البرامج والمحاضرات</span></div>
+      <div class="m4-kareem__stat"><strong>+200</strong><span>محاضرة وورشة عمل</span></div>
+      <div class="m4-kareem__stat"><strong>+6 مليون</strong><span>متابع على منصات التواصل</span></div>
+      <div class="m4-kareem__stat"><strong>+70 مليون</strong><span>تفاعل مع المحتوى التعليمي</span></div>
     </div>
+
+    <div class="m4-kareem__creds m4-reveal" aria-label="اعتمادات مهنية">
+      <div class="m4-kareem__cred">
+        <b>ICF</b>
+        <ul>
+          <li>ACC — International Coaching Federation</li>
+          <li>Certified Life Coach</li>
+          <li>Certified Relationship Coach</li>
+          <li>Certified Parenting Coach</li>
+          <li>Certified Business &amp; Career Coach</li>
+        </ul>
+      </div>
+      <div class="m4-kareem__cred">
+        <b>Gallup</b>
+        <ul>
+          <li>Certified CliftonStrengths Coach</li>
+        </ul>
+      </div>
+      <div class="m4-kareem__cred">
+        <b>PDA</b>
+        <ul>
+          <li>Positive Discipline Educator</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="m4-kareem__gallery-head m4-reveal">
+      <span>من أرض الواقع</span>
+      <h3>محاضرات وفعاليات وورش عمل مباشرة</h3>
+    </div>
+
+    <div class="m4-kareem__bento m4-reveal" aria-label="لقطات من محاضرات وفعاليات كريم إسماعيل">
+      <figure class="m4-kareem__shot"><img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d65640534248c59554c7.jpg" alt="كريم إسماعيل في فعالية تدريبية" loading="lazy"></figure>
+      <figure class="m4-kareem__shot"><img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d656c5c98840c847c9cc.jpg" alt="كريم إسماعيل أمام الجمهور" loading="lazy"></figure>
+      <figure class="m4-kareem__shot"><img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d656fab44d402051d28a.jpg" alt="كريم إسماعيل أثناء محاضرة" loading="lazy"></figure>
+      <figure class="m4-kareem__shot"><img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/68ed1180a6b7f922f5a187c8.jpeg" alt="ورشة عمل لكريم إسماعيل" loading="lazy"></figure>
+      <figure class="m4-kareem__shot"><img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d656c428703a0416fda6.jpg" alt="إحدى فعاليات كريم إسماعيل" loading="lazy"></figure>
+      <figure class="m4-kareem__shot"><img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d656d696846120dff92c.jpg" alt="كريم إسماعيل خلال فعالية مباشرة" loading="lazy"></figure>
+      <figure class="m4-kareem__shot"><img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d65667b2088f5007f914.jpg" alt="محاضرة مباشرة لكريم إسماعيل" loading="lazy"></figure>
+      <figure class="m4-kareem__shot"><img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad9959711f85a2aabf96bc.jpeg" alt="لقطة من محاضرة مباشرة" loading="lazy"></figure>
+      <figure class="m4-kareem__shot"><img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad9956568ea1e2273721a9.jpeg" alt="كريم إسماعيل أثناء إحدى الفعاليات" loading="lazy"></figure>
+      <figure class="m4-kareem__shot"><img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad995616266d0c3a799ce3.jpeg" alt="تفاعل كريم إسماعيل مع الجمهور" loading="lazy"></figure>
+      <figure class="m4-kareem__shot"><img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad9956de8ed1c29f5d9edf.jpeg" alt="فعالية تدريبية مباشرة" loading="lazy"></figure>
+      <figure class="m4-kareem__shot"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/68ed118ca296246de435e289.jpeg" alt="فعالية تدريبية مباشرة" loading="lazy"></figure>
+    </div>
+    <div class="m4-kareem__swipe">اسحب لرؤية باقي الصور ←</div>
 
   </div>
 
