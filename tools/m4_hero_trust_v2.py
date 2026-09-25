@@ -31,9 +31,26 @@ CSS = r"""
   text-decoration-thickness: 2px;
 }
 
+/* saving in green (a gain), next to the red discount (a cut) */
 #m4-hero-trust .m4-hero-trust__price b {
-  color: var(--m4-primary-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 11px 3px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--m4-success, #177A4E) 11%, transparent);
+  color: var(--m4-success, #177A4E);
   font-weight: 800;
+}
+
+#m4-hero-trust .m4-hero-trust__price b svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 #m4-hero-trust .m4-hero-trust__price-badge {
@@ -78,7 +95,7 @@ def html():
       <span class="m4-hero-trust__price-badge">{DISCOUNT}</span>
       <span>بدلًا من <del>{OLD_PRICE}</del></span>
       <span class="m4-hero-trust__price-sep" aria-hidden="true"></span>
-      <b>{SAVING}</b>
+      <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>{SAVING}</b>
     </div>
 """
 

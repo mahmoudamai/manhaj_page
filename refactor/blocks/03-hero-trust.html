@@ -328,9 +328,26 @@
   text-decoration-thickness: 2px;
 }
 
+/* saving in green (a gain), next to the red discount (a cut) */
 #m4-hero-trust .m4-hero-trust__price b {
-  color: var(--m4-primary-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 11px 3px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--m4-success, #177A4E) 11%, transparent);
+  color: var(--m4-success, #177A4E);
   font-weight: 800;
+}
+
+#m4-hero-trust .m4-hero-trust__price b svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 #m4-hero-trust .m4-hero-trust__price-badge {
@@ -384,7 +401,7 @@
       <span class="m4-hero-trust__price-badge">خصم أكثر من 20%</span>
       <span>بدلًا من <del>9,500 جنيه</del></span>
       <span class="m4-hero-trust__price-sep" aria-hidden="true"></span>
-      <b>وفّر 2,000 جنيه</b>
+      <b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>وفّر 2,000 جنيه</b>
     </div>
 
     <div class="m4-hero-trust__proof">
