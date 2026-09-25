@@ -377,3 +377,9 @@ once in a dark stats band — not again in the lists); credentials grouped by bo
 4 short lines with icons. Gallery: a fixed **bento** grid (first photo big, 6th wide) where each photo fills its cell
 with `object-fit: cover`, so photos of any size/orientation stay tidy — tested with 13 differently-shaped images.
 No masonry script (new class names, so Block 00B's masonry no longer touches it). Phones: a swipeable strip.
+
+## Block 14 v2 — live sessions (shorter)
+
+Hand-written (`tools/new-blocks/14-live.html`): one image with a «لقاء مباشر» badge and «3 لقاءات حتى الآن»
+(instead of three near-identical cards), the three steps in compact form, and the sessions held so far as a slim
+strip ending with «+ اللقاءات مستمرة». Schedule details are in 15B. ~45% shorter on desktop.
