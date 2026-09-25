@@ -353,3 +353,12 @@ To add a lecture: add a row/chip in the timeline, a thumbnail in the mosaic, and
   «قرابة 17 ساعة» of lectures and live sessions so far (16 recordings, 16 h 54 m). Update the hours as content grows.
 - **02-hero-stats**: «عدد المحاضرات: 30 محاضرة» (read as 30 short videos) → «المحتوى حتى الآن: قرابة 17 ساعة · ويزيد كل 10 أيام»
   (`tools/m4_hero_stats_v2.py`).
+
+## Block 21 v2 (offer) and Block 23 v2 (FAQ)
+
+- **21-offer**: two stats in the price card («قرابة 17 ساعة» متاحة الآن · «3 محاضرات» جديدة كل شهر: 10/20/30), the saving
+  in green, and the lectures / live-sessions items state the schedule (announced ≥10 days ahead, recorded within 48 h).
+  `tools/m4_offer_v2.py` — keep HOURS in sync with Blocks 02 and 15B.
+- **23-faq**: 12 questions ordered by what stops people from buying, including how the content arrives, time needed,
+  missed live sessions, email/Telegram. `tools/m4_faq_v2.py`. Not added yet (need facts): paying from outside Egypt /
+  instalments, the exact steps after payment, access to earlier lectures.

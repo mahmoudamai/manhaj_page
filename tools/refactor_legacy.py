@@ -725,6 +725,13 @@ def main():
     spec2b.loader.exec_module(hs2)
     hs2.apply(blocks / "02-hero-stats.html")
 
+    # ---- blocks 21 / 23 v2: offer (hours, lectures/month) and FAQ ----
+    for mod, blk in (("m4_offer_v2", "21-offer.html"), ("m4_faq_v2", "23-faq.html")):
+        sp = importlib.util.spec_from_file_location(mod, ROOT / "tools" / f"{mod}.py")
+        mm = importlib.util.module_from_spec(sp)
+        sp.loader.exec_module(mm)
+        mm.apply(blocks / blk)
+
     # ---- block 03 v2: discount + saving under the hero button (tools/m4_hero_trust_v2.py) ----
     spec3 = importlib.util.spec_from_file_location("m4herotrust", ROOT / "tools" / "m4_hero_trust_v2.py")
     ht2 = importlib.util.module_from_spec(spec3)
