@@ -701,6 +701,9 @@ def main():
         out = header + "<style>\n" + css + "\n</style>\n\n" + pretty_html(body)
         (blocks / f"{i:02d}-{slug}.html").write_text(out, encoding="utf-8")
         sizes.append((f"{i:02d}-{slug}", len(out)))
+    # ---- hand-written new blocks (not from the legacy page), e.g. 16b-offer-early ----
+    for f in sorted((ROOT / "tools" / "new-blocks").glob("*.html")):
+        (blocks / f.name).write_text(f.read_text(encoding="utf-8"), encoding="utf-8")
     all_css.append(extra)
     (OUT / "main.css").write_text("\n\n".join(all_css), encoding="utf-8")
 
@@ -709,9 +712,10 @@ def main():
         return (f'<div style="max-width:900px;margin:0 auto;padding:18px;text-align:center;border:2px dashed #bbb;'
                 f'font:14px sans-serif;color:#777;background:#f3f3f3">GHL element: {name}</div>')
     order = [("01", None), ("GHL", "video (block 02) + video style (03)"), ("02", None), ("GHL", "button (block 05)"),
-             ("03", None), ("04", None), ("GHL", "logos marquee"), *[(f"{n:02d}", None) for n in range(5, 24)], ("25", None)]
+             ("03", None), ("04", None), ("GHL", "logos marquee"), *[(f"{n:02d}", None) for n in range(5, 17)], ("16b", None),
+             *[(f"{n:02d}", None) for n in range(17, 24)], ("25", None)]
     parts = []
-    files = {f.name[:2]: f for f in blocks.glob("[0-9][0-9]-*.html")}
+    files = {f.name.split("-")[0]: f for f in blocks.glob("[0-9][0-9]*-*.html")}
     for key, label in order:
         parts.append(ph(label) if key == "GHL" else files[key].read_text(encoding="utf-8"))
     sticky = files["24"].read_text(encoding="utf-8")

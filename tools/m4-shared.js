@@ -145,13 +145,13 @@
       ticking = false;
       // the bar appears once the whole hero (text, video, button, trust row) is behind us
       var hero = doc.getElementById("m4-hero-trust") || doc.getElementById("m4-hero");
-      var offer = doc.getElementById("m4-offer");
       var passed = hero ? hero.getBoundingClientRect().bottom <= 0 : window.scrollY > 650;
+      // hide while either price section (early offer or the main offer) is on screen
       var offerOnScreen = false;
-      if (offer) {
+      each(doc.querySelectorAll("#m4-offer, #m4-offer-early"), function (offer) {
         var r = offer.getBoundingClientRect();
-        offerOnScreen = r.top < window.innerHeight * .88 && r.bottom > window.innerHeight * .12;
-      }
+        if (r.top < window.innerHeight * .88 && r.bottom > window.innerHeight * .12) offerOnScreen = true;
+      });
       var show = passed && !offerOnScreen;
       host.classList.toggle("is-visible", show);
       if (backTop) backTop.classList.toggle("is-visible", show && window.scrollY > 650 && !goingUp);
