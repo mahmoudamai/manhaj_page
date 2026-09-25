@@ -165,6 +165,8 @@ def html():
 
 def apply(path):
     s = path.read_text(encoding="utf-8")
+    # 40k = subscribers of the paid online courses (100k in Kareem's sections = all, incl. in person)
+    s = s.replace("في دورات كريم إسماعيل منذ 2018", "في دورات كريم إسماعيل الأونلاين منذ 2018", 1)
     marker = s.rindex("/* self-check")
     s = s[:marker] + CSS.strip() + "\n\n" + s[marker:]
     anchor = '<div class="m4-hero-trust__proof">'
