@@ -10022,88 +10022,186 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   align-items: stretch;
 }
 
-/* ---- the calendar ---- */
+/* ---- the calendar: a light paper wall-calendar on the dark section ---- */
 #m4-rhythm .m4-rhythm__calendar {
   display: flex;
   flex-direction: column;
-  padding: 26px 24px 22px;
+  padding: 18px 18px 20px;
   border-radius: calc(24px * var(--m4-radius-scale));
   border: 1px solid color-mix(in srgb, var(--m4-white) 12%, transparent);
   background: linear-gradient(160deg, color-mix(in srgb, var(--m4-white) 9%, transparent), color-mix(in srgb, var(--m4-white) 3%, transparent));
 }
 
-#m4-rhythm .m4-rhythm__cal-title {
+#m4-rhythm .m4-rhythm__paper {
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(16px * var(--m4-radius-scale));
+  background: var(--m4-bg-paper);
+  color: var(--m4-ink);
+  box-shadow: 0 20px 40px -18px rgba(0, 0, 0, .55), 0 2px 0 color-mix(in srgb, var(--m4-white) 60%, transparent) inset;
+  transform: rotate(-1deg);
+}
+
+#m4-rhythm .m4-rhythm__paper-head {
+  position: relative;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 10px;
   flex-wrap: wrap;
+  gap: 4px 12px;
+  padding: 24px 20px 14px;
+  background: linear-gradient(135deg, var(--m4-primary) 0%, color-mix(in srgb, var(--m4-primary) 70%, var(--m4-primary-deep)) 100%);
+  color: var(--m4-white);
 }
 
-#m4-rhythm .m4-rhythm__cal-title strong {
-  font-size: calc(1.15rem * var(--m4-heading-scale));
+/* two binder rings on the top edge */
+#m4-rhythm .m4-rhythm__rings {
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 22%;
+  pointer-events: none;
+}
+
+#m4-rhythm .m4-rhythm__rings i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--m4-primary-deep);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--m4-white) 35%, transparent);
+}
+
+#m4-rhythm .m4-rhythm__paper-head strong {
+  font-size: calc(1.1rem * var(--m4-heading-scale));
   font-weight: 800;
 }
 
-#m4-rhythm .m4-rhythm__cal-title span {
-  color: var(--m4-accent);
-  font-size: calc(.84rem * var(--m4-type-scale));
+#m4-rhythm .m4-rhythm__paper-head span {
+  color: var(--m4-accent-soft);
+  font-size: calc(.82rem * var(--m4-type-scale));
+  font-weight: 700;
+}
+
+#m4-rhythm .m4-rhythm__week,
+#m4-rhythm .m4-rhythm__days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  padding: 0 14px;
+}
+
+#m4-rhythm .m4-rhythm__week {
+  padding-top: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid color-mix(in srgb, var(--m4-primary) 10%, transparent);
+}
+
+#m4-rhythm .m4-rhythm__week span {
+  text-align: center;
+  color: var(--m4-text-muted);
+  font-size: calc(.7rem * var(--m4-type-scale));
   font-weight: 700;
 }
 
 #m4-rhythm .m4-rhythm__days {
-  display: grid;
-  grid-template-columns: repeat(10, minmax(0, 1fr));
-  gap: 6px;
-  margin-top: 18px;
+  row-gap: 2px;
+  padding-top: 8px;
+  padding-bottom: 12px;
 }
 
 #m4-rhythm .m4-rhythm__days span {
+  position: relative;
   display: grid;
   place-items: center;
-  aspect-ratio: 1;
-  border-radius: 9px;
-  color: color-mix(in srgb, var(--m4-white) 42%, transparent);
-  background: color-mix(in srgb, var(--m4-white) 5%, transparent);
-  font-size: calc(.74rem * var(--m4-type-scale));
+  height: 38px;
+  color: color-mix(in srgb, var(--m4-ink) 72%, transparent);
+  font-size: calc(.86rem * var(--m4-type-scale));
   font-weight: 600;
 }
 
+/* Friday column a little softer, like a printed calendar */
+#m4-rhythm .m4-rhythm__days span:nth-child(7n) {
+  color: color-mix(in srgb, var(--m4-ink) 42%, transparent);
+}
+
 #m4-rhythm .m4-rhythm__days .is-lecture {
-  position: relative;
-  align-content: center;
-  gap: 1px;
   color: var(--m4-primary-deep);
-  background: var(--m4-accent);
-  box-shadow: 0 8px 20px color-mix(in srgb, var(--m4-accent) 35%, transparent);
+  font-size: calc(1rem * var(--m4-type-scale));
   font-weight: 900;
 }
 
-#m4-rhythm .m4-rhythm__days .is-lecture b {
-  font-size: 1.02em;
-  line-height: 1;
+/* the hand-drawn red circle */
+#m4-rhythm .m4-rhythm__circle {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 50px;
+  height: 46px;
+  margin-left: -25px;
+  overflow: visible;
+  pointer-events: none;
 }
 
-#m4-rhythm .m4-rhythm__days .is-lecture svg {
-  width: 9px;
-  height: 9px;
-  fill: currentColor;
+#m4-rhythm .m4-rhythm__circle path {
+  fill: none;
+  stroke: var(--m4-alert, #D8432F);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#m4-rhythm .m4-rhythm__days span:nth-child(20) .m4-rhythm__circle { transform: rotate(14deg) scale(1.03); }
+#m4-rhythm .m4-rhythm__days span:nth-child(30) .m4-rhythm__circle { transform: rotate(-9deg) scaleX(1.06); }
+
+/* the circles draw themselves when the calendar comes into view */
+.m4-motion #m4-rhythm .m4-rhythm__calendar.is-armed .m4-rhythm__circle path {
+  stroke-dashoffset: 1;
+}
+
+.m4-motion #m4-rhythm .m4-rhythm__calendar.is-revealed .m4-rhythm__circle path {
+  stroke-dasharray: 1;
+  animation: m4-rhythm-draw calc(.7s * var(--m4-motion-scale)) var(--m4-ease) both;
+  animation-delay: calc(.45s * var(--m4-motion-scale));
+}
+
+.m4-motion #m4-rhythm .m4-rhythm__calendar.is-revealed .m4-rhythm__days span:nth-child(20) .m4-rhythm__circle path {
+  animation-delay: calc(.85s * var(--m4-motion-scale));
+}
+
+.m4-motion #m4-rhythm .m4-rhythm__calendar.is-revealed .m4-rhythm__days span:nth-child(30) .m4-rhythm__circle path {
+  animation-delay: calc(1.25s * var(--m4-motion-scale));
+}
+
+@keyframes m4-rhythm-draw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
 }
 
 #m4-rhythm .m4-rhythm__legend {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-top: 14px;
-  color: color-mix(in srgb, var(--m4-white) 70%, transparent);
+  margin: 0 14px;
+  padding: 10px 0 14px;
+  border-top: 1px dashed color-mix(in srgb, var(--m4-primary) 14%, transparent);
+  color: var(--m4-text);
   font-size: calc(.8rem * var(--m4-type-scale));
+  font-weight: 600;
 }
 
-#m4-rhythm .m4-rhythm__legend i {
-  width: 12px;
-  height: 12px;
-  border-radius: 4px;
-  background: var(--m4-accent);
+#m4-rhythm .m4-rhythm__legend svg {
+  width: 22px;
+  height: 18px;
+  overflow: visible;
+}
+
+#m4-rhythm .m4-rhythm__legend path {
+  fill: none;
+  stroke: var(--m4-alert, #D8432F);
+  stroke-width: 2.2;
+  stroke-linecap: round;
 }
 
 #m4-rhythm .m4-rhythm__hours {
@@ -10115,7 +10213,7 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   border-top: 1px solid color-mix(in srgb, var(--m4-white) 10%, transparent);
 }
 
-#m4-rhythm .m4-rhythm__legend + .m4-rhythm__hours {
+#m4-rhythm .m4-rhythm__paper + .m4-rhythm__hours {
   margin-top: 18px;
 }
 
@@ -10209,17 +10307,30 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   }
 
   #m4-rhythm .m4-rhythm__calendar {
-    padding: 20px 16px 18px;
+    padding: 14px 12px 16px;
     border-radius: calc(20px * var(--m4-radius-scale));
   }
 
+  #m4-rhythm .m4-rhythm__paper {
+    transform: none;
+  }
+
+  #m4-rhythm .m4-rhythm__week,
   #m4-rhythm .m4-rhythm__days {
-    gap: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   #m4-rhythm .m4-rhythm__days span {
-    border-radius: 7px;
-    font-size: calc(.66rem * var(--m4-type-scale));
+    height: 36px;
+    font-size: calc(.8rem * var(--m4-type-scale));
+  }
+
+  #m4-rhythm .m4-rhythm__circle {
+    width: 44px;
+    height: 42px;
+    margin-left: -22px;
+    top: -3px;
   }
 
   #m4-rhythm .m4-rhythm__hours strong {
@@ -10300,11 +10411,14 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
     <div class="m4-rhythm__layout">
 
       <div class="m4-rhythm__calendar m4-reveal">
-        <div class="m4-rhythm__cal-title">
-          <strong>محاضرة جديدة كل 10 أيام</strong>
-          <span>يوم 10 و20 و30 من كل شهر</span>
-        </div>
-        <div class="m4-rhythm__days" role="img" aria-label="تقويم شهر: محاضرة جديدة يوم 10 و20 و30">
+        <div class="m4-rhythm__paper">
+          <div class="m4-rhythm__paper-head">
+            <span class="m4-rhythm__rings" aria-hidden="true"><i></i><i></i></span>
+            <strong>محاضرة جديدة كل 10 أيام</strong>
+            <span>يوم 10 و20 و30 من كل شهر</span>
+          </div>
+          <div class="m4-rhythm__week" aria-hidden="true"><span>سبت</span><span>أحد</span><span>إثنين</span><span>ثلاثاء</span><span>أربعاء</span><span>خميس</span><span>جمعة</span></div>
+          <div class="m4-rhythm__days" role="img" aria-label="تقويم شهر: محاضرة جديدة يوم 10 و20 و30">
             <span>1</span>
             <span>2</span>
             <span>3</span>
@@ -10314,7 +10428,7 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
             <span>7</span>
             <span>8</span>
             <span>9</span>
-            <span class="is-lecture" aria-label="محاضرة جديدة يوم 10"><b>10</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+            <span class="is-lecture" aria-label="محاضرة جديدة يوم 10">10<svg class="m4-rhythm__circle" viewBox="0 0 50 46" aria-hidden="true"><path pathLength="1" d="M27 4.5C15 3 4.5 11 4 22.5 3.6 34 13.5 42.5 26 42c12.5-.4 21-9.5 20.5-20.5C46 10.5 37 3.5 25.5 4.2 20 4.6 15.5 7 12.5 10.5"/></svg></span>
             <span>11</span>
             <span>12</span>
             <span>13</span>
@@ -10324,7 +10438,7 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
             <span>17</span>
             <span>18</span>
             <span>19</span>
-            <span class="is-lecture" aria-label="محاضرة جديدة يوم 20"><b>20</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+            <span class="is-lecture" aria-label="محاضرة جديدة يوم 20">20<svg class="m4-rhythm__circle" viewBox="0 0 50 46" aria-hidden="true"><path pathLength="1" d="M27 4.5C15 3 4.5 11 4 22.5 3.6 34 13.5 42.5 26 42c12.5-.4 21-9.5 20.5-20.5C46 10.5 37 3.5 25.5 4.2 20 4.6 15.5 7 12.5 10.5"/></svg></span>
             <span>21</span>
             <span>22</span>
             <span>23</span>
@@ -10334,9 +10448,10 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
             <span>27</span>
             <span>28</span>
             <span>29</span>
-            <span class="is-lecture" aria-label="محاضرة جديدة يوم 30"><b>30</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+            <span class="is-lecture" aria-label="محاضرة جديدة يوم 30">30<svg class="m4-rhythm__circle" viewBox="0 0 50 46" aria-hidden="true"><path pathLength="1" d="M27 4.5C15 3 4.5 11 4 22.5 3.6 34 13.5 42.5 26 42c12.5-.4 21-9.5 20.5-20.5C46 10.5 37 3.5 25.5 4.2 20 4.6 15.5 7 12.5 10.5"/></svg></span>
+          </div>
+          <div class="m4-rhythm__legend"><svg viewBox="0 0 22 18" aria-hidden="true"><path d="M12 2C5.5 1.5 1.5 5 1.8 9.3 2 13.6 6.6 16.4 12 16c5.2-.4 8.6-3.6 8.2-7.4C19.8 4.6 15.6 2 10.5 2.6"/></svg> موعد محاضرة جديدة</div>
         </div>
-        <div class="m4-rhythm__legend"><i aria-hidden="true"></i> موعد محاضرة جديدة</div>
         <div class="m4-rhythm__hours">
           <strong>قرابة 17 ساعة</strong>
           <span>من المحاضرات واللقاءات التفاعلية حتى الآن، والمحتوى يزيد مع كل محاضرة جديدة.</span>
