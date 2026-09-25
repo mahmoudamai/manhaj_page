@@ -299,6 +299,13 @@ axis and a closing line. Same map design. Texts in `tools/m4_curriculum_v2.py`.
 | 11 | 11-lectures · 12-lecture-notes |
 | 12 | 13-practice · 14-live · 15-telegram |
 | 13 | 17-fit |
-| 14 | *(before/after — coming)* |
+| 14 | **17b-before-after** (new) |
 | 15 | 19-testimonials · 20-kareem |
 | 16 | 21-offer · 22-guarantee · 23-faq · 25-footer (+ 24-sticky in the fixed section) |
+
+## Block 17B — «من التيه… إلى الطمأنينة» (before / after, new)
+
+Mirrors the six hidden battles of Block 05 (same order and icons): «قبل» muted on the right, an arrow, and
+«مع المنهج» on the left with tags (فهم نفسي / معنى إيماني / مهارة). Every "after" line comes from the program
+designer's wording or existing page content (sources in CONTENT-PLAN.md §3د). On phones each battle is one card.
+**In GHL: a new full-width section right after «هل هذا المنهج مناسب لك؟» (17) with a Code Element → paste `17b-before-after.html`.**

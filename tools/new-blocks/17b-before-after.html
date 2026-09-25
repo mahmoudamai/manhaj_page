@@ -1,0 +1,483 @@
+<!-- =====================================================================
+     M4 · BLOCK 17B — Before / After «من التيه… إلى الطمأنينة»
+     Mirrors the six hidden battles (Block 05) with what the program works on.
+     Every "after" line is taken from the program designer's wording or the
+     current page content (see CONTENT-PLAN.md, section 3د).
+     Place it right after Block 17 («هل هذا المنهج مناسب لك؟»).
+     Section styles are scoped to #m4-before-after. Colours, fonts, sizes and
+     speeds come from Block 00 — edit the theme there, not here.
+     ===================================================================== -->
+<style>
+#m4-before-after {
+  position: relative;
+  overflow: hidden;
+  direction: rtl;
+  text-align: right;
+  font-family: var(--m4-font-primary) !important;
+  color: var(--m4-ink);
+  padding: calc(90px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale)) calc(94px * var(--m4-space-scale));
+  background:
+    radial-gradient(circle at 88% 8%, color-mix(in srgb, var(--m4-accent) 9%, transparent), transparent 30%),
+    radial-gradient(circle at 8% 92%, color-mix(in srgb, var(--m4-highlight) 10%, transparent), transparent 30%),
+    linear-gradient(180deg, var(--m4-bg-paper) 0%, var(--m4-bg-ivory) 100%);
+}
+
+#m4-before-after *,
+#m4-before-after *::before,
+#m4-before-after *::after {
+  box-sizing: border-box;
+}
+
+#m4-before-after .m4-before-after__wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ---- head ---- */
+#m4-before-after .m4-before-after__head {
+  max-width: 760px;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+#m4-before-after .m4-before-after__kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--m4-accent-deep);
+  font-size: calc(.82rem * var(--m4-type-scale));
+  font-weight: 800;
+}
+
+#m4-before-after .m4-before-after__kicker::before,
+#m4-before-after .m4-before-after__kicker::after {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--m4-accent);
+}
+
+#m4-before-after h2 {
+  margin: 12px 0 0;
+  color: var(--m4-primary-deep);
+  font-size: calc(clamp(1.9rem, 1.2rem + 2.3vw, 2.9rem) * var(--m4-heading-scale));
+  line-height: 1.4;
+  font-weight: 800;
+}
+
+#m4-before-after h2 em {
+  font-style: normal;
+  color: var(--m4-primary);
+}
+
+#m4-before-after .m4-before-after__lead {
+  margin: 14px auto 0;
+  color: var(--m4-text);
+  font-size: calc(1rem * var(--m4-type-scale));
+  line-height: 1.9;
+}
+
+#m4-before-after .m4-before-after__lead b {
+  color: var(--m4-primary-deep);
+  font-weight: 800;
+}
+
+/* ---- column labels ---- */
+#m4-before-after .m4-before-after__labels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1.25fr);
+  margin-bottom: 12px;
+  font-size: calc(.8rem * var(--m4-type-scale));
+  font-weight: 800;
+}
+
+#m4-before-after .m4-before-after__labels span:first-child {
+  padding-right: 22px;
+  color: var(--m4-text-muted);
+}
+
+#m4-before-after .m4-before-after__labels span:last-child {
+  grid-column: 3;
+  padding-right: 22px;
+  color: var(--m4-primary);
+}
+
+/* ---- rows ---- */
+#m4-before-after .m4-before-after__list {
+  display: grid;
+  gap: 14px;
+}
+
+#m4-before-after .m4-before-after__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1.25fr);
+  align-items: stretch;
+}
+
+#m4-before-after .m4-before-after__before {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 4px 14px;
+  align-content: center;
+  padding: 18px 20px;
+  border-radius: 0 calc(18px * var(--m4-radius-scale)) calc(18px * var(--m4-radius-scale)) 0;
+  background: color-mix(in srgb, var(--m4-text) 6%, transparent);
+  border: 1px dashed color-mix(in srgb, var(--m4-text) 18%, transparent);
+  border-left: 0;
+}
+
+#m4-before-after .m4-before-after__icon {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--m4-text-muted);
+  background: color-mix(in srgb, var(--m4-white) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--m4-text) 14%, transparent);
+}
+
+#m4-before-after .m4-before-after__icon svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#m4-before-after .m4-before-after__battle {
+  color: var(--m4-text-muted);
+  font-size: calc(.74rem * var(--m4-type-scale));
+  line-height: 1.4;
+  font-weight: 800;
+}
+
+#m4-before-after .m4-before-after__before p {
+  margin: 0;
+  color: var(--m4-text);
+  font-size: calc(.9rem * var(--m4-type-scale));
+  line-height: 1.8;
+}
+
+/* the arrow between before and after */
+#m4-before-after .m4-before-after__arrow {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+#m4-before-after .m4-before-after__arrow::before {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1px;
+  background: linear-gradient(270deg, color-mix(in srgb, var(--m4-text) 20%, transparent), var(--m4-accent));
+}
+
+#m4-before-after .m4-before-after__arrow span {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: var(--m4-primary-deep);
+  background: var(--m4-accent-soft);
+  border: 1px solid color-mix(in srgb, var(--m4-accent) 60%, transparent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--m4-accent) 28%, transparent);
+}
+
+#m4-before-after .m4-before-after__arrow svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#m4-before-after .m4-before-after__after {
+  position: relative;
+  padding: 18px 22px 16px 22px;
+  border-radius: calc(18px * var(--m4-radius-scale));
+  background: var(--m4-white);
+  border: 1px solid color-mix(in srgb, var(--m4-primary) 12%, transparent);
+  box-shadow: 0 16px 36px -20px color-mix(in srgb, var(--m4-primary-deep) 35%, transparent);
+}
+
+#m4-before-after .m4-before-after__after::before {
+  content: "";
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  right: 0;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--m4-accent), var(--m4-primary));
+}
+
+#m4-before-after .m4-before-after__after p {
+  margin: 0;
+  color: var(--m4-primary-deep);
+  font-size: calc(.95rem * var(--m4-type-scale));
+  line-height: 1.85;
+  font-weight: 600;
+}
+
+#m4-before-after .m4-before-after__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+#m4-before-after .m4-before-after__tags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: calc(.7rem * var(--m4-type-scale));
+  line-height: 1.7;
+  font-weight: 700;
+}
+
+#m4-before-after .m4-before-after__tags span::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+#m4-before-after .m4-before-after__tags .is-psy {
+  color: var(--m4-primary);
+  background: color-mix(in srgb, var(--m4-highlight) 16%, transparent);
+}
+
+#m4-before-after .m4-before-after__tags .is-faith {
+  color: var(--m4-accent-deep);
+  background: color-mix(in srgb, var(--m4-accent-soft) 40%, transparent);
+}
+
+#m4-before-after .m4-before-after__tags .is-skill {
+  color: var(--m4-olive);
+  background: color-mix(in srgb, var(--m4-secondary) 22%, transparent);
+}
+
+/* ---- closing ---- */
+#m4-before-after .m4-before-after__closing {
+  max-width: 700px;
+  margin: 36px auto 0;
+  text-align: center;
+  color: var(--m4-text);
+  font-size: calc(1rem * var(--m4-type-scale));
+  line-height: 1.9;
+}
+
+#m4-before-after .m4-before-after__closing strong {
+  color: var(--m4-primary-deep);
+  font-weight: 800;
+}
+
+@media (hover: hover) {
+  #m4-before-after .m4-before-after__row:hover .m4-before-after__after {
+    border-color: color-mix(in srgb, var(--m4-accent) 50%, transparent);
+  }
+}
+
+/* phones: each battle is one card — before on top, after below */
+@media (max-width: 760px) {
+  #m4-before-after {
+    padding: calc(62px * var(--m4-space-scale)) calc(14px * var(--m4-space-scale)) calc(66px * var(--m4-space-scale));
+  }
+
+  #m4-before-after .m4-before-after__head {
+    margin-bottom: 28px;
+  }
+
+  #m4-before-after .m4-before-after__lead {
+    font-size: calc(.88rem * var(--m4-type-scale));
+  }
+
+  #m4-before-after .m4-before-after__labels {
+    display: none;
+  }
+
+  #m4-before-after .m4-before-after__row {
+    grid-template-columns: 1fr;
+  }
+
+  #m4-before-after .m4-before-after__before {
+    padding: 14px 15px 22px;
+    border: 1px dashed color-mix(in srgb, var(--m4-text) 18%, transparent);
+    border-bottom: 0;
+    border-radius: calc(16px * var(--m4-radius-scale)) calc(16px * var(--m4-radius-scale)) 0 0;
+  }
+
+  #m4-before-after .m4-before-after__before p {
+    font-size: calc(.84rem * var(--m4-type-scale));
+  }
+
+  #m4-before-after .m4-before-after__arrow {
+    height: 0;
+    z-index: 2;
+  }
+
+  #m4-before-after .m4-before-after__arrow::before {
+    display: none;
+  }
+
+  #m4-before-after .m4-before-after__arrow span {
+    width: 30px;
+    height: 30px;
+    rotate: -90deg;
+  }
+
+  #m4-before-after .m4-before-after__after {
+    padding: 22px 16px 14px;
+    border-radius: 0 0 calc(16px * var(--m4-radius-scale)) calc(16px * var(--m4-radius-scale));
+  }
+
+  #m4-before-after .m4-before-after__after::before {
+    top: 0;
+    bottom: auto;
+    left: 16px;
+    right: 16px;
+    width: auto;
+    height: 3px;
+  }
+
+  #m4-before-after .m4-before-after__after p {
+    font-size: calc(.88rem * var(--m4-type-scale));
+  }
+
+  #m4-before-after .m4-before-after__closing {
+    margin-top: 26px;
+    font-size: calc(.88rem * var(--m4-type-scale));
+  }
+}
+
+/* self-check: this block is the current version */
+#m4-before-after {
+  --m4-styled: 17;
+}
+</style>
+
+<section
+  id="m4-before-after" class="m4-section"
+  dir="rtl"
+  lang="ar"
+  aria-label="ما الذي يتغير مع منهج الطمأنينة"
+>
+
+  <div class="m4-before-after__wrap">
+
+    <header class="m4-before-after__head m4-reveal">
+      <span class="m4-before-after__kicker">ما الذي يتغيّر؟</span>
+      <h2>من التيه… إلى <em>الطمأنينة</em></h2>
+      <p class="m4-before-after__lead">
+        ليس وعظًا ولا نصائح عامة؛ بل <b>فهم نفسي</b>، و<b>مرجعية إيمانية</b>، و<b>مهارات عملية</b>…
+        تعمل معًا على المعارك نفسها التي بدأنا بها.
+      </p>
+    </header>
+
+    <div class="m4-before-after__labels" aria-hidden="true">
+      <span>قبل</span>
+      <span>مع المنهج</span>
+    </div>
+
+    <div class="m4-before-after__list">
+
+      <div class="m4-before-after__row m4-reveal">
+        <div class="m4-before-after__before">
+          <span class="m4-before-after__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v4h-4"/><circle cx="12" cy="12" r="2.2"/></svg></span>
+          <span class="m4-before-after__battle">التيه</span>
+          <p>تدور في حلقة مفرغة، وتسعى دون أن تدري إلى أين تمضي.</p>
+        </div>
+        <div class="m4-before-after__arrow" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span></div>
+        <div class="m4-before-after__after">
+          <p>تفهم آلية «الفاقة» التي تدفعك للسعي بلا توقف، وتعيد ترميم بوصلتك لتعرف إلى أين تمضي.</p>
+          <div class="m4-before-after__tags"><span class="is-psy">فهم نفسي</span><span class="is-faith">معنى إيماني</span></div>
+        </div>
+      </div>
+
+      <div class="m4-before-after__row m4-reveal">
+        <div class="m4-before-after__before">
+          <span class="m4-before-after__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 21V11a7 7 0 0 1 14 0v10"/><path d="M3 21h18"/><path d="M12 7.5V10"/><path d="M10.4 12.2h3.2l-.5 2.6h-2.2z"/></svg></span>
+          <span class="m4-before-after__battle">العبادات</span>
+          <p>عبادات تؤديها كروتين أو عادة.</p>
+        </div>
+        <div class="m4-before-after__arrow" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span></div>
+        <div class="m4-before-after__after">
+          <p>تستعيد الحضور القلبي والفهم الحقيقي، فتعيش المعاني والعبادات بعمق بدل أدائها كعادة.</p>
+          <div class="m4-before-after__tags"><span class="is-psy">فهم نفسي</span><span class="is-faith">معنى إيماني</span></div>
+        </div>
+      </div>
+
+      <div class="m4-before-after__row m4-reveal">
+        <div class="m4-before-after__before">
+          <span class="m4-before-after__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17a4 4 0 1 1 .8-7.92A6 6 0 0 1 19 10.5a3.5 3.5 0 0 1-1 6.85"/><path d="m13 12.5-2.2 4h3.2l-2.2 4"/></svg></span>
+          <span class="m4-before-after__battle">الابتلاءات</span>
+          <p>تنهار أمام الأزمة وتسأل: «ليه بيحصلي كده؟»</p>
+        </div>
+        <div class="m4-before-after__arrow" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span></div>
+        <div class="m4-before-after__after">
+          <p>تبني تصورات صحيحة تفهم بها ما يحدث حولك من تقلبات وابتلاءات، وصلابة نفسية يثمر منها التسليم الواعي.</p>
+          <div class="m4-before-after__tags"><span class="is-psy">فهم نفسي</span><span class="is-faith">معنى إيماني</span></div>
+        </div>
+      </div>
+
+      <div class="m4-before-after__row m4-reveal">
+        <div class="m4-before-after__before">
+          <span class="m4-before-after__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="6" r="2.6"/><path d="M4 21v-4.5a5 5 0 0 1 10 0V21"/><circle cx="17.2" cy="10.6" r="2"/><path d="M14.6 21v-2.6a2.6 2.6 0 0 1 5.2 0V21"/></svg></span>
+          <span class="m4-before-after__battle">الرزق والمستقبل</span>
+          <p>خوف دائم على من تحب وعلى ما هو قادم.</p>
+        </div>
+        <div class="m4-before-after__arrow" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span></div>
+        <div class="m4-before-after__after">
+          <p>تتحرر من المخاوف ومن التعلق بالأسباب المادية، بيقين راسخ وتوكل صادق.</p>
+          <div class="m4-before-after__tags"><span class="is-psy">فهم نفسي</span><span class="is-faith">معنى إيماني</span></div>
+        </div>
+      </div>
+
+      <div class="m4-before-after__row m4-reveal">
+        <div class="m4-before-after__before">
+          <span class="m4-before-after__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.6 8.4-2.1 5.1-5.1 2.1 2.1-5.1z"/><path d="M12 3v1.6M12 19.4V21M3 12h1.6M19.4 12H21"/></svg></span>
+          <span class="m4-before-after__battle">التشتت</span>
+          <p>تشتتك التفاصيل فلا تدري من أين تبدأ.</p>
+        </div>
+        <div class="m4-before-after__arrow" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span></div>
+        <div class="m4-before-after__after">
+          <p>تتعرف على مستويات تفكيرك، من الأفكار التلقائية إلى المعتقدات الأساسية، وتتعلم كيف تدير نفسك وأفكارك ومواردك.</p>
+          <div class="m4-before-after__tags"><span class="is-psy">فهم نفسي</span><span class="is-skill">مهارة</span></div>
+        </div>
+      </div>
+
+      <div class="m4-before-after__row m4-reveal">
+        <div class="m4-before-after__before">
+          <span class="m4-before-after__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7.2a3 3 0 1 1 6 0"/><path d="M6.6 7.2h10.8l2.1 13.3H4.5z"/><path d="M9.5 14.5h5"/></svg></span>
+          <span class="m4-before-after__battle">المسؤولية</span>
+          <p>تحمل المسؤوليات وحدك حتى تُثقلك.</p>
+        </div>
+        <div class="m4-before-after__arrow" aria-hidden="true"><span><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></svg></span></div>
+        <div class="m4-before-after__after">
+          <p>تتعلم رسم حدود نفسية صحية، والحد من الناقد الداخلي وقسوة جلد الذات، وإدارة علاقاتك بتوازن.</p>
+          <div class="m4-before-after__tags"><span class="is-psy">فهم نفسي</span><span class="is-skill">مهارة</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="m4-before-after__closing m4-reveal">
+      التغيير رحلة تختلف من شخص لآخر؛ المنهج يمنحك الطريق والأدوات والصحبة…
+      <strong>والخطوة خطوتك.</strong>
+    </p>
+
+  </div>
+
+</section>

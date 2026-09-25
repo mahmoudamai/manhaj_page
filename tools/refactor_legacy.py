@@ -739,7 +739,7 @@ def main():
     order = [("01", None), ("GHL", "video (block 02) + video style (03)"), ("02", None), ("GHL", "button (block 05)"),
              ("03", None), ("04", None), ("GHL", "logos marquee"), ("05", None), ("06", None), ("07", None), ("16", None), ("09", None), ("18", None),
              ("10", None), ("10b", None), ("11", None), ("12", None), ("13", None), ("14", None), ("15", None),
-             ("17", None), ("19", None), ("20", None), ("21", None), ("22", None), ("23", None), ("25", None)]
+             ("17", None), ("17b", None), ("19", None), ("20", None), ("21", None), ("22", None), ("23", None), ("25", None)]
     parts = []
     files = {f.name.split("-")[0]: f for f in blocks.glob("[0-9][0-9]*-*.html")}
     for key, label in order:
