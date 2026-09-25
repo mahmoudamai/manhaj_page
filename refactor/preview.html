@@ -9215,20 +9215,22 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 </section>
 
 <!-- =====================================================================
-     M4 · BLOCK 15 — Section 13 — Telegram community
+     M4 · BLOCK 15 — Telegram community (v2, shorter)
+     One dark card: the promise, three one-line features and a small phone
+     showing what the group feels like (a voice note from Kareem, a member's
+     question, a reply). The schedule/email details are in Block 15B.
      Section styles are scoped to #m4-telegram. Colours, fonts, sizes and
      speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
 <style>
 #m4-telegram {
   position: relative;
-  overflow: hidden;
   direction: rtl;
   text-align: right;
   font-family: var(--m4-font-primary) !important;
   color: var(--m4-ink);
-  padding: calc(84px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale)) calc(90px * var(--m4-space-scale));
-  background: radial-gradient( circle at 7% 12%, color-mix(in srgb, var(--m4-accent) 7%, transparent), transparent 27% ), radial-gradient( circle at 94% 88%, color-mix(in srgb, var(--m4-highlight) 7.5%, transparent), transparent 27% ), linear-gradient( 180deg, var(--m4-bg-cream) 0%, var(--m4-bg-cream) 52%, color-mix(in srgb, var(--m4-bg-ivory) 89%, var(--m4-highlight)) 100% );
+  padding: calc(72px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale));
+  background: linear-gradient(180deg, var(--m4-bg-paper) 0%, var(--m4-bg-cream) 100%);
 }
 
 #m4-telegram *,
@@ -9237,723 +9239,264 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   box-sizing: border-box;
 }
 
-#m4-telegram::before {
-  content: "";
-  position: absolute;
-  width: 440px;
-  height: 440px;
-  left: -230px;
-  top: -280px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--m4-primary) 5%, transparent);
-  pointer-events: none;
-}
-
-#m4-telegram::after {
-  content: "";
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  right: -190px;
-  bottom: -180px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--m4-accent) 7.5%, transparent);
-  pointer-events: none;
-}
-
-#m4-telegram .m4-telegram__wrap {
+#m4-telegram .m4-telegram__card {
   position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1120px;
+  overflow: hidden;
+  isolation: isolate;
+  max-width: 1040px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+  gap: 36px;
+  align-items: center;
+  padding: 44px 46px;
+  border-radius: calc(28px * var(--m4-radius-scale));
+  color: var(--m4-white);
+  background:
+    radial-gradient(circle at 14% 18%, color-mix(in srgb, #2AABEE 16%, transparent), transparent 34%),
+    radial-gradient(circle at 90% 90%, color-mix(in srgb, var(--m4-accent) 12%, transparent), transparent 32%),
+    linear-gradient(135deg, color-mix(in srgb, var(--m4-primary) 54%, var(--m4-black)) 0%, var(--m4-primary-deep) 55%, color-mix(in srgb, var(--m4-primary) 90%, var(--m4-black)) 100%);
+  box-shadow: 0 30px 64px -24px color-mix(in srgb, var(--m4-primary-deep) 55%, transparent);
 }
 
-#m4-telegram .m4-telegram__head {
-  max-width: 840px;
-  margin: 0 auto 43px;
-  text-align: center;
-  transition: opacity calc(.72s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.72s * var(--m4-motion-scale)) var(--m4-ease);
-}
-
-#m4-telegram .m4-telegram__head.m4-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#m4-telegram .m4-telegram__kicker {
+/* ---- copy ---- */
+#m4-telegram .m4-telegram__brand {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  margin-bottom: 13px;
-  color: var(--m4-primary);
-  font-size: calc(.78rem * var(--m4-type-scale));
-  line-height: 1.4;
-  font-weight: 900;
+  gap: 10px;
+  color: var(--m4-accent-soft);
+  font-size: calc(.82rem * var(--m4-type-scale));
+  font-weight: 800;
 }
 
-#m4-telegram .m4-telegram__kicker::before {
-  content: "";
-  width: 28px;
-  height: 1px;
-  flex: 0 0 28px;
-  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-primary) 14%, transparent), var(--m4-accent) );
+#m4-telegram .m4-telegram__logo {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--m4-telegram);
+  color: #fff;
+}
+
+#m4-telegram .m4-telegram__logo svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  margin-right: 2px;
 }
 
 #m4-telegram h2 {
-  margin: 0;
-  color: var(--m4-primary-deep);
-  font-size: calc(clamp( 2rem, 4vw, 3.2rem ) * var(--m4-heading-scale));
-  line-height: 1.27;
-  letter-spacing: -.7px;
-  font-weight: 900;
+  margin: 14px 0 0;
+  color: var(--m4-white);
+  font-size: calc(clamp(1.7rem, 1.1rem + 1.9vw, 2.4rem) * var(--m4-heading-scale));
+  line-height: 1.4;
+  font-weight: 800;
   text-wrap: balance;
 }
 
-#m4-telegram .m4-telegram__head > p {
-  max-width: 750px;
-  margin: 15px auto 0;
-  color: var(--m4-text);
-  font-size: calc(clamp( .94rem, 1.45vw, 1.05rem ) * var(--m4-type-scale));
-  line-height: 1.88;
-  font-weight: 500;
-}
-
-#m4-telegram .m4-telegram__experience {
-  display: grid;
-  grid-template-columns: minmax(0,1.02fr) minmax(340px,.98fr);
-  gap: 54px;
-  align-items: center;
-  padding: 44px 46px;
-  overflow: hidden;
-  border-radius: calc(30px * var(--m4-radius-scale));
-  border: 1px solid rgba(255,255,255,.12);
-  background: radial-gradient( circle at 8% 10%, color-mix(in srgb, var(--m4-accent) 10%, transparent), transparent 29% ), radial-gradient( circle at 92% 90%, color-mix(in srgb, var(--m4-highlight-soft) 8%, transparent), transparent 27% ), linear-gradient( 135deg, var(--m4-primary-deep) 0%, color-mix(in srgb, var(--m4-primary) 69%, var(--m4-primary-deep)) 58%, color-mix(in srgb, var(--m4-olive) 84%, var(--m4-primary-deep)) 100% );
-  box-shadow: 0 24px 60px color-mix(in srgb, var(--m4-primary-deep) 16%, transparent);
-  transition: opacity calc(.78s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.78s * var(--m4-motion-scale)) var(--m4-ease);
-}
-
-#m4-telegram .m4-telegram__experience.m4-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#m4-telegram .m4-telegram__brand {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  margin-bottom: 20px;
-}
-
-#m4-telegram .m4-telegram__telegram-icon {
-  flex: 0 0 46px;
-  width: 46px;
-  height: 46px;
-  display: grid;
-  place-items: center;
-  border-radius: calc(15px * var(--m4-radius-scale));
-  background: linear-gradient( 145deg, color-mix(in srgb, var(--m4-telegram) 93%, var(--m4-white)), color-mix(in srgb, var(--m4-telegram) 89.5%, var(--m4-black)) );
-  color: var(--m4-white);
-  box-shadow: 0 12px 27px color-mix(in srgb, var(--m4-telegram) 20%, transparent);
-}
-
-#m4-telegram .m4-telegram__telegram-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
-#m4-telegram .m4-telegram__brand-text span {
-  display: block;
-  margin-bottom: 2px;
-  color: color-mix(in srgb, var(--m4-accent) 72.5%, var(--m4-bg-paper));
-  font-size: calc(.65rem * var(--m4-type-scale));
-  font-weight: 900;
-}
-
-#m4-telegram .m4-telegram__brand-text strong {
-  display: block;
-  color: var(--m4-bg-paper);
-  font-size: calc(.94rem * var(--m4-type-scale));
-  line-height: 1.45;
-  font-weight: 900;
-}
-
-#m4-telegram .m4-telegram__copy h3 {
-  max-width: 470px;
-  margin: 0;
-  color: var(--m4-bg-paper);
-  font-size: calc(clamp( 1.42rem, 2.7vw, 2rem ) * var(--m4-heading-scale));
-  line-height: 1.48;
-  font-weight: 900;
+#m4-telegram h2 em {
+  font-style: normal;
+  color: var(--m4-accent);
 }
 
 #m4-telegram .m4-telegram__lead {
-  max-width: 500px;
-  margin: 11px 0 0;
-  color: color-mix(in srgb, var(--m4-bg-paper) 70%, transparent);
-  font-size: calc(.88rem * var(--m4-type-scale));
-  line-height: 1.85;
-  font-weight: 500;
+  margin: 12px 0 0;
+  max-width: 540px;
+  color: color-mix(in srgb, var(--m4-white) 76%, transparent);
+  font-size: calc(.98rem * var(--m4-type-scale));
+  line-height: 1.9;
 }
 
 #m4-telegram .m4-telegram__features {
   display: grid;
-  gap: 9px;
-  margin-top: 22px;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-#m4-telegram .m4-telegram__feature {
-  display: grid;
-  grid-template-columns: 38px minmax(0,1fr);
-  gap: 11px;
-  align-items: start;
-  padding: 12px 13px;
-  border: 1px solid rgba(255,255,255,.085);
-  border-radius: calc(15px * var(--m4-radius-scale));
-  background: rgba(255,255,255,.042);
-  transition: background calc(.23s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.23s * var(--m4-motion-scale)) var(--m4-ease);
+#m4-telegram .m4-telegram__features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: color-mix(in srgb, var(--m4-white) 92%, transparent);
+  font-size: calc(.93rem * var(--m4-type-scale));
+  font-weight: 600;
 }
 
-#m4-telegram .m4-telegram__feature-icon {
-  width: 36px;
-  height: 36px;
+#m4-telegram .m4-telegram__features i {
+  flex: 0 0 36px;
   display: grid;
   place-items: center;
-  border-radius: calc(11px * var(--m4-radius-scale));
-  background: color-mix(in srgb, var(--m4-highlight-soft) 10%, transparent);
-  color: color-mix(in srgb, var(--m4-highlight) 58%, var(--m4-white));
+  width: 36px;
+  height: 36px;
+  border-radius: 11px;
+  color: var(--m4-accent);
+  background: color-mix(in srgb, var(--m4-white) 7%, transparent);
+  border: 1px solid color-mix(in srgb, var(--m4-accent) 28%, transparent);
 }
 
-#m4-telegram .m4-telegram__feature-icon svg {
-  width: 19px;
-  height: 19px;
-}
-
-#m4-telegram .m4-telegram__feature h4 {
-  margin: 0;
-  color: var(--m4-bg-paper);
-  font-size: calc(.80rem * var(--m4-type-scale));
-  line-height: 1.5;
-  font-weight: 900;
-}
-
-#m4-telegram .m4-telegram__feature p {
-  margin: 3px 0 0;
-  color: color-mix(in srgb, var(--m4-bg-paper) 60%, transparent);
-  font-size: calc(.68rem * var(--m4-type-scale));
-  line-height: 1.65;
-  font-weight: 500;
+#m4-telegram .m4-telegram__features svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 #m4-telegram .m4-telegram__note {
-  display: flex;
-  align-items: flex-start;
-  gap: 7px;
-  margin-top: 15px;
-  color: color-mix(in srgb, var(--m4-bg-paper) 47%, transparent);
-  font-size: calc(.60rem * var(--m4-type-scale));
-  line-height: 1.65;
-  font-weight: 500;
+  margin: 20px 0 0;
+  color: color-mix(in srgb, var(--m4-white) 55%, transparent);
+  font-size: calc(.78rem * var(--m4-type-scale));
 }
 
-#m4-telegram .m4-telegram__note::before {
-  content: "i";
-  flex: 0 0 17px;
-  width: 17px;
-  height: 17px;
-  display: grid;
-  place-items: center;
-  margin-top: 1px;
-  border: 1px solid rgba(255,255,255,.17);
-  border-radius: 50%;
-  color: color-mix(in srgb, var(--m4-accent) 72.5%, var(--m4-bg-paper));
-  font-family: var(--m4-font-primary);
-  font-size: calc(.57rem * var(--m4-type-scale));
-  font-weight: 700;
-}
-
-#m4-telegram .m4-telegram__preview {
-  position: relative;
-  min-height: 510px;
-  display: grid;
-  place-items: center;
-}
-
+/* ---- the phone: what the group feels like ---- */
 #m4-telegram .m4-telegram__phone {
-  position: relative;
-  z-index: 3;
-  width: min(345px,100%);
+  justify-self: center;
+  width: 100%;
+  max-width: 290px;
+  padding: 10px;
+  border-radius: 34px;
+  background: #0E1A1C;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--m4-white) 12%, transparent), 0 30px 60px rgba(0, 0, 0, .35);
+  transform: rotate(-3deg);
+}
+
+#m4-telegram .m4-telegram__screen {
   overflow: hidden;
-  border: 7px solid color-mix(in srgb, var(--m4-primary) 54%, var(--m4-black));
-  border-radius: calc(31px * var(--m4-radius-scale));
-  background: color-mix(in srgb, var(--m4-white) 91%, var(--m4-primary));
-  box-shadow: 0 29px 60px color-mix(in srgb, color-mix(in srgb, var(--m4-black) 57%, var(--m4-primary-deep)) 31%, transparent);
-  transform: rotate(-1.4deg);
-  transition: transform calc(.3s * var(--m4-motion-scale)) var(--m4-ease);
+  border-radius: 26px;
+  background: #E9EFF1;
 }
 
-#m4-telegram .m4-telegram__phone::before {
-  content: "";
-  position: absolute;
-  z-index: 8;
-  top: 7px;
-  left: 50%;
-  width: 75px;
-  height: 17px;
-  transform: translateX(-50%);
-  border-radius: calc(999px * var(--m4-radius-scale));
-  background: color-mix(in srgb, var(--m4-primary) 54%, var(--m4-black));
-}
-
-#m4-telegram .m4-telegram__phone-head {
-  display: grid;
-  grid-template-columns: 37px minmax(0,1fr) auto;
+#m4-telegram .m4-telegram__bar {
+  display: flex;
   align-items: center;
   gap: 9px;
-  min-height: 75px;
-  padding: 24px 13px 10px;
-  background: var(--m4-bg-paper);
-  border-bottom: 1px solid color-mix(in srgb, var(--m4-primary) 7%, transparent);
+  padding: 12px 14px;
+  background: var(--m4-white);
+  color: var(--m4-ink);
 }
 
-#m4-telegram .m4-telegram__phone-avatar {
-  width: 36px;
-  height: 36px;
+#m4-telegram .m4-telegram__bar span {
   display: grid;
   place-items: center;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: linear-gradient( 145deg, var(--m4-primary), var(--m4-highlight) );
-  color: white;
-  font-size: calc(.75rem * var(--m4-type-scale));
-  font-weight: 900;
+  background: var(--m4-primary);
+  color: var(--m4-white);
+  font-size: .9rem;
+  font-weight: 800;
 }
 
-#m4-telegram .m4-telegram__phone-title strong {
+#m4-telegram .m4-telegram__bar strong {
   display: block;
-  color: var(--m4-primary-deep);
-  font-size: calc(.72rem * var(--m4-heading-scale));
-  line-height: 1.4;
-  font-weight: 900;
+  font-size: .8rem;
+  font-weight: 800;
 }
 
-#m4-telegram .m4-telegram__phone-title span {
+#m4-telegram .m4-telegram__bar small {
   display: block;
-  margin-top: 2px;
-  color: color-mix(in srgb, var(--m4-text-muted) 81%, var(--m4-accent-soft));
-  font-size: calc(.49rem * var(--m4-heading-scale));
-  font-weight: 700;
-}
-
-#m4-telegram .m4-telegram__telegram-mark {
-  width: 23px;
-  height: 23px;
-  display: grid;
-  place-items: center;
-  color: var(--m4-telegram);
-}
-
-#m4-telegram .m4-telegram__telegram-mark svg {
-  width: 20px;
-  height: 20px;
+  color: #7A8A8F;
+  font-size: .66rem;
 }
 
 #m4-telegram .m4-telegram__chat {
-  min-height: 410px;
-  padding: 15px 11px 18px;
-  background: radial-gradient( circle at 12% 8%, rgba(255,255,255,.68), transparent 20% ), linear-gradient( 145deg, var(--m4-bg-cloud), color-mix(in srgb, var(--m4-bg-cloud) 97%, var(--m4-primary)) );
-}
-
-#m4-telegram .m4-telegram__demo-label {
-  width: max-content;
-  margin: 0 auto 13px;
-  padding: 5px 9px;
-  border-radius: calc(999px * var(--m4-radius-scale));
-  background: color-mix(in srgb, var(--m4-primary-deep) 9%, transparent);
-  color: color-mix(in srgb, var(--m4-primary-alt) 61%, var(--m4-accent-soft));
-  font-size: calc(.48rem * var(--m4-type-scale));
-  font-weight: 900;
-}
-
-#m4-telegram .m4-telegram__chat-item {
-  position: relative;
-  width: 87%;
-  margin-top: 9px;
-  padding: 10px 11px;
-  border-radius: calc(14px * var(--m4-radius-scale));
-  box-shadow: 0 7px 17px color-mix(in srgb, var(--m4-ink) 5.5%, transparent);
-}
-
-#m4-telegram .m4-telegram__chat-item--admin {
-  margin-right: auto;
-  border-bottom-left-radius: calc(5px * var(--m4-radius-scale));
-  background: var(--m4-bg-paper);
-}
-
-#m4-telegram .m4-telegram__chat-item--member {
-  margin-left: auto;
-  border-bottom-right-radius: calc(5px * var(--m4-radius-scale));
-  background: color-mix(in srgb, var(--m4-bg-paper) 70%, var(--m4-highlight));
-}
-
-#m4-telegram .m4-telegram__chat-label {
-  display: block;
-  margin-bottom: 7px;
-  color: var(--m4-primary);
-  font-size: calc(.53rem * var(--m4-type-scale));
-  font-weight: 900;
-}
-
-#m4-telegram .m4-telegram__voice {
   display: grid;
-  grid-template-columns: 28px minmax(0,1fr) auto;
-  gap: 7px;
-  align-items: center;
+  gap: 8px;
+  padding: 14px 12px 16px;
 }
 
-#m4-telegram .m4-telegram__play-visual {
-  width: 28px;
-  height: 28px;
+#m4-telegram .m4-telegram__msg {
+  max-width: 88%;
+  padding: 8px 11px;
+  border-radius: 14px;
+  background: var(--m4-white);
+  color: var(--m4-ink);
+  font-size: .74rem;
+  line-height: 1.6;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .06);
+}
+
+#m4-telegram .m4-telegram__msg b {
+  display: block;
+  color: var(--m4-primary);
+  font-size: .68rem;
+  font-weight: 800;
+}
+
+#m4-telegram .m4-telegram__msg--voice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#m4-telegram .m4-telegram__play {
+  flex: 0 0 28px;
   display: grid;
   place-items: center;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: var(--m4-telegram);
-  color: white;
+  color: #fff;
 }
 
-#m4-telegram .m4-telegram__play-visual svg {
-  width: 14px;
-  height: 14px;
+#m4-telegram .m4-telegram__play svg {
+  width: 11px;
+  height: 11px;
+  fill: currentColor;
 }
 
 #m4-telegram .m4-telegram__wave {
   display: flex;
   align-items: center;
   gap: 2px;
-  height: 28px;
-  overflow: hidden;
+  height: 20px;
 }
 
 #m4-telegram .m4-telegram__wave i {
-  display: block;
-  flex: 1;
-  min-width: 2px;
-  max-width: 3px;
-  height: var(--h);
-  border-radius: calc(999px * var(--m4-radius-scale));
-  background: color-mix(in srgb, var(--m4-telegram) 55%, transparent);
-  transform-origin: center;
-  animation: m4-telegram-telegram-wave calc(1.7s * var(--m4-motion-scale)) ease-in-out infinite;
+  width: 2.5px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--m4-telegram) 70%, #9FB5BD);
 }
 
-#m4-telegram .m4-telegram__wave i:nth-child(2n) {
-  animation-delay: .15s;
+#m4-telegram .m4-telegram__msg--voice small {
+  color: #7A8A8F;
+  font-size: .64rem;
 }
 
-#m4-telegram .m4-telegram__wave i:nth-child(3n) {
-  animation-delay: .3s;
+#m4-telegram .m4-telegram__msg--me {
+  justify-self: end;
+  background: #D8F5E1;
 }
 
-#m4-telegram .m4-telegram__duration {
-  color: color-mix(in srgb, var(--m4-text-muted) 80.5%, var(--m4-accent-soft));
-  font-size: calc(.45rem * var(--m4-type-scale));
-  font-weight: 800;
-}
-
-#m4-telegram .m4-telegram__lines-visual {
-  display: grid;
-  gap: 6px;
-}
-
-#m4-telegram .m4-telegram__lines-visual i {
-  display: block;
-  width: var(--w);
-  height: 7px;
-  border-radius: calc(999px * var(--m4-radius-scale));
-  background: color-mix(in srgb, var(--m4-ink) 13%, transparent);
-}
-
-#m4-telegram .m4-telegram__chat-item--member .m4-telegram__lines-visual i {
-  background: color-mix(in srgb, var(--m4-primary) 15%, transparent);
-}
-
-#m4-telegram .m4-telegram__activity {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  width: max-content;
-  margin: 15px auto 0;
-  padding: 7px 10px;
-  border-radius: calc(999px * var(--m4-radius-scale));
-  background: rgba(255,255,255,.70);
-  color: color-mix(in srgb, var(--m4-text) 62%, var(--m4-secondary));
-  font-size: calc(.47rem * var(--m4-type-scale));
-  font-weight: 800;
-}
-
-#m4-telegram .m4-telegram__activity-dots {
-  display: flex;
-  gap: 3px;
-}
-
-#m4-telegram .m4-telegram__activity-dots i {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--m4-telegram);
-  animation: m4-telegram-telegram-dot calc(1.4s * var(--m4-motion-scale)) ease-in-out infinite;
-}
-
-#m4-telegram .m4-telegram__activity-dots i:nth-child(2) {
-  animation-delay: .15s;
-}
-
-#m4-telegram .m4-telegram__activity-dots i:nth-child(3) {
-  animation-delay: .3s;
-}
-
-#m4-telegram .m4-telegram__preview-tag {
-  position: absolute;
-  z-index: 5;
-  left: -3px;
-  bottom: 74px;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 8px 11px;
-  border: 1px solid rgba(255,255,255,.13);
-  border-radius: calc(13px * var(--m4-radius-scale));
-  background: color-mix(in srgb, var(--m4-bg-paper) 94%, transparent);
-  color: var(--m4-primary-deep);
-  font-size: calc(.60rem * var(--m4-type-scale));
-  font-weight: 900;
-  box-shadow: 0 13px 28px color-mix(in srgb, color-mix(in srgb, var(--m4-black) 58.5%, var(--m4-primary-deep)) 17%, transparent);
-  animation: m4-telegram-telegram-float calc(5s * var(--m4-motion-scale)) ease-in-out infinite;
-}
-
-#m4-telegram .m4-telegram__preview-tag::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--m4-telegram);
-}
-
-#m4-telegram .m4-telegram__closing {
-  max-width: 790px;
-  margin: 29px auto 0;
-  padding-top: 23px;
-  border-top: 1px solid color-mix(in srgb, var(--m4-primary) 12%, transparent);
-  text-align: center;
-  transition: opacity calc(.68s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.68s * var(--m4-motion-scale)) var(--m4-ease);
-}
-
-#m4-telegram .m4-telegram__closing.m4-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#m4-telegram .m4-telegram__closing p {
-  margin: 0;
-  color: color-mix(in srgb, var(--m4-text-muted) 68.5%, var(--m4-olive));
-  font-size: calc(.82rem * var(--m4-type-scale));
-  line-height: 1.8;
-  font-weight: 600;
-}
-
-#m4-telegram .m4-telegram__closing strong {
-  color: var(--m4-primary-deep);
-  font-weight: 900;
-}
-
-@keyframes m4-telegram-telegram-wave {
-  0%, 100%{ transform: scaleY(.55); opacity:.68; }
-  50%{ transform: scaleY(1); opacity:1; }
-}
-
-@keyframes m4-telegram-telegram-dot {
-  0%, 100%{ opacity:.35; transform: translateY(0); }
-  50%{ opacity:1; transform: translateY(-2px); }
-}
-
-@keyframes m4-telegram-telegram-float {
-  0%, 100%{ transform: translateY(0); }
-  50%{ transform: translateY(-6px); }
-}
-
-@media(hover:hover) {
-  #m4-telegram .m4-telegram__feature:hover {
-    transform: translateY(-2px);
-    background: rgba(255,255,255,.07);
-  }
-
-  #m4-telegram .m4-telegram__preview:hover .m4-telegram__phone {
-    transform: rotate(0deg) translateY(-3px);
-  }
-}
-
-@media(max-width:930px) {
+@media (max-width: 860px) {
   #m4-telegram {
-    padding: calc(72px * var(--m4-space-scale)) calc(18px * var(--m4-space-scale)) calc(78px * var(--m4-space-scale));
+    padding: calc(46px * var(--m4-space-scale)) calc(14px * var(--m4-space-scale));
   }
 
-  #m4-telegram .m4-telegram__experience {
+  #m4-telegram .m4-telegram__card {
     grid-template-columns: 1fr;
-    gap: 34px;
-    padding: 38px 34px;
-  }
-
-  #m4-telegram .m4-telegram__copy {
-    max-width: 650px;
-  }
-
-  #m4-telegram .m4-telegram__preview {
-    min-height: 500px;
-  }
-}
-
-@media(max-width:620px) {
-  #m4-telegram {
-    padding: calc(56px * var(--m4-space-scale)) calc(13px * var(--m4-space-scale)) calc(62px * var(--m4-space-scale));
-  }
-
-  #m4-telegram .m4-telegram__head {
-    margin-bottom: 30px;
-  }
-
-  #m4-telegram .m4-telegram__kicker {
-    margin-bottom: 9px;
-    font-size: calc(.68rem * var(--m4-type-scale));
-    gap: 7px;
-  }
-
-  #m4-telegram .m4-telegram__kicker::before {
-    width: 20px;
-    flex-basis: 20px;
-  }
-
-  #m4-telegram h2 {
-    font-size: calc(1.82rem * var(--m4-heading-scale));
-    line-height: 1.28;
-  }
-
-  #m4-telegram .m4-telegram__head > p {
-    margin-top: 11px;
-    font-size: calc(.83rem * var(--m4-type-scale));
-    line-height: 1.77;
-  }
-
-  #m4-telegram .m4-telegram__experience {
-    gap: 27px;
-    padding: 27px 17px 21px;
+    gap: 26px;
+    padding: 30px 20px 28px;
     border-radius: calc(22px * var(--m4-radius-scale));
   }
 
-  #m4-telegram .m4-telegram__brand {
-    margin-bottom: 16px;
-  }
-
-  #m4-telegram .m4-telegram__telegram-icon {
-    width: 41px;
-    height: 41px;
-    flex-basis: 41px;
-    border-radius: calc(13px * var(--m4-radius-scale));
-  }
-
-  #m4-telegram .m4-telegram__brand-text strong {
-    font-size: calc(.83rem * var(--m4-type-scale));
-  }
-
-  #m4-telegram .m4-telegram__copy h3 {
-    font-size: calc(1.27rem * var(--m4-heading-scale));
-    line-height: 1.5;
-  }
-
   #m4-telegram .m4-telegram__lead {
-    margin-top: 8px;
-    font-size: calc(.78rem * var(--m4-type-scale));
-    line-height: 1.76;
+    font-size: calc(.9rem * var(--m4-type-scale));
   }
 
-  #m4-telegram .m4-telegram__features {
-    margin-top: 17px;
-    gap: 8px;
-  }
-
-  #m4-telegram .m4-telegram__feature {
-    grid-template-columns: 33px minmax(0,1fr);
-    gap: 9px;
-    padding: 11px;
-  }
-
-  #m4-telegram .m4-telegram__feature-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: calc(10px * var(--m4-radius-scale));
-  }
-
-  #m4-telegram .m4-telegram__feature-icon svg {
-    width: 17px;
-    height: 17px;
-  }
-
-  #m4-telegram .m4-telegram__feature h4 {
-    font-size: calc(.73rem * var(--m4-type-scale));
-  }
-
-  #m4-telegram .m4-telegram__feature p {
-    font-size: calc(.62rem * var(--m4-type-scale));
-    line-height: 1.58;
-  }
-
-  #m4-telegram .m4-telegram__note {
-    font-size: calc(.55rem * var(--m4-type-scale));
-  }
-
-  #m4-telegram .m4-telegram__preview {
-    min-height: 440px;
+  #m4-telegram .m4-telegram__features li {
+    font-size: calc(.86rem * var(--m4-type-scale));
   }
 
   #m4-telegram .m4-telegram__phone {
-    width: min( 315px, 100% );
-    transform: none;
-    border-width: 6px;
-    border-radius: calc(27px * var(--m4-radius-scale));
-  }
-
-  #m4-telegram .m4-telegram__chat {
-    min-height: 350px;
-  }
-
-  #m4-telegram .m4-telegram__preview-tag {
-    display: none;
-  }
-
-  #m4-telegram .m4-telegram__closing {
-    margin-top: 25px;
-    padding-top: 19px;
-  }
-
-  #m4-telegram .m4-telegram__closing p {
-    font-size: calc(.72rem * var(--m4-type-scale));
-  }
-}
-
-@media(prefers-reduced-motion: reduce) {
-  #m4-telegram .m4-telegram__head,
-  #m4-telegram .m4-telegram__experience,
-  #m4-telegram .m4-telegram__closing {
-    transition: none;
-  }
-
-  #m4-telegram .m4-telegram__wave i,
-  #m4-telegram .m4-telegram__activity-dots i,
-  #m4-telegram .m4-telegram__preview-tag {
-    animation: none;
-  }
-
-  #m4-telegram .m4-telegram__phone {
-    transition: none;
+    max-width: 250px;
+    transform: rotate(-2deg);
   }
 }
 
@@ -9970,512 +9513,54 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   aria-label="مجتمع منهج الطمأنينة على تيليجرام"
 >
 
-  <div class="m4-telegram__wrap">
+  <div class="m4-telegram__card m4-reveal">
 
-    <header class="m4-telegram__head m4-reveal">
-
-      <div class="m4-telegram__kicker">
-
-        مساحة خاصة بأعضاء المنهج
-
-      </div>
-
-      <h2>
-
-        الرحلة لا تتوقف
-        عند مشاهدة المحاضرات
-
-      </h2>
-
-      <p>
-
-        ضمن الاشتراك تنضم إلى مساحة خاصة على تيليجرام،
-        لمشاركة الأسئلة والتأملات والتفاعل حول ما يتم تقديمه
-        داخل المنهج، مع رسائل صوتية ومكتوبة يشاركها
-        كريم إسماعيل خلال مراحل الرحلة.
-
+    <div class="m4-telegram__copy">
+      <span class="m4-telegram__brand">
+        <span class="m4-telegram__logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.2 4.1 17.6 19c-.2 1.1-.8 1.4-1.7.9l-4-2.9-1.9 1.8c-.2.2-.4.4-.8.4l.3-4.1 7.5-6.8c.3-.3-.1-.5-.5-.2l-9.2 5.8-4-1.3c-1-.3-1-1 .2-1.5L19 3.7c.8-.3 1.4.2 1.2.4z"/></svg></span>
+        مساحة خاصة بأعضاء المنهج على تيليجرام
+      </span>
+      <h2>الرحلة لا تتوقف <em>عند مشاهدة المحاضرات</em></h2>
+      <p class="m4-telegram__lead">
+        المنهج ليس مجموعة فيديوهات تشاهدها وحدك؛ فضمن اشتراكك جروب خاص يرافقك طوال الرحلة،
+        ويبقيك قريبًا من المحتوى وأسئلته ومعانيه.
       </p>
-
-    </header>
-
-    <div class="m4-telegram__experience m4-reveal">
-
-      <div class="m4-telegram__copy">
-
-        <div class="m4-telegram__brand">
-
-          <div
-            class="m4-telegram__telegram-icon"
-            aria-hidden="true"
-          >
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-
-              <path
-                d="
-                  M20.2 4.1
-                  17.6 19
-                  c-.2 1.1-.8 1.4-1.7.9
-                  l-4-2.9
-                  -1.9 1.8
-                  c-.2.2-.4.4-.8.4
-                  l.3-4.1
-                  7.5-6.8
-                  c.3-.3-.1-.5-.5-.2
-                  l-9.2 5.8
-                  -4-1.3
-                  c-1-.3-1-1 .2-1.5
-                  L19 3.7
-                  c.8-.3 1.4.2 1.2.4Z
-                "
-                fill="currentColor"
-              />
-
-            </svg>
-
-          </div>
-
-          <div class="m4-telegram__brand-text">
-
-            <span>
-              تيليجرام
-            </span>
-
-            <strong>
-              قناة ومجموعة خاصة بالمشتركين
-            </strong>
-
-          </div>
-
-        </div>
-
-        <h3>
-
-          مساحة حية للفهم
-          والمراجعة والتفاعل
-
-        </h3>
-
-        <p class="m4-telegram__lead">
-
-          المنهج ليس مجموعة فيديوهات تشاهدها وحدك،
-          بل هناك مساحة تواصل ترافقك أثناء الرحلة
-          وتبقيك قريبا من المحتوى وأسئلته ومعانيه.
-
-        </p>
-
-        <div class="m4-telegram__features">
-
-          <article class="m4-telegram__feature">
-
-            <div
-              class="m4-telegram__feature-icon"
-              aria-hidden="true"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-
-                <path
-                  d="M8 10h8M8 14h5"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                />
-
-                <path
-                  d="
-                    M20 11.5
-                    c0 4.1-3.6 7.5-8 7.5
-                    -1.1 0-2.2-.2-3.2-.6
-                    L4 20
-                    l1.5-3.9
-                    A7.1 7.1 0 0 1
-                    4 11.5
-                    C4 7.4 7.6 4 12 4
-                    s8 3.4 8 7.5Z
-                  "
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linejoin="round"
-                />
-
-              </svg>
-
-            </div>
-
-            <div>
-
-              <h4>
-                أسئلة ومناقشات حول المحتوى
-              </h4>
-
-              <p>
-                مساحة لمشاركة الأسئلة والتأملات
-                ومناقشة ما يتم تقديمه في المحاضرات
-                والتدريبات.
-              </p>
-
-            </div>
-
-          </article>
-
-          <article class="m4-telegram__feature">
-
-            <div
-              class="m4-telegram__feature-icon"
-              aria-hidden="true"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-
-                <rect
-                  x="8"
-                  y="3.5"
-                  width="8"
-                  height="12"
-                  rx="4"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                />
-
-                <path
-                  d="
-                    M5.5 11.5v.5
-                    a6.5 6.5 0 0 0 13 0
-                    v-.5
-                    M12 18.5V21
-                    M9 21h6
-                  "
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                />
-
-              </svg>
-
-            </div>
-
-            <div>
-
-              <h4>
-                رسائل صوتية ومكتوبة من كريم إسماعيل
-              </h4>
-
-              <p>
-                مشاركات مرتبطة بمراحل الرحلة وأفكارها،
-                تساعد على العودة إلى بعض المعاني
-                وتعميق النقاش حولها.
-              </p>
-
-            </div>
-
-          </article>
-
-          <article class="m4-telegram__feature">
-
-            <div
-              class="m4-telegram__feature-icon"
-              aria-hidden="true"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-
-                <path
-                  d="M7.5 12.5 10 15l6.5-7"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="8"
-                  stroke="currentColor"
-                  stroke-width="1.8"
-                />
-
-              </svg>
-
-            </div>
-
-            <div>
-
-              <h4>
-                تفاعل مستمر مع تقدم المنهج
-              </h4>
-
-              <p>
-                تستمر المساحة مع إضافة المحاضرات
-                واللقاءات والتدريبات الجديدة
-                خلال رحلة العام.
-              </p>
-
-            </div>
-
-          </article>
-
-        </div>
-
-        <div class="m4-telegram__note">
-
-          مساحة تعليمية وتفاعلية ضمن المنهج،
-          وليست متابعة علاجية فردية.
-
-        </div>
-
-      </div>
-
-      <div
-        class="m4-telegram__preview"
-        aria-label="تصور توضيحي لمساحة التواصل على تيليجرام"
-      >
-
-        <div class="m4-telegram__phone">
-
-          <div class="m4-telegram__phone-head">
-
-            <div class="m4-telegram__phone-avatar">
-              ط
-            </div>
-
-            <div class="m4-telegram__phone-title">
-
-              <strong>
-                أعضاء منهج الطمأنينة
-              </strong>
-
-              <span>
-                مساحة خاصة للمشتركين
-              </span>
-
-            </div>
-
-            <div
-              class="m4-telegram__telegram-mark"
-              aria-hidden="true"
-            >
-
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-
-                <path
-                  d="
-                    M20.2 4.1
-                    17.6 19
-                    c-.2 1.1-.8 1.4-1.7.9
-                    l-4-2.9
-                    -1.9 1.8
-                    c-.2.2-.4.4-.8.4
-                    l.3-4.1
-                    7.5-6.8
-                    c.3-.3-.1-.5-.5-.2
-                    l-9.2 5.8
-                    -4-1.3
-                    c-1-.3-1-1 .2-1.5
-                    L19 3.7
-                    c.8-.3 1.4.2 1.2.4Z
-                  "
-                  fill="currentColor"
-                />
-
-              </svg>
-
-            </div>
-
-          </div>
-
-          <div class="m4-telegram__chat">
-
-            <div class="m4-telegram__demo-label">
-
-              تصور توضيحي لمساحة التواصل
-
-            </div>
-
-            <div
-              class="m4-telegram__chat-item m4-telegram__chat-item--admin"
-            >
-
-              <span class="m4-telegram__chat-label">
-
-                رسالة صوتية من كريم
-
-              </span>
-
-              <div class="m4-telegram__voice">
-
-                <div
-                  class="m4-telegram__play-visual"
-                  aria-hidden="true"
-                >
-
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-
-                    <path
-                      d="m9 7 7 5-7 5V7Z"
-                      fill="currentColor"
-                    />
-
-                  </svg>
-
-                </div>
-
-                <div
-                  class="m4-telegram__wave"
-                  aria-hidden="true"
-                >
-
-                  <i style="--h:10px"></i>
-                  <i style="--h:18px"></i>
-                  <i style="--h:13px"></i>
-                  <i style="--h:22px"></i>
-                  <i style="--h:15px"></i>
-                  <i style="--h:26px"></i>
-                  <i style="--h:17px"></i>
-                  <i style="--h:21px"></i>
-                  <i style="--h:12px"></i>
-                  <i style="--h:19px"></i>
-                  <i style="--h:15px"></i>
-                  <i style="--h:23px"></i>
-
-                </div>
-
-                <span class="m4-telegram__duration">
-                  02:14
-                </span>
-
-              </div>
-
-            </div>
-
-            <div
-              class="m4-telegram__chat-item m4-telegram__chat-item--member"
-            >
-
-              <span class="m4-telegram__chat-label">
-
-                سؤال ومشاركة من أحد الأعضاء
-
-              </span>
-
-              <div
-                class="m4-telegram__lines-visual"
-                aria-hidden="true"
-              >
-
-                <i style="--w:93%"></i>
-                <i style="--w:80%"></i>
-                <i style="--w:57%"></i>
-
-              </div>
-
-            </div>
-
-            <div
-              class="m4-telegram__chat-item m4-telegram__chat-item--admin"
-            >
-
-              <span class="m4-telegram__chat-label">
-
-                نقاش حول الفكرة
-
-              </span>
-
-              <div
-                class="m4-telegram__lines-visual"
-                aria-hidden="true"
-              >
-
-                <i style="--w:94%"></i>
-                <i style="--w:85%"></i>
-                <i style="--w:70%"></i>
-                <i style="--w:44%"></i>
-
-              </div>
-
-            </div>
-
-            <div
-              class="m4-telegram__chat-item m4-telegram__chat-item--member"
-            >
-
-              <span class="m4-telegram__chat-label">
-
-                مشاركة وتأمل
-
-              </span>
-
-              <div
-                class="m4-telegram__lines-visual"
-                aria-hidden="true"
-              >
-
-                <i style="--w:87%"></i>
-                <i style="--w:67%"></i>
-
-              </div>
-
-            </div>
-
-            <div class="m4-telegram__activity">
-
-              <span
-                class="m4-telegram__activity-dots"
-                aria-hidden="true"
-              >
-
-                <i></i>
-                <i></i>
-                <i></i>
-
-              </span>
-
-              تفاعل مستمر داخل المساحة
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="m4-telegram__preview-tag">
-
-          أسئلة • صوتيات • مشاركة
-
-        </div>
-
-      </div>
-
+      <ul class="m4-telegram__features">
+        <li>
+          <i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="8.5" y="3.5" width="7" height="11" rx="3.5"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></svg></i>
+          رسائل صوتية ومكتوبة وخواطر من كريم إسماعيل
+        </li>
+        <li>
+          <i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 11.5c0 4-3.5 7.3-8 7.3-1.1 0-2.1-.2-3.1-.6L4 20l1.5-3.9A7 7 0 0 1 4 11.5C4 7.4 7.6 4 12 4s8 3.4 8 7.5z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg></i>
+          أسئلة ومناقشات حول المحاضرات والتدريبات
+        </li>
+        <li>
+          <i aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9.5" r="2.3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M14.5 19a4 4 0 0 1 6-3.4"/></svg></i>
+          تفاعل مع زملائك في نفس الدفعة
+        </li>
+      </ul>
+      <p class="m4-telegram__note">مساحة تعليمية وتفاعلية ضمن المنهج، وليست متابعة علاجية فردية.</p>
     </div>
 
-    <div class="m4-telegram__closing m4-reveal">
-
-      <p>
-
-        مساحة تساعدك على ألا تكون مجرد مشاهد للمحتوى،
-        بل <strong>مشاركا في رحلة مستمرة من الفهم والمراجعة والتطبيق.</strong>
-
-      </p>
-
+    <div class="m4-telegram__phone" role="img" aria-label="تصور توضيحي لجروب المنهج على تيليجرام">
+      <div class="m4-telegram__screen">
+        <div class="m4-telegram__bar">
+          <span aria-hidden="true">ط</span>
+          <div><strong>أعضاء منهج الطمأنينة</strong><small>جروب خاص بالمشتركين</small></div>
+        </div>
+        <div class="m4-telegram__chat" aria-hidden="true">
+          <div class="m4-telegram__msg m4-telegram__msg--voice">
+            <span class="m4-telegram__play"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+            <div>
+              <b>كريم إسماعيل</b>
+              <div class="m4-telegram__wave"><i style="height:6px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:15px"></i><i style="height:20px"></i><i style="height:11px"></i><i style="height:7px"></i><i style="height:16px"></i><i style="height:12px"></i><i style="height:6px"></i><i style="height:14px"></i><i style="height:9px"></i><i style="height:17px"></i><i style="height:8px"></i></div>
+              <small>رسالة صوتية · 02:14</small>
+            </div>
+          </div>
+          <div class="m4-telegram__msg"><b>عضو في المنهج</b>سؤال عن فكرة من محاضرة الأمس…</div>
+          <div class="m4-telegram__msg m4-telegram__msg--me">مشاركة وتأمل حول نفس الفكرة 🤍</div>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -10882,7 +9967,7 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
           <span class="m4-rhythm__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 4 3 11l6 2.5L11.5 20 21 4z"/><path d="m9 13.5 5-4"/></svg></span>
           <div>
             <h3>الإيميل وجروب التليجرام</h3>
-            <p>المراسلات تصلك على الإيميل دائمًا. وفي جروب التليجرام يشارك كريم تسجيلات وخواطر باستمرار، وتتفاعل مع زملائك في نفس الدفعة.</p>
+            <p>المراسلات والتنبيهات تصلك على الإيميل دائمًا، والتفاعل اليومي في جروب التليجرام.</p>
           </div>
         </article>
 

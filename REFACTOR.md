@@ -383,3 +383,9 @@ No masonry script (new class names, so Block 00B's masonry no longer touches it)
 Hand-written (`tools/new-blocks/14-live.html`): one image with a «لقاء مباشر» badge and «3 لقاءات حتى الآن»
 (instead of three near-identical cards), the three steps in compact form, and the sessions held so far as a slim
 strip ending with «+ اللقاءات مستمرة». Schedule details are in 15B. ~45% shorter on desktop.
+
+## Block 15 v2 — Telegram (shorter)
+
+Hand-written (`tools/new-blocks/15-telegram.html`): one dark card with the promise, three one-line features
+(Kareem's voice notes and reflections · questions and discussion · the cohort) and a small phone showing the group.
+~43% shorter on desktop. The email/Telegram card in 15B was shortened so it doesn't repeat this section.
