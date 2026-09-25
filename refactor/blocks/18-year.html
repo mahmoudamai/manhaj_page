@@ -487,6 +487,56 @@
   }
 }
 
+/* ---------------- readability · larger explanation text ---------------- */
+#m4-year .m4-year__card > p {
+  font-size: calc(.9rem * var(--m4-type-scale));
+  line-height: 1.85;
+}
+
+#m4-year li {
+  font-size: calc(.86rem * var(--m4-type-scale));
+  line-height: 1.7;
+}
+
+/* keep the tag off the last list line when the card is at its min height */
+#m4-year ul {
+  margin-bottom: 16px;
+}
+
+#m4-year .m4-year__step {
+  font-size: calc(.66rem * var(--m4-type-scale));
+}
+
+#m4-year .m4-year__tag {
+  font-size: calc(.7rem * var(--m4-type-scale));
+}
+
+#m4-year .m4-year__closing p {
+  font-size: calc(.92rem * var(--m4-type-scale));
+}
+
+@media (max-width: 620px) {
+  #m4-year .m4-year__card h3 {
+    font-size: calc(1rem * var(--m4-heading-scale));
+  }
+
+  #m4-year .m4-year__card > p {
+    font-size: calc(.86rem * var(--m4-type-scale));
+  }
+
+  #m4-year li {
+    font-size: calc(.82rem * var(--m4-type-scale));
+  }
+
+  #m4-year .m4-year__tag {
+    font-size: calc(.66rem * var(--m4-type-scale));
+  }
+
+  #m4-year .m4-year__closing p {
+    font-size: calc(.84rem * var(--m4-type-scale));
+  }
+}
+
 /* self-check: this block is the current version */
 #m4-year {
   --m4-styled: 18;

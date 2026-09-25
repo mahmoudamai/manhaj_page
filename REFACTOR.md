@@ -405,3 +405,7 @@ leaves, and keeps the poster with reduced motion or data saver.
 - `?m4-fonts=NAME` (or `M4_CONFIG.fonts`) tries a combination: tajawal · alexandria · readex · plex · markazi · amiri · cairo · almarai — each sets titles/text/quotes and corrects the title size. `preview.html` has a picker in the corner.
 - The headings font now applies to section titles only (h1/h2 + the member-story title); card titles stay in the text font.
 - Full table + the lines to make one permanent: `themes/HOW-TO-CHANGE-THEME.md` §3.
+
+### Readability: Blocks 09 and 18 (tools/m4_readability.py)
+- Card explanations were 12–13px (≈11px on phones). They are now ≈15px on desktop and ≈14px on phones. Lists, tags and small labels were scaled up to match.
+- Block 09 on desktop is now a grid (right cards | goal | left cards) instead of fixed absolute spots, so longer text can no longer make the cards overlap. The look is unchanged.

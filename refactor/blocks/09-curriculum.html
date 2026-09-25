@@ -663,6 +663,127 @@
   }
 }
 
+/* ---------------- readability · larger explanation text ---------------- */
+/* desktop: the four cards sat at fixed absolute spots, so longer text made
+   them overlap. Same picture as a grid — right cards | goal | left cards —
+   so each card grows with its text (the rings stay behind). */
+@media (min-width: 901px) {
+  #m4-curriculum .m4-curriculum__board {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 250px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 34px 46px;
+    align-items: stretch;
+    padding: 40px;
+  }
+
+  #m4-curriculum .m4-curriculum__center {
+    position: relative;
+    top: auto;
+    left: auto;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    transform: none;
+  }
+
+  #m4-curriculum .m4-curriculum__center.m4-reveal {
+    transform: none;
+  }
+
+  #m4-curriculum .m4-curriculum__stage {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: auto;
+    transform: none;
+  }
+
+  #m4-curriculum .m4-curriculum__stage.m4-reveal {
+    transform: none;
+  }
+
+  #m4-curriculum .m4-curriculum__stage--one   { grid-column: 1; grid-row: 1; }
+  #m4-curriculum .m4-curriculum__stage--two   { grid-column: 3; grid-row: 1; }
+  #m4-curriculum .m4-curriculum__stage--three { grid-column: 1; grid-row: 2; }
+  #m4-curriculum .m4-curriculum__stage--four  { grid-column: 3; grid-row: 2; }
+
+  /* the short connector lines reach across the gap to the goal */
+  #m4-curriculum .m4-curriculum__stage::before {
+    width: 46px;
+  }
+
+  #m4-curriculum .m4-curriculum__stage--one::before,
+  #m4-curriculum .m4-curriculum__stage--three::before {
+    left: -46px;
+  }
+
+  #m4-curriculum .m4-curriculum__stage--two::before,
+  #m4-curriculum .m4-curriculum__stage--four::before {
+    right: -46px;
+  }
+}
+
+#m4-curriculum .m4-curriculum__stage p {
+  font-size: calc(.93rem * var(--m4-type-scale));
+  line-height: 1.9;
+}
+
+#m4-curriculum .m4-curriculum__center p {
+  font-size: calc(.9rem * var(--m4-type-scale));
+}
+
+#m4-curriculum .m4-curriculum__stage-type {
+  font-size: calc(.72rem * var(--m4-type-scale));
+}
+
+#m4-curriculum .m4-curriculum__stage h3 {
+  font-size: calc(1.16rem * var(--m4-heading-scale));
+}
+
+#m4-curriculum .m4-curriculum__tags span {
+  font-size: calc(.78rem * var(--m4-type-scale));
+}
+
+#m4-curriculum .m4-curriculum__layers span {
+  font-size: calc(.9rem * var(--m4-type-scale));
+}
+
+#m4-curriculum .m4-curriculum__closing {
+  font-size: calc(1.08rem * var(--m4-type-scale));
+}
+
+@media (max-width: 600px) {
+  #m4-curriculum .m4-curriculum__stage p,
+  #m4-curriculum .m4-curriculum__center p {
+    font-size: calc(.88rem * var(--m4-type-scale));
+    line-height: 1.85;
+  }
+
+  #m4-curriculum .m4-curriculum__stage-type {
+    font-size: calc(.66rem * var(--m4-type-scale));
+  }
+
+  #m4-curriculum .m4-curriculum__stage h3 {
+    font-size: calc(1.08rem * var(--m4-heading-scale));
+  }
+
+  #m4-curriculum .m4-curriculum__tags span {
+    font-size: calc(.74rem * var(--m4-type-scale));
+  }
+
+  #m4-curriculum .m4-curriculum__layers span {
+    font-size: calc(.8rem * var(--m4-type-scale));
+  }
+
+  #m4-curriculum .m4-curriculum__closing {
+    font-size: calc(.96rem * var(--m4-type-scale));
+  }
+}
+
 /* self-check: this block is the current version */
 #m4-curriculum {
   --m4-styled: 9;

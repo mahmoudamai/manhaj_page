@@ -769,6 +769,12 @@ def main():
     spec9.loader.exec_module(cu2)
     cu2.apply(blocks / "09-curriculum.html")
     (blocks / "08-method.html").unlink()
+    # ---- blocks 09 / 18: larger explanation text (tools/m4_readability.py) ----
+    sprd = importlib.util.spec_from_file_location("m4read", ROOT / "tools" / "m4_readability.py")
+    rd = importlib.util.module_from_spec(sprd)
+    sprd.loader.exec_module(rd)
+    rd.apply(blocks)
+
     # ---- block 12 (members' lecture notes) now lives inside Block 11 ----
     (blocks / "12-lecture-notes.html").unlink()
 
