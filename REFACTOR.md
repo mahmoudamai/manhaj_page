@@ -119,7 +119,9 @@ Notes:
 | File | Where it goes |
 |---|---|
 | `refactor/blocks/00-main-css.html` | **Block 00**: fonts + Main CSS (readable, 300 KB) |
-| `refactor/blocks/00-main-css.min.html` | Same thing minified (260 KB). Use it if GHL complains about size |
+| `refactor/blocks/00-main-css.min.html` | Same thing minified (260 KB) |
+| `refactor/blocks/00-main-css.css` | **Pure CSS for GHL's Custom CSS box** (fonts via `@import`) |
+| `refactor/blocks/00-main-css-split/` | Main CSS in **6 parts** (< 62 KB each), for Code Elements |
 | `refactor/blocks/00B-shared-js.html` | **Block 00B**: shared JavaScript |
 | `refactor/blocks/01-hero.html` … `25-footer.html` | One file per existing code block, in the same order |
 | `refactor/preview.html` | The full page for checking (GHL-only elements shown as grey placeholders) |
@@ -184,7 +186,11 @@ Dead CSS for classes that don't exist in any block (for example `.heroDivider` a
 ## G. Migration steps (in GHL)
 
 1. **Back up**: duplicate the current page in GHL before starting.
-2. **Block 00 (Main CSS)**: paste `00-main-css.html` (or `.min`) into **Settings → Tracking Code → Head**. Alternative: the **first** Code Element at the very top of the page. Pasting it in the Head applies it in the builder too, so every block shows its real design while you edit.
+2. **Block 00 (Main CSS)**: pick ONE of these three options.
+   - **A. Custom CSS box (recommended)**: page **Settings → Custom CSS** → paste **`00-main-css.css`**. This is pure CSS with no `<style>` tags; the `.html` files do **not** belong in this box. It also applies in the builder.
+   - **B. Code Elements**: paste `00-main-css-split/part1 … part6` into **6 Code Elements at the very top of the page**, in order. Use this if GHL cuts long code; each part is under 62 KB.
+   - **C. Single Code Element / Tracking Code**: `00-main-css.html` (300 KB). Only if your GHL account accepts that size.
+   Delete any older copy of Block 00 first, so the CSS is never loaded twice.
 3. **Block 00B (JS)**: paste `00B-shared-js.html` into **Tracking Code → Head** (after Block 00), or into the **last** Code Element on the page.
 4. **For each existing Code Element**: select all, delete, and paste the matching file from `refactor/blocks/` (01 → 25, same order as the mapping table). Every old `<link>`, `<style>` and `<script>` disappears with this step. Nothing needs to be deleted by hand.
 5. **GHL elements stay as they are**: the video (block 02), the button (block 05), the logos marquee and the fixed sticky section. The code for block 03 (video look) and block 07 (PiP) was not in the file, so they were not changed. If they are Code Elements, keep them.
@@ -192,6 +198,10 @@ Dead CSS for classes that don't exist in any block (for example `.heroDivider` a
 7. **Publish, then open the live page**, not the editor, to see the entrance animations.
 
 To try a theme: edit the tokens at the top of Block 00 and republish.
+
+---
+
+**Self-check:** Block 00B checks that the whole Main CSS arrived. If a part was dropped or cut, it writes a warning to the browser console. On GHL `/preview/` links, or with `?m4-debug=1`, it also shows a red bar that names the missing part.
 
 ---
 

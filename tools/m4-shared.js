@@ -208,6 +208,37 @@
   }
 
 
+  /* ---------------- 5 · SELF-CHECK ----------------
+     Block 00 ends with markers. If GHL dropped or cut the Main CSS, say so
+     (console always; a small banner on GHL preview links or with ?m4-debug=1). */
+  function selfCheck() {
+    var cs = getComputedStyle(root);
+    var total = parseInt(cs.getPropertyValue("--m4-parts"), 10) || 0;
+    var msg = "";
+    if (!total) {
+      msg = "M4: Main CSS (Block 00) was not found, or its first rule was broken. " +
+            "If it is in the Custom CSS box, use 00-main-css.css (pure CSS) there.";
+    } else {
+      var missing = [];
+      for (var k = 1; k <= total; k++) {
+        if (!cs.getPropertyValue("--m4-part-" + k).trim()) missing.push(k);
+      }
+      if (missing.length) {
+        msg = "M4: Main CSS is incomplete — part " + missing.join(", ") + " of " + total +
+              " did not load (GHL probably cut the code). Use the split version.";
+      }
+    }
+    if (!msg) return;
+    if (window.console) console.warn(msg);
+    if (!/\/preview\/|[?&]m4-debug=1/.test(location.href)) return;
+    var bar = doc.createElement("div");
+    bar.textContent = msg;
+    bar.setAttribute("style", "position:fixed;top:0;left:0;right:0;z-index:2147483647;padding:10px 14px;" +
+      "background:#B00020;color:#fff;font:600 14px/1.5 system-ui,sans-serif;direction:ltr;text-align:left");
+    doc.body.appendChild(bar);
+  }
+
+
   /* ---------------- BOOT ---------------- */
   function boot() {
     armReveals();
@@ -219,6 +250,6 @@
   ready(function () {
     boot();
     // GHL can render blocks late — pick them up once more
-    window.addEventListener("load", boot, { once: true });
+    window.addEventListener("load", function () { boot(); selfCheck(); }, { once: true });
   });
 })();

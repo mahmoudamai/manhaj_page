@@ -1,12 +1,7 @@
-<!-- =====================================================================
-     M4 · BLOCK 00 — MAIN CSS  (fonts + the whole design system)
-     Put this FIRST: top of the page in a Code Element, or in
-     Settings → Tracking Code → Head. Theme controls are at the top.
-     ===================================================================== -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap">
-<style>
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap");
+
+/* M4 · MAIN CSS for GHL → Settings → Custom CSS (pure CSS, no <style> tags) */
+
 :root { --m4-parts: 1; }
 
 /* =====================================================================
@@ -11383,5 +11378,3 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 
 /* end of part 1/1 */
 :root { --m4-part-1: 1; }
-
-</style>

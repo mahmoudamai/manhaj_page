@@ -655,8 +655,40 @@ def main():
               "     Put this FIRST: top of the page in a Code Element, or in\n"
               "     Settings → Tracking Code → Head. Theme controls are at the top.\n"
               "     ===================================================================== -->\n")
-    (OUT / "blocks" / "00-main-css.html").write_text(head00 + fonts + "<style>\n" + css_all + "\n</style>\n", encoding="utf-8")
-    (OUT / "blocks" / "00-main-css.min.html").write_text(head00 + fonts + "<style>" + minify_css(css_all) + "</style>\n", encoding="utf-8")
+    # completeness markers: Block 00B reads them and reports a missing / cut-off part
+    def with_markers(css, total, k):
+        head = f":root {{ --m4-parts: {total}; }}\n\n" if k == 1 else ""
+        return head + css + f"\n\n/* end of part {k}/{total} */\n:root {{ --m4-part-{k}: 1; }}\n"
+
+    single = with_markers(css_all, 1, 1)
+    (OUT / "blocks" / "00-main-css.html").write_text(head00 + fonts + "<style>\n" + single + "\n</style>\n", encoding="utf-8")
+    (OUT / "blocks" / "00-main-css.min.html").write_text(head00 + fonts + "<style>" + minify_css(single) + "</style>\n", encoding="utf-8")
+
+    # pure CSS (no HTML tags) for GHL's "Custom CSS" box
+    font_import = ('@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700'
+                   '&family=Amiri:wght@400;700&display=swap");\n\n')
+    (OUT / "blocks" / "00-main-css.css").write_text(
+        font_import + "/* M4 · MAIN CSS for GHL → Settings → Custom CSS (pure CSS, no <style> tags) */\n\n" + single, encoding="utf-8")
+
+    # split version: several smaller Code Elements, in case GHL cuts long code
+    LIMIT = 60 * 1024
+    chunks, cur = [], ""
+    for piece in parts:
+        if cur and len(cur) + len(piece) > LIMIT:
+            chunks.append(cur)
+            cur = ""
+        cur += piece + "\n\n"
+    chunks.append(cur)
+    split_dir = OUT / "blocks" / "00-main-css-split"
+    split_dir.mkdir(exist_ok=True)
+    for f in split_dir.glob("*.html"):
+        f.unlink()
+    total = len(chunks)
+    for k, chunk in enumerate(chunks, 1):
+        hdr = (f"<!-- M4 · BLOCK 00 — MAIN CSS · PART {k} of {total}\n"
+               f"     Paste parts 1→{total} into {total} Code Elements at the very TOP of the page, in order. -->\n")
+        (split_dir / f"00-main-css-part{k}.html").write_text(
+            hdr + (fonts if k == 1 else "") + "<style>\n" + with_markers(chunk, total, k) + "</style>\n", encoding="utf-8")
     js = (ROOT / "tools" / "m4-shared.js").read_text(encoding="utf-8")
     head00b = ("<!-- M4 · BLOCK 00B — SHARED JAVASCRIPT. Put it in Settings → Tracking Code → Head\n"
                "     (best), or in the LAST Code Element on the page. -->\n")
