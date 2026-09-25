@@ -7260,7 +7260,12 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 </section>
 
 <!-- =====================================================================
-     M4 · BLOCK 11 — Section 09 — Lectures so far
+     M4 · BLOCK 11 — Lectures (v2: the syllabus as a journey timeline)
+     One slim row per step (lectures of the same step grouped), a dashed
+     "more coming" node at the end, and the lecture thumbnails as a small
+     mosaic ("a peek at the library"). Much shorter on phones than 9 cards.
+     To add a lecture: add a <li> in the step (or a new step before the
+     dashed one) and a thumbnail <img> in the mosaic; update the counts.
      Section styles are scoped to #m4-lectures. Colours, fonts, sizes and
      speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
@@ -7272,8 +7277,11 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   text-align: right;
   font-family: var(--m4-font-primary) !important;
   color: var(--m4-ink);
-  padding: calc(84px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale)) calc(90px * var(--m4-space-scale));
-  background: radial-gradient( circle at 7% 10%, color-mix(in srgb, var(--m4-accent) 7.5%, transparent), transparent 27% ), radial-gradient( circle at 93% 92%, color-mix(in srgb, var(--m4-highlight) 9%, transparent), transparent 27% ), linear-gradient( 180deg, var(--m4-bg-cream) 0%, color-mix(in srgb, var(--m4-bg-ivory) 75.5%, var(--m4-secondary-soft)) 54%, color-mix(in srgb, var(--m4-bg-paper) 50.5%, var(--m4-secondary-soft)) 100% );
+  padding: calc(86px * var(--m4-space-scale)) calc(22px * var(--m4-space-scale)) calc(90px * var(--m4-space-scale));
+  background:
+    radial-gradient(circle at 8% 10%, color-mix(in srgb, var(--m4-accent) 8%, transparent), transparent 28%),
+    radial-gradient(circle at 92% 90%, color-mix(in srgb, var(--m4-highlight) 9%, transparent), transparent 28%),
+    linear-gradient(180deg, var(--m4-bg-cream) 0%, var(--m4-bg-ivory) 100%);
 }
 
 #m4-lectures *,
@@ -7282,500 +7290,367 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   box-sizing: border-box;
 }
 
-#m4-lectures::before {
-  content: "";
-  position: absolute;
-  width: 440px;
-  height: 440px;
-  left: -230px;
-  top: -280px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--m4-primary) 5%, transparent);
-  pointer-events: none;
-}
-
-#m4-lectures::after {
-  content: "";
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  right: -190px;
-  bottom: -180px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--m4-accent) 8%, transparent);
-  pointer-events: none;
-}
-
 #m4-lectures .m4-lectures__wrap {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1160px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
+/* ---- head ---- */
 #m4-lectures .m4-lectures__head {
-  max-width: 850px;
-  margin: 0 auto 47px;
+  max-width: 760px;
+  margin: 0 auto 44px;
   text-align: center;
-  transition: opacity calc(.72s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.72s * var(--m4-motion-scale)) var(--m4-ease);
-}
-
-#m4-lectures .m4-lectures__head.m4-reveal {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 #m4-lectures .m4-lectures__kicker {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  margin-bottom: 13px;
-  color: var(--m4-primary);
-  font-size: calc(.78rem * var(--m4-type-scale));
-  line-height: 1.4;
-  font-weight: 900;
-}
-
-#m4-lectures .m4-lectures__kicker::before {
-  content: "";
-  width: 28px;
-  height: 1px;
-  flex: 0 0 28px;
-  background: linear-gradient( 90deg, color-mix(in srgb, var(--m4-primary) 14%, transparent), var(--m4-accent) );
-}
-
-#m4-lectures .m4-lectures__head h2 {
-  margin: 0;
-  color: var(--m4-primary-deep);
-  font-size: calc(clamp( 2rem, 4vw, 3.25rem ) * var(--m4-heading-scale));
-  line-height: 1.25;
-  letter-spacing: -.7px;
-  font-weight: 900;
-  text-wrap: balance;
-}
-
-#m4-lectures .m4-lectures__head h2 span {
-  display: block;
-  margin-top: 7px;
-  color: color-mix(in srgb, var(--m4-text-muted) 68%, var(--m4-olive));
-  font-size: .48em;
-  line-height: 1.55;
-  font-weight: 700;
-  letter-spacing: 0;
-}
-
-#m4-lectures .m4-lectures__head p {
-  max-width: 760px;
-  margin: 15px auto 0;
-  color: var(--m4-text);
-  font-size: calc(clamp( .94rem, 1.45vw, 1.05rem ) * var(--m4-type-scale));
-  line-height: 1.88;
-  font-weight: 500;
-}
-
-#m4-lectures .m4-lectures__group-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 25px;
-  margin-bottom: 21px;
-  padding-bottom: 17px;
-  border-bottom: 1px solid color-mix(in srgb, var(--m4-primary) 12%, transparent);
-  transition: opacity calc(.68s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.68s * var(--m4-motion-scale)) var(--m4-ease);
-}
-
-#m4-lectures .m4-lectures__group-head.m4-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#m4-lectures .m4-lectures__group-kicker {
-  display: block;
-  margin-bottom: 5px;
   color: var(--m4-accent-deep);
-  font-size: calc(.68rem * var(--m4-type-scale));
-  line-height: 1.4;
-  font-weight: 900;
-}
-
-#m4-lectures .m4-lectures__group-head h3 {
-  margin: 0;
-  color: var(--m4-primary-deep);
-  font-size: calc(clamp( 1.18rem, 2vw, 1.45rem ) * var(--m4-heading-scale));
-  line-height: 1.5;
-  font-weight: 900;
-}
-
-#m4-lectures .m4-lectures__progress-note {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: color-mix(in srgb, var(--m4-olive) 69.5%, var(--m4-bg-cloud));
-  font-size: calc(.69rem * var(--m4-type-scale));
-  line-height: 1.5;
+  font-size: calc(.82rem * var(--m4-type-scale));
   font-weight: 800;
 }
 
-#m4-lectures .m4-lectures__progress-note::before {
+#m4-lectures .m4-lectures__kicker::before,
+#m4-lectures .m4-lectures__kicker::after {
   content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--m4-secondary);
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--m4-secondary) 12%, transparent);
-}
-
-#m4-lectures .m4-lectures__grid {
-  display: grid;
-  grid-template-columns: repeat(3,minmax(0,1fr));
-  gap: 16px;
-}
-
-#m4-lectures .m4-lectures__card {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--m4-primary) 11%, transparent);
-  border-radius: calc(21px * var(--m4-radius-scale));
-  background: linear-gradient( 180deg, color-mix(in srgb, var(--m4-bg-paper) 98%, transparent), color-mix(in srgb, color-mix(in srgb, var(--m4-bg-paper) 76%, var(--m4-secondary-soft)) 95%, transparent) );
-  box-shadow: 0 12px 30px color-mix(in srgb, var(--m4-ink) 5.5%, transparent), inset 0 1px 0 rgba(255,255,255,.92);
-  transition: opacity calc(.68s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.68s * var(--m4-motion-scale)) var(--m4-ease), box-shadow calc(.24s * var(--m4-motion-scale)) var(--m4-ease), border-color calc(.24s * var(--m4-motion-scale)) var(--m4-ease);
-}
-
-#m4-lectures .m4-lectures__card.m4-reveal {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-#m4-lectures .m4-lectures__card::after {
-  content: "";
-  position: absolute;
-  z-index: 4;
-  top: 0;
-  right: 20px;
-  width: 46px;
-  height: 2px;
-  border-radius: calc(999px * var(--m4-radius-scale));
-  background: linear-gradient( 90deg, var(--m4-accent), var(--m4-primary) );
-}
-
-#m4-lectures .m4-lectures__media {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  background: color-mix(in srgb, var(--m4-bg-cloud) 67.5%, var(--m4-secondary-soft));
-  border-bottom: 1px solid color-mix(in srgb, var(--m4-primary) 7.5%, transparent);
-}
-
-#m4-lectures .m4-lectures__media img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  transform: scale(1);
-  transition: transform calc(.45s * var(--m4-motion-scale)) var(--m4-ease);
-}
-
-#m4-lectures .m4-lectures__media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient( 180deg, transparent 70%, color-mix(in srgb, var(--m4-primary-deep) 3.5%, transparent) );
-}
-
-#m4-lectures .m4-lectures__body {
-  min-height: 108px;
-  padding: 15px 16px 16px;
-}
-
-#m4-lectures .m4-lectures__unit {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 7px;
-  color: var(--m4-accent-deep);
-  font-size: calc(.60rem * var(--m4-type-scale));
-  line-height: 1.4;
-  font-weight: 900;
-}
-
-#m4-lectures .m4-lectures__unit::before {
-  content: "";
-  width: 12px;
+  width: 22px;
   height: 1px;
-  background: color-mix(in srgb, var(--m4-accent) 70%, transparent);
+  background: var(--m4-accent);
 }
 
-#m4-lectures .m4-lectures__body h4 {
-  margin: 0;
+#m4-lectures h2 {
+  margin: 12px 0 0;
   color: var(--m4-primary-deep);
-  font-size: calc(.88rem * var(--m4-type-scale));
-  line-height: 1.55;
-  font-weight: 900;
+  font-size: calc(clamp(1.9rem, 1.2rem + 2.3vw, 2.9rem) * var(--m4-heading-scale));
+  line-height: 1.35;
+  font-weight: 800;
 }
 
-#m4-lectures .m4-lectures__body p {
-  margin: 4px 0 0;
-  color: color-mix(in srgb, var(--m4-text) 89%, var(--m4-accent-soft));
-  font-size: calc(.72rem * var(--m4-type-scale));
-  line-height: 1.6;
+#m4-lectures .m4-lectures__sub {
+  margin: 6px 0 0;
+  color: var(--m4-primary);
+  font-size: calc(1.15rem * var(--m4-heading-scale));
+  font-weight: 700;
+}
+
+#m4-lectures .m4-lectures__intro {
+  margin: 12px auto 0;
+  color: var(--m4-text);
+  font-size: calc(.98rem * var(--m4-type-scale));
+  line-height: 1.9;
+}
+
+/* ---- layout: timeline + mosaic ---- */
+#m4-lectures .m4-lectures__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr);
+  gap: 36px;
+  align-items: start;
+}
+
+/* ---- the timeline ---- */
+#m4-lectures .m4-lectures__count {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--m4-text);
+  font-size: calc(.86rem * var(--m4-type-scale));
   font-weight: 600;
 }
 
-#m4-lectures .m4-lectures__continue {
+#m4-lectures .m4-lectures__count b {
+  color: var(--m4-primary-deep);
+  font-size: 1.35em;
+  font-weight: 900;
+}
+
+#m4-lectures .m4-lectures__count i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--m4-accent);
+}
+
+#m4-lectures .m4-lectures__steps {
   position: relative;
-  overflow: hidden;
-  grid-column: 1 / -1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* the line that joins the steps */
+#m4-lectures .m4-lectures__steps::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 24px;
+  right: 17px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--m4-primary) 0%, var(--m4-primary) 85%, transparent 100%);
+  opacity: .25;
+}
+
+#m4-lectures .m4-lectures__step {
+  position: relative;
   display: grid;
-  grid-template-columns: 50px minmax(0,1fr) auto;
-  gap: 17px;
-  align-items: center;
-  margin-top: 3px;
-  padding: 22px 24px;
-  border-radius: calc(20px * var(--m4-radius-scale));
-  border: 1px solid rgba(255,255,255,.13);
-  background: radial-gradient( circle at 10% 10%, color-mix(in srgb, var(--m4-accent) 10%, transparent), transparent 30% ), linear-gradient( 135deg, var(--m4-primary-deep) 0%, color-mix(in srgb, var(--m4-primary) 91.5%, var(--m4-black)) 60%, color-mix(in srgb, var(--m4-olive) 84%, var(--m4-primary-deep)) 100% );
-  box-shadow: 0 18px 42px color-mix(in srgb, var(--m4-primary-deep) 14%, transparent);
-  transition: opacity calc(.72s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.72s * var(--m4-motion-scale)) var(--m4-ease);
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 16px;
+  padding-bottom: 14px;
 }
 
-#m4-lectures .m4-lectures__continue.m4-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-#m4-lectures .m4-lectures__plus {
-  width: 48px;
-  height: 48px;
+#m4-lectures .m4-lectures__node {
+  position: relative;
+  z-index: 1;
   display: grid;
   place-items: center;
-  border-radius: calc(16px * var(--m4-radius-scale));
-  border: 1px solid rgba(255,255,255,.15);
-  background: rgba(255,255,255,.075);
-  color: color-mix(in srgb, var(--m4-accent-soft) 66%, var(--m4-accent));
-  font-size: calc(1.5rem * var(--m4-type-scale));
-  line-height: 1;
-  font-weight: 400;
-}
-
-#m4-lectures .m4-lectures__continue-copy span {
-  color: color-mix(in srgb, var(--m4-accent) 72.5%, var(--m4-bg-paper));
-  font-size: calc(.64rem * var(--m4-type-scale));
-  line-height: 1.4;
-  font-weight: 900;
-}
-
-#m4-lectures .m4-lectures__continue-copy h4 {
-  margin: 4px 0 0;
-  color: var(--m4-bg-paper);
-  font-size: calc(1rem * var(--m4-type-scale));
-  line-height: 1.5;
-  font-weight: 900;
-}
-
-#m4-lectures .m4-lectures__continue-copy p {
-  margin: 4px 0 0;
-  color: color-mix(in srgb, var(--m4-bg-paper) 66%, transparent);
-  font-size: calc(.74rem * var(--m4-type-scale));
-  line-height: 1.7;
-  font-weight: 500;
-}
-
-#m4-lectures .m4-lectures__journey-label {
-  padding: 7px 12px;
-  border-radius: calc(999px * var(--m4-radius-scale));
-  border: 1px solid color-mix(in srgb, var(--m4-highlight-soft) 15%, transparent);
-  background: rgba(255,255,255,.045);
-  color: color-mix(in srgb, var(--m4-bg-cloud) 57.5%, var(--m4-highlight));
-  font-size: calc(.64rem * var(--m4-type-scale));
-  line-height: 1.4;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--m4-primary);
+  color: var(--m4-white);
+  font-size: calc(.9rem * var(--m4-type-scale));
   font-weight: 800;
-  white-space: nowrap;
+  box-shadow: 0 0 0 5px var(--m4-bg-cream);
 }
 
-@media(hover:hover) {
-  #m4-lectures .m4-lectures__card.m4-reveal:hover {
-    transform: translateY(-5px) scale(1);
-    border-color: color-mix(in srgb, var(--m4-primary) 23%, transparent);
-    box-shadow: 0 20px 44px color-mix(in srgb, var(--m4-ink) 9.5%, transparent);
-  }
+#m4-lectures .m4-lectures__row {
+  padding: 12px 18px 13px;
+  border-radius: calc(16px * var(--m4-radius-scale));
+  background: var(--m4-white);
+  border: 1px solid color-mix(in srgb, var(--m4-primary) 10%, transparent);
+  box-shadow: 0 10px 26px -18px color-mix(in srgb, var(--m4-primary-deep) 40%, transparent);
+  transition: border-color calc(.25s * var(--m4-motion-scale)) var(--m4-ease), transform calc(.25s * var(--m4-motion-scale)) var(--m4-ease);
+}
 
-  #m4-lectures .m4-lectures__card:hover .m4-lectures__media img {
-    transform: scale(1.025);
+#m4-lectures .m4-lectures__label {
+  display: block;
+  color: var(--m4-accent-deep);
+  font-size: calc(.74rem * var(--m4-type-scale));
+  font-weight: 800;
+}
+
+#m4-lectures .m4-lectures__title {
+  display: block;
+  margin-top: 2px;
+  color: var(--m4-primary-deep);
+  font-size: calc(1rem * var(--m4-type-scale));
+  line-height: 1.6;
+  font-weight: 800;
+}
+
+#m4-lectures .m4-lectures__parts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+#m4-lectures .m4-lectures__parts li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px 4px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--m4-highlight) 13%, transparent);
+  color: var(--m4-primary-deep);
+  font-size: calc(.8rem * var(--m4-type-scale));
+  font-weight: 700;
+}
+
+#m4-lectures .m4-lectures__parts svg,
+#m4-lectures .m4-lectures__play {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+#m4-lectures .m4-lectures__title .m4-lectures__play {
+  width: 13px;
+  height: 13px;
+  margin-left: 6px;
+  color: var(--m4-primary);
+  vertical-align: -1px;
+}
+
+/* the last, dashed "more coming" step */
+#m4-lectures .m4-lectures__step--more .m4-lectures__node {
+  background: var(--m4-bg-cream);
+  color: var(--m4-accent-deep);
+  border: 1.5px dashed var(--m4-accent);
+  font-size: 1.2rem;
+}
+
+#m4-lectures .m4-lectures__step--more .m4-lectures__row {
+  background: transparent;
+  border: 1.5px dashed color-mix(in srgb, var(--m4-accent) 60%, transparent);
+  box-shadow: none;
+}
+
+#m4-lectures .m4-lectures__step--more p {
+  margin: 3px 0 0;
+  color: var(--m4-text);
+  font-size: calc(.86rem * var(--m4-type-scale));
+  line-height: 1.75;
+}
+
+@media (hover: hover) {
+  #m4-lectures .m4-lectures__step:not(.m4-lectures__step--more) .m4-lectures__row:hover {
+    transform: translateX(-4px);
+    border-color: color-mix(in srgb, var(--m4-accent) 55%, transparent);
   }
 }
 
-@media(max-width:920px) {
+/* ---- the mosaic: a peek at the lecture library ---- */
+#m4-lectures .m4-lectures__library {
+  position: sticky;
+  top: 24px;
+  padding: 18px;
+  border-radius: calc(24px * var(--m4-radius-scale));
+  background:
+    radial-gradient(circle at 12% 10%, color-mix(in srgb, var(--m4-accent) 16%, transparent), transparent 35%),
+    linear-gradient(135deg, color-mix(in srgb, var(--m4-primary) 54%, var(--m4-black)) 0%, var(--m4-primary-deep) 55%, color-mix(in srgb, var(--m4-primary) 90%, var(--m4-black)) 100%);
+  box-shadow: 0 26px 56px -20px color-mix(in srgb, var(--m4-primary-deep) 50%, transparent);
+  color: var(--m4-white);
+}
+
+#m4-lectures .m4-lectures__mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+#m4-lectures .m4-lectures__mosaic img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--m4-white) 8%, transparent);
+}
+
+#m4-lectures .m4-lectures__library-caption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 4px 4px 2px;
+}
+
+#m4-lectures .m4-lectures__library-caption span:first-child {
+  display: grid;
+  place-items: center;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--m4-accent);
+  color: var(--m4-primary-deep);
+}
+
+#m4-lectures .m4-lectures__library-caption svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  margin-right: -2px;
+}
+
+#m4-lectures .m4-lectures__library-caption strong {
+  display: block;
+  font-size: calc(1rem * var(--m4-type-scale));
+  font-weight: 800;
+}
+
+#m4-lectures .m4-lectures__library-caption small {
+  display: block;
+  margin-top: 2px;
+  color: color-mix(in srgb, var(--m4-white) 70%, transparent);
+  font-size: calc(.8rem * var(--m4-type-scale));
+}
+
+/* phones: mosaic on top (compact), then the timeline */
+@media (max-width: 860px) {
   #m4-lectures {
-    padding: calc(72px * var(--m4-space-scale)) calc(18px * var(--m4-space-scale)) calc(78px * var(--m4-space-scale));
-  }
-
-  #m4-lectures .m4-lectures__grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-  }
-
-  #m4-lectures .m4-lectures__continue {
-    grid-template-columns: 50px minmax(0,1fr);
-  }
-
-  #m4-lectures .m4-lectures__journey-label {
-    grid-column: 2;
-    justify-self: start;
-  }
-}
-
-@media(max-width:620px) {
-  #m4-lectures {
-    padding: calc(56px * var(--m4-space-scale)) calc(13px * var(--m4-space-scale)) calc(62px * var(--m4-space-scale));
+    padding: calc(60px * var(--m4-space-scale)) calc(14px * var(--m4-space-scale)) calc(64px * var(--m4-space-scale));
   }
 
   #m4-lectures .m4-lectures__head {
-    margin-bottom: 33px;
-    padding: 0 3px;
+    margin-bottom: 26px;
   }
 
-  #m4-lectures .m4-lectures__kicker {
-    margin-bottom: 9px;
-    font-size: calc(.68rem * var(--m4-type-scale));
-    gap: 7px;
+  #m4-lectures .m4-lectures__intro {
+    font-size: calc(.88rem * var(--m4-type-scale));
   }
 
-  #m4-lectures .m4-lectures__kicker::before {
-    width: 20px;
-    flex-basis: 20px;
-  }
-
-  #m4-lectures .m4-lectures__head h2 {
-    font-size: calc(1.82rem * var(--m4-heading-scale));
-    line-height: 1.28;
-  }
-
-  #m4-lectures .m4-lectures__head h2 span {
-    margin-top: 6px;
-    font-size: .50em;
-  }
-
-  #m4-lectures .m4-lectures__head p {
-    margin-top: 11px;
-    font-size: calc(.83rem * var(--m4-type-scale));
-    line-height: 1.78;
-  }
-
-  #m4-lectures .m4-lectures__group-head {
-    align-items: start;
-    margin-bottom: 15px;
-    padding-bottom: 13px;
-  }
-
-  #m4-lectures .m4-lectures__group-head h3 {
-    font-size: calc(1.04rem * var(--m4-heading-scale));
-  }
-
-  #m4-lectures .m4-lectures__progress-note {
-    font-size: calc(.59rem * var(--m4-type-scale));
-  }
-
-  #m4-lectures .m4-lectures__grid {
+  #m4-lectures .m4-lectures__layout {
     grid-template-columns: 1fr;
-    gap: 11px;
+    gap: 22px;
   }
 
-  #m4-lectures .m4-lectures__card {
-    display: grid;
-    grid-template-columns: minmax(126px,42%) minmax(0,1fr);
-    min-height: 118px;
-    border-radius: calc(17px * var(--m4-radius-scale));
-  }
-
-  #m4-lectures .m4-lectures__card::after {
-    right: auto;
-    left: 18px;
-    width: 34px;
-  }
-
-  #m4-lectures .m4-lectures__media {
-    aspect-ratio: auto;
-    min-height: 118px;
-    border-bottom: 0;
-    border-left: 1px solid color-mix(in srgb, var(--m4-primary) 7%, transparent);
-  }
-
-  #m4-lectures .m4-lectures__body {
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 13px 14px;
-  }
-
-  #m4-lectures .m4-lectures__unit {
-    margin-bottom: 5px;
-    font-size: calc(.55rem * var(--m4-type-scale));
-  }
-
-  #m4-lectures .m4-lectures__body h4 {
-    font-size: calc(.80rem * var(--m4-type-scale));
-    line-height: 1.5;
-  }
-
-  #m4-lectures .m4-lectures__body p {
-    margin-top: 3px;
-    font-size: calc(.66rem * var(--m4-type-scale));
-    line-height: 1.55;
-  }
-
-  #m4-lectures .m4-lectures__continue {
-    grid-template-columns: 40px minmax(0,1fr);
-    gap: 12px;
-    padding: 18px 16px;
+  #m4-lectures .m4-lectures__library {
+    position: relative;
+    top: auto;
+    order: -1;
+    padding: 12px;
     border-radius: calc(18px * var(--m4-radius-scale));
   }
 
-  #m4-lectures .m4-lectures__plus {
-    width: 40px;
-    height: 40px;
-    border-radius: calc(13px * var(--m4-radius-scale));
-    font-size: calc(1.25rem * var(--m4-type-scale));
+  #m4-lectures .m4-lectures__mosaic {
+    gap: 5px;
   }
 
-  #m4-lectures .m4-lectures__continue-copy h4 {
-    font-size: calc(.87rem * var(--m4-type-scale));
+  #m4-lectures .m4-lectures__mosaic img {
+    border-radius: 6px;
   }
 
-  #m4-lectures .m4-lectures__continue-copy p {
-    font-size: calc(.67rem * var(--m4-type-scale));
-  }
-
-  #m4-lectures .m4-lectures__journey-label {
-    grid-column: 2;
-    padding: 6px 9px;
-    font-size: calc(.58rem * var(--m4-type-scale));
-  }
-}
-
-@media(max-width:390px) {
-  #m4-lectures .m4-lectures__card {
-    grid-template-columns: 41% minmax(0,1fr);
-  }
-
-  #m4-lectures .m4-lectures__progress-note {
+  /* six thumbnails are enough for a peek on a phone */
+  #m4-lectures .m4-lectures__mosaic img:nth-child(n+7) {
     display: none;
   }
-}
 
-@media(prefers-reduced-motion: reduce) {
-  #m4-lectures .m4-lectures__head,
-  #m4-lectures .m4-lectures__group-head,
-  #m4-lectures .m4-lectures__card,
-  #m4-lectures .m4-lectures__continue {
-    transition: none;
+  /* the node already shows the step number */
+  #m4-lectures .m4-lectures__step:not(.m4-lectures__step--more) .m4-lectures__label {
+    display: none;
   }
 
-  #m4-lectures .m4-lectures__media img {
-    transition: none;
+  #m4-lectures .m4-lectures__title {
+    margin-top: 0;
+  }
+
+  #m4-lectures .m4-lectures__library-caption {
+    margin-top: 12px;
+  }
+
+  #m4-lectures .m4-lectures__step {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 12px;
+    padding-bottom: 8px;
+  }
+
+  #m4-lectures .m4-lectures__steps::before {
+    right: 14px;
+  }
+
+  #m4-lectures .m4-lectures__node {
+    width: 30px;
+    height: 30px;
+    font-size: calc(.8rem * var(--m4-type-scale));
+  }
+
+  #m4-lectures .m4-lectures__row {
+    padding: 9px 14px 10px;
+    min-height: 30px;
+  }
+
+  #m4-lectures .m4-lectures__title {
+    font-size: calc(.92rem * var(--m4-type-scale));
+  }
+
+  #m4-lectures .m4-lectures__parts li {
+    font-size: calc(.74rem * var(--m4-type-scale));
   }
 }
 
@@ -7795,355 +7670,125 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   <div class="m4-lectures__wrap">
 
     <header class="m4-lectures__head m4-reveal">
-
-      <div class="m4-lectures__kicker">
-
-        من محتوى الرحلة حتى الآن
-
-      </div>
-
-      <h2>
-
-        داخل منهج الطمأنينة
-
-        <span>
-          رحلة متدرجة تجمع بين الفهم والتطبيق
-        </span>
-
-      </h2>
-
-      <p>
-
-        تعرف على جانب من المحاضرات التي أضيفت
-        إلى المنهج حتى الآن، ضمن رحلة تستمر في التوسع
-        بمحتوى جديد يضاف تدريجيا خلال عام الاشتراك.
-
+      <span class="m4-lectures__kicker">من محتوى الرحلة حتى الآن</span>
+      <h2>داخل منهج الطمأنينة</h2>
+      <p class="m4-lectures__sub">رحلة متدرجة تجمع بين الفهم والتطبيق</p>
+      <p class="m4-lectures__intro">
+        تعرف على المحاضرات التي أضيفت إلى المنهج حتى الآن، ضمن رحلة تستمر في التوسع
+        بمحتوى جديد يضاف تدريجيًا خلال عام الاشتراك.
       </p>
-
     </header>
 
-    <div class="m4-lectures__group-head m4-reveal">
+    <div class="m4-lectures__layout">
 
-      <div>
+      <div class="m4-lectures__timeline">
 
-        <span class="m4-lectures__group-kicker">
-          المحاضرات الأساسية
-        </span>
+        <div class="m4-lectures__count m4-reveal">
+          <span><b>9</b> محاضرات متاحة الآن</span>
+          <i aria-hidden="true"></i>
+          <span><b>7</b> خطوات</span>
+          <i aria-hidden="true"></i>
+          <span>والرحلة مستمرة</span>
+        </div>
 
-        <h3>
-          خطوات متدرجة لبناء الفهم والوعي
-        </h3>
+        <ol class="m4-lectures__steps">
 
+          <li class="m4-lectures__step m4-reveal">
+            <span class="m4-lectures__node">0</span>
+            <div class="m4-lectures__row">
+              <span class="m4-lectures__label">الخطوة صفر</span>
+              <span class="m4-lectures__title"><svg class="m4-lectures__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>المقدمة: سر الفاقة</span>
+            </div>
+          </li>
+
+          <li class="m4-lectures__step m4-reveal">
+            <span class="m4-lectures__node">1</span>
+            <div class="m4-lectures__row">
+              <span class="m4-lectures__label">الخطوة الأولى</span>
+              <span class="m4-lectures__title"><svg class="m4-lectures__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>نشأة الفاقة</span>
+            </div>
+          </li>
+
+          <li class="m4-lectures__step m4-reveal">
+            <span class="m4-lectures__node">2</span>
+            <div class="m4-lectures__row">
+              <span class="m4-lectures__label">الخطوة الثانية</span>
+              <span class="m4-lectures__title"><svg class="m4-lectures__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>الخروج من التيه</span>
+            </div>
+          </li>
+
+          <li class="m4-lectures__step m4-reveal">
+            <span class="m4-lectures__node">3</span>
+            <div class="m4-lectures__row">
+              <span class="m4-lectures__label">الخطوة الثالثة</span>
+              <span class="m4-lectures__title"><svg class="m4-lectures__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>ما وراء الفكر</span>
+            </div>
+          </li>
+
+          <li class="m4-lectures__step m4-reveal">
+            <span class="m4-lectures__node">4</span>
+            <div class="m4-lectures__row">
+              <span class="m4-lectures__label">الخطوة الرابعة</span>
+              <span class="m4-lectures__title"><svg class="m4-lectures__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>الأثر النفسي للشيطان</span>
+            </div>
+          </li>
+
+          <li class="m4-lectures__step m4-reveal">
+            <span class="m4-lectures__node">5</span>
+            <div class="m4-lectures__row">
+              <span class="m4-lectures__label">الخطوة الخامسة</span>
+              <span class="m4-lectures__title">فك الحصار</span>
+              <ul class="m4-lectures__parts">
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>الجزء الأول</li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>الجزء الثاني</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="m4-lectures__step m4-reveal">
+            <span class="m4-lectures__node">6</span>
+            <div class="m4-lectures__row">
+              <span class="m4-lectures__label">الخطوة السادسة</span>
+              <span class="m4-lectures__title">بناء القوة النفسية من سورة يوسف</span>
+              <ul class="m4-lectures__parts">
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>أحسن القصص: مقدمة</li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>آيات للسائلين: القصة كاملة</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="m4-lectures__step m4-lectures__step--more m4-reveal">
+            <span class="m4-lectures__node" aria-hidden="true">+</span>
+            <div class="m4-lectures__row">
+              <span class="m4-lectures__label">المحاضرات مستمرة</span>
+              <span class="m4-lectures__title">خطوات جديدة تضاف تدريجيًا إلى الرحلة</span>
+              <p>يستمر المنهج في التوسع بمحاضرات جديدة تكمل بناء الفهم والوعي طوال رحلة العام.</p>
+            </div>
+          </li>
+
+        </ol>
       </div>
 
-      <div class="m4-lectures__progress-note">
-        الرحلة مستمرة
-      </div>
-
-    </div>
-
-    <div class="m4-lectures__grid">
-
-      <article class="m4-lectures__card m4-reveal">
-
-        <div class="m4-lectures__media">
-
-          <img
-            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd2eb4176d3727147f57.jpeg"
-            alt="الخطوة صفر - المقدمة - سر الفاقة"
-            loading="lazy"
-          >
-
+      <aside class="m4-lectures__library m4-reveal" aria-label="لقطات من محاضرات المنهج">
+        <div class="m4-lectures__mosaic">
+          <img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd2eb4176d3727147f57.jpeg" alt="الخطوة صفر - المقدمة - سر الفاقة" loading="lazy">
+          <img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd2eb7fe5a8e31ac4b3c.jpg" alt="الخطوة الأولى - نشأة الفاقة" loading="lazy">
+          <img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd2eb4176d3727147f69.jpeg" alt="الخطوة الثانية - الخروج من التيه" loading="lazy">
+          <img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd303520888034b7cff8.jpg" alt="الخطوة الثالثة - ما وراء الفكر" loading="lazy">
+          <img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd3072a719b2b2977809.jpg" alt="الخطوة الرابعة - الأثر النفسي للشيطان" loading="lazy">
+          <img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd318219a56ed3fa84b7.jpg" alt="الخطوة الخامسة - فك الحصار 1" loading="lazy">
+          <img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd32d1438d5c4eda1043.jpg" alt="الخطوة الخامسة - فك الحصار 2" loading="lazy">
+          <img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a7f1c48fe4291bd10c6dd57.jpg" alt="الخطوة السادسة - أحسن القصص - مقدمة" loading="lazy">
+          <img src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a7f1c48a6a03cda06b99822.jpg" alt="الخطوة السادسة - آيات للسائلين - القصة كاملة" loading="lazy">
         </div>
-
-        <div class="m4-lectures__body">
-
-          <span class="m4-lectures__unit">
-            الوحدة 01
-          </span>
-
-          <h4>
-            الخطوة صفر
-          </h4>
-
-          <p>
-            المقدمة - سر الفاقة
-          </p>
-
-        </div>
-
-      </article>
-
-      <article class="m4-lectures__card m4-reveal">
-
-        <div class="m4-lectures__media">
-
-          <img
-            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd2eb7fe5a8e31ac4b3c.jpg"
-            alt="الخطوة الأولى - نشأة الفاقة"
-            loading="lazy"
-          >
-
-        </div>
-
-        <div class="m4-lectures__body">
-
-          <span class="m4-lectures__unit">
-            الوحدة 02
-          </span>
-
-          <h4>
-            الخطوة الأولى
-          </h4>
-
-          <p>
-            نشأة الفاقة
-          </p>
-
-        </div>
-
-      </article>
-
-      <article class="m4-lectures__card m4-reveal">
-
-        <div class="m4-lectures__media">
-
-          <img
-            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd2eb4176d3727147f69.jpeg"
-            alt="الخطوة الثانية - الخروج من التيه"
-            loading="lazy"
-          >
-
-        </div>
-
-        <div class="m4-lectures__body">
-
-          <span class="m4-lectures__unit">
-            الوحدة 03
-          </span>
-
-          <h4>
-            الخطوة الثانية
-          </h4>
-
-          <p>
-            الخروج من التيه
-          </p>
-
-        </div>
-
-      </article>
-
-      <article class="m4-lectures__card m4-reveal">
-
-        <div class="m4-lectures__media">
-
-          <img
-            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd303520888034b7cff8.jpg"
-            alt="الخطوة الثالثة - ما وراء الفكر"
-            loading="lazy"
-          >
-
-        </div>
-
-        <div class="m4-lectures__body">
-
-          <span class="m4-lectures__unit">
-            الوحدة 04
-          </span>
-
-          <h4>
-            الخطوة الثالثة
-          </h4>
-
-          <p>
-            ما وراء الفكر
-          </p>
-
-        </div>
-
-      </article>
-
-      <article class="m4-lectures__card m4-reveal">
-
-        <div class="m4-lectures__media">
-
-          <img
-            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd3072a719b2b2977809.jpg"
-            alt="الخطوة الرابعة - الأثر النفسي للشيطان"
-            loading="lazy"
-          >
-
-        </div>
-
-        <div class="m4-lectures__body">
-
-          <span class="m4-lectures__unit">
-            الوحدة 05
-          </span>
-
-          <h4>
-            الخطوة الرابعة
-          </h4>
-
-          <p>
-            الأثر النفسي للشيطان
-          </p>
-
-        </div>
-
-      </article>
-
-      <article class="m4-lectures__card m4-reveal">
-
-        <div class="m4-lectures__media">
-
-          <img
-            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd318219a56ed3fa84b7.jpg"
-            alt="الخطوة الخامسة - فك الحصار 1"
-            loading="lazy"
-          >
-
-        </div>
-
-        <div class="m4-lectures__body">
-
-          <span class="m4-lectures__unit">
-            الوحدة 06
-          </span>
-
-          <h4>
-            الخطوة الخامسة
-          </h4>
-
-          <p>
-            فك الحصار 1
-          </p>
-
-        </div>
-
-      </article>
-
-      <article class="m4-lectures__card m4-reveal">
-
-        <div class="m4-lectures__media">
-
-          <img
-            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd32d1438d5c4eda1043.jpg"
-            alt="الخطوة الخامسة - فك الحصار 2"
-            loading="lazy"
-          >
-
-        </div>
-
-        <div class="m4-lectures__body">
-
-          <span class="m4-lectures__unit">
-            الوحدة 06
-          </span>
-
-          <h4>
-            الخطوة الخامسة
-          </h4>
-
-          <p>
-            فك الحصار 2
-          </p>
-
-        </div>
-
-      </article>
-
-      <article class="m4-lectures__card m4-reveal">
-
-        <div class="m4-lectures__media">
-
-          <img
-            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a7f1c48fe4291bd10c6dd57.jpg"
-            alt="الخطوة السادسة - أحسن القصص - مقدمة"
-            loading="lazy"
-          >
-
-        </div>
-
-        <div class="m4-lectures__body">
-
-          <span class="m4-lectures__unit">
-            الوحدة 07
-          </span>
-
-          <h4>
-            الخطوة السادسة: بناء القوة النفسية من سورة يوسف
-          </h4>
-
-          <p>
-            أحسن القصص - مقدمة
-          </p>
-
-        </div>
-
-      </article>
-
-      <article class="m4-lectures__card m4-reveal">
-
-        <div class="m4-lectures__media">
-
-          <img
-            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a7f1c48a6a03cda06b99822.jpg"
-            alt="الخطوة السادسة - آيات للسائلين - القصة كاملة"
-            loading="lazy"
-          >
-
-        </div>
-
-        <div class="m4-lectures__body">
-
-          <span class="m4-lectures__unit">
-            الوحدة 07
-          </span>
-
-          <h4>
-            الخطوة السادسة: بناء القوة النفسية من سورة يوسف
-          </h4>
-
-          <p>
-            آيات للسائلين - القصة كاملة
-          </p>
-
-        </div>
-
-      </article>
-
-      <div class="m4-lectures__continue m4-reveal">
-
-        <div class="m4-lectures__plus">
-          +
-        </div>
-
-        <div class="m4-lectures__continue-copy">
-
+        <div class="m4-lectures__library-caption">
+          <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
           <span>
-            المحاضرات مستمرة
+            <strong>مكتبة المحاضرات حتى الآن</strong>
+            <small>تتسع مع كل مرحلة جديدة خلال عام الاشتراك</small>
           </span>
-
-          <h4>
-            خطوات جديدة تضاف تدريجيا إلى الرحلة
-          </h4>
-
-          <p>
-            يستمر المنهج في التوسع بمحاضرات جديدة
-            تكمل بناء الفهم والوعي طوال رحلة العام.
-          </p>
-
         </div>
-
-        <div class="m4-lectures__journey-label">
-
-          رحلة تمتد لعام كامل
-
-        </div>
-
-      </div>
+      </aside>
 
     </div>
 

@@ -338,3 +338,10 @@ fit → before/after → testimonials → Kareem. The other light sections in th
 Hand-written (`tools/new-blocks/17-fit.html`): the two lists side by side («يناسبك» / «قد لا يكون الأنسب»), the key
 idea «الطمأنينة لا تعني الهروب من الواقع…» as a quote under the title, and the reassurance note under the lists.
 Removed: the middle column «ما الذي ستجده داخل الرحلة؟» (repeated elsewhere) and Kareem's photo (already shown twice).
+
+## Block 11 v2 — lectures as a journey timeline
+
+Hand-written (`tools/new-blocks/11-lectures.html`). One slim row per step (0–6), lectures of the same step grouped
+as chips (فك الحصار 1/2, Yusuf 2 parts), a dashed «+ خطوات جديدة» node at the end, a counter (9 محاضرات · 7 خطوات),
+and the 9 thumbnails as a small mosaic («مكتبة المحاضرات حتى الآن»; sticky on desktop, 6 thumbnails on phones).
+To add a lecture: add a row/chip in the timeline, a thumbnail in the mosaic, and update the counter.
