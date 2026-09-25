@@ -51,12 +51,12 @@
   font-weight: 800;
 }
 
-#m4-live .m4-live__kicker i {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--m4-live);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--m4-live) 18%, transparent);
+/* same kicker as the other sections: a short gold line before the text */
+#m4-live .m4-live__kicker::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--m4-accent);
 }
 
 #m4-live h2 {
@@ -249,6 +249,14 @@
 }
 
 @media (max-width: 860px) {
+  /* centred on phones: gold line on both sides, like the other centred kickers */
+  #m4-live .m4-live__kicker::after {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--m4-accent);
+  }
+
   #m4-live {
     padding: calc(60px * var(--m4-space-scale)) calc(14px * var(--m4-space-scale)) calc(62px * var(--m4-space-scale));
   }
@@ -315,7 +323,7 @@
     <div class="m4-live__layout">
 
       <div class="m4-live__copy m4-reveal">
-        <span class="m4-live__kicker"><i aria-hidden="true"></i>اللقاءات التفاعلية المباشرة</span>
+        <span class="m4-live__kicker">اللقاءات التفاعلية المباشرة</span>
         <h2>لأن بعض الأسئلة تحتاج <em>مساحة للحوار</em></h2>
         <p class="m4-live__lead">
           لقاءات مباشرة تصاحب تقدم الرحلة؛ فالتعلم هنا لا يقتصر على المشاهدة فقط.
