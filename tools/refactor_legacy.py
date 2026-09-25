@@ -789,7 +789,7 @@ def main():
         return (f'<div style="max-width:900px;margin:0 auto;padding:18px;text-align:center;border:2px dashed #bbb;'
                 f'font:14px sans-serif;color:#777;background:#f3f3f3">GHL element: {name}</div>')
     order = [("01", None), ("GHL", "video (block 02) + video style (03)"), ("02", None), ("GHL", "button (block 05)"),
-             ("03", None), ("04", None), ("GHL", "logos marquee"), ("05", None), ("06", None), ("07", None), ("16", None), ("09", None), ("18", None),
+             ("03", None), ("03b", None), ("04", None), ("05", None), ("06", None), ("07", None), ("16", None), ("09", None), ("18", None),
              ("10", None), ("10b", None), ("11", None),("13", None), ("14", None), ("15", None), ("15b", None),
              ("17", None), ("17b", None), ("19", None), ("20", None), ("21", None), ("22", None), ("23", None), ("25", None)]
     parts = []
@@ -798,7 +798,7 @@ def main():
         if key == "01":
             parts.append('<div class="m4-hero-host">')      # the GHL hero section
         parts.append(ph(label) if key == "GHL" else files[key].read_text(encoding="utf-8"))
-        if key == "03":
+        if key == "03b":                               # the logos close the hero section
             parts.append("</div>")
     sticky = files["24"].read_text(encoding="utf-8")
     page = ("<!doctype html>\n<html lang=\"ar\">\n<head>\n<meta charset=\"utf-8\">\n"

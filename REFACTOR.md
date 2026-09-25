@@ -410,3 +410,9 @@ leaves, and keeps the poster with reduced motion or data saver.
 - Card explanations were 12–13px (≈11px on phones). They are now ≈15px on desktop and ≈14px on phones. Lists, tags and small labels were scaled up to match.
 - Block 09 on desktop is now a grid (right cards | goal | left cards) instead of fixed absolute spots, so longer text can no longer make the cards overlap. The look is unchanged.
 - Phones: Yusuf's text 13.3 → ~14.7px, with the practice and footer lines 10.5 → ~12.8px. The price section's "what's included" list 9.8 → ~12.8px. FAQ answers 12.8 → ~13.8px.
+
+### Block 03B — logos strip (replaces the GHL logos marquee)
+- Lives at the bottom of the GHL hero section (after Block 03), on the hero's background (no separate band), so the dark Kareem intro follows straight after.
+- All logos are the same height and one muted grey tone (full colour on hover). They scroll slowly with faded edges, pause on hover, and stand still for reduced motion.
+- The `LOGO_URL_1…6` placeholders must be replaced with the real logo links before pasting into GHL.
+- Pain: «قلق/خوف» merged into one «خوف وقلق» chip; the escape paragraph (أكل/موبايل/راحة مؤقتة) was removed.

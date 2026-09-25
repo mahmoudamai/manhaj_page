@@ -1,0 +1,189 @@
+<!-- =====================================================================
+     M4 · BLOCK 03B — Logos strip (replaces the GHL logos marquee element)
+     Sits at the bottom of the hero (inside the GHL hero section, after
+     Block 03), on the hero's own background — no separate band.
+     · every logo is shown at the same visual height and in one muted tone
+       (full colour on hover), so a big logo can't dominate the row
+     · slow continuous scroll with faded edges; pauses on hover; stands
+       still (and wraps) for visitors who turned motion off
+     To change the logos: edit the <img> list ONCE in .m4-logos__set — the
+     second set is the same list again (it makes the loop seamless).
+     Section styles are scoped to #m4-logos. Colours, fonts, sizes and
+     speeds come from Block 00 — edit the theme there, not here.
+     ===================================================================== -->
+<style>
+#m4-logos {
+  direction: rtl;
+  font-family: var(--m4-font-primary) !important;
+  padding: calc(18px * var(--m4-space-scale)) 0 calc(34px * var(--m4-space-scale));
+  background: transparent;
+}
+
+#m4-logos *,
+#m4-logos *::before,
+#m4-logos *::after {
+  box-sizing: border-box;
+}
+
+#m4-logos .m4-logos__wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+#m4-logos .m4-logos__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: var(--m4-text-muted);
+  font-size: calc(.78rem * var(--m4-type-scale));
+  font-weight: 700;
+  text-align: center;
+}
+
+#m4-logos .m4-logos__label::before,
+#m4-logos .m4-logos__label::after {
+  content: "";
+  flex: 0 1 90px;
+  height: 1px;
+  background: color-mix(in srgb, var(--m4-primary) 16%, transparent);
+}
+
+#m4-logos .m4-logos__viewport {
+  overflow: hidden;
+  direction: ltr;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+
+#m4-logos .m4-logos__track {
+  display: flex;
+  width: max-content;
+  animation: m4-logos-scroll calc(38s * var(--m4-motion-scale)) linear infinite;
+}
+
+#m4-logos .m4-logos__viewport:hover .m4-logos__track {
+  animation-play-state: paused;
+}
+
+#m4-logos .m4-logos__set {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  padding-right: 64px;
+}
+
+/* one visual height for every logo; wide logos are capped in width */
+#m4-logos .m4-logos__set img {
+  display: block;
+  height: 34px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.1);
+  opacity: .55;
+  mix-blend-mode: multiply;
+  transition: filter calc(.3s * var(--m4-motion-scale)) var(--m4-ease), opacity calc(.3s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+#m4-logos .m4-logos__set img:hover {
+  filter: none;
+  opacity: 1;
+}
+
+@keyframes m4-logos-scroll {
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 680px) {
+  #m4-logos {
+    padding: calc(12px * var(--m4-space-scale)) 0 calc(26px * var(--m4-space-scale));
+  }
+
+  #m4-logos .m4-logos__label {
+    margin-bottom: 10px;
+    font-size: calc(.72rem * var(--m4-type-scale));
+  }
+
+  #m4-logos .m4-logos__label::before,
+  #m4-logos .m4-logos__label::after {
+    flex-basis: 24px;
+  }
+
+  #m4-logos .m4-logos__set {
+    gap: 40px;
+    padding-right: 40px;
+  }
+
+  #m4-logos .m4-logos__set img {
+    height: 26px;
+    max-width: 96px;
+  }
+}
+
+/* motion off: no scrolling — one centred, wrapping row, second set hidden */
+@media (prefers-reduced-motion: reduce) {
+  #m4-logos .m4-logos__viewport {
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+
+  #m4-logos .m4-logos__track {
+    width: auto;
+    animation: none;
+    justify-content: center;
+  }
+
+  #m4-logos .m4-logos__set {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px 40px;
+    padding: 0;
+  }
+
+  #m4-logos .m4-logos__set[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+/* self-check: this block is the current version */
+#m4-logos {
+  --m4-styled: 3;
+}
+</style>
+
+<section
+  id="m4-logos" class="m4-section"
+  dir="rtl"
+  lang="ar"
+  aria-label="جهات ومؤسسات"
+>
+  <div class="m4-logos__wrap">
+
+    <p class="m4-logos__label">جهات ومؤسسات تعاون معها كريم إسماعيل</p>
+
+    <div class="m4-logos__viewport">
+      <div class="m4-logos__track">
+        <div class="m4-logos__set">
+          <img src="LOGO_URL_1" alt="جامعة عجمان" loading="lazy">
+          <img src="LOGO_URL_2" alt="جامعة العين" loading="lazy">
+          <img src="LOGO_URL_3" alt="سديم" loading="lazy">
+          <img src="LOGO_URL_4" alt="Rexona" loading="lazy">
+          <img src="LOGO_URL_5" alt="L'Oréal Paris" loading="lazy">
+          <img src="LOGO_URL_6" alt="The British University in Egypt" loading="lazy">
+        </div>
+        <div class="m4-logos__set" aria-hidden="true">
+          <img src="LOGO_URL_1" alt="" loading="lazy">
+          <img src="LOGO_URL_2" alt="" loading="lazy">
+          <img src="LOGO_URL_3" alt="" loading="lazy">
+          <img src="LOGO_URL_4" alt="" loading="lazy">
+          <img src="LOGO_URL_5" alt="" loading="lazy">
+          <img src="LOGO_URL_6" alt="" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

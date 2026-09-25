@@ -2278,6 +2278,196 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 
 </section>
 
+<!-- =====================================================================
+     M4 · BLOCK 03B — Logos strip (replaces the GHL logos marquee element)
+     Sits at the bottom of the hero (inside the GHL hero section, after
+     Block 03), on the hero's own background — no separate band.
+     · every logo is shown at the same visual height and in one muted tone
+       (full colour on hover), so a big logo can't dominate the row
+     · slow continuous scroll with faded edges; pauses on hover; stands
+       still (and wraps) for visitors who turned motion off
+     To change the logos: edit the <img> list ONCE in .m4-logos__set — the
+     second set is the same list again (it makes the loop seamless).
+     Section styles are scoped to #m4-logos. Colours, fonts, sizes and
+     speeds come from Block 00 — edit the theme there, not here.
+     ===================================================================== -->
+<style>
+#m4-logos {
+  direction: rtl;
+  font-family: var(--m4-font-primary) !important;
+  padding: calc(18px * var(--m4-space-scale)) 0 calc(34px * var(--m4-space-scale));
+  background: transparent;
+}
+
+#m4-logos *,
+#m4-logos *::before,
+#m4-logos *::after {
+  box-sizing: border-box;
+}
+
+#m4-logos .m4-logos__wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+#m4-logos .m4-logos__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: var(--m4-text-muted);
+  font-size: calc(.78rem * var(--m4-type-scale));
+  font-weight: 700;
+  text-align: center;
+}
+
+#m4-logos .m4-logos__label::before,
+#m4-logos .m4-logos__label::after {
+  content: "";
+  flex: 0 1 90px;
+  height: 1px;
+  background: color-mix(in srgb, var(--m4-primary) 16%, transparent);
+}
+
+#m4-logos .m4-logos__viewport {
+  overflow: hidden;
+  direction: ltr;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+
+#m4-logos .m4-logos__track {
+  display: flex;
+  width: max-content;
+  animation: m4-logos-scroll calc(38s * var(--m4-motion-scale)) linear infinite;
+}
+
+#m4-logos .m4-logos__viewport:hover .m4-logos__track {
+  animation-play-state: paused;
+}
+
+#m4-logos .m4-logos__set {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  padding-right: 64px;
+}
+
+/* one visual height for every logo; wide logos are capped in width */
+#m4-logos .m4-logos__set img {
+  display: block;
+  height: 34px;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.1);
+  opacity: .55;
+  mix-blend-mode: multiply;
+  transition: filter calc(.3s * var(--m4-motion-scale)) var(--m4-ease), opacity calc(.3s * var(--m4-motion-scale)) var(--m4-ease);
+}
+
+#m4-logos .m4-logos__set img:hover {
+  filter: none;
+  opacity: 1;
+}
+
+@keyframes m4-logos-scroll {
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 680px) {
+  #m4-logos {
+    padding: calc(12px * var(--m4-space-scale)) 0 calc(26px * var(--m4-space-scale));
+  }
+
+  #m4-logos .m4-logos__label {
+    margin-bottom: 10px;
+    font-size: calc(.72rem * var(--m4-type-scale));
+  }
+
+  #m4-logos .m4-logos__label::before,
+  #m4-logos .m4-logos__label::after {
+    flex-basis: 24px;
+  }
+
+  #m4-logos .m4-logos__set {
+    gap: 40px;
+    padding-right: 40px;
+  }
+
+  #m4-logos .m4-logos__set img {
+    height: 26px;
+    max-width: 96px;
+  }
+}
+
+/* motion off: no scrolling — one centred, wrapping row, second set hidden */
+@media (prefers-reduced-motion: reduce) {
+  #m4-logos .m4-logos__viewport {
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+
+  #m4-logos .m4-logos__track {
+    width: auto;
+    animation: none;
+    justify-content: center;
+  }
+
+  #m4-logos .m4-logos__set {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px 40px;
+    padding: 0;
+  }
+
+  #m4-logos .m4-logos__set[aria-hidden="true"] {
+    display: none;
+  }
+}
+
+/* self-check: this block is the current version */
+#m4-logos {
+  --m4-styled: 3;
+}
+</style>
+
+<section
+  id="m4-logos" class="m4-section"
+  dir="rtl"
+  lang="ar"
+  aria-label="جهات ومؤسسات"
+>
+  <div class="m4-logos__wrap">
+
+    <p class="m4-logos__label">جهات ومؤسسات تعاون معها كريم إسماعيل</p>
+
+    <div class="m4-logos__viewport">
+      <div class="m4-logos__track">
+        <div class="m4-logos__set">
+          <img src="LOGO_URL_1" alt="جامعة عجمان" loading="lazy">
+          <img src="LOGO_URL_2" alt="جامعة العين" loading="lazy">
+          <img src="LOGO_URL_3" alt="سديم" loading="lazy">
+          <img src="LOGO_URL_4" alt="Rexona" loading="lazy">
+          <img src="LOGO_URL_5" alt="L'Oréal Paris" loading="lazy">
+          <img src="LOGO_URL_6" alt="The British University in Egypt" loading="lazy">
+        </div>
+        <div class="m4-logos__set" aria-hidden="true">
+          <img src="LOGO_URL_1" alt="" loading="lazy">
+          <img src="LOGO_URL_2" alt="" loading="lazy">
+          <img src="LOGO_URL_3" alt="" loading="lazy">
+          <img src="LOGO_URL_4" alt="" loading="lazy">
+          <img src="LOGO_URL_5" alt="" loading="lazy">
+          <img src="LOGO_URL_6" alt="" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 </div>
 <!-- =====================================================================
      M4 · BLOCK 04 — Section 02 · Block 01 — Kareem intro
@@ -3140,7 +3330,6 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 
 </section>
 
-<div style="max-width:900px;margin:0 auto;padding:18px;text-align:center;border:2px dashed #bbb;font:14px sans-serif;color:#777;background:#f3f3f3">GHL element: logos marquee</div>
 <!-- =====================================================================
      M4 · BLOCK 05 — Pain: «المعارك الخفية» (v2)
      One question + six hidden battles (wording by the learning designer).
@@ -3417,53 +3606,6 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   font-weight: 700;
 }
 
-/* ---- the quick escapes (short paragraph after the battles) ---- */
-#m4-pain .m4-pain__escape {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  max-width: 820px;
-  margin: 26px auto 0;
-  padding: 18px 22px;
-  border-radius: calc(18px * var(--m4-radius-scale));
-  border: 1px dashed color-mix(in srgb, var(--m4-primary) 22%, transparent);
-  background: color-mix(in srgb, var(--m4-white) 55%, transparent);
-}
-
-#m4-pain .m4-pain__escape-icon {
-  display: grid;
-  place-items: center;
-  flex: 0 0 44px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--m4-accent) 16%, transparent);
-  color: var(--m4-accent-deep);
-}
-
-#m4-pain .m4-pain__escape-icon svg {
-  width: 22px;
-  height: 22px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-#m4-pain .m4-pain__escape p {
-  margin: 0;
-  color: var(--m4-text);
-  font-size: calc(.98rem * var(--m4-type-scale));
-  line-height: 1.9;
-  font-weight: 500;
-}
-
-#m4-pain .m4-pain__escape strong {
-  color: var(--m4-primary-deep);
-  font-weight: 800;
-}
-
 @media (max-width: 620px) {
   #m4-pain .m4-pain__lead {
     margin-top: 12px;
@@ -3477,24 +3619,6 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   #m4-pain .m4-pain__feelings li {
     padding: 6px 11px;
     font-size: calc(.8rem * var(--m4-type-scale));
-  }
-
-  #m4-pain .m4-pain__escape {
-    align-items: flex-start;
-    gap: 12px;
-    margin-top: 18px;
-    padding: 16px;
-  }
-
-  #m4-pain .m4-pain__escape-icon {
-    flex-basis: 38px;
-    width: 38px;
-    height: 38px;
-  }
-
-  #m4-pain .m4-pain__escape p {
-    font-size: calc(.9rem * var(--m4-type-scale));
-    line-height: 1.85;
   }
 }
 
@@ -3528,8 +3652,7 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
       <p class="m4-pain__lead">قد تبدأ بمشاعر تتكرر معك كل يوم:</p>
       <ul class="m4-pain__feelings">
         <li>شعور دائم بالخنقة</li>
-        <li>قلق من كل شيء</li>
-        <li>خوف من كل شيء</li>
+        <li>خوف وقلق</li>
         <li>مقارنة مستمرة</li>
         <li>إحباط سريع عند تأخر الأهداف</li>
       </ul>
@@ -3603,17 +3726,6 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
         <p>تُثقلك المسؤوليات حتى تكاد تقصم ظهرك، وتستحوذ على تفكيرك وطاقتك طوال الوقت؟</p>
       </article>
 
-    </div>
-
-    <div class="m4-pain__escape m4-reveal">
-      <span class="m4-pain__escape-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M3 12h13"/><path d="m12 7 5 5-5 5"/><path d="M20 4v16"/></svg>
-      </span>
-      <p>
-        وقد تهرب منها دون أن تنتبه: <strong>تأكل دون جوع</strong>،
-        وتقضي <strong>الساعات على الموبايل</strong>، وتبحث عن أي
-        <strong>راحة مؤقتة</strong>… تهدأ قليلًا، ثم يعود كل شيء كما كان.
-      </p>
     </div>
 
   </div>
