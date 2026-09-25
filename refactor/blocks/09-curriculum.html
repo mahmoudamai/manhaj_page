@@ -555,6 +555,114 @@
   }
 }
 
+/* ---------------- v2 · axes: layers line, tags, closing ---------------- */
+#m4-curriculum .m4-curriculum__layers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 10px;
+  margin-top: 20px;
+}
+
+#m4-curriculum .m4-curriculum__layers span {
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--m4-primary) 12%, transparent);
+  background: color-mix(in srgb, var(--m4-white) 70%, transparent);
+  color: var(--m4-text);
+  font-size: calc(.84rem * var(--m4-type-scale));
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+#m4-curriculum .m4-curriculum__layers b {
+  color: var(--m4-primary-deep);
+  font-weight: 800;
+}
+
+#m4-curriculum .m4-curriculum__layers .m4-curriculum__layers-label {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--m4-accent-deep);
+  font-weight: 800;
+}
+
+#m4-curriculum .m4-curriculum__center p b {
+  color: var(--m4-accent-soft);
+  font-weight: 800;
+}
+
+#m4-curriculum .m4-curriculum__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+#m4-curriculum .m4-curriculum__tags span {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--m4-accent-soft) 35%, var(--m4-white));
+  border: 1px solid color-mix(in srgb, var(--m4-accent) 30%, transparent);
+  color: var(--m4-primary-deep);
+  font-size: calc(.7rem * var(--m4-type-scale));
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+#m4-curriculum .m4-curriculum__closing {
+  max-width: 720px;
+  margin: 34px auto 0;
+  text-align: center;
+  color: var(--m4-text);
+  font-size: calc(1.02rem * var(--m4-type-scale));
+  line-height: 1.8;
+}
+
+#m4-curriculum .m4-curriculum__closing strong {
+  color: var(--m4-primary-deep);
+  font-weight: 800;
+}
+
+/* the map needs a little more room for the tags */
+@media (min-width: 901px) {
+  #m4-curriculum .m4-curriculum__board {
+    min-height: 720px;
+  }
+
+  #m4-curriculum .m4-curriculum__stage {
+    width: 330px;
+  }
+}
+
+@media (max-width: 600px) {
+  #m4-curriculum .m4-curriculum__layers {
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  #m4-curriculum .m4-curriculum__layers span {
+    padding: 5px 10px;
+    font-size: calc(.74rem * var(--m4-type-scale));
+  }
+
+  #m4-curriculum .m4-curriculum__layers .m4-curriculum__layers-label {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  #m4-curriculum .m4-curriculum__tags span {
+    font-size: calc(.66rem * var(--m4-type-scale));
+  }
+
+  #m4-curriculum .m4-curriculum__closing {
+    margin-top: 22px;
+    font-size: calc(.9rem * var(--m4-type-scale));
+  }
+}
+
 /* self-check: this block is the current version */
 #m4-curriculum {
   --m4-styled: 9;
@@ -565,34 +673,29 @@
   id="m4-curriculum" class="m4-section"
   dir="rtl"
   lang="ar"
-  aria-label="مراحل منهج الطمأنينة"
+  aria-label="محاور منهج الطمأنينة"
 >
 
   <div class="m4-curriculum__wrap">
 
     <div class="m4-curriculum__head m4-reveal">
-
       <div class="m4-curriculum__kicker">
-
-        محتوى المنهج
-
+        محاور المنهج
       </div>
-
       <h2>
-
-        منهجية منطلقة من القرآن والهدي النبوي
-
+        أربعة محاور… تبني الطمأنينة من جذورها
       </h2>
-
       <p>
-
-        تخاطب الروح والفكر لبناء شخصية وعقلية
-        أكثر قوة واتزانا،
-        تستطيع التعامل مع تحديات العصر
-        بوعي أكبر.
-
+        «منهج الطمأنينة» رحلة إيمانية نفسية، تهدف إلى مساعدة الإنسان
+        على التحرر من المخاوف، وبناء الصلابة النفسية،
+        واستعادة السلام الداخلي في ظل ضغوط الحياة المعاصرة.
       </p>
-
+      <div class="m4-curriculum__layers" aria-label="في كل محور">
+        <span class="m4-curriculum__layers-label">في كل محور:</span>
+        <span><b>معنى إيماني</b> نرجع إليه</span>
+        <span><b>فهم نفسي</b> يوضح ما يحدث</span>
+        <span><b>مهارة</b> نعيش بها</span>
+      </div>
     </div>
 
     <div class="m4-curriculum__board m4-reveal">
@@ -612,11 +715,10 @@
         </h3>
 
         <p>
-
-          رحلة متدرجة تبدأ بالفهم والوعي،
-          ثم تنتقل إلى بناء المهارات
+          تبدأ من فهم <b>«الفاقة»</b>،
+          ثم تبني الوعي والتصورات،
+          وتنتقل إلى المهارات
           وتطبيقها في الحياة اليومية.
-
         </p>
 
       </div>
@@ -639,9 +741,7 @@
         </div>
 
         <h3>
-
-          البناء التأسيسي
-
+          البناء التأسيسي وإعادة هيكلة الواقع
         </h3>
 
         <p>
@@ -653,7 +753,7 @@
           التي تساعد الإنسان على الخروج منها.
 
         </p>
-
+        <div class="m4-curriculum__tags"><span>سر الفاقة ونشأتها</span><span>الخروج من التيه</span><span>ترميم البوصلة</span></div>
       </article>
 
       <article
@@ -674,22 +774,18 @@
         </div>
 
         <h3>
-
-          التصورات الحكيمة
-
+          بناء المعتقدات والتصورات الكبرى
         </h3>
 
         <p>
-
           لكي ينتقل الإنسان من حال نفسي إلى آخر،
-          يحتاج إلى بناء منظومة وعي جديدة
-          يرى ويفهم من خلالها نفسه والحياة
-          بصورة أكثر حكمة،
-          ويواجه بها تحديات الحياة.
-          ومن هنا تبدأ صناعة الصلابة النفسية.
-
+          يحتاج إلى منظومة وعي جديدة
+          يرى بها نفسه والحياة وتقلباتها،
+          وعلى رأسها التعرف على الله عز وجل؛
+          فيتحول الإيمان من معارف نظرية
+          إلى يقين تُبنى عليه الصلابة النفسية.
         </p>
-
+        <div class="m4-curriculum__tags"><span>التسليم الواعي</span><span>التوكل الصادق</span><span>الاستغناء بالله</span></div>
       </article>
 
       <article
@@ -725,7 +821,7 @@
           قبل أن يخرج للتعامل مع الآخرين.
 
         </p>
-
+        <div class="m4-curriculum__tags"><span>فهم المشاعر</span><span>ضبط التفكير الناقد</span><span>الحد من جلد الذات</span></div>
       </article>
 
       <article
@@ -763,10 +859,15 @@
           من أهم سبل الوصول إلى الطمأنينة.
 
         </p>
-
+        <div class="m4-curriculum__tags"><span>حدود نفسية صحية</span><span>علاقات متوازنة</span><span>تواصل دون خوف</span></div>
       </article>
 
     </div>
+
+      <p class="m4-curriculum__closing m4-reveal">
+      الفكرة ليست في كثرة المعلومات،
+      <strong>بل في أن ترى الصورة مترابطة.</strong>
+    </p>
 
   </div>
 

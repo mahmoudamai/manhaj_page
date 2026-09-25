@@ -273,3 +273,32 @@ keep them in sync with Blocks 10B and 21. Re-paste `03-hero-trust.html`.
 - **05-pain.html** (hand-written, `tools/new-blocks/05-pain.html`): one question + six battles (the learning designer's wording), a custom line icon for each, faint rotating "vicious circle" rings behind the title, and cards that come into focus as they scroll in (live page only; off with reduced motion). The Unsplash photo and the old paragraphs are gone. Light background, so the page goes light (Pain) → dark (الفاقة).
 - **06-faqah.html**: only the text column changed (title «لماذا يستمر الشعور بالفراغ رغم كل ما نحققه؟» + the designer's four paragraphs). Design and definition card unchanged. Text in `tools/m4_faqah_v2.py`.
 - Re-paste both blocks.
+
+## Block 09 v2 — «محاور المنهج» (Block 08 merged in and removed)
+
+`09-curriculum.html` now carries the old Block 08 too: new title «أربعة محاور… تبني الطمأنينة من جذورها»,
+the program designer's intro, the three layers (معنى إيماني · فهم نفسي · مهارة) as one line, الفاقة as the
+starting point in the centre, the designer's titles for axes 01/02, current text for 03/04, tags under each
+axis and a closing line. Same map design. Texts in `tools/m4_curriculum_v2.py`.
+**In GHL: delete the «كيف تم بناء منهج الطمأنينة؟» section (old Block 08) and re-paste 09.**
+
+## Page order (agreed in the content phase) — file numbers no longer follow the order
+
+| # on page | File |
+|---|---|
+| 1 | 01-hero · GHL video + 01b-hero-video · 02-hero-stats · GHL button · 03-hero-trust |
+| 2 | 04-kareem-intro · GHL logos |
+| 3 | 05-pain |
+| 4 | 06-faqah |
+| 5 | 07-member-story |
+| 6 | **16-wa-reviews** (moved up) |
+| 7 | **09-curriculum** («محاور المنهج») |
+| 8 | **18-year** (moved up) |
+| 9 | 10-yusuf |
+| 10 | 10b-offer-early |
+| 11 | 11-lectures · 12-lecture-notes |
+| 12 | 13-practice · 14-live · 15-telegram |
+| 13 | 17-fit |
+| 14 | *(before/after — coming)* |
+| 15 | 19-testimonials · 20-kareem |
+| 16 | 21-offer · 22-guarantee · 23-faq · 25-footer (+ 24-sticky in the fixed section) |

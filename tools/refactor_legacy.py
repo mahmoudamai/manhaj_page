@@ -719,6 +719,13 @@ def main():
     spec6.loader.exec_module(fq2)
     fq2.apply(blocks / "06-faqah.html")
 
+    # ---- block 09 v2: «محاور المنهج» (Block 08 merged in, so 08 is dropped) ----
+    spec9 = importlib.util.spec_from_file_location("m4curr", ROOT / "tools" / "m4_curriculum_v2.py")
+    cu2 = importlib.util.module_from_spec(spec9)
+    spec9.loader.exec_module(cu2)
+    cu2.apply(blocks / "09-curriculum.html")
+    (blocks / "08-method.html").unlink()
+
     # ---- hand-written new blocks (05-pain v2 replaces the generated one) (not from the legacy page), e.g. 16b-offer-early ----
     for f in sorted((ROOT / "tools" / "new-blocks").glob("*.html")):
         (blocks / f.name).write_text(f.read_text(encoding="utf-8"), encoding="utf-8")
@@ -730,8 +737,9 @@ def main():
         return (f'<div style="max-width:900px;margin:0 auto;padding:18px;text-align:center;border:2px dashed #bbb;'
                 f'font:14px sans-serif;color:#777;background:#f3f3f3">GHL element: {name}</div>')
     order = [("01", None), ("GHL", "video (block 02) + video style (03)"), ("02", None), ("GHL", "button (block 05)"),
-             ("03", None), ("04", None), ("GHL", "logos marquee"), *[(f"{n:02d}", None) for n in range(5, 11)], ("10b", None),
-             *[(f"{n:02d}", None) for n in range(11, 24)], ("25", None)]
+             ("03", None), ("04", None), ("GHL", "logos marquee"), ("05", None), ("06", None), ("07", None), ("16", None), ("09", None), ("18", None),
+             ("10", None), ("10b", None), ("11", None), ("12", None), ("13", None), ("14", None), ("15", None),
+             ("17", None), ("19", None), ("20", None), ("21", None), ("22", None), ("23", None), ("25", None)]
     parts = []
     files = {f.name.split("-")[0]: f for f in blocks.glob("[0-9][0-9]*-*.html")}
     for key, label in order:
