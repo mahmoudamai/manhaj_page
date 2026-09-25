@@ -1,0 +1,1869 @@
+<!-- =========================================================
+     MHH MANHAJ | CURRICULUM MAP
+     FOUR STAGES OF THE JOURNEY
+     MOBILE NUMBERED TIMELINE FIX
+     Paste entire block inside ONE GHL Code element
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-curriculum{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --blue-petrol:#294E63;
+
+  --navy:#354859;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --teal-bright:#A9DED8;
+
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+  --warm:#F7F3EA;
+
+  --text:#5D6A70;
+  --muted:#748086;
+
+  position:relative;
+  overflow:hidden;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:var(--navy);
+
+  padding:
+    82px 22px 90px;
+
+  background:
+
+    radial-gradient(
+      circle at 8% 13%,
+      rgba(142,201,196,.13),
+      transparent 29%
+    ),
+
+    radial-gradient(
+      circle at 94% 86%,
+      rgba(211,178,103,.07),
+      transparent 25%
+    ),
+
+    linear-gradient(
+      180deg,
+      #E8F0EA 0%,
+      #E3ECE7 55%,
+      #DFE9E4 100%
+    );
+}
+
+
+#mhhm-curriculum *,
+#mhhm-curriculum *::before,
+#mhhm-curriculum *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   AMBIENT BACKGROUND
+========================================================= */
+
+#mhhm-curriculum::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:480px;
+  height:480px;
+
+  top:-310px;
+  left:-230px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(30,89,96,.055);
+
+  box-shadow:
+    0 0 0 55px rgba(167,188,166,.018);
+
+  pointer-events:none;
+}
+
+
+#mhhm-curriculum::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:330px;
+  height:330px;
+
+  right:-190px;
+  bottom:-190px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(211,178,103,.09);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-curriculum .mhhm-wrap{
+
+  position:relative;
+  z-index:2;
+
+  width:100%;
+  max-width:1120px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#mhhm-curriculum .mhhm-head{
+
+  max-width:850px;
+
+  margin:
+    0 auto 47px;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity .72s ease,
+    transform .72s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-curriculum
+.mhhm-head.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* kicker */
+
+#mhhm-curriculum .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:13px;
+
+  color:var(--petrol);
+
+  font-size:.78rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-curriculum
+.mhhm-kicker::before{
+
+  content:"";
+
+  width:28px;
+  height:1px;
+
+  flex:0 0 28px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30,89,96,.14),
+      var(--gold)
+    );
+}
+
+
+/* title */
+
+#mhhm-curriculum .mhhm-head h2{
+
+  max-width:780px;
+
+  margin:0 auto;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      2rem,
+      3.8vw,
+      3.15rem
+    );
+
+  line-height:1.27;
+
+  letter-spacing:-.7px;
+
+  font-weight:900;
+
+  text-wrap:balance;
+}
+
+
+/* lead */
+
+#mhhm-curriculum .mhhm-head p{
+
+  max-width:780px;
+
+  margin:
+    15px auto 0;
+
+  color:var(--text);
+
+  font-size:
+    clamp(
+      .96rem,
+      1.45vw,
+      1.08rem
+    );
+
+  line-height:1.9;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   MAP BOARD
+========================================================= */
+
+#mhhm-curriculum .mhhm-board{
+
+  position:relative;
+
+  min-height:640px;
+
+  overflow:hidden;
+
+  border:
+    1px solid rgba(30,89,96,.11);
+
+  border-radius:32px;
+
+  background:
+
+    radial-gradient(
+      circle at 50% 49%,
+      rgba(142,201,196,.16),
+      transparent 31%
+    ),
+
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255,255,255,.72),
+      transparent 55%
+    ),
+
+    linear-gradient(
+      145deg,
+      rgba(255,253,248,.66),
+      rgba(239,246,241,.70)
+    );
+
+  box-shadow:
+
+    inset 0 1px 0
+    rgba(255,255,255,.72),
+
+    0 18px 46px
+    rgba(53,72,89,.045);
+}
+
+
+/* =========================================================
+   ORBITS
+========================================================= */
+
+#mhhm-curriculum
+.mhhm-board::before{
+
+  content:"";
+
+  position:absolute;
+
+  z-index:0;
+
+  top:50%;
+  left:50%;
+
+  width:71%;
+  height:64%;
+
+  transform:
+    translate(-50%,-50%);
+
+  border:
+    1px solid rgba(30,89,96,.11);
+
+  border-radius:50%;
+
+  pointer-events:none;
+}
+
+
+#mhhm-curriculum
+.mhhm-board::after{
+
+  content:"";
+
+  position:absolute;
+
+  z-index:0;
+
+  top:50%;
+  left:50%;
+
+  width:53%;
+  height:43%;
+
+  transform:
+    translate(-50%,-50%);
+
+  border:
+    1px dashed rgba(211,178,103,.21);
+
+  border-radius:50%;
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   CENTER
+========================================================= */
+
+#mhhm-curriculum .mhhm-center{
+
+  position:absolute;
+
+  z-index:5;
+
+  top:50%;
+  left:50%;
+
+  width:250px;
+  min-height:190px;
+
+  padding:
+    28px 24px;
+
+  transform:
+    translate(-50%,-50%)
+    scale(.92);
+
+  display:grid;
+
+  align-content:center;
+
+  text-align:center;
+
+  border-radius:30px;
+
+  border:
+    1px solid rgba(255,255,255,.15);
+
+  color:#FFFDF8;
+
+  background:
+
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(169,222,216,.15),
+      transparent 60%
+    ),
+
+    linear-gradient(
+      145deg,
+      #123C42 0%,
+      #1B5558 57%,
+      #354F42 100%
+    );
+
+  box-shadow:
+
+    0 30px 70px
+    rgba(18,60,66,.22),
+
+    0 0 0 9px
+    rgba(255,253,248,.60);
+
+  opacity:0;
+
+  transition:
+
+    opacity .75s ease,
+
+    transform .75s
+      cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-curriculum
+.mhhm-center.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translate(-50%,-50%)
+    scale(1);
+}
+
+
+/* center label */
+
+#mhhm-curriculum
+.mhhm-centerLabel{
+
+  display:inline-flex;
+
+  justify-self:center;
+
+  align-items:center;
+
+  gap:7px;
+
+  margin-bottom:9px;
+
+  color:#E4CA91;
+
+  font-size:.66rem;
+
+  line-height:1.3;
+
+  font-weight:900;
+}
+
+
+#mhhm-curriculum
+.mhhm-centerLabel::before,
+#mhhm-curriculum
+.mhhm-centerLabel::after{
+
+  content:"";
+
+  width:16px;
+  height:1px;
+
+  background:
+    rgba(211,178,103,.55);
+}
+
+
+/* center title */
+
+#mhhm-curriculum .mhhm-center h3{
+
+  margin:0;
+
+  color:#FFFDF8;
+
+  font-size:1.55rem;
+
+  line-height:1.3;
+
+  font-weight:900;
+}
+
+
+/* center text */
+
+#mhhm-curriculum .mhhm-center p{
+
+  margin:
+    10px 0 0;
+
+  color:
+    rgba(255,253,248,.74);
+
+  font-size:.80rem;
+
+  line-height:1.75;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   STAGE CARDS
+========================================================= */
+
+#mhhm-curriculum .mhhm-stage{
+
+  position:absolute;
+
+  z-index:3;
+
+  width:305px;
+
+  padding:
+    20px 21px;
+
+  overflow:hidden;
+
+  border:
+    1px solid rgba(30,89,96,.13);
+
+  border-radius:23px;
+
+  background:
+
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(167,188,166,.10),
+      transparent 42%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(255,253,248,.98),
+      rgba(247,248,241,.96)
+    );
+
+  box-shadow:
+
+    0 16px 40px
+    rgba(53,72,89,.075),
+
+    inset 0 1px 0
+    rgba(255,255,255,.92);
+
+  opacity:0;
+
+  transition:
+
+    opacity .72s ease,
+
+    transform .72s
+      cubic-bezier(.2,.72,.2,1),
+
+    box-shadow .25s ease,
+
+    border-color .25s ease;
+}
+
+
+/* top signature */
+
+#mhhm-curriculum
+.mhhm-stage::after{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  right:20px;
+
+  width:55px;
+  height:2px;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      var(--petrol)
+    );
+}
+
+
+/* =========================================================
+   CONNECTOR
+========================================================= */
+
+#mhhm-curriculum
+.mhhm-stage::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:50%;
+
+  width:44px;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30,89,96,.11),
+      rgba(30,89,96,.40)
+    );
+}
+
+
+/* =========================================================
+   POSITIONS
+========================================================= */
+
+#mhhm-curriculum
+.mhhm-stage--one{
+
+  top:38px;
+  right:40px;
+
+  transform:
+    translate(18px,-12px);
+}
+
+
+#mhhm-curriculum
+.mhhm-stage--one::before{
+
+  left:-44px;
+}
+
+
+#mhhm-curriculum
+.mhhm-stage--two{
+
+  top:38px;
+  left:40px;
+
+  transform:
+    translate(-18px,-12px);
+}
+
+
+#mhhm-curriculum
+.mhhm-stage--two::before{
+
+  right:-44px;
+}
+
+
+#mhhm-curriculum
+.mhhm-stage--three{
+
+  bottom:38px;
+  right:40px;
+
+  transform:
+    translate(18px,12px);
+}
+
+
+#mhhm-curriculum
+.mhhm-stage--three::before{
+
+  left:-44px;
+}
+
+
+#mhhm-curriculum
+.mhhm-stage--four{
+
+  bottom:38px;
+  left:40px;
+
+  transform:
+    translate(-18px,12px);
+}
+
+
+#mhhm-curriculum
+.mhhm-stage--four::before{
+
+  right:-44px;
+}
+
+
+/* visible */
+
+#mhhm-curriculum
+.mhhm-stage.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translate(0,0);
+}
+
+
+/* =========================================================
+   NUMBER + CATEGORY
+========================================================= */
+
+#mhhm-curriculum .mhhm-stageTop{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:10px;
+}
+
+
+#mhhm-curriculum .mhhm-number{
+
+  color:var(--gold);
+
+  font-size:.74rem;
+
+  line-height:1;
+
+  font-weight:900;
+}
+
+
+#mhhm-curriculum .mhhm-stageType{
+
+  color:#829089;
+
+  font-size:.64rem;
+
+  line-height:1.3;
+
+  font-weight:850;
+}
+
+
+/* =========================================================
+   TITLES
+========================================================= */
+
+#mhhm-curriculum .mhhm-stage h3{
+
+  margin:
+    0 0 8px;
+
+  color:var(--petrol-deep);
+
+  font-size:1.08rem;
+
+  line-height:1.45;
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   STAGE TEXT
+========================================================= */
+
+#mhhm-curriculum .mhhm-stage p{
+
+  margin:0;
+
+  color:#637176;
+
+  font-size:.80rem;
+
+  line-height:1.76;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media(hover:hover){
+
+  #mhhm-curriculum
+  .mhhm-stage.mhhm-visible:hover{
+
+    transform:
+      translateY(-4px);
+
+    border-color:
+      rgba(30,89,96,.25);
+
+    box-shadow:
+
+      0 23px 52px
+      rgba(53,72,89,.11),
+
+      inset 0 1px 0
+      rgba(255,255,255,.94);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+  #mhhm-curriculum{
+
+    padding:
+      70px 18px 76px;
+  }
+
+
+  #mhhm-curriculum .mhhm-board{
+
+    min-height:0;
+
+    display:grid;
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+
+    gap:15px;
+
+    padding:
+      20px;
+
+    border-radius:27px;
+  }
+
+
+  #mhhm-curriculum
+  .mhhm-board::before,
+  #mhhm-curriculum
+  .mhhm-board::after,
+  #mhhm-curriculum
+  .mhhm-stage::before{
+
+    display:none;
+  }
+
+
+  #mhhm-curriculum .mhhm-center{
+
+    position:relative;
+
+    top:auto;
+    left:auto;
+
+    grid-column:
+      1 / -1;
+
+    width:100%;
+
+    min-height:160px;
+
+    transform:
+      translateY(16px)
+      scale(.98);
+  }
+
+
+  #mhhm-curriculum
+  .mhhm-center.mhhm-visible{
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+
+  #mhhm-curriculum .mhhm-stage{
+
+    position:relative;
+
+    top:auto;
+    right:auto;
+    bottom:auto;
+    left:auto;
+
+    width:100%;
+
+    transform:
+      translateY(18px);
+  }
+
+
+  #mhhm-curriculum
+  .mhhm-stage.mhhm-visible{
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE — NUMBERED TIMELINE
+========================================================= */
+
+@media(max-width:600px){
+
+  #mhhm-curriculum{
+
+    padding:
+      56px 13px 62px;
+  }
+
+
+  /* HEADER */
+
+  #mhhm-curriculum .mhhm-head{
+
+    margin-bottom:31px;
+  }
+
+
+  #mhhm-curriculum .mhhm-kicker{
+
+    margin-bottom:9px;
+
+    font-size:.68rem;
+
+    gap:7px;
+  }
+
+
+  #mhhm-curriculum
+  .mhhm-kicker::before{
+
+    width:20px;
+
+    flex-basis:20px;
+  }
+
+
+  #mhhm-curriculum
+  .mhhm-head h2{
+
+    font-size:1.78rem;
+
+    line-height:1.28;
+  }
+
+
+  #mhhm-curriculum
+  .mhhm-head p{
+
+    margin-top:11px;
+
+    font-size:.84rem;
+
+    line-height:1.76;
+  }
+
+
+
+  /* BOARD */
+
+  #mhhm-curriculum .mhhm-board{
+
+    position:relative;
+
+    display:block;
+
+    padding:
+      14px 13px 16px;
+
+    border-radius:22px;
+
+    overflow:hidden;
+  }
+
+
+
+  /* VERTICAL TIMELINE */
+
+  #mhhm-curriculum
+  .mhhm-board::before{
+
+    content:"";
+
+    display:block;
+
+    position:absolute;
+
+    top:187px;
+    bottom:39px;
+
+    right:35px;
+    left:auto;
+
+    width:1px;
+    height:auto;
+
+    transform:none;
+
+    border:0;
+    border-radius:0;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(211,178,103,.42) 0%,
+        rgba(30,89,96,.25) 28%,
+        rgba(30,89,96,.20) 72%,
+        rgba(30,89,96,.05) 100%
+      );
+
+    z-index:0;
+
+    pointer-events:none;
+  }
+
+
+  #mhhm-curriculum
+  .mhhm-board::after{
+
+    display:none;
+  }
+
+
+
+  /* CENTER */
+
+  #mhhm-curriculum .mhhm-center{
+
+    position:relative;
+
+    z-index:2;
+
+    top:auto;
+    left:auto;
+
+    width:100%;
+
+    min-height:145px;
+
+    margin-bottom:18px;
+
+    padding:
+      22px 19px;
+
+    border-radius:22px;
+
+    transform:
+      translateY(16px)
+      scale(.98);
+  }
+
+
+  #mhhm-curriculum
+  .mhhm-center.mhhm-visible{
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+
+  #mhhm-curriculum
+  .mhhm-center h3{
+
+    font-size:1.35rem;
+  }
+
+
+  #mhhm-curriculum
+  .mhhm-center p{
+
+    max-width:290px;
+
+    margin:
+      8px auto 0;
+
+    font-size:.76rem;
+  }
+
+
+
+  /* STAGE CARD */
+
+  #mhhm-curriculum .mhhm-stage{
+
+    position:relative;
+
+    top:auto;
+    right:auto;
+    bottom:auto;
+    left:auto;
+
+    z-index:2;
+
+    width:
+      calc(100% - 45px);
+
+    margin:
+      0 0 12px 0;
+
+    margin-right:45px;
+
+    padding:
+      17px;
+
+    overflow:visible;
+
+    border-radius:18px;
+
+    transform:
+      translateY(18px);
+  }
+
+
+  #mhhm-curriculum
+  .mhhm-stage.mhhm-visible{
+
+    transform:
+      translateY(0);
+  }
+
+
+  #mhhm-curriculum
+  .mhhm-stage:last-child{
+
+    margin-bottom:0;
+  }
+
+
+
+  /* NUMBERED TIMELINE POINT */
+
+  #mhhm-curriculum
+  .mhhm-stage::before{
+
+    content:
+      attr(data-step);
+
+    position:absolute;
+
+    display:grid;
+
+    place-items:center;
+
+    top:15px;
+
+    right:-39px;
+    left:auto;
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    border:
+      1px solid
+      rgba(211,178,103,.48);
+
+    background:
+      linear-gradient(
+        145deg,
+        #E0C583 0%,
+        #CFAA59 100%
+      );
+
+    color:#123C42;
+
+    font-family:
+      "Tajawal",
+      Arial,
+      sans-serif !important;
+
+    font-size:.61rem;
+
+    line-height:1;
+
+    font-weight:900;
+
+    box-shadow:
+      0 0 0 5px #E5ECE7,
+      0 6px 14px rgba(53,72,89,.10);
+
+    z-index:5;
+  }
+
+
+
+  /* TOP SIGNATURE */
+
+  #mhhm-curriculum
+  .mhhm-stage::after{
+
+    top:0;
+
+    right:17px;
+
+    width:38px;
+    height:2px;
+  }
+
+
+
+  /* STAGE TOP */
+
+  #mhhm-curriculum
+  .mhhm-stageTop{
+
+    margin-bottom:8px;
+  }
+
+
+  /* number already appears in timeline circle */
+
+  #mhhm-curriculum
+  .mhhm-number{
+
+    display:none;
+  }
+
+
+  /* category becomes a clear micro label */
+
+  #mhhm-curriculum
+  .mhhm-stageType{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    width:fit-content;
+
+    min-height:23px;
+
+    padding:
+      3px 8px;
+
+    border-radius:999px;
+
+    border:
+      1px solid rgba(30,89,96,.07);
+
+    background:
+      rgba(167,188,166,.10);
+
+    color:#73817B;
+
+    font-size:.57rem;
+
+    line-height:1.3;
+
+    font-weight:850;
+  }
+
+
+
+  /* TITLE */
+
+  #mhhm-curriculum
+  .mhhm-stage h3{
+
+    margin-bottom:6px;
+
+    font-size:1rem;
+
+    line-height:1.45;
+  }
+
+
+
+  /* TEXT */
+
+  #mhhm-curriculum
+  .mhhm-stage p{
+
+    font-size:.76rem;
+
+    line-height:1.72;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-curriculum .mhhm-head,
+  #mhhm-curriculum .mhhm-center,
+  #mhhm-curriculum .mhhm-stage{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-curriculum"
+  dir="rtl"
+  lang="ar"
+  aria-label="مراحل منهج الطمأنينة"
+>
+
+  <div class="mhhm-wrap">
+
+
+    <!-- ===============================================
+         HEADER
+    ================================================ -->
+
+    <div class="mhhm-head">
+
+
+      <div class="mhhm-kicker">
+
+        محتوى المنهج
+
+      </div>
+
+
+      <h2>
+
+        منهجية منطلقة من القرآن والهدي النبوي
+
+      </h2>
+
+
+      <p>
+
+        تخاطب الروح والفكر لبناء شخصية وعقلية
+        أكثر قوة واتزانا،
+        تستطيع التعامل مع تحديات العصر
+        بوعي أكبر.
+
+      </p>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         JOURNEY MAP
+    ================================================ -->
+
+    <div class="mhhm-board">
+
+
+      <!-- =============================================
+           CENTER
+      ============================================== -->
+
+      <div class="mhhm-center">
+
+
+        <div class="mhhm-centerLabel">
+
+          الهدف
+
+        </div>
+
+
+        <h3>
+
+          رحلة الطمأنينة
+
+        </h3>
+
+
+        <p>
+
+          رحلة متدرجة تبدأ بالفهم والوعي،
+          ثم تنتقل إلى بناء المهارات
+          وتطبيقها في الحياة اليومية.
+
+        </p>
+
+
+      </div>
+
+
+
+      <!-- =============================================
+           01
+      ============================================== -->
+
+      <article
+        class="
+          mhhm-stage
+          mhhm-stage--one
+        "
+        data-step="01"
+      >
+
+
+        <div class="mhhm-stageTop">
+
+          <span class="mhhm-number">
+            01
+          </span>
+
+          <span class="mhhm-stageType">
+            البداية
+          </span>
+
+        </div>
+
+
+        <h3>
+
+          البناء التأسيسي
+
+        </h3>
+
+
+        <p>
+
+          وقفة لتدبر حالة الإرهاق النفسي العامة
+          التي أصابت المجتمع،
+          وتحليل أسبابها وفهم جذورها،
+          ثم وضع الأساسيات العلمية والعملية
+          التي تساعد الإنسان على الخروج منها.
+
+        </p>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           02
+      ============================================== -->
+
+      <article
+        class="
+          mhhm-stage
+          mhhm-stage--two
+        "
+        data-step="02"
+      >
+
+
+        <div class="mhhm-stageTop">
+
+          <span class="mhhm-number">
+            02
+          </span>
+
+          <span class="mhhm-stageType">
+            التصورات
+          </span>
+
+        </div>
+
+
+        <h3>
+
+          التصورات الحكيمة
+
+        </h3>
+
+
+        <p>
+
+          لكي ينتقل الإنسان من حال نفسي إلى آخر،
+          يحتاج إلى بناء منظومة وعي جديدة
+          يرى ويفهم من خلالها نفسه والحياة
+          بصورة أكثر حكمة،
+          ويواجه بها تحديات الحياة.
+          ومن هنا تبدأ صناعة الصلابة النفسية.
+
+        </p>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           03
+      ============================================== -->
+
+      <article
+        class="
+          mhhm-stage
+          mhhm-stage--three
+        "
+        data-step="03"
+      >
+
+
+        <div class="mhhm-stageTop">
+
+          <span class="mhhm-number">
+            03
+          </span>
+
+          <span class="mhhm-stageType">
+            الذات
+          </span>
+
+        </div>
+
+
+        <h3>
+
+          المهارات الفردية
+
+        </h3>
+
+
+        <p>
+
+          بعد بناء الوعي ووضع أساس الصلابة النفسية،
+          يحتاج الإنسان إلى اكتساب مهارات القيادة الذاتية.
+          فأنت قائد في حياتك،
+          وعلى القائد أن يتعلم كيف يدير نفسه
+          وموارده وأفكاره
+          قبل أن يخرج للتعامل مع الآخرين.
+
+        </p>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           04
+      ============================================== -->
+
+      <article
+        class="
+          mhhm-stage
+          mhhm-stage--four
+        "
+        data-step="04"
+      >
+
+
+        <div class="mhhm-stageTop">
+
+          <span class="mhhm-number">
+            04
+          </span>
+
+          <span class="mhhm-stageType">
+            العلاقات
+          </span>
+
+        </div>
+
+
+        <h3>
+
+          المهارات الاجتماعية
+
+        </h3>
+
+
+        <p>
+
+          بعد أن يتمكن الإنسان من أدواته وموارده،
+          يأتي وقت التفاعل مع الآخرين بصورة مختلفة؛
+          لتحقيق التوازن بين الحفاظ على سلامة النفس
+          والحفاظ على حقوق الآخرين.
+
+          لذلك تعد تنمية المهارات الاجتماعية
+          والفهم العميق لطبيعة النفس البشرية
+          من أهم سبل الوصول إلى الطمأنينة.
+
+        </p>
+
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-curriculum'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var head =
+    section.querySelector(
+      '.mhhm-head'
+    );
+
+
+  var center =
+    section.querySelector(
+      '.mhhm-center'
+    );
+
+
+  var stages =
+    section.querySelectorAll(
+      '.mhhm-stage'
+    );
+
+
+  var all =
+    [head,center].filter(Boolean);
+
+
+
+  /* ======================================================
+     FALLBACK
+  ====================================================== */
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    all.forEach(
+
+      function(item){
+
+        item.classList.add(
+          'mhhm-visible'
+        );
+
+      }
+
+    );
+
+
+    stages.forEach(
+
+      function(item){
+
+        item.classList.add(
+          'mhhm-visible'
+        );
+
+      }
+
+    );
+
+
+    return;
+  }
+
+
+
+  /* ======================================================
+     HEADER
+  ====================================================== */
+
+  var headerObserver =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              entry.isIntersecting
+            ){
+
+              if(head){
+
+                head.classList.add(
+                  'mhhm-visible'
+                );
+
+              }
+
+
+              headerObserver.disconnect();
+
+            }
+
+          }
+
+        );
+
+      },
+
+      {
+        threshold:.2
+      }
+
+    );
+
+
+  if(head){
+
+    headerObserver.observe(
+      head
+    );
+
+  }
+
+
+
+  /* ======================================================
+     MAP
+  ====================================================== */
+
+  var board =
+    section.querySelector(
+      '.mhhm-board'
+    );
+
+
+  var mapObserver =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            if(center){
+
+              center.classList.add(
+                'mhhm-visible'
+              );
+
+            }
+
+
+            stages.forEach(
+
+              function(stage,index){
+
+                setTimeout(
+
+                  function(){
+
+                    stage.classList.add(
+                      'mhhm-visible'
+                    );
+
+                  },
+
+                  150 +
+                  (index * 130)
+
+                );
+
+              }
+
+            );
+
+
+            mapObserver.disconnect();
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.10,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  if(board){
+
+    mapObserver.observe(
+      board
+    );
+
+  }
+
+
+})();
+
+</script>

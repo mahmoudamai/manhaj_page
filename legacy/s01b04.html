@@ -1,0 +1,881 @@
+<!-- =========================================================
+     MHH MANHAJ | QUICK INFO
+     TRANSPARENT - USES PARENT SECTION BACKGROUND
+========================================================= -->
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+#mhhm-heroStats{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --blue-petrol:#294E63;
+
+  --navy:#354859;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+
+  --gold:#D3B267;
+
+  --ivory:#FBF7EF;
+  --paper:#FFFDF8;
+  --cloud:#EEF3F1;
+
+  --text:#5D6A70;
+
+  direction:rtl;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  position:relative;
+
+  width:100%;
+
+  overflow:hidden;
+
+  padding:
+    7px 18px 27px;
+
+  /* Parent GHL section background shows through */
+  background:transparent !important;
+}
+
+
+#mhhm-heroStats *,
+#mhhm-heroStats *::before,
+#mhhm-heroStats *::after{
+
+  box-sizing:border-box;
+
+}
+
+
+/* =========================================================
+   WRAPPER
+========================================================= */
+
+#mhhm-heroStats .wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:980px;
+
+  margin:0 auto;
+
+}
+
+
+/* =========================================================
+   MAIN INFORMATION RAIL
+========================================================= */
+
+#mhhm-heroStats .rail{
+
+  position:relative;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  overflow:hidden;
+
+  width:100%;
+
+  border:
+    1px solid rgba(167,188,166,.35);
+
+  border-radius:22px;
+
+  background:
+
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(142,201,196,.075),
+      transparent 40%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(255,253,248,.98),
+      rgba(248,247,241,.96)
+    );
+
+  box-shadow:
+
+    0 14px 38px rgba(53,72,89,.065),
+
+    inset 0 1px 0 rgba(255,255,255,.92);
+
+}
+
+
+/* subtle gold highlight */
+
+#mhhm-heroStats .rail::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+
+  left:12%;
+  right:12%;
+
+  height:1px;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(211,178,103,.52),
+      transparent
+    );
+
+}
+
+
+/* =========================================================
+   ITEMS
+========================================================= */
+
+#mhhm-heroStats .item{
+
+  position:relative;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:13px;
+
+  min-height:88px;
+
+  padding:
+    15px 19px;
+
+  text-align:right;
+
+  opacity:0;
+
+  transform:
+    translateY(15px);
+
+  transition:
+
+    opacity .64s ease,
+
+    transform .64s
+    cubic-bezier(.2,.72,.2,1),
+
+    background .25s ease;
+
+}
+
+
+/* vertical separators */
+
+#mhhm-heroStats .item:not(:last-child)::after{
+
+  content:"";
+
+  position:absolute;
+
+  top:24%;
+
+  left:0;
+
+  width:1px;
+
+  height:52%;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(167,188,166,.42),
+      transparent
+    );
+
+}
+
+
+#mhhm-heroStats .item.visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+#mhhm-heroStats .iconWrap{
+
+  position:relative;
+
+  flex:
+    0 0 43px;
+
+  width:43px;
+  height:43px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:14px;
+
+  color:#E7F4F1;
+
+  background:
+
+    radial-gradient(
+      circle at 30% 15%,
+      rgba(169,222,216,.15),
+      transparent 45%
+    ),
+
+    linear-gradient(
+      145deg,
+      var(--petrol-deep),
+      var(--petrol)
+    );
+
+  box-shadow:
+
+    0 8px 18px rgba(18,60,66,.16),
+
+    inset 0 1px 0 rgba(255,255,255,.07);
+
+}
+
+
+/* small gold accent */
+
+#mhhm-heroStats .iconWrap::after{
+
+  content:"";
+
+  position:absolute;
+
+  top:-3px;
+  right:-3px;
+
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:
+    var(--gold);
+
+  border:
+    2px solid var(--paper);
+
+  box-shadow:
+    0 2px 6px rgba(211,178,103,.22);
+
+}
+
+
+#mhhm-heroStats svg{
+
+  width:19px;
+
+  height:19px;
+
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+#mhhm-heroStats .info{
+
+  min-width:0;
+
+}
+
+
+#mhhm-heroStats strong{
+
+  display:block;
+
+  margin-bottom:3px;
+
+  color:
+    var(--navy);
+
+  font-size:.91rem;
+
+  line-height:1.35;
+
+  font-weight:900;
+
+}
+
+
+#mhhm-heroStats .value{
+
+  display:block;
+
+  color:
+    var(--text);
+
+  font-size:.75rem;
+
+  line-height:1.55;
+
+  font-weight:650;
+
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media(hover:hover){
+
+  #mhhm-heroStats .item:hover{
+
+    background:
+      rgba(234,244,240,.42);
+
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+  #mhhm-heroStats .rail{
+
+    max-width:850px;
+
+    margin:0 auto;
+
+  }
+
+
+  #mhhm-heroStats .item{
+
+    padding:
+      14px 13px;
+
+    gap:10px;
+
+  }
+
+
+  #mhhm-heroStats .iconWrap{
+
+    flex-basis:40px;
+
+    width:40px;
+    height:40px;
+
+  }
+
+
+  #mhhm-heroStats strong{
+
+    font-size:.86rem;
+
+  }
+
+
+  #mhhm-heroStats .value{
+
+    font-size:.70rem;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+  #mhhm-heroStats{
+
+    padding:
+      5px 11px 21px;
+
+  }
+
+
+  #mhhm-heroStats .wrap{
+
+    max-width:430px;
+
+  }
+
+
+  #mhhm-heroStats .rail{
+
+    grid-template-columns:1fr;
+
+    border-radius:18px;
+
+  }
+
+
+  #mhhm-heroStats .item{
+
+    justify-content:flex-start;
+
+    min-height:66px;
+
+    padding:
+      10px 14px;
+
+    gap:11px;
+
+  }
+
+
+  /* horizontal separators */
+
+  #mhhm-heroStats .item:not(:last-child)::after{
+
+    top:auto;
+
+    right:16px;
+    left:16px;
+
+    bottom:0;
+
+    width:auto;
+
+    height:1px;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(167,188,166,.38),
+        transparent
+      );
+
+  }
+
+
+  #mhhm-heroStats .iconWrap{
+
+    flex:
+      0 0 38px;
+
+    width:38px;
+    height:38px;
+
+    border-radius:12px;
+
+  }
+
+
+  #mhhm-heroStats svg{
+
+    width:17px;
+    height:17px;
+
+  }
+
+
+  #mhhm-heroStats strong{
+
+    margin-bottom:1px;
+
+    font-size:.84rem;
+
+  }
+
+
+  #mhhm-heroStats .value{
+
+    font-size:.69rem;
+
+    line-height:1.45;
+
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:390px){
+
+  #mhhm-heroStats{
+
+    padding:
+      4px 9px 19px;
+
+  }
+
+
+  #mhhm-heroStats .item{
+
+    min-height:62px;
+
+    padding:
+      9px 12px;
+
+  }
+
+
+  #mhhm-heroStats .iconWrap{
+
+    flex-basis:36px;
+
+    width:36px;
+    height:36px;
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-heroStats .item{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-heroStats"
+  dir="rtl"
+>
+
+  <div class="wrap">
+
+    <div class="rail">
+
+
+      <!-- DURATION -->
+
+      <div class="item">
+
+        <div class="iconWrap">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+
+            <circle
+              cx="12"
+              cy="12"
+              r="7"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+
+            <path
+              d="M12 8v4l3 2"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M8 3h8"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="info">
+
+          <strong>
+            مدة البرنامج
+          </strong>
+
+          <span class="value">
+            عام كامل
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- LEARNING METHOD -->
+
+      <div class="item">
+
+        <div class="iconWrap">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+
+            <path
+              d="M4 6.5A2.5 2.5 0 0 1 6.5 4H20v14.5A1.5 1.5 0 0 1 18.5 20H6.5A2.5 2.5 0 0 1 4 17.5v-11Z"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+
+            <path
+              d="M7 8h10M7 12h10M7 16h6"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="info">
+
+          <strong>
+            طريقة التعلم
+          </strong>
+
+          <span class="value">
+            مدمج: مسجل ومباشر
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- LECTURES -->
+
+      <div class="item">
+
+        <div class="iconWrap">
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+
+            <path
+              d="M7 7h10v10H7z"
+              stroke="currentColor"
+              stroke-width="1.8"
+            />
+
+            <path
+              d="M10 10h7M10 14h5"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M4 4h10v10H4z"
+              stroke="currentColor"
+              stroke-width="1.8"
+              opacity=".5"
+            />
+
+          </svg>
+
+        </div>
+
+
+        <div class="info">
+
+          <strong>
+            عدد المحاضرات
+          </strong>
+
+          <span class="value">
+            30 محاضرة + لقاءات مباشرة
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-heroStats'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var items =
+    section.querySelectorAll(
+      '.item'
+    );
+
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    items.forEach(
+      function(item){
+
+        item.classList.add(
+          'visible'
+        );
+
+      }
+    );
+
+    return;
+  }
+
+
+  var observer =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+          function(entry){
+
+            if(
+              entry.isIntersecting
+            ){
+
+              items.forEach(
+                function(item,index){
+
+                  setTimeout(
+
+                    function(){
+
+                      item
+                        .classList
+                        .add(
+                          'visible'
+                        );
+
+                    },
+
+                    index * 90
+
+                  );
+
+                }
+              );
+
+
+              observer.disconnect();
+
+            }
+
+          }
+        );
+
+      },
+
+      {
+
+        threshold:.16,
+
+        rootMargin:
+          '0px 0px -15px 0px'
+
+      }
+
+    );
+
+
+  observer.observe(
+    section
+  );
+
+})();
+
+</script>

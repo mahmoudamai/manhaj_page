@@ -1,0 +1,1997 @@
+<!-- =========================================================
+     MHH MANHAJ | OFFER
+     PRICE + WHAT'S INCLUDED + GUARANTEE
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-offer{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --blue-petrol:#294E63;
+
+  --navy:#354859;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --teal-bright:#A9DED8;
+
+  --gold:#D3B267;
+
+  --red:#FF3B30;
+  --red-dark:#E9342B;
+
+  --paper:#FFFDF8;
+  --ivory:#F2F4EE;
+
+  --text:#5D6A70;
+  --muted:#748086;
+
+  position:relative;
+
+  overflow:hidden;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:var(--navy);
+
+  padding:
+    86px 22px 92px;
+
+  background:
+
+  radial-gradient(
+    circle at 8% 10%,
+    rgba(142,201,196,.085),
+    transparent 28%
+  ),
+
+  radial-gradient(
+    circle at 94% 88%,
+    rgba(167,188,166,.065),
+    transparent 27%
+  ),
+
+  linear-gradient(
+    180deg,
+    #F4F5EF 0%,
+    #EFF3ED 52%,
+    #E8F0EB 100%
+  );}
+
+
+#mhhm-offer *,
+#mhhm-offer *::before,
+#mhhm-offer *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   AMBIENT
+========================================================= */
+
+#mhhm-offer::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:470px;
+  height:470px;
+
+  top:-315px;
+  left:-245px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(30,89,96,.045);
+
+  pointer-events:none;
+}
+
+
+#mhhm-offer::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:330px;
+  height:330px;
+
+  right:-190px;
+  bottom:-190px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(211,178,103,.07);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-offer .mhhm-wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:1100px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#mhhm-offer .mhhm-head{
+
+  max-width:790px;
+
+  margin:
+    0 auto 38px;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity .72s ease,
+    transform .72s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-offer
+.mhhm-head.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* kicker */
+
+#mhhm-offer .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:13px;
+
+  color:var(--petrol);
+
+  font-size:.76rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-offer
+.mhhm-kicker::before{
+
+  content:"";
+
+  width:27px;
+  height:1px;
+
+  flex:0 0 27px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30,89,96,.14),
+      var(--gold)
+    );
+}
+
+
+/* title */
+
+#mhhm-offer .mhhm-head h2{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.2rem
+    );
+
+  line-height:1.27;
+
+  letter-spacing:-.7px;
+
+  font-weight:900;
+}
+
+
+/* subtitle */
+
+#mhhm-offer .mhhm-head p{
+
+  max-width:690px;
+
+  margin:
+    14px auto 0;
+
+  color:var(--text);
+
+  font-size:
+    clamp(
+      .93rem,
+      1.4vw,
+      1.03rem
+    );
+
+  line-height:1.85;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   OFFER GRID
+========================================================= */
+
+#mhhm-offer .mhhm-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,.94fr)
+    minmax(0,1.06fr);
+
+  gap:17px;
+
+  align-items:stretch;
+
+  opacity:0;
+
+  transform:
+    translateY(20px);
+
+  transition:
+    opacity .78s ease,
+    transform .78s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-offer
+.mhhm-grid.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   PRICE SIDE
+========================================================= */
+
+#mhhm-offer .mhhm-priceCard{
+
+  position:relative;
+
+  overflow:hidden;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:center;
+
+  min-height:490px;
+
+  padding:
+    42px 38px 35px;
+
+  border-radius:29px;
+
+  border:
+    1px solid rgba(255,255,255,.11);
+
+  background:
+
+    radial-gradient(
+      circle at 13% 10%,
+      rgba(211,178,103,.13),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(169,222,216,.08),
+      transparent 28%
+    ),
+
+    linear-gradient(
+      135deg,
+      #102F35 0%,
+      #123C42 48%,
+      #1B5157 100%
+    );
+
+  box-shadow:
+    0 25px 62px
+    rgba(18,60,66,.18);
+
+  text-align:center;
+}
+
+
+/* decorative ring */
+
+#mhhm-offer
+.mhhm-priceCard::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:280px;
+  height:280px;
+
+  top:-190px;
+  left:-140px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(255,255,255,.045);
+
+  box-shadow:
+    0 0 0 42px
+    rgba(255,255,255,.012);
+
+  pointer-events:none;
+}
+
+
+/* saving badge */
+
+#mhhm-offer .mhhm-discount{
+
+  position:absolute;
+
+  top:20px;
+  right:20px;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:
+    7px 12px;
+
+  border-radius:999px;
+
+  background:var(--red);
+
+  color:#fff;
+
+  font-size:.70rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+
+  box-shadow:
+    0 10px 23px
+    rgba(255,59,48,.22);
+
+  animation:
+    mhhmOfferPulse
+    2.8s ease-in-out infinite;
+}
+
+
+/* price label */
+
+#mhhm-offer .mhhm-priceLabel{
+
+  margin-bottom:11px;
+
+  color:#DFC78F;
+
+  font-size:.69rem;
+
+  font-weight:900;
+}
+
+
+/* current price */
+
+#mhhm-offer .mhhm-price{
+
+  display:flex;
+
+  align-items:baseline;
+
+  justify-content:center;
+
+  gap:8px;
+
+  margin-bottom:11px;
+
+  color:#FFFDF8;
+
+  direction:rtl;
+}
+
+
+#mhhm-offer
+.mhhm-price strong{
+
+  font-size:
+    clamp(
+      4rem,
+      7vw,
+      5.6rem
+    );
+
+  line-height:.98;
+
+  letter-spacing:-2px;
+
+  font-weight:900;
+}
+
+
+#mhhm-offer
+.mhhm-price span{
+
+  color:#D5E6E2;
+
+  font-size:1.02rem;
+
+  font-weight:900;
+}
+
+
+/* old price */
+
+#mhhm-offer .mhhm-oldPrice{
+
+  color:
+    rgba(255,253,248,.58);
+
+  font-size:.80rem;
+
+  line-height:1.6;
+
+  font-weight:600;
+}
+
+
+#mhhm-offer
+.mhhm-oldPrice del{
+
+  display:inline-block;
+
+  margin-right:4px;
+
+  color:
+    rgba(255,253,248,.70);
+
+  font-size:1rem;
+
+  font-weight:900;
+
+  text-decoration-line:
+    line-through;
+
+  text-decoration-color:
+    #FF6B63;
+
+  text-decoration-thickness:
+    2px;
+
+  text-decoration-skip-ink:none;
+}
+
+
+/* saving */
+
+#mhhm-offer .mhhm-saving{
+
+  display:inline-flex;
+
+  align-self:center;
+
+  margin-top:14px;
+
+  padding:
+    7px 12px;
+
+  border:
+    1px solid rgba(211,178,103,.18);
+
+  border-radius:999px;
+
+  background:
+    rgba(211,178,103,.08);
+
+  color:#E4CC96;
+
+  font-size:.67rem;
+
+  font-weight:900;
+}
+
+
+/* CTA */
+
+#mhhm-offer .mhhm-cta{
+
+  width:min(100%,340px);
+
+  margin:
+    24px auto 0;
+
+  padding:
+    15px 22px;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:8px;
+
+  border:
+    1px solid var(--red);
+
+  border-radius:15px;
+
+  background:var(--red);
+
+  color:#fff !important;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  font-size:.98rem;
+
+  line-height:1.5;
+
+  font-weight:900;
+
+  text-decoration:none !important;
+
+  box-shadow:
+    0 14px 30px
+    rgba(255,59,48,.27);
+
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    box-shadow .2s ease;
+}
+
+
+#mhhm-offer .mhhm-cta svg{
+
+  width:18px;
+  height:18px;
+
+  fill:none;
+
+  stroke:currentColor;
+
+  stroke-width:2;
+
+  stroke-linecap:round;
+
+  stroke-linejoin:round;
+}
+
+
+/* =========================================================
+   TRUST
+========================================================= */
+
+#mhhm-offer .mhhm-trust{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  justify-content:center;
+
+  gap:7px 13px;
+
+  margin-top:15px;
+}
+
+
+#mhhm-offer .mhhm-trust span{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:6px;
+
+  color:
+    rgba(255,253,248,.60);
+
+  font-size:.59rem;
+
+  line-height:1.5;
+
+  font-weight:700;
+}
+
+
+#mhhm-offer
+.mhhm-trust span::before{
+
+  content:"";
+
+  width:5px;
+  height:5px;
+
+  border-radius:50%;
+
+  background:var(--sage);
+}
+
+
+/* =========================================================
+   DETAILS CARD
+========================================================= */
+
+#mhhm-offer .mhhm-detailsCard{
+
+  display:flex;
+
+  flex-direction:column;
+
+  min-height:490px;
+
+  padding:
+    34px 31px 29px;
+
+  border-radius:29px;
+
+  border:
+    1px solid rgba(30,89,96,.10);
+
+  background:
+
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(167,188,166,.11),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(255,253,248,.98),
+      rgba(246,247,239,.96)
+    );
+
+  box-shadow:
+    0 16px 42px
+    rgba(53,72,89,.055);
+}
+
+
+/* heading */
+
+#mhhm-offer .mhhm-detailsKicker{
+
+  display:block;
+
+  margin-bottom:6px;
+
+  color:#947A49;
+
+  font-size:.65rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-offer .mhhm-detailsCard h3{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      1.25rem,
+      2.2vw,
+      1.65rem
+    );
+
+  line-height:1.48;
+
+  font-weight:900;
+}
+
+
+#mhhm-offer .mhhm-detailsIntro{
+
+  margin:
+    7px 0 19px;
+
+  color:#6B7975;
+
+  font-size:.75rem;
+
+  line-height:1.7;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   ITEMS
+========================================================= */
+
+#mhhm-offer .mhhm-items{
+
+  display:grid;
+
+  gap:0;
+
+  margin-top:auto;
+}
+
+
+#mhhm-offer .mhhm-item{
+
+  display:grid;
+
+  grid-template-columns:
+    39px minmax(0,1fr);
+
+  gap:12px;
+
+  align-items:start;
+
+  padding:
+    15px 0;
+
+  border-top:
+    1px solid rgba(30,89,96,.09);
+}
+
+
+#mhhm-offer .mhhm-itemIcon{
+
+  width:38px;
+  height:38px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:12px;
+
+  background:
+    rgba(167,188,166,.11);
+
+  color:var(--petrol);
+}
+
+
+#mhhm-offer
+.mhhm-itemIcon svg{
+
+  width:19px;
+  height:19px;
+
+  fill:none;
+
+  stroke:currentColor;
+
+  stroke-width:1.7;
+
+  stroke-linecap:round;
+
+  stroke-linejoin:round;
+}
+
+
+#mhhm-offer .mhhm-item strong{
+
+  display:block;
+
+  margin-bottom:3px;
+
+  color:var(--petrol-deep);
+
+  font-size:.82rem;
+
+  line-height:1.5;
+
+  font-weight:900;
+}
+
+
+#mhhm-offer .mhhm-item p{
+
+  margin:0;
+
+  color:#6B7975;
+
+  font-size:.68rem;
+
+  line-height:1.63;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   GUARANTEE STRIP
+========================================================= */
+
+#mhhm-offer .mhhm-guarantee{
+
+  display:grid;
+
+  grid-template-columns:
+    43px minmax(0,1fr);
+
+  gap:12px;
+
+  align-items:center;
+
+  margin-top:17px;
+
+  padding:
+    14px 15px;
+
+  border:
+    1px solid rgba(30,89,96,.10);
+
+  border-radius:15px;
+
+  background:
+    rgba(167,188,166,.08);
+}
+
+
+#mhhm-offer
+.mhhm-guaranteeIcon{
+
+  width:41px;
+  height:41px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--petrol-deep),
+      var(--petrol)
+    );
+
+  color:#E5CD97;
+}
+
+
+#mhhm-offer
+.mhhm-guaranteeIcon svg{
+
+  width:20px;
+  height:20px;
+
+  fill:none;
+
+  stroke:currentColor;
+
+  stroke-width:1.8;
+
+  stroke-linecap:round;
+
+  stroke-linejoin:round;
+}
+
+
+#mhhm-offer
+.mhhm-guarantee strong{
+
+  display:block;
+
+  color:var(--petrol-deep);
+
+  font-size:.75rem;
+
+  line-height:1.5;
+
+  font-weight:900;
+}
+
+
+#mhhm-offer
+.mhhm-guarantee p{
+
+  margin:
+    2px 0 0;
+
+  color:#6B7975;
+
+  font-size:.63rem;
+
+  line-height:1.6;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   BOTTOM LINE
+========================================================= */
+
+#mhhm-offer .mhhm-bottom{
+
+  max-width:760px;
+
+  margin:
+    27px auto 0;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(13px);
+
+  transition:
+    opacity .68s ease,
+    transform .68s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-offer
+.mhhm-bottom.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-offer .mhhm-bottom p{
+
+  margin:0;
+
+  color:#697772;
+
+  font-size:.73rem;
+
+  line-height:1.75;
+
+  font-weight:600;
+}
+
+
+#mhhm-offer
+.mhhm-bottom strong{
+
+  color:var(--petrol-deep);
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   MOTION
+========================================================= */
+
+@keyframes mhhmOfferPulse{
+
+  0%,
+  100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.035);
+  }
+
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media(hover:hover){
+
+  #mhhm-offer
+  .mhhm-cta:hover{
+
+    transform:
+      translateY(-2px);
+
+    background:var(--red-dark);
+
+    border-color:var(--red-dark);
+
+    box-shadow:
+      0 18px 36px
+      rgba(255,59,48,.34);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:860px){
+
+  #mhhm-offer{
+
+    padding:
+      72px 18px 78px;
+  }
+
+
+  #mhhm-offer .mhhm-grid{
+
+    grid-template-columns:1fr;
+  }
+
+
+  #mhhm-offer .mhhm-priceCard,
+  #mhhm-offer .mhhm-detailsCard{
+
+    min-height:auto;
+  }
+
+
+  #mhhm-offer .mhhm-priceCard{
+
+    padding:
+      54px 28px 32px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:560px){
+
+  #mhhm-offer{
+
+    padding:
+      56px 13px 62px;
+  }
+
+
+  #mhhm-offer .mhhm-head{
+
+    margin-bottom:29px;
+  }
+
+
+  #mhhm-offer .mhhm-kicker{
+
+    margin-bottom:9px;
+
+    font-size:.67rem;
+
+    gap:7px;
+  }
+
+
+  #mhhm-offer
+  .mhhm-kicker::before{
+
+    width:20px;
+
+    flex-basis:20px;
+  }
+
+
+  #mhhm-offer
+  .mhhm-head h2{
+
+    font-size:1.82rem;
+  }
+
+
+  #mhhm-offer
+  .mhhm-head p{
+
+    margin-top:10px;
+
+    font-size:.81rem;
+
+    line-height:1.74;
+  }
+
+
+  #mhhm-offer .mhhm-grid{
+
+    gap:11px;
+  }
+
+
+  /* price */
+
+  #mhhm-offer .mhhm-priceCard{
+
+    padding:
+      51px 17px 24px;
+
+    border-radius:22px;
+  }
+
+
+  #mhhm-offer .mhhm-discount{
+
+    top:14px;
+    right:14px;
+
+    padding:
+      6px 10px;
+
+    font-size:.62rem;
+  }
+
+
+  #mhhm-offer
+  .mhhm-price strong{
+
+    font-size:3.8rem;
+  }
+
+
+  #mhhm-offer
+  .mhhm-price span{
+
+    font-size:.88rem;
+  }
+
+
+  #mhhm-offer .mhhm-priceLabel{
+
+    font-size:.62rem;
+  }
+
+
+  #mhhm-offer .mhhm-oldPrice{
+
+    font-size:.71rem;
+  }
+
+
+  #mhhm-offer
+  .mhhm-oldPrice del{
+
+    font-size:.91rem;
+  }
+
+
+  #mhhm-offer .mhhm-saving{
+
+    font-size:.60rem;
+  }
+
+
+  #mhhm-offer .mhhm-cta{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:
+      14px 16px;
+
+    font-size:.89rem;
+  }
+
+
+  #mhhm-offer .mhhm-trust{
+
+    gap:
+      5px 11px;
+  }
+
+
+  #mhhm-offer
+  .mhhm-trust span{
+
+    font-size:.53rem;
+  }
+
+
+  /* details */
+
+  #mhhm-offer .mhhm-detailsCard{
+
+    padding:
+      24px 18px 19px;
+
+    border-radius:22px;
+  }
+
+
+  #mhhm-offer
+  .mhhm-detailsCard h3{
+
+    font-size:1.19rem;
+  }
+
+
+  #mhhm-offer .mhhm-item{
+
+    grid-template-columns:
+      34px minmax(0,1fr);
+
+    gap:10px;
+
+    padding:
+      13px 0;
+  }
+
+
+  #mhhm-offer .mhhm-itemIcon{
+
+    width:33px;
+    height:33px;
+
+    border-radius:10px;
+  }
+
+
+  #mhhm-offer
+  .mhhm-itemIcon svg{
+
+    width:17px;
+    height:17px;
+  }
+
+
+  #mhhm-offer
+  .mhhm-item strong{
+
+    font-size:.74rem;
+  }
+
+
+  #mhhm-offer .mhhm-item p{
+
+    font-size:.61rem;
+  }
+
+
+  #mhhm-offer .mhhm-guarantee{
+
+    grid-template-columns:
+      37px minmax(0,1fr);
+
+    padding:
+      12px;
+  }
+
+
+  #mhhm-offer
+  .mhhm-guaranteeIcon{
+
+    width:36px;
+    height:36px;
+
+    border-radius:11px;
+  }
+
+
+  #mhhm-offer
+  .mhhm-guarantee strong{
+
+    font-size:.69rem;
+  }
+
+
+  #mhhm-offer
+  .mhhm-guarantee p{
+
+    font-size:.57rem;
+  }
+
+
+  #mhhm-offer .mhhm-bottom{
+
+    margin-top:22px;
+  }
+
+
+  #mhhm-offer
+  .mhhm-bottom p{
+
+    font-size:.66rem;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-offer .mhhm-head,
+  #mhhm-offer .mhhm-grid,
+  #mhhm-offer .mhhm-bottom{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+
+  #mhhm-offer .mhhm-discount{
+
+    animation:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-offer"
+  dir="rtl"
+  lang="ar"
+  aria-label="الاشتراك في منهج الطمأنينة"
+>
+
+  <div class="mhhm-wrap">
+
+
+    <!-- ===============================================
+         HEADER
+    ================================================ -->
+
+    <header class="mhhm-head">
+
+
+      <div class="mhhm-kicker">
+
+        السعر الحالي لمنهج الطمأنينة
+
+      </div>
+
+
+      <h2>
+
+        ابدأ رحلة عام كامل
+        مع منهج الطمأنينة
+
+      </h2>
+
+
+      <p>
+
+        تحصل على الوصول إلى محتوى المنهج
+        وما يضاف إليه تدريجيا من محاضرات ولقاءات
+        وتطبيقات خلال عام الاشتراك.
+
+      </p>
+
+
+    </header>
+
+
+
+    <!-- ===============================================
+         MAIN GRID
+    ================================================ -->
+
+    <div class="mhhm-grid">
+
+
+      <!-- =============================================
+           PRICE
+      ============================================== -->
+
+      <div class="mhhm-priceCard">
+
+
+        <div class="mhhm-discount">
+
+          خصم أكثر من 20%
+
+        </div>
+
+
+        <div class="mhhm-priceLabel">
+
+          قيمة الاشتراك الحالية
+
+        </div>
+
+
+        <div class="mhhm-price">
+
+          <strong>
+            7,500
+          </strong>
+
+          <span>
+            جنيه
+          </span>
+
+        </div>
+
+
+        <div class="mhhm-oldPrice">
+
+          بدلا من
+
+          <del>
+            9,500 جنيه
+          </del>
+
+        </div>
+
+
+        <div class="mhhm-saving">
+
+          وفر 2,000 جنيه
+
+        </div>
+
+
+
+        <a
+          href="https://courses.mentalhealthmena.com/manhaj/checkout"
+          class="mhhm-cta"
+        >
+
+          <span>
+            ابدأ رحلتك الآن
+          </span>
+
+
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+
+            <path
+              d="M15 6 9 12l6 6"
+            />
+
+          </svg>
+
+
+        </a>
+
+
+
+        <div class="mhhm-trust">
+
+          <span>
+            وصول لمدة عام كامل
+          </span>
+
+          <span>
+            ضمان استرجاع خلال 7 أيام
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- =============================================
+           DETAILS
+      ============================================== -->
+
+      <div class="mhhm-detailsCard">
+
+
+        <span class="mhhm-detailsKicker">
+
+          ماذا يشمل اشتراكك؟
+
+        </span>
+
+
+        <h3>
+
+          تجربة متكاملة تمتد معك
+          طوال رحلة العام
+
+        </h3>
+
+
+        <p class="mhhm-detailsIntro">
+
+          كل جزء من التجربة يعمل مع الآخر:
+          محتوى تتعلم منه، تطبيقات تراجع بها،
+          ومساحات للحوار والتفاعل.
+
+        </p>
+
+
+
+        <div class="mhhm-items">
+
+
+          <!-- 01 -->
+
+          <div class="mhhm-item">
+
+
+            <div
+              class="mhhm-itemIcon"
+              aria-hidden="true"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+              >
+
+                <rect
+                  x="4"
+                  y="5"
+                  width="16"
+                  height="14"
+                  rx="3"
+                />
+
+                <path
+                  d="m10 9 5 3-5 3V9"
+                />
+
+              </svg>
+
+            </div>
+
+
+            <div>
+
+              <strong>
+                محاضرات منهج الطمأنينة
+              </strong>
+
+              <p>
+                محتوى مسجل يضاف تدريجيا
+                ضمن المسار المتكامل للمنهج.
+              </p>
+
+            </div>
+
+
+          </div>
+
+
+
+          <!-- 02 -->
+
+          <div class="mhhm-item">
+
+
+            <div
+              class="mhhm-itemIcon"
+              aria-hidden="true"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+              >
+
+                <path
+                  d="M7 18c-2 0-3-1.2-3-3V8c0-1.8 1-3 3-3h7c2 0 3 1.2 3 3v7c0 1.8-1 3-3 3H7Z"
+                />
+
+                <path
+                  d="m17 10 3-2v8l-3-2"
+                />
+
+              </svg>
+
+            </div>
+
+
+            <div>
+
+              <strong>
+                لقاءات تفاعلية مباشرة
+              </strong>
+
+              <p>
+                محطات للمراجعة والأسئلة
+                والتفاعل مع تقدم المحتوى.
+              </p>
+
+            </div>
+
+
+          </div>
+
+
+
+          <!-- 03 -->
+
+          <div class="mhhm-item">
+
+
+            <div
+              class="mhhm-itemIcon"
+              aria-hidden="true"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+              >
+
+                <path
+                  d="M7 4h8l3 3v13H7V4Z"
+                />
+
+                <path
+                  d="M15 4v4h4M10 12h5M10 16h4"
+                />
+
+              </svg>
+
+            </div>
+
+
+            <div>
+
+              <strong>
+                ملفات وتطبيقات رياضة الفكر
+              </strong>
+
+              <p>
+                أسئلة ومساحات للتأمل والكتابة
+                وربط ما تتعلمه بتجربتك.
+              </p>
+
+            </div>
+
+
+          </div>
+
+
+
+          <!-- 04 -->
+
+          <div class="mhhm-item">
+
+
+            <div
+              class="mhhm-itemIcon"
+              aria-hidden="true"
+            >
+
+              <svg
+                viewBox="0 0 24 24"
+              >
+
+                <path
+                  d="M20 11.5c0 4-3.5 7.3-8 7.3-1.1 0-2.1-.2-3.1-.6L4 20l1.5-3.9A7 7 0 0 1 4 11.5C4 7.4 7.6 4 12 4s8 3.4 8 7.5Z"
+                />
+
+                <path
+                  d="M8 10h8M8 14h5"
+                />
+
+              </svg>
+
+            </div>
+
+
+            <div>
+
+              <strong>
+                مساحة خاصة للتواصل
+              </strong>
+
+              <p>
+                أسئلة وتأملات ورسائل صوتية
+                ومكتوبة ترافق مراحل الرحلة.
+              </p>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- =========================================
+             GUARANTEE
+        ========================================== -->
+
+        <div class="mhhm-guarantee">
+
+
+          <div
+            class="mhhm-guaranteeIcon"
+            aria-hidden="true"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+            >
+
+              <path
+                d="M12 3 19 6v5c0 4.8-3 8.3-7 10-4-1.7-7-5.2-7-10V6l7-3Z"
+              />
+
+              <path
+                d="m9 12 2 2 4-4"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <div>
+
+            <strong>
+              جرب المنهج لمدة 7 أيام
+            </strong>
+
+            <p>
+              يمكنك طلب استرداد كامل لقيمة الاشتراك
+              خلال أول 7 أيام.
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         BOTTOM
+    ================================================ -->
+
+    <div class="mhhm-bottom">
+
+      <p>
+
+        الاشتراك يمنحك الوصول لمدة عام كامل،
+        <strong>مع استمرار إضافة محتوى جديد تدريجيا خلال رحلتك.</strong>
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-offer'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var head =
+    section.querySelector(
+      '.mhhm-head'
+    );
+
+
+  var grid =
+    section.querySelector(
+      '.mhhm-grid'
+    );
+
+
+  var bottom =
+    section.querySelector(
+      '.mhhm-bottom'
+    );
+
+
+
+  function showAll(){
+
+    [
+      head,
+      grid,
+      bottom
+    ].forEach(
+
+      function(item){
+
+        if(item){
+
+          item.classList.add(
+            'mhhm-visible'
+          );
+
+        }
+
+      }
+
+    );
+
+  }
+
+
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    showAll();
+
+    return;
+  }
+
+
+
+  var observer =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            entry.target.classList.add(
+              'mhhm-visible'
+            );
+
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.12,
+
+        rootMargin:
+          '0px 0px -30px 0px'
+
+      }
+
+    );
+
+
+  [
+    head,
+    grid,
+    bottom
+  ].forEach(
+
+    function(item){
+
+      if(item){
+
+        observer.observe(
+          item
+        );
+
+      }
+
+    }
+
+  );
+
+
+})();
+
+</script>

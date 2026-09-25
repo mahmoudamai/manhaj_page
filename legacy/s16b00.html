@@ -1,0 +1,1915 @@
+<!-- =========================================================
+     MHH MANHAJ | YEAR JOURNEY
+     HOW THE EXPERIENCE UNFOLDS
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-yearJourney{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --blue-petrol:#294E63;
+
+  --navy:#354859;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --teal-bright:#A9DED8;
+
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+  --ivory:#F7F3EA;
+
+  --text:#5D6A70;
+  --muted:#748086;
+
+  position:relative;
+
+  overflow:hidden;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:var(--navy);
+
+  padding:
+    82px 22px 88px;
+
+  background:
+
+    radial-gradient(
+      circle at 8% 12%,
+      rgba(142,201,196,.11),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 94% 88%,
+      rgba(211,178,103,.055),
+      transparent 26%
+    ),
+
+    linear-gradient(
+      180deg,
+      #E4ECE6 0%,
+      #E9EFE9 50%,
+      #F1F2EA 100%
+    );
+}
+
+
+#mhhm-yearJourney *,
+#mhhm-yearJourney *::before,
+#mhhm-yearJourney *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   AMBIENT
+========================================================= */
+
+#mhhm-yearJourney::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:430px;
+  height:430px;
+
+  top:-285px;
+  left:-225px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(30,89,96,.045);
+
+  pointer-events:none;
+}
+
+
+#mhhm-yearJourney::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:320px;
+  height:320px;
+
+  right:-190px;
+  bottom:-185px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(211,178,103,.07);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-yearJourney .mhhm-wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:1120px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#mhhm-yearJourney .mhhm-head{
+
+  max-width:830px;
+
+  margin:
+    0 auto 45px;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity .72s ease,
+    transform .72s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-yearJourney
+.mhhm-head.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* kicker */
+
+#mhhm-yearJourney .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:13px;
+
+  color:var(--petrol);
+
+  font-size:.77rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-yearJourney
+.mhhm-kicker::before{
+
+  content:"";
+
+  width:27px;
+  height:1px;
+
+  flex:0 0 27px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30,89,96,.13),
+      var(--gold)
+    );
+}
+
+
+/* title */
+
+#mhhm-yearJourney h2{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.15rem
+    );
+
+  line-height:1.27;
+
+  letter-spacing:-.7px;
+
+  font-weight:900;
+
+  text-wrap:balance;
+}
+
+
+/* intro */
+
+#mhhm-yearJourney .mhhm-head p{
+
+  max-width:730px;
+
+  margin:
+    14px auto 0;
+
+  color:var(--text);
+
+  font-size:
+    clamp(
+      .94rem,
+      1.45vw,
+      1.05rem
+    );
+
+  line-height:1.86;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   YEAR LABEL
+========================================================= */
+
+#mhhm-yearJourney .mhhm-yearLabel{
+
+  display:flex;
+
+  justify-content:center;
+
+  margin:
+    -18px auto 30px;
+
+  opacity:0;
+
+  transform:
+    translateY(12px);
+
+  transition:
+    opacity .65s ease,
+    transform .65s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-yearJourney
+.mhhm-yearLabel.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-yearJourney
+.mhhm-yearLabel span{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  padding:
+    7px 12px;
+
+  border-radius:999px;
+
+  border:
+    1px solid rgba(30,89,96,.10);
+
+  background:
+    rgba(255,253,248,.43);
+
+  color:#718079;
+
+  font-size:.62rem;
+
+  font-weight:800;
+}
+
+
+#mhhm-yearJourney
+.mhhm-yearLabel span::before{
+
+  content:"";
+
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:var(--sage);
+
+  box-shadow:
+    0 0 0 5px
+    rgba(167,188,166,.09);
+}
+
+
+/* =========================================================
+   JOURNEY PATH
+========================================================= */
+
+#mhhm-yearJourney .mhhm-path{
+
+  position:relative;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,minmax(0,1fr));
+
+  gap:16px;
+}
+
+
+/* horizontal path */
+
+#mhhm-yearJourney
+.mhhm-path::before{
+
+  content:"";
+
+  position:absolute;
+
+  z-index:0;
+
+  top:38px;
+
+  right:7%;
+  left:7%;
+
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(30,89,96,.18) 12%,
+      rgba(30,89,96,.22) 50%,
+      rgba(30,89,96,.18) 88%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+#mhhm-yearJourney .mhhm-card{
+
+  position:relative;
+
+  z-index:1;
+
+  display:flex;
+
+  flex-direction:column;
+
+  min-height:285px;
+
+  padding:
+    24px 21px 20px;
+
+  overflow:hidden;
+
+  border-radius:22px;
+
+  border:
+    1px solid rgba(30,89,96,.10);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,253,248,.96),
+      rgba(247,248,241,.94)
+    );
+
+  box-shadow:
+    0 13px 32px
+    rgba(53,72,89,.055);
+
+  opacity:0;
+
+  transform:
+    translateY(22px)
+    scale(.985);
+
+  transition:
+
+    opacity .68s ease,
+
+    transform .68s
+      cubic-bezier(.2,.72,.2,1),
+
+    box-shadow .23s ease,
+
+    border-color .23s ease;
+}
+
+
+#mhhm-yearJourney
+.mhhm-card.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* signature */
+
+#mhhm-yearJourney .mhhm-card::after{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  right:20px;
+
+  width:44px;
+  height:2px;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      var(--petrol)
+    );
+}
+
+
+/* =========================================================
+   TOP
+========================================================= */
+
+#mhhm-yearJourney .mhhm-cardTop{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:11px;
+
+  margin-bottom:18px;
+}
+
+
+/* icon */
+
+#mhhm-yearJourney .mhhm-icon{
+
+  flex:0 0 46px;
+
+  width:46px;
+  height:46px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:15px;
+
+  border:
+    1px solid rgba(30,89,96,.10);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(142,201,196,.14),
+      rgba(167,188,166,.08)
+    );
+
+  color:var(--petrol);
+
+  box-shadow:
+    0 8px 20px
+    rgba(53,72,89,.05);
+}
+
+
+#mhhm-yearJourney
+.mhhm-icon svg{
+
+  width:22px;
+  height:22px;
+}
+
+
+/* step */
+
+#mhhm-yearJourney .mhhm-step{
+
+  display:block;
+
+  margin-bottom:2px;
+
+  color:#957C4A;
+
+  font-size:.55rem;
+
+  font-weight:900;
+}
+
+
+/* title */
+
+#mhhm-yearJourney .mhhm-card h3{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:.98rem;
+
+  line-height:1.45;
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+#mhhm-yearJourney .mhhm-card > p{
+
+  margin:
+    0 0 15px;
+
+  color:#687773;
+
+  font-size:.76rem;
+
+  line-height:1.72;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   LIST
+========================================================= */
+
+#mhhm-yearJourney ul{
+
+  display:grid;
+
+  gap:8px;
+
+  margin:0;
+
+  padding:0;
+
+  list-style:none;
+}
+
+
+#mhhm-yearJourney li{
+
+  position:relative;
+
+  padding-right:17px;
+
+  color:#62716D;
+
+  font-size:.72rem;
+
+  line-height:1.65;
+
+  font-weight:600;
+}
+
+
+#mhhm-yearJourney
+li::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:.72em;
+  right:0;
+
+  width:6px;
+  height:6px;
+
+  border-radius:50%;
+
+  background:var(--sage);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(167,188,166,.08);
+}
+
+
+/* =========================================================
+   RESULT TAG
+========================================================= */
+
+#mhhm-yearJourney .mhhm-tag{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:6px;
+
+  align-self:flex-start;
+
+  margin-top:auto;
+
+  padding:
+    6px 9px;
+
+  border-radius:999px;
+
+  border:
+    1px solid rgba(30,89,96,.09);
+
+  background:
+    rgba(167,188,166,.09);
+
+  color:var(--petrol);
+
+  font-size:.58rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   CLOSING BAND
+========================================================= */
+
+#mhhm-yearJourney .mhhm-closing{
+
+  display:grid;
+
+  grid-template-columns:
+    auto minmax(0,1fr);
+
+  gap:15px;
+
+  align-items:center;
+
+  max-width:850px;
+
+  margin:
+    26px auto 0;
+
+  padding:
+    18px 20px;
+
+  border-radius:18px;
+
+  border:
+    1px solid rgba(30,89,96,.10);
+
+  background:
+    rgba(255,253,248,.39);
+
+  opacity:0;
+
+  transform:
+    translateY(15px);
+
+  transition:
+    opacity .68s ease,
+    transform .68s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-yearJourney
+.mhhm-closing.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-yearJourney .mhhm-closingIcon{
+
+  width:39px;
+  height:39px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--petrol-deep),
+      var(--petrol)
+    );
+
+  color:#E5CC95;
+
+  font-size:.82rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-yearJourney
+.mhhm-closing p{
+
+  margin:0;
+
+  color:#61716C;
+
+  font-size:.76rem;
+
+  line-height:1.7;
+
+  font-weight:600;
+}
+
+
+#mhhm-yearJourney
+.mhhm-closing strong{
+
+  color:var(--petrol-deep);
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media(hover:hover){
+
+  #mhhm-yearJourney
+  .mhhm-card.mhhm-visible:hover{
+
+    transform:
+      translateY(-5px);
+
+    border-color:
+      rgba(30,89,96,.20);
+
+    box-shadow:
+      0 20px 44px
+      rgba(53,72,89,.09);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+  #mhhm-yearJourney{
+
+    padding:
+      72px 18px 78px;
+  }
+
+
+  #mhhm-yearJourney .mhhm-path{
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+
+  #mhhm-yearJourney
+  .mhhm-path::before{
+
+    display:none;
+  }
+
+
+  #mhhm-yearJourney .mhhm-card{
+
+    min-height:260px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:620px){
+
+  #mhhm-yearJourney{
+
+    padding:
+      56px 14px 62px;
+  }
+
+
+  #mhhm-yearJourney .mhhm-head{
+
+    margin-bottom:30px;
+  }
+
+
+  #mhhm-yearJourney .mhhm-kicker{
+
+    margin-bottom:9px;
+
+    font-size:.67rem;
+
+    gap:7px;
+  }
+
+
+  #mhhm-yearJourney
+  .mhhm-kicker::before{
+
+    width:20px;
+
+    flex-basis:20px;
+  }
+
+
+  #mhhm-yearJourney h2{
+
+    font-size:1.82rem;
+
+    line-height:1.28;
+  }
+
+
+  #mhhm-yearJourney
+  .mhhm-head p{
+
+    margin-top:11px;
+
+    font-size:.82rem;
+
+    line-height:1.75;
+  }
+
+
+  #mhhm-yearJourney
+  .mhhm-yearLabel{
+
+    margin:
+      -11px auto 23px;
+  }
+
+
+  #mhhm-yearJourney .mhhm-path{
+
+    grid-template-columns:1fr;
+
+    gap:11px;
+
+    padding-right:22px;
+  }
+
+
+  /* vertical line */
+
+  #mhhm-yearJourney
+  .mhhm-path::before{
+
+    display:block;
+
+    top:0;
+    bottom:0;
+
+    right:7px;
+    left:auto;
+
+    width:1px;
+    height:auto;
+
+    background:
+      linear-gradient(
+        180deg,
+        transparent,
+        rgba(30,89,96,.20) 8%,
+        rgba(30,89,96,.20) 92%,
+        transparent
+      );
+  }
+
+
+  #mhhm-yearJourney .mhhm-card{
+
+    min-height:0;
+
+    padding:
+      18px 16px;
+
+    border-radius:18px;
+  }
+
+
+  #mhhm-yearJourney
+  .mhhm-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:29px;
+    right:-19px;
+
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+
+    background:var(--petrol);
+
+    box-shadow:
+      0 0 0 5px
+      #E6EDE7;
+
+    z-index:5;
+  }
+
+
+  #mhhm-yearJourney
+  .mhhm-cardTop{
+
+    margin-bottom:12px;
+  }
+
+
+  #mhhm-yearJourney .mhhm-icon{
+
+    flex-basis:41px;
+
+    width:41px;
+    height:41px;
+
+    border-radius:13px;
+  }
+
+
+  #mhhm-yearJourney
+  .mhhm-icon svg{
+
+    width:19px;
+    height:19px;
+  }
+
+
+  #mhhm-yearJourney .mhhm-card h3{
+
+    font-size:.88rem;
+  }
+
+
+  #mhhm-yearJourney
+  .mhhm-card > p{
+
+    margin-bottom:11px;
+
+    font-size:.68rem;
+
+    line-height:1.64;
+  }
+
+
+  #mhhm-yearJourney li{
+
+    font-size:.66rem;
+
+    line-height:1.58;
+  }
+
+
+  #mhhm-yearJourney .mhhm-tag{
+
+    margin-top:13px;
+
+    font-size:.54rem;
+  }
+
+
+  #mhhm-yearJourney .mhhm-closing{
+
+    grid-template-columns:
+      35px minmax(0,1fr);
+
+    gap:11px;
+
+    margin-top:23px;
+
+    padding:
+      15px;
+
+    border-radius:16px;
+  }
+
+
+  #mhhm-yearJourney .mhhm-closingIcon{
+
+    width:34px;
+    height:34px;
+
+    border-radius:11px;
+
+    font-size:.70rem;
+  }
+
+
+  #mhhm-yearJourney
+  .mhhm-closing p{
+
+    font-size:.67rem;
+
+    line-height:1.64;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-yearJourney .mhhm-head,
+  #mhhm-yearJourney .mhhm-yearLabel,
+  #mhhm-yearJourney .mhhm-card,
+  #mhhm-yearJourney .mhhm-closing{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-yearJourney"
+  dir="rtl"
+  lang="ar"
+  aria-label="تجربة عام كامل داخل منهج الطمأنينة"
+>
+
+  <div class="mhhm-wrap">
+
+
+    <!-- ===============================================
+         HEADER
+    ================================================ -->
+
+    <header class="mhhm-head">
+
+
+      <div class="mhhm-kicker">
+
+        رحلة تمتد لعام كامل
+
+      </div>
+
+
+      <h2>
+
+        ماذا تعيش خلال عام
+        مع منهج الطمأنينة؟
+
+      </h2>
+
+
+      <p>
+
+        تجربة تجمع بين التعلم المسجل،
+        واللقاءات المباشرة، والتطبيق العملي،
+        ومساحة تواصل ترافقك مع تقدم المحتوى.
+
+      </p>
+
+
+    </header>
+
+
+
+    <!-- ===============================================
+         YEAR NOTE
+    ================================================ -->
+
+    <div class="mhhm-yearLabel">
+
+      <span>
+
+        المحتوى والتطبيقات تضاف تدريجيا مع تقدم الرحلة
+
+      </span>
+
+    </div>
+
+
+
+    <!-- ===============================================
+         JOURNEY
+    ================================================ -->
+
+    <div class="mhhm-path">
+
+
+      <!-- =============================================
+           01 RECORDED
+      ============================================== -->
+
+      <article class="mhhm-card">
+
+
+        <div class="mhhm-cardTop">
+
+
+          <div
+            class="mhhm-icon"
+            aria-hidden="true"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <rect
+                x="4"
+                y="5"
+                width="16"
+                height="14"
+                rx="3"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+
+              <path
+                d="m10 9 5 3-5 3V9Z"
+                fill="currentColor"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <div>
+
+            <span class="mhhm-step">
+              جزء 01
+            </span>
+
+            <h3>
+              محاضرات مسجلة
+            </h3>
+
+          </div>
+
+
+        </div>
+
+
+        <p>
+
+          محتوى مرتب يمكنك الرجوع إليه
+          ومتابعته بالوتيرة المناسبة لك.
+
+        </p>
+
+
+        <ul>
+
+          <li>
+            مرونة في وقت المشاهدة
+          </li>
+
+          <li>
+            إمكانية العودة إلى المحاضرات
+            ومراجعتها
+          </li>
+
+        </ul>
+
+
+        <span class="mhhm-tag">
+
+          تعلم بمرونة
+
+        </span>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           02 LIVE
+      ============================================== -->
+
+      <article class="mhhm-card">
+
+
+        <div class="mhhm-cardTop">
+
+
+          <div
+            class="mhhm-icon"
+            aria-hidden="true"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="
+                  M7 18
+                  c-2 0-3-1.2-3-3
+                  V8
+                  c0-1.8 1-3 3-3
+                  h7
+                  c2 0 3 1.2 3 3
+                  v7
+                  c0 1.8-1 3-3 3
+                  H7Z
+                "
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+
+              <path
+                d="m17 10 3-2v8l-3-2"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <div>
+
+            <span class="mhhm-step">
+              جزء 02
+            </span>
+
+            <h3>
+              لقاءات تفاعلية مباشرة
+            </h3>
+
+          </div>
+
+
+        </div>
+
+
+        <p>
+
+          محطات مباشرة للمراجعة والتفاعل
+          ومناقشة ما يحتاج إلى مزيد من الفهم.
+
+        </p>
+
+
+        <ul>
+
+          <li>
+            مراجعة الأفكار الأساسية
+          </li>
+
+          <li>
+            مناقشة أسئلة الأعضاء
+          </li>
+
+        </ul>
+
+
+        <span class="mhhm-tag">
+
+          مساحة للحوار
+
+        </span>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           03 PRACTICE
+      ============================================== -->
+
+      <article class="mhhm-card">
+
+
+        <div class="mhhm-cardTop">
+
+
+          <div
+            class="mhhm-icon"
+            aria-hidden="true"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="M7 4h8l3 3v13H7V4Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M15 4v4h4M10 12h5M10 16h4"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <div>
+
+            <span class="mhhm-step">
+              جزء 03
+            </span>
+
+            <h3>
+              ملفات رياضة الفكر
+            </h3>
+
+          </div>
+
+
+        </div>
+
+
+        <p>
+
+          تطبيقات وأسئلة ومساحات للكتابة
+          تساعدك على مراجعة ما تعلمته
+          وربطه بتجربتك.
+
+        </p>
+
+
+        <ul>
+
+          <li>
+            أسئلة للتأمل والمراجعة
+          </li>
+
+          <li>
+            تطبيقات مرتبطة بالمحاضرات
+          </li>
+
+        </ul>
+
+
+        <span class="mhhm-tag">
+
+          فهم يتحول إلى تطبيق
+
+        </span>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           04 COMMUNITY
+      ============================================== -->
+
+      <article class="mhhm-card">
+
+
+        <div class="mhhm-cardTop">
+
+
+          <div
+            class="mhhm-icon"
+            aria-hidden="true"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+
+              <path
+                d="
+                  M20 11.5
+                  c0 4-3.5 7.3-8 7.3
+                  -1.1 0-2.1-.2-3.1-.6
+                  L4 20
+                  l1.5-3.9
+                  A7 7 0 0 1
+                  4 11.5
+                  C4 7.4 7.6 4 12 4
+                  s8 3.4 8 7.5Z
+                "
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+              />
+
+              <path
+                d="M8 10h8M8 14h5"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <div>
+
+            <span class="mhhm-step">
+              جزء 04
+            </span>
+
+            <h3>
+              مجتمع ومساحة تواصل
+            </h3>
+
+          </div>
+
+
+        </div>
+
+
+        <p>
+
+          مساحة خاصة تظل مرتبطة بالمحتوى
+          وبأسئلة الرحلة مع تقدم المنهج.
+
+        </p>
+
+
+        <ul>
+
+          <li>
+            مشاركة الأسئلة والتأملات
+          </li>
+
+          <li>
+            رسائل صوتية ومكتوبة خلال الرحلة
+          </li>
+
+        </ul>
+
+
+        <span class="mhhm-tag">
+
+          تواصل مستمر
+
+        </span>
+
+
+      </article>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         CLOSING
+    ================================================ -->
+
+    <div class="mhhm-closing">
+
+
+<div class="mhhm-closingIcon">
+  عام
+</div>
+
+
+      <p>
+
+        هذه العناصر لا تعمل بشكل منفصل؛
+        <strong>المحاضرة تفتح الفكرة، رياضة الفكر تساعدك على مراجعتها،
+        واللقاءات والمجتمع يضيفان مساحات للتفاعل أثناء تقدم الرحلة.</strong>
+
+      </p>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-yearJourney'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var head =
+    section.querySelector(
+      '.mhhm-head'
+    );
+
+
+  var yearLabel =
+    section.querySelector(
+      '.mhhm-yearLabel'
+    );
+
+
+  var cards =
+    section.querySelectorAll(
+      '.mhhm-card'
+    );
+
+
+  var closing =
+    section.querySelector(
+      '.mhhm-closing'
+    );
+
+
+
+  /* ======================================================
+     SHOW ALL
+  ====================================================== */
+
+  function showAll(){
+
+    [
+      head,
+      yearLabel,
+      closing
+    ].forEach(
+
+      function(item){
+
+        if(item){
+
+          item.classList.add(
+            'mhhm-visible'
+          );
+
+        }
+
+      }
+
+    );
+
+
+    cards.forEach(
+
+      function(card){
+
+        card.classList.add(
+          'mhhm-visible'
+        );
+
+      }
+
+    );
+
+  }
+
+
+
+  /* ======================================================
+     FALLBACK
+  ====================================================== */
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    showAll();
+
+    return;
+  }
+
+
+
+  /* ======================================================
+     TOP
+  ====================================================== */
+
+  var topObserver =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            if(head){
+
+              head.classList.add(
+                'mhhm-visible'
+              );
+
+            }
+
+
+            setTimeout(
+
+              function(){
+
+                if(yearLabel){
+
+                  yearLabel.classList.add(
+                    'mhhm-visible'
+                  );
+
+                }
+
+              },
+
+              120
+
+            );
+
+
+            topObserver.disconnect();
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.12,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  if(head){
+
+    topObserver.observe(
+      head
+    );
+
+  }
+
+
+
+  /* ======================================================
+     CARDS
+  ====================================================== */
+
+  var cardObserver =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            var card =
+              entry.target;
+
+
+            var index =
+              Number(
+                card.getAttribute(
+                  'data-mhhm-index'
+                )
+              ) || 0;
+
+
+            setTimeout(
+
+              function(){
+
+                card.classList.add(
+                  'mhhm-visible'
+                );
+
+              },
+
+              (index % 4) * 85
+
+            );
+
+
+            cardObserver.unobserve(
+              card
+            );
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.12,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  cards.forEach(
+
+    function(card,index){
+
+      card.setAttribute(
+        'data-mhhm-index',
+        index
+      );
+
+
+      cardObserver.observe(
+        card
+      );
+
+    }
+
+  );
+
+
+
+  /* ======================================================
+     CLOSING
+  ====================================================== */
+
+  if(closing){
+
+    var closingObserver =
+      new IntersectionObserver(
+
+        function(entries){
+
+          entries.forEach(
+
+            function(entry){
+
+              if(
+                !entry.isIntersecting
+              ){
+                return;
+              }
+
+
+              closing.classList.add(
+                'mhhm-visible'
+              );
+
+
+              closingObserver.disconnect();
+
+            }
+
+          );
+
+        },
+
+        {
+          threshold:.18
+        }
+
+      );
+
+
+    closingObserver.observe(
+      closing
+    );
+
+  }
+
+
+})();
+
+</script>

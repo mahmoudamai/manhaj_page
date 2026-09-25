@@ -1,0 +1,47 @@
+/* =====================================================================
+   5 · TYPOGRAPHY ROLES
+   Sections set only their size/weight; WHICH font each role uses is
+   decided here, from the theme controls at the top.
+   ===================================================================== */
+
+/* all section titles */
+.m4-section :is(h1, h2, h3, h4) {
+  font-family: var(--m4-font-heading);
+}
+
+/* editorial font: member quotes, testimonials and the big "الفاقة" term */
+#m4-member-story .m4-member-story__message > p,
+#m4-lecture-notes .m4-lecture-notes__reaction > p,
+#m4-testimonials .m4-testimonials__card > p,
+#m4-practice .m4-practice__member-note > p,
+#m4-kareem .m4-kareem__philosophy > p,
+#m4-faqah .m4-faqah__term {
+  font-family: var(--m4-font-display);
+}
+
+
+/* =====================================================================
+   6 · NO-JS SAFETY NETS
+   Things that used to depend on JavaScript to be readable. Without
+   Block 00B (or before it runs) they now show their content.
+   ===================================================================== */
+
+/* FAQ: answers are only collapsed once the accordion script is running */
+html:not(.m4-js) #m4-faq .m4-faq__answer {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+/* Kareem gallery: the tiny masonry rows are only used when the script
+   can size the photos; otherwise photos keep their natural height */
+html:not(.m4-js) #m4-kareem .m4-kareem__gallery {
+  grid-auto-rows: auto;
+}
+
+/* Sticky bar: always visible if the show/hide script is not running */
+html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: none !important;
+}

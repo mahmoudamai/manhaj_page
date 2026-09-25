@@ -1,0 +1,1516 @@
+<!-- =========================================================
+     MHH MANHAJ | PAIN SECTION — FINAL
+     Question + Misty Road + Pain Cards + Product Bridge
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-pain{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --blue-petrol:#294E63;
+
+  --navy:#354859;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --teal-bright:#A9DED8;
+
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+  --ivory:#F8F4EC;
+
+  --text:#5D6A70;
+  --muted:#748086;
+
+  position:relative;
+  overflow:hidden;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:var(--navy);
+
+  padding:76px 22px 82px;
+
+  background:
+
+    radial-gradient(
+      circle at 7% 13%,
+      rgba(167,188,166,.17),
+      transparent 27%
+    ),
+
+    radial-gradient(
+      circle at 94% 86%,
+      rgba(142,201,196,.10),
+      transparent 27%
+    ),
+
+    linear-gradient(
+      180deg,
+      #EEF3EE 0%,
+      #EAF0EC 52%,
+      #E5EDE9 100%
+    );
+}
+
+
+#mhhm-pain *,
+#mhhm-pain *::before,
+#mhhm-pain *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   BACKGROUND DETAILS
+========================================================= */
+
+#mhhm-pain::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:430px;
+  height:430px;
+
+  top:-260px;
+  left:-180px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(30,89,96,.065);
+
+  box-shadow:
+    0 0 0 54px rgba(167,188,166,.018);
+
+  pointer-events:none;
+}
+
+
+#mhhm-pain::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:330px;
+  height:330px;
+
+  right:-200px;
+  bottom:-185px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(211,178,103,.10);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-pain .mhhm-wrap{
+
+  position:relative;
+  z-index:2;
+
+  width:100%;
+  max-width:1120px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#mhhm-pain .mhhm-head{
+
+  max-width:860px;
+
+  margin:
+    0 auto 30px;
+
+  text-align:center;
+}
+
+
+/* kicker */
+
+#mhhm-pain .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:9px;
+
+  margin-bottom:14px;
+
+  color:var(--petrol);
+
+  font-size:.80rem;
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-pain .mhhm-kicker::before{
+
+  content:"";
+
+  width:27px;
+  height:1px;
+
+  flex:0 0 27px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30,89,96,.12),
+      var(--gold)
+    );
+}
+
+
+/* =========================================================
+   OPENING QUESTION
+========================================================= */
+
+#mhhm-pain .mhhm-question{
+
+  display:block;
+
+  margin:
+    0 auto 8px;
+
+  color:#6B7777;
+
+  font-size:
+    clamp(
+      1rem,
+      1.7vw,
+      1.18rem
+    );
+
+  line-height:1.65;
+
+  font-weight:700;
+}
+
+
+#mhhm-pain .mhhm-question strong{
+
+  color:var(--petrol);
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   MAIN TITLE
+========================================================= */
+
+#mhhm-pain h2{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      2.05rem,
+      4.15vw,
+      3.35rem
+    );
+
+  line-height:1.22;
+
+  font-weight:900;
+
+  letter-spacing:-.8px;
+
+  text-wrap:balance;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+#mhhm-pain .mhhm-intro{
+
+  max-width:700px;
+
+  margin:
+    15px auto 0;
+
+  color:var(--text);
+
+  font-size:
+    clamp(
+      .98rem,
+      1.5vw,
+      1.12rem
+    );
+
+  line-height:1.85;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   ROAD VISUAL
+========================================================= */
+
+#mhhm-pain .mhhm-visual{
+
+  position:relative;
+
+  width:100%;
+
+  height:
+    clamp(
+      245px,
+      29vw,
+      340px
+    );
+
+  margin:
+    0 auto 25px;
+
+  overflow:hidden;
+
+  border-radius:28px;
+
+  border:
+    1px solid rgba(167,188,166,.32);
+
+  background:var(--petrol-deep);
+
+  box-shadow:
+    0 22px 50px rgba(53,72,89,.10);
+
+  opacity:0;
+
+  transform:
+    translateY(20px)
+    scale(.99);
+
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-pain
+.mhhm-visual.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* road image */
+
+#mhhm-pain .mhhm-visual img{
+
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  object-position:center 54%;
+
+  filter:
+    saturate(.72)
+    contrast(.94)
+    brightness(.92);
+
+  transform:scale(1.02);
+
+  transition:
+    transform 8s
+    cubic-bezier(.2,.65,.2,1);
+}
+
+
+#mhhm-pain
+.mhhm-visual.mhhm-visible img{
+
+  transform:
+    scale(1.07);
+}
+
+
+/* petrol/sage grading */
+
+#mhhm-pain .mhhm-visual::before{
+
+  content:"";
+
+  position:absolute;
+
+  z-index:2;
+
+  inset:0;
+
+  pointer-events:none;
+
+  background:
+
+    linear-gradient(
+      90deg,
+      rgba(18,60,66,.18) 0%,
+      rgba(18,60,66,.04) 42%,
+      rgba(53,72,89,.03) 70%,
+      rgba(52,72,58,.14) 100%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(30,89,96,.03) 0%,
+      transparent 45%,
+      rgba(14,39,42,.18) 100%
+    );
+}
+
+
+#mhhm-pain .mhhm-visual::after{
+
+  content:"";
+
+  position:absolute;
+
+  z-index:3;
+
+  inset:0;
+
+  pointer-events:none;
+
+  box-shadow:
+    inset 0 0 90px rgba(18,60,66,.11);
+
+  background:
+    radial-gradient(
+      circle at 80% 18%,
+      rgba(211,178,103,.09),
+      transparent 26%
+    );
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+#mhhm-pain .mhhm-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(6,minmax(0,1fr));
+
+  gap:15px;
+}
+
+
+/* =========================================================
+   PAIN CARD
+========================================================= */
+
+#mhhm-pain .mhhm-card{
+
+  position:relative;
+
+  min-height:194px;
+
+  padding:
+    22px 23px 21px;
+
+  overflow:hidden;
+
+  border:
+    1px solid rgba(167,188,166,.32);
+
+  border-radius:22px;
+
+  background:
+
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(142,201,196,.07),
+      transparent 40%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(255,253,248,.96),
+      rgba(249,249,243,.90)
+    );
+
+  box-shadow:
+    0 11px 30px rgba(53,72,89,.045),
+    inset 0 1px 0 rgba(255,255,255,.88);
+
+  opacity:0;
+
+  transform:
+    translateY(21px);
+
+  transition:
+    opacity .68s ease,
+    transform .68s cubic-bezier(.2,.72,.2,1),
+    box-shadow .24s ease,
+    border-color .24s ease;
+}
+
+
+#mhhm-pain
+.mhhm-card:nth-child(even){
+
+  background:
+
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(167,188,166,.10),
+      transparent 44%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(247,250,245,.96),
+      rgba(242,247,242,.92)
+    );
+}
+
+
+/* desktop layout */
+
+#mhhm-pain .mhhm-card:nth-child(1),
+#mhhm-pain .mhhm-card:nth-child(2),
+#mhhm-pain .mhhm-card:nth-child(3){
+
+  grid-column:span 2;
+}
+
+
+#mhhm-pain .mhhm-card:nth-child(4){
+
+  grid-column:2 / span 2;
+}
+
+
+#mhhm-pain .mhhm-card:nth-child(5){
+
+  grid-column:4 / span 2;
+}
+
+
+#mhhm-pain
+.mhhm-card.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+#mhhm-pain .mhhm-cardTop{
+
+  display:flex;
+
+  align-items:center;
+
+  margin-bottom:13px;
+}
+
+
+#mhhm-pain .mhhm-no{
+
+  color:var(--petrol);
+
+  font-size:.75rem;
+
+  line-height:1;
+
+  font-weight:900;
+
+  letter-spacing:.5px;
+}
+
+
+#mhhm-pain .mhhm-no::after{
+
+  content:"";
+
+  display:inline-block;
+
+  width:28px;
+  height:1px;
+
+  margin-right:8px;
+
+  vertical-align:middle;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(167,188,166,.22),
+      rgba(211,178,103,.75)
+    );
+}
+
+
+/* =========================================================
+   CARD COPY
+========================================================= */
+
+#mhhm-pain .mhhm-card h3{
+
+  margin:
+    0 0 8px;
+
+  color:var(--petrol-deep);
+
+  font-size:1.10rem;
+
+  line-height:1.45;
+
+  font-weight:900;
+}
+
+
+#mhhm-pain .mhhm-card p{
+
+  margin:0;
+
+  color:#667379;
+
+  font-size:.86rem;
+
+  line-height:1.80;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   KNOWLEDGE BRIDGE
+========================================================= */
+
+#mhhm-pain .mhhm-bridge{
+
+  max-width:850px;
+
+  margin:
+    38px auto 0;
+
+  text-align:center;
+}
+
+
+#mhhm-pain .mhhm-bridge h3{
+
+  margin:0 0 9px;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      1.22rem,
+      2vw,
+      1.55rem
+    );
+
+  line-height:1.55;
+
+  font-weight:900;
+}
+
+
+#mhhm-pain .mhhm-bridge p{
+
+  max-width:760px;
+
+  margin:0 auto;
+
+  color:var(--text);
+
+  font-size:
+    clamp(
+      .93rem,
+      1.4vw,
+      1.04rem
+    );
+
+  line-height:1.9;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   PRODUCT REVEAL
+========================================================= */
+
+#mhhm-pain .mhhm-reveal{
+
+  position:relative;
+
+  max-width:900px;
+
+  margin:
+    29px auto 0;
+
+  padding:
+    27px 31px 26px;
+
+  overflow:hidden;
+
+  border:
+    1px solid rgba(30,89,96,.15);
+
+  border-radius:22px;
+
+  background:
+
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(167,188,166,.13),
+      transparent 35%
+    ),
+
+    linear-gradient(
+      135deg,
+      rgba(255,253,248,.96),
+      rgba(243,247,241,.94)
+    );
+
+  box-shadow:
+    0 15px 40px rgba(53,72,89,.06);
+
+  text-align:right;
+}
+
+
+/* side accent */
+
+#mhhm-pain .mhhm-reveal::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:20%;
+  bottom:20%;
+
+  right:0;
+
+  width:4px;
+
+  border-radius:
+    0 4px 4px 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--gold),
+      var(--petrol)
+    );
+}
+
+
+#mhhm-pain .mhhm-revealLabel{
+
+  display:block;
+
+  margin-bottom:6px;
+
+  color:var(--gold);
+
+  font-size:.74rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-pain .mhhm-reveal h3{
+
+  margin:0 0 8px;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      1.28rem,
+      2.2vw,
+      1.7rem
+    );
+
+  line-height:1.55;
+
+  font-weight:900;
+}
+
+
+#mhhm-pain .mhhm-reveal p{
+
+  margin:0;
+
+  color:#5F6C70;
+
+  font-size:
+    clamp(
+      .93rem,
+      1.4vw,
+      1.04rem
+    );
+
+  line-height:1.9;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media(hover:hover){
+
+  #mhhm-pain .mhhm-card:hover{
+
+    transform:
+      translateY(-4px);
+
+    border-color:
+      rgba(142,201,196,.45);
+
+    box-shadow:
+      0 18px 40px rgba(53,72,89,.075);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:850px){
+
+  #mhhm-pain{
+
+    padding:
+      62px 17px 68px;
+  }
+
+
+  #mhhm-pain .mhhm-grid{
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+
+    gap:13px;
+  }
+
+
+  #mhhm-pain
+  .mhhm-card:nth-child(n){
+
+    grid-column:auto;
+  }
+
+
+  #mhhm-pain
+  .mhhm-card:last-child{
+
+    grid-column:
+      1 / -1;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:560px){
+
+  #mhhm-pain{
+
+    padding:
+      52px 12px 58px;
+  }
+
+
+  #mhhm-pain .mhhm-head{
+
+    margin-bottom:21px;
+  }
+
+
+  #mhhm-pain .mhhm-kicker{
+
+    margin-bottom:9px;
+
+    font-size:.70rem;
+
+    gap:7px;
+  }
+
+
+  #mhhm-pain
+  .mhhm-kicker::before{
+
+    width:20px;
+
+    flex-basis:20px;
+  }
+
+
+  #mhhm-pain .mhhm-question{
+
+    margin-bottom:6px;
+
+    font-size:.84rem;
+
+    line-height:1.55;
+  }
+
+
+  #mhhm-pain h2{
+
+    font-size:1.82rem;
+
+    line-height:1.25;
+  }
+
+
+  #mhhm-pain .mhhm-intro{
+
+    max-width:360px;
+
+    margin-top:10px;
+
+    font-size:.86rem;
+
+    line-height:1.72;
+  }
+
+
+  /* road */
+
+  #mhhm-pain .mhhm-visual{
+
+    height:210px;
+
+    margin-bottom:18px;
+
+    border-radius:19px;
+  }
+
+
+  #mhhm-pain .mhhm-visual img{
+
+    object-position:center 55%;
+  }
+
+
+  /* cards */
+
+  #mhhm-pain .mhhm-grid{
+
+    grid-template-columns:1fr;
+
+    gap:10px;
+  }
+
+
+  #mhhm-pain
+  .mhhm-card:nth-child(n){
+
+    grid-column:auto;
+  }
+
+
+  #mhhm-pain .mhhm-card{
+
+    min-height:0;
+
+    padding:
+      17px 17px 16px;
+
+    border-radius:17px;
+  }
+
+
+  #mhhm-pain .mhhm-cardTop{
+
+    margin-bottom:8px;
+  }
+
+
+  #mhhm-pain .mhhm-no{
+
+    font-size:.67rem;
+  }
+
+
+  #mhhm-pain
+  .mhhm-no::after{
+
+    width:20px;
+  }
+
+
+  #mhhm-pain .mhhm-card h3{
+
+    margin-bottom:5px;
+
+    font-size:.97rem;
+  }
+
+
+  #mhhm-pain .mhhm-card p{
+
+    font-size:.77rem;
+
+    line-height:1.70;
+  }
+
+
+  /* bridge */
+
+  #mhhm-pain .mhhm-bridge{
+
+    margin-top:27px;
+
+    padding:
+      0 5px;
+  }
+
+
+  #mhhm-pain .mhhm-bridge h3{
+
+    margin-bottom:7px;
+
+    font-size:1.08rem;
+  }
+
+
+  #mhhm-pain .mhhm-bridge p{
+
+    font-size:.82rem;
+
+    line-height:1.76;
+  }
+
+
+  /* product */
+
+  #mhhm-pain .mhhm-reveal{
+
+    margin-top:22px;
+
+    padding:
+      21px 18px 20px;
+
+    border-radius:18px;
+  }
+
+
+  #mhhm-pain .mhhm-revealLabel{
+
+    font-size:.65rem;
+  }
+
+
+  #mhhm-pain .mhhm-reveal h3{
+
+    margin-bottom:6px;
+
+    font-size:1.12rem;
+  }
+
+
+  #mhhm-pain .mhhm-reveal p{
+
+    font-size:.82rem;
+
+    line-height:1.77;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-pain .mhhm-visual,
+  #mhhm-pain .mhhm-card{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+
+  #mhhm-pain
+  .mhhm-visual img{
+
+    transform:none;
+
+    transition:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-pain"
+  dir="rtl"
+  lang="ar"
+>
+
+  <div class="mhhm-wrap">
+
+
+    <!-- ===============================================
+         HEADER
+    ================================================ -->
+
+    <div class="mhhm-head">
+
+
+      <div class="mhhm-kicker">
+
+        هل تجد نفسك في بعض هذه المشاعر؟
+
+      </div>
+
+
+      <p class="mhhm-question">
+
+        لماذا نعرف الكثير…
+        <strong>
+          ولا نشعر بالطمأنينة؟
+        </strong>
+
+      </p>
+
+
+      <h2>
+
+        حاسس بخنقة…
+        ومش عارف إيه اللي ناقصك؟
+
+      </h2>
+
+
+      <p class="mhhm-intro">
+
+        بتحاول تخلي حياتك أحسن،
+        لكن في مشاعر بتتكرر وبتستنزفك
+        وسط كل اللي بتعمله.
+
+      </p>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         ROAD VISUAL
+    ================================================ -->
+
+    <div class="mhhm-visual">
+
+      <img
+        src="https://images.unsplash.com/photo-1578054320990-c8d154a1a32d?auto=format&fit=crop&w=1800&q=85"
+        alt="طريق هادئ يختفي تدريجيًا وسط الضباب"
+        loading="lazy"
+      >
+
+    </div>
+
+
+
+    <!-- ===============================================
+         PAIN CARDS
+    ================================================ -->
+
+    <div class="mhhm-grid">
+
+
+      <!-- 01 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-cardTop">
+          <span class="mhhm-no">
+            01
+          </span>
+        </div>
+
+        <h3>
+          شعور دائم بالخنقة
+        </h3>
+
+        <p>
+          حاسس بثِقل وعدم راحة من جوّه،
+          ومش واضح لك إيه اللي محتاج يتغيّر.
+        </p>
+
+      </article>
+
+
+
+      <!-- 02 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-cardTop">
+          <span class="mhhm-no">
+            02
+          </span>
+        </div>
+
+        <h3>
+          قلق من كل شيء
+        </h3>
+
+        <p>
+          دماغك مش بتبطل تفكير،
+          وكل احتمال في اللي جاي
+          بيفتح بابًا جديدًا للقلق.
+        </p>
+
+      </article>
+
+
+
+      <!-- 03 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-cardTop">
+          <span class="mhhm-no">
+            03
+          </span>
+        </div>
+
+        <h3>
+          خوف من كل شيء
+        </h3>
+
+        <p>
+          بتخاف تاخد خطوة،
+          وبتخاف كمان تفضل مكانك…
+          وصعب تحس بالأمان تجاه اللي جاي.
+        </p>
+
+      </article>
+
+
+
+      <!-- 04 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-cardTop">
+          <span class="mhhm-no">
+            04
+          </span>
+        </div>
+
+        <h3>
+          مقارنة مستمرة
+        </h3>
+
+        <p>
+          مهما تعمل،
+          بتبص لغيرك وتحس إنك لسه متأخر،
+          وإن اللي عندك مش كفاية.
+        </p>
+
+      </article>
+
+
+
+      <!-- 05 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-cardTop">
+          <span class="mhhm-no">
+            05
+          </span>
+        </div>
+
+        <h3>
+          إحباط سريع عند تأخر الأهداف
+        </h3>
+
+        <p>
+          أول ما النتيجة تتأخر،
+          حماسك بيقع وبتبدأ تشك
+          في نفسك وفي الطريق.
+        </p>
+
+      </article>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         KNOWLEDGE BRIDGE
+    ================================================ -->
+
+    <div class="mhhm-bridge">
+
+      <h3>
+        وقد لا تكون المشكلة أنك لا تعرف بما يكفي.
+      </h3>
+
+      <p>
+
+        ممكن تكون قرأت وسمعت كثيرًا،
+        وأصبحت عندك معرفة واسعة،
+        لكن المعرفة المتفرقة وحدها لا تمنحك دائمًا
+        صورة متماسكة تفهم بها نفسك
+        وتستند إليها عندما تصبح الحياة أكثر تعقيدًا.
+
+      </p>
+
+    </div>
+
+
+
+    <!-- ===============================================
+         PRODUCT REVEAL
+    ================================================ -->
+
+    <div class="mhhm-reveal">
+
+      <span class="mhhm-revealLabel">
+        من هنا تبدأ الرحلة
+      </span>
+
+
+      <h3>
+        من هنا يبدأ «منهج الطمأنينة».
+      </h3>
+
+
+      <p>
+
+        برنامج تأسيسي يساعدك على إعادة بناء فهمك
+        لنفسك وللحياة، بالانطلاق من القرآن والهدي النبوي
+        والاستعانة بالمعرفة النفسية، في رحلة متدرجة
+        تربط ما تتعلمه بما تعيشه من خلال المحاضرات
+        واللقاءات المباشرة والتطبيقات العملية.
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-pain'
+    );
+
+  if(!section){
+    return;
+  }
+
+
+  var visual =
+    section.querySelector(
+      '.mhhm-visual'
+    );
+
+
+  var cards =
+    section.querySelectorAll(
+      '.mhhm-card'
+    );
+
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    if(visual){
+      visual.classList.add(
+        'mhhm-visible'
+      );
+    }
+
+
+    cards.forEach(
+      function(card){
+
+        card.classList.add(
+          'mhhm-visible'
+        );
+
+      }
+    );
+
+
+    return;
+  }
+
+
+  var observer =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            if(visual){
+
+              visual.classList.add(
+                'mhhm-visible'
+              );
+
+            }
+
+
+            cards.forEach(
+
+              function(card,index){
+
+                setTimeout(
+
+                  function(){
+
+                    card.classList.add(
+                      'mhhm-visible'
+                    );
+
+                  },
+
+                  130 + index * 80
+
+                );
+
+              }
+
+            );
+
+
+            observer.disconnect();
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.08,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  observer.observe(
+    section
+  );
+
+})();
+
+</script>

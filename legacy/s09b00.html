@@ -1,0 +1,1984 @@
+<!-- =========================================================
+     MHH MANHAJ | LECTURES SHOWCASE
+     CURRENT CONTENT + PROGRESSIVE JOURNEY
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-lectures{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --blue-petrol:#294E63;
+
+  --navy:#354859;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --teal-bright:#A9DED8;
+
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+  --ivory:#F7F3EA;
+
+  --text:#5D6A70;
+  --muted:#748086;
+
+  position:relative;
+
+  overflow:hidden;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:var(--navy);
+
+  padding:
+    84px 22px 90px;
+
+  background:
+
+    radial-gradient(
+      circle at 7% 10%,
+      rgba(211,178,103,.075),
+      transparent 27%
+    ),
+
+    radial-gradient(
+      circle at 93% 92%,
+      rgba(142,201,196,.09),
+      transparent 27%
+    ),
+
+    linear-gradient(
+      180deg,
+      #F8F4EB 0%,
+      #F4F3EA 54%,
+      #EEF2EB 100%
+    );
+}
+
+
+#mhhm-lectures *,
+#mhhm-lectures *::before,
+#mhhm-lectures *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   AMBIENT BACKGROUND
+========================================================= */
+
+#mhhm-lectures::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:440px;
+  height:440px;
+
+  left:-230px;
+  top:-280px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(30,89,96,.05);
+
+  pointer-events:none;
+}
+
+
+#mhhm-lectures::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:320px;
+  height:320px;
+
+  right:-190px;
+  bottom:-180px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(211,178,103,.08);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-lectures .mhhm-wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:1160px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#mhhm-lectures .mhhm-head{
+
+  max-width:850px;
+
+  margin:
+    0 auto 47px;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity .72s ease,
+    transform .72s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-lectures
+.mhhm-head.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* kicker */
+
+#mhhm-lectures .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:13px;
+
+  color:var(--petrol);
+
+  font-size:.78rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-lectures
+.mhhm-kicker::before{
+
+  content:"";
+
+  width:28px;
+  height:1px;
+
+  flex:0 0 28px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30,89,96,.14),
+      var(--gold)
+    );
+}
+
+
+/* heading */
+
+#mhhm-lectures .mhhm-head h2{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.25rem
+    );
+
+  line-height:1.25;
+
+  letter-spacing:-.7px;
+
+  font-weight:900;
+
+  text-wrap:balance;
+}
+
+
+#mhhm-lectures .mhhm-head h2 span{
+
+  display:block;
+
+  margin-top:7px;
+
+  color:#64736D;
+
+  font-size:.48em;
+
+  line-height:1.55;
+
+  font-weight:700;
+
+  letter-spacing:0;
+}
+
+
+/* lead */
+
+#mhhm-lectures .mhhm-head p{
+
+  max-width:760px;
+
+  margin:
+    15px auto 0;
+
+  color:var(--text);
+
+  font-size:
+    clamp(
+      .94rem,
+      1.45vw,
+      1.05rem
+    );
+
+  line-height:1.88;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   CONTENT TOP LINE
+========================================================= */
+
+#mhhm-lectures .mhhm-groupHead{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:end;
+
+  gap:25px;
+
+  margin-bottom:21px;
+
+  padding-bottom:17px;
+
+  border-bottom:
+    1px solid rgba(30,89,96,.12);
+
+  opacity:0;
+
+  transform:
+    translateY(16px);
+
+  transition:
+    opacity .68s ease,
+    transform .68s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-lectures
+.mhhm-groupHead.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-lectures .mhhm-groupKicker{
+
+  display:block;
+
+  margin-bottom:5px;
+
+  color:#90794C;
+
+  font-size:.68rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-lectures .mhhm-groupHead h3{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      1.18rem,
+      2vw,
+      1.45rem
+    );
+
+  line-height:1.5;
+
+  font-weight:900;
+}
+
+
+/* small progress note */
+
+#mhhm-lectures .mhhm-progressNote{
+
+  flex:0 0 auto;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  color:#718079;
+
+  font-size:.69rem;
+
+  line-height:1.5;
+
+  font-weight:800;
+}
+
+
+#mhhm-lectures
+.mhhm-progressNote::before{
+
+  content:"";
+
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:var(--sage);
+
+  box-shadow:
+    0 0 0 5px
+    rgba(167,188,166,.12);
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+#mhhm-lectures .mhhm-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:16px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+#mhhm-lectures .mhhm-card{
+
+  position:relative;
+
+  overflow:hidden;
+
+  border:
+    1px solid rgba(30,89,96,.11);
+
+  border-radius:21px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,253,248,.98),
+      rgba(247,248,241,.95)
+    );
+
+  box-shadow:
+
+    0 12px 30px
+    rgba(53,72,89,.055),
+
+    inset 0 1px 0
+    rgba(255,255,255,.92);
+
+  opacity:0;
+
+  transform:
+    translateY(24px)
+    scale(.985);
+
+  transition:
+
+    opacity .68s ease,
+
+    transform .68s
+      cubic-bezier(.2,.72,.2,1),
+
+    box-shadow .24s ease,
+
+    border-color .24s ease;
+}
+
+
+#mhhm-lectures
+.mhhm-card.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* signature line */
+
+#mhhm-lectures .mhhm-card::after{
+
+  content:"";
+
+  position:absolute;
+
+  z-index:4;
+
+  top:0;
+  right:20px;
+
+  width:46px;
+  height:2px;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      var(--petrol)
+    );
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+#mhhm-lectures .mhhm-media{
+
+  position:relative;
+
+  overflow:hidden;
+
+  aspect-ratio:16 / 9;
+
+  background:
+    #E9EFEA;
+
+  border-bottom:
+    1px solid rgba(30,89,96,.075);
+}
+
+
+#mhhm-lectures .mhhm-media img{
+
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  object-fit:contain;
+
+  object-position:center;
+
+  transform:scale(1);
+
+  transition:
+    transform .45s
+    cubic-bezier(.2,.72,.2,1);
+}
+
+
+/* very subtle image shade */
+
+#mhhm-lectures
+.mhhm-media::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 70%,
+      rgba(18,60,66,.035)
+    );
+}
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+#mhhm-lectures .mhhm-body{
+
+  min-height:108px;
+
+  padding:
+    15px 16px 16px;
+}
+
+
+#mhhm-lectures .mhhm-unit{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:6px;
+
+  margin-bottom:7px;
+
+  color:#90794C;
+
+  font-size:.60rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-lectures .mhhm-unit::before{
+
+  content:"";
+
+  width:12px;
+  height:1px;
+
+  background:
+    rgba(211,178,103,.70);
+}
+
+
+#mhhm-lectures .mhhm-body h4{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:.88rem;
+
+  line-height:1.55;
+
+  font-weight:900;
+}
+
+
+#mhhm-lectures .mhhm-body p{
+
+  margin:
+    4px 0 0;
+
+  color:#6B7875;
+
+  font-size:.72rem;
+
+  line-height:1.6;
+
+  font-weight:600;
+}
+
+
+/* =========================================================
+   CONTINUATION
+========================================================= */
+
+#mhhm-lectures .mhhm-continue{
+
+  position:relative;
+
+  overflow:hidden;
+
+  grid-column:1 / -1;
+
+  display:grid;
+
+  grid-template-columns:
+    50px minmax(0,1fr) auto;
+
+  gap:17px;
+
+  align-items:center;
+
+  margin-top:3px;
+
+  padding:
+    22px 24px;
+
+  border-radius:20px;
+
+  border:
+    1px solid rgba(255,255,255,.13);
+
+  background:
+
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(211,178,103,.10),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      135deg,
+      #123C42 0%,
+      #1B5257 60%,
+      #354E42 100%
+    );
+
+  box-shadow:
+    0 18px 42px
+    rgba(18,60,66,.14);
+
+  opacity:0;
+
+  transform:
+    translateY(20px);
+
+  transition:
+    opacity .72s ease,
+    transform .72s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-lectures
+.mhhm-continue.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* plus */
+
+#mhhm-lectures .mhhm-plus{
+
+  width:48px;
+  height:48px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:16px;
+
+  border:
+    1px solid rgba(255,255,255,.15);
+
+  background:
+    rgba(255,255,255,.075);
+
+  color:#E5CB91;
+
+  font-size:1.5rem;
+
+  line-height:1;
+
+  font-weight:400;
+}
+
+
+/* continue content */
+
+#mhhm-lectures
+.mhhm-continueCopy span{
+
+  color:#DFC78F;
+
+  font-size:.64rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-lectures
+.mhhm-continueCopy h4{
+
+  margin:
+    4px 0 0;
+
+  color:#FFFDF8;
+
+  font-size:1rem;
+
+  line-height:1.5;
+
+  font-weight:900;
+}
+
+
+#mhhm-lectures
+.mhhm-continueCopy p{
+
+  margin:
+    4px 0 0;
+
+  color:
+    rgba(255,253,248,.66);
+
+  font-size:.74rem;
+
+  line-height:1.7;
+
+  font-weight:500;
+}
+
+
+/* journey label */
+
+#mhhm-lectures .mhhm-journeyLabel{
+
+  padding:
+    7px 12px;
+
+  border-radius:999px;
+
+  border:
+    1px solid rgba(169,222,216,.15);
+
+  background:
+    rgba(255,255,255,.045);
+
+  color:#C6E1DD;
+
+  font-size:.64rem;
+
+  line-height:1.4;
+
+  font-weight:800;
+
+  white-space:nowrap;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media(hover:hover){
+
+  #mhhm-lectures
+  .mhhm-card.mhhm-visible:hover{
+
+    transform:
+      translateY(-5px)
+      scale(1);
+
+    border-color:
+      rgba(30,89,96,.23);
+
+    box-shadow:
+      0 20px 44px
+      rgba(53,72,89,.095);
+  }
+
+
+  #mhhm-lectures
+  .mhhm-card:hover
+  .mhhm-media img{
+
+    transform:
+      scale(1.025);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:920px){
+
+  #mhhm-lectures{
+
+    padding:
+      72px 18px 78px;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-grid{
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+
+  #mhhm-lectures
+  .mhhm-continue{
+
+    grid-template-columns:
+      50px minmax(0,1fr);
+  }
+
+
+  #mhhm-lectures
+  .mhhm-journeyLabel{
+
+    grid-column:2;
+    justify-self:start;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:620px){
+
+  #mhhm-lectures{
+
+    padding:
+      56px 13px 62px;
+  }
+
+
+  #mhhm-lectures .mhhm-head{
+
+    margin-bottom:33px;
+
+    padding:
+      0 3px;
+  }
+
+
+  #mhhm-lectures .mhhm-kicker{
+
+    margin-bottom:9px;
+
+    font-size:.68rem;
+
+    gap:7px;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-kicker::before{
+
+    width:20px;
+
+    flex-basis:20px;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-head h2{
+
+    font-size:1.82rem;
+
+    line-height:1.28;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-head h2 span{
+
+    margin-top:6px;
+
+    font-size:.50em;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-head p{
+
+    margin-top:11px;
+
+    font-size:.83rem;
+
+    line-height:1.78;
+  }
+
+
+  /* group heading */
+
+  #mhhm-lectures
+  .mhhm-groupHead{
+
+    align-items:start;
+
+    margin-bottom:15px;
+
+    padding-bottom:13px;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-groupHead h3{
+
+    font-size:1.04rem;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-progressNote{
+
+    font-size:.59rem;
+  }
+
+
+  /* grid */
+
+  #mhhm-lectures
+  .mhhm-grid{
+
+    grid-template-columns:1fr;
+
+    gap:11px;
+  }
+
+
+  #mhhm-lectures .mhhm-card{
+
+    display:grid;
+
+    grid-template-columns:
+      minmax(126px,42%)
+      minmax(0,1fr);
+
+    min-height:118px;
+
+    border-radius:17px;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-card::after{
+
+    right:auto;
+    left:18px;
+
+    width:34px;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-media{
+
+    aspect-ratio:auto;
+
+    min-height:118px;
+
+    border-bottom:0;
+
+    border-left:
+      1px solid rgba(30,89,96,.07);
+  }
+
+
+  #mhhm-lectures
+  .mhhm-body{
+
+    min-height:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding:
+      13px 14px;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-unit{
+
+    margin-bottom:5px;
+
+    font-size:.55rem;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-body h4{
+
+    font-size:.80rem;
+
+    line-height:1.5;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-body p{
+
+    margin-top:3px;
+
+    font-size:.66rem;
+
+    line-height:1.55;
+  }
+
+
+  /* continuation */
+
+  #mhhm-lectures
+  .mhhm-continue{
+
+    grid-template-columns:
+      40px minmax(0,1fr);
+
+    gap:12px;
+
+    padding:
+      18px 16px;
+
+    border-radius:18px;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-plus{
+
+    width:40px;
+    height:40px;
+
+    border-radius:13px;
+
+    font-size:1.25rem;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-continueCopy h4{
+
+    font-size:.87rem;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-continueCopy p{
+
+    font-size:.67rem;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-journeyLabel{
+
+    grid-column:2;
+
+    padding:
+      6px 9px;
+
+    font-size:.58rem;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:390px){
+
+  #mhhm-lectures .mhhm-card{
+
+    grid-template-columns:
+      41% minmax(0,1fr);
+  }
+
+
+  #mhhm-lectures
+  .mhhm-progressNote{
+
+    display:none;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-lectures .mhhm-head,
+  #mhhm-lectures .mhhm-groupHead,
+  #mhhm-lectures .mhhm-card,
+  #mhhm-lectures .mhhm-continue{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+
+  #mhhm-lectures
+  .mhhm-media img{
+
+    transition:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-lectures"
+  dir="rtl"
+  lang="ar"
+  aria-label="محتوى ومحاضرات منهج الطمأنينة"
+>
+
+  <div class="mhhm-wrap">
+
+
+    <!-- ===============================================
+         HEADER
+    ================================================ -->
+
+    <header class="mhhm-head">
+
+
+      <div class="mhhm-kicker">
+
+        من محتوى الرحلة حتى الآن
+
+      </div>
+
+
+      <h2>
+
+        داخل منهج الطمأنينة
+
+        <span>
+          رحلة متدرجة تجمع بين الفهم والتطبيق
+        </span>
+
+      </h2>
+
+
+      <p>
+
+        تعرف على جانب من المحاضرات التي أضيفت
+        إلى المنهج حتى الآن، ضمن رحلة تستمر في التوسع
+        بمحتوى جديد يضاف تدريجيا خلال عام الاشتراك.
+
+      </p>
+
+
+    </header>
+
+
+
+    <!-- ===============================================
+         CONTENT
+    ================================================ -->
+
+    <div class="mhhm-groupHead">
+
+
+      <div>
+
+        <span class="mhhm-groupKicker">
+          المحاضرات الأساسية
+        </span>
+
+        <h3>
+          خطوات متدرجة لبناء الفهم والوعي
+        </h3>
+
+      </div>
+
+
+      <div class="mhhm-progressNote">
+        الرحلة مستمرة
+      </div>
+
+
+    </div>
+
+
+
+    <div class="mhhm-grid">
+
+
+      <!-- 01 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-media">
+
+          <img
+            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd2eb4176d3727147f57.jpeg"
+            alt="الخطوة صفر - المقدمة - سر الفاقة"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="mhhm-body">
+
+          <span class="mhhm-unit">
+            الوحدة 01
+          </span>
+
+          <h4>
+            الخطوة صفر
+          </h4>
+
+          <p>
+            المقدمة - سر الفاقة
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 02 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-media">
+
+          <img
+            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd2eb7fe5a8e31ac4b3c.jpg"
+            alt="الخطوة الأولى - نشأة الفاقة"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="mhhm-body">
+
+          <span class="mhhm-unit">
+            الوحدة 02
+          </span>
+
+          <h4>
+            الخطوة الأولى
+          </h4>
+
+          <p>
+            نشأة الفاقة
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 03 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-media">
+
+          <img
+            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd2eb4176d3727147f69.jpeg"
+            alt="الخطوة الثانية - الخروج من التيه"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="mhhm-body">
+
+          <span class="mhhm-unit">
+            الوحدة 03
+          </span>
+
+          <h4>
+            الخطوة الثانية
+          </h4>
+
+          <p>
+            الخروج من التيه
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 04 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-media">
+
+          <img
+            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd303520888034b7cff8.jpg"
+            alt="الخطوة الثالثة - ما وراء الفكر"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="mhhm-body">
+
+          <span class="mhhm-unit">
+            الوحدة 04
+          </span>
+
+          <h4>
+            الخطوة الثالثة
+          </h4>
+
+          <p>
+            ما وراء الفكر
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 05 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-media">
+
+          <img
+            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd3072a719b2b2977809.jpg"
+            alt="الخطوة الرابعة - الأثر النفسي للشيطان"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="mhhm-body">
+
+          <span class="mhhm-unit">
+            الوحدة 05
+          </span>
+
+          <h4>
+            الخطوة الرابعة
+          </h4>
+
+          <p>
+            الأثر النفسي للشيطان
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 06 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-media">
+
+          <img
+            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd318219a56ed3fa84b7.jpg"
+            alt="الخطوة الخامسة - فك الحصار 1"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="mhhm-body">
+
+          <span class="mhhm-unit">
+            الوحدة 06
+          </span>
+
+          <h4>
+            الخطوة الخامسة
+          </h4>
+
+          <p>
+            فك الحصار 1
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 07 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-media">
+
+          <img
+            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd32d1438d5c4eda1043.jpg"
+            alt="الخطوة الخامسة - فك الحصار 2"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="mhhm-body">
+
+          <span class="mhhm-unit">
+            الوحدة 06
+          </span>
+
+          <h4>
+            الخطوة الخامسة
+          </h4>
+
+          <p>
+            فك الحصار 2
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 08 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-media">
+
+          <img
+            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a7f1c48fe4291bd10c6dd57.jpg"
+            alt="الخطوة السادسة - أحسن القصص - مقدمة"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="mhhm-body">
+
+          <span class="mhhm-unit">
+            الوحدة 07
+          </span>
+
+          <h4>
+            الخطوة السادسة: بناء القوة النفسية من سورة يوسف
+          </h4>
+
+          <p>
+            أحسن القصص - مقدمة
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- 09 -->
+
+      <article class="mhhm-card">
+
+        <div class="mhhm-media">
+
+          <img
+            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a7f1c48a6a03cda06b99822.jpg"
+            alt="الخطوة السادسة - آيات للسائلين - القصة كاملة"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div class="mhhm-body">
+
+          <span class="mhhm-unit">
+            الوحدة 07
+          </span>
+
+          <h4>
+            الخطوة السادسة: بناء القوة النفسية من سورة يوسف
+          </h4>
+
+          <p>
+            آيات للسائلين - القصة كاملة
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =============================================
+           CONTINUATION
+      ============================================== -->
+
+      <div class="mhhm-continue">
+
+
+        <div class="mhhm-plus">
+          +
+        </div>
+
+
+        <div class="mhhm-continueCopy">
+
+          <span>
+            المحاضرات مستمرة
+          </span>
+
+          <h4>
+            خطوات جديدة تضاف تدريجيا إلى الرحلة
+          </h4>
+
+          <p>
+            يستمر المنهج في التوسع بمحاضرات جديدة
+            تكمل بناء الفهم والوعي طوال رحلة العام.
+          </p>
+
+        </div>
+
+
+        <div class="mhhm-journeyLabel">
+
+          رحلة تمتد لعام كامل
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-lectures'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var head =
+    section.querySelector(
+      '.mhhm-head'
+    );
+
+
+  var groupHead =
+    section.querySelector(
+      '.mhhm-groupHead'
+    );
+
+
+  var cards =
+    section.querySelectorAll(
+      '.mhhm-card'
+    );
+
+
+  var continuation =
+    section.querySelector(
+      '.mhhm-continue'
+    );
+
+
+  /* ======================================================
+     SHOW EVERYTHING
+  ====================================================== */
+
+  function showAll(){
+
+    if(head){
+      head.classList.add(
+        'mhhm-visible'
+      );
+    }
+
+
+    if(groupHead){
+      groupHead.classList.add(
+        'mhhm-visible'
+      );
+    }
+
+
+    cards.forEach(
+      function(card){
+
+        card.classList.add(
+          'mhhm-visible'
+        );
+
+      }
+    );
+
+
+    if(continuation){
+
+      continuation.classList.add(
+        'mhhm-visible'
+      );
+
+    }
+
+  }
+
+
+
+  /* ======================================================
+     FALLBACK
+  ====================================================== */
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    showAll();
+
+    return;
+  }
+
+
+
+  /* ======================================================
+     HEADER
+  ====================================================== */
+
+  var topObserver =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            if(head){
+
+              head.classList.add(
+                'mhhm-visible'
+              );
+
+            }
+
+
+            setTimeout(
+
+              function(){
+
+                if(groupHead){
+
+                  groupHead.classList.add(
+                    'mhhm-visible'
+                  );
+
+                }
+
+              },
+
+              120
+
+            );
+
+
+            topObserver.disconnect();
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.14,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  if(head){
+    topObserver.observe(head);
+  }
+
+
+
+  /* ======================================================
+     CARDS
+  ====================================================== */
+
+  var cardObserver =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            var card =
+              entry.target;
+
+
+            var index =
+              Number(
+                card.getAttribute(
+                  'data-mhhm-index'
+                )
+              ) || 0;
+
+
+            var width =
+              window.innerWidth;
+
+
+            var columns =
+              width <= 620
+              ? 1
+              : width <= 920
+                ? 2
+                : 3;
+
+
+            var position =
+              index % columns;
+
+
+            setTimeout(
+
+              function(){
+
+                card.classList.add(
+                  'mhhm-visible'
+                );
+
+              },
+
+              position * 85
+
+            );
+
+
+            cardObserver.unobserve(
+              card
+            );
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.10,
+
+        rootMargin:
+          '0px 0px -30px 0px'
+
+      }
+
+    );
+
+
+  cards.forEach(
+
+    function(card,index){
+
+      card.setAttribute(
+        'data-mhhm-index',
+        index
+      );
+
+
+      cardObserver.observe(
+        card
+      );
+
+    }
+
+  );
+
+
+
+  /* ======================================================
+     CONTINUATION
+  ====================================================== */
+
+  if(continuation){
+
+    var continueObserver =
+      new IntersectionObserver(
+
+        function(entries){
+
+          entries.forEach(
+
+            function(entry){
+
+              if(
+                !entry.isIntersecting
+              ){
+                return;
+              }
+
+
+              continuation.classList.add(
+                'mhhm-visible'
+              );
+
+
+              continueObserver.disconnect();
+
+            }
+
+          );
+
+        },
+
+        {
+
+          threshold:.15,
+
+          rootMargin:
+            '0px 0px -20px 0px'
+
+        }
+
+      );
+
+
+    continueObserver.observe(
+      continuation
+    );
+
+  }
+
+
+})();
+
+</script>

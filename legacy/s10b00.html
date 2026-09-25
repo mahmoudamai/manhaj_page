@@ -1,0 +1,743 @@
+<!-- =========================================================
+     MHH MANHAJ | CONTENT REACTIONS
+     MEMBER NOTES ON SPECIFIC LECTURES
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-content-proofs{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+
+  --text:#5D6A70;
+  --muted:#748086;
+
+  position:relative;
+
+  overflow:hidden;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  padding:
+    58px 22px 62px;
+
+  background:
+
+    radial-gradient(
+      circle at 8% 16%,
+      rgba(142,201,196,.10),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 94% 88%,
+      rgba(211,178,103,.055),
+      transparent 25%
+    ),
+
+    linear-gradient(
+      180deg,
+      #DFE9E2 0%,
+      #E7EEE8 100%
+    );
+}
+
+
+#mhhm-content-proofs *,
+#mhhm-content-proofs *::before,
+#mhhm-content-proofs *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-content-proofs .mhhm-wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:1000px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#mhhm-content-proofs .mhhm-head{
+
+  max-width:650px;
+
+  margin:
+    0 auto 27px;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(14px);
+
+  transition:
+    opacity .65s ease,
+    transform .65s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-content-proofs
+.mhhm-head.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-content-proofs .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-bottom:8px;
+
+  color:var(--petrol);
+
+  font-size:.69rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-content-proofs
+.mhhm-kicker::before{
+
+  content:"";
+
+  width:22px;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30,89,96,.14),
+      var(--gold)
+    );
+}
+
+
+#mhhm-content-proofs .mhhm-head h3{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      1.25rem,
+      2.5vw,
+      1.65rem
+    );
+
+  line-height:1.5;
+
+  font-weight:900;
+}
+
+
+#mhhm-content-proofs .mhhm-head p{
+
+  margin:
+    7px auto 0;
+
+  color:#6E7B76;
+
+  font-size:.82rem;
+
+  line-height:1.75;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+#mhhm-content-proofs .mhhm-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  border-top:
+    1px solid rgba(30,89,96,.13);
+
+  border-bottom:
+    1px solid rgba(30,89,96,.13);
+}
+
+
+/* =========================================================
+   REACTION
+========================================================= */
+
+#mhhm-content-proofs .mhhm-reaction{
+
+  position:relative;
+
+  padding:
+    29px 30px 27px;
+
+  opacity:0;
+
+  transform:
+    translateY(17px);
+
+  transition:
+    opacity .68s ease,
+    transform .68s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-content-proofs
+.mhhm-reaction:first-child{
+
+  border-left:
+    1px solid rgba(30,89,96,.12);
+}
+
+
+#mhhm-content-proofs
+.mhhm-reaction.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   TOPIC
+========================================================= */
+
+#mhhm-content-proofs .mhhm-topic{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-bottom:13px;
+
+  color:#8C7448;
+
+  font-size:.68rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-content-proofs
+.mhhm-topic::before{
+
+  content:"";
+
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:var(--gold);
+
+  box-shadow:
+    0 0 0 5px
+    rgba(211,178,103,.10);
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+#mhhm-content-proofs
+.mhhm-reaction p{
+
+  max-width:420px;
+
+  margin:
+    0 0 17px;
+
+  color:#526461;
+
+  font-size:.91rem;
+
+  line-height:1.95;
+
+  font-weight:600;
+}
+
+
+/* =========================================================
+   NAME
+========================================================= */
+
+#mhhm-content-proofs .mhhm-name{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  color:var(--petrol-deep);
+
+  font-size:.72rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-content-proofs
+.mhhm-name::before{
+
+  content:"";
+
+  width:17px;
+  height:1px;
+
+  background:
+    rgba(30,89,96,.28);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media(hover:hover){
+
+  #mhhm-content-proofs
+  .mhhm-reaction.mhhm-visible{
+
+    transition:
+      opacity .68s ease,
+      transform .24s ease,
+      background .24s ease;
+  }
+
+
+  #mhhm-content-proofs
+  .mhhm-reaction.mhhm-visible:hover{
+
+    transform:
+      translateY(-3px);
+
+    background:
+      rgba(255,253,248,.18);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+  #mhhm-content-proofs{
+
+    padding:
+      44px 15px 48px;
+  }
+
+
+  #mhhm-content-proofs .mhhm-head{
+
+    margin-bottom:22px;
+  }
+
+
+  #mhhm-content-proofs
+  .mhhm-head h3{
+
+    font-size:1.18rem;
+  }
+
+
+  #mhhm-content-proofs
+  .mhhm-head p{
+
+    font-size:.75rem;
+
+    line-height:1.7;
+  }
+
+
+  #mhhm-content-proofs
+  .mhhm-grid{
+
+    grid-template-columns:1fr;
+  }
+
+
+  #mhhm-content-proofs
+  .mhhm-reaction{
+
+    padding:
+      23px 5px;
+  }
+
+
+  #mhhm-content-proofs
+  .mhhm-reaction:first-child{
+
+    border-left:0;
+
+    border-bottom:
+      1px solid rgba(30,89,96,.11);
+  }
+
+
+  #mhhm-content-proofs
+  .mhhm-topic{
+
+    margin-bottom:10px;
+
+    font-size:.63rem;
+  }
+
+
+  #mhhm-content-proofs
+  .mhhm-reaction p{
+
+    max-width:none;
+
+    margin-bottom:13px;
+
+    font-size:.81rem;
+
+    line-height:1.82;
+  }
+
+
+  #mhhm-content-proofs
+  .mhhm-name{
+
+    font-size:.67rem;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-content-proofs
+  .mhhm-head,
+
+  #mhhm-content-proofs
+  .mhhm-reaction{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-content-proofs"
+  dir="rtl"
+  lang="ar"
+  aria-label="تفاعل أعضاء المنهج مع بعض المحاضرات"
+>
+
+  <div class="mhhm-wrap">
+
+
+    <!-- ===============================================
+         HEADER
+    ================================================ -->
+
+    <header class="mhhm-head">
+
+      <div class="mhhm-kicker">
+        من داخل التفاعل مع محتوى المنهج
+      </div>
+
+      <h3>
+        محاضرات تفتح مساحة للفهم والمراجعة
+      </h3>
+
+      <p>
+        بعض الملاحظات التي شاركها أعضاء المنهج
+        أثناء تفاعلهم مع محاضرات محددة.
+      </p>
+
+    </header>
+
+
+
+    <!-- ===============================================
+         REACTIONS
+    ================================================ -->
+
+    <div class="mhhm-grid">
+
+
+      <!-- SAMIA -->
+
+      <article class="mhhm-reaction">
+
+        <div class="mhhm-topic">
+          محاضرة: الخروج من التيه
+        </div>
+
+        <p>
+          ذكرني بالمرجعية الاساسية للحياة لما جاوبنا ال5 اسئلة
+          لاني كنت بعيدة تماما عنهم ومركزة مع الدنيا ومعاييرها
+          الخاطئة بشكل مفرط (الخروج من التيه)
+        </p>
+
+        <div class="mhhm-name">
+          سامية
+        </div>
+
+      </article>
+
+
+
+      <!-- HAZEM -->
+
+      <article class="mhhm-reaction">
+
+        <div class="mhhm-topic">
+          محاضرة: ما وراء الفكر
+        </div>
+
+        <p>
+          محاضرة ماوراء الفكر - وضحلي المعتقدات واصلها
+          بشكل اعمق وكيفية التعامل معها.
+        </p>
+
+        <div class="mhhm-name">
+          حازم أبو ريان
+        </div>
+
+      </article>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-content-proofs'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var head =
+    section.querySelector(
+      '.mhhm-head'
+    );
+
+
+  var reactions =
+    section.querySelectorAll(
+      '.mhhm-reaction'
+    );
+
+
+  function showAll(){
+
+    if(head){
+      head.classList.add(
+        'mhhm-visible'
+      );
+    }
+
+
+    reactions.forEach(
+      function(item){
+
+        item.classList.add(
+          'mhhm-visible'
+        );
+
+      }
+    );
+
+  }
+
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    showAll();
+
+    return;
+  }
+
+
+  var observer =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            if(head){
+
+              head.classList.add(
+                'mhhm-visible'
+              );
+
+            }
+
+
+            reactions.forEach(
+
+              function(item,index){
+
+                setTimeout(
+
+                  function(){
+
+                    item.classList.add(
+                      'mhhm-visible'
+                    );
+
+                  },
+
+                  110 +
+                  index * 130
+
+                );
+
+              }
+
+            );
+
+
+            observer.disconnect();
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.12,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  observer.observe(
+    section
+  );
+
+
+})();
+
+</script>

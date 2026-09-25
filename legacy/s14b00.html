@@ -1,0 +1,1352 @@
+<!-- =========================================================
+     MHH MANHAJ | REAL COMMUNITY MOMENTS
+     NATURAL MASONRY — NO CROP — NO SLIDER
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-wa-masonry{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --blue-petrol:#294E63;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --teal-bright:#A9DED8;
+
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+  --ivory:#F6F2E8;
+
+  position:relative;
+
+  overflow:hidden;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:var(--paper);
+
+  padding:
+    88px 22px 94px;
+
+  background:
+
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(211,178,103,.08),
+      transparent 26%
+    ),
+
+    radial-gradient(
+      circle at 92% 92%,
+      rgba(169,222,216,.055),
+      transparent 28%
+    ),
+
+    linear-gradient(
+      140deg,
+      #0F3035 0%,
+      #123C42 48%,
+      #1B4D51 100%
+    );
+}
+
+
+#mhhm-wa-masonry *,
+#mhhm-wa-masonry *::before,
+#mhhm-wa-masonry *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   AMBIENT BACKGROUND
+========================================================= */
+
+#mhhm-wa-masonry::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:530px;
+  height:530px;
+
+  top:-350px;
+  left:-230px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(255,255,255,.04);
+
+  box-shadow:
+    0 0 0 65px rgba(255,255,255,.010);
+
+  pointer-events:none;
+}
+
+
+#mhhm-wa-masonry::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:340px;
+  height:340px;
+
+  right:-205px;
+  bottom:-205px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(211,178,103,.07);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-wa-masonry .mhhm-wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:1160px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#mhhm-wa-masonry .mhhm-head{
+
+  max-width:810px;
+
+  margin:
+    0 auto 43px;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity .72s ease,
+    transform .72s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-wa-masonry
+.mhhm-head.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* kicker */
+
+#mhhm-wa-masonry .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:13px;
+
+  color:#DFC78F;
+
+  font-size:.76rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-wa-masonry
+.mhhm-kicker::before{
+
+  content:"";
+
+  width:28px;
+  height:1px;
+
+  flex:0 0 28px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(211,178,103,.16),
+      var(--gold)
+    );
+}
+
+
+/* title */
+
+#mhhm-wa-masonry h2{
+
+  margin:0;
+
+  color:#FFFDF8;
+
+  font-size:
+    clamp(
+      2.05rem,
+      4.1vw,
+      3.35rem
+    );
+
+  line-height:1.27;
+
+  letter-spacing:-.7px;
+
+  font-weight:900;
+
+  text-wrap:balance;
+}
+
+
+/* intro */
+
+#mhhm-wa-masonry .mhhm-intro{
+
+  max-width:700px;
+
+  margin:
+    15px auto 0;
+
+  color:
+    rgba(255,253,248,.69);
+
+  font-size:
+    clamp(
+      .92rem,
+      1.45vw,
+      1.03rem
+    );
+
+  line-height:1.88;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   REAL-PROOF LABEL
+========================================================= */
+
+#mhhm-wa-masonry .mhhm-proofLabel{
+
+  display:flex;
+
+  justify-content:center;
+
+  margin:
+    -19px auto 30px;
+
+  opacity:0;
+
+  transform:
+    translateY(12px);
+
+  transition:
+    opacity .65s ease,
+    transform .65s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-wa-masonry
+.mhhm-proofLabel.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-wa-masonry
+.mhhm-proofLabel span{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  padding:
+    7px 11px;
+
+  border:
+    1px solid rgba(255,255,255,.09);
+
+  border-radius:999px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  color:
+    rgba(255,253,248,.61);
+
+  font-size:.62rem;
+
+  line-height:1.4;
+
+  font-weight:800;
+}
+
+
+#mhhm-wa-masonry
+.mhhm-proofLabel span::before{
+
+  content:"";
+
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:var(--sage);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(167,188,166,.09);
+}
+
+
+/* =========================================================
+   MASONRY
+========================================================= */
+
+#mhhm-wa-masonry .mhhm-gallery{
+
+  columns:3;
+
+  column-gap:16px;
+
+  width:100%;
+}
+
+
+/* =========================================================
+   SCREENSHOT CARD
+========================================================= */
+
+#mhhm-wa-masonry .mhhm-card{
+
+  position:relative;
+
+  display:inline-block;
+
+  width:100%;
+
+  margin:
+    0 0 16px;
+
+  padding:6px;
+
+  break-inside:avoid;
+
+  overflow:hidden;
+
+  vertical-align:top;
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  border-radius:19px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  box-shadow:
+    0 15px 36px
+    rgba(4,20,22,.22);
+
+  opacity:0;
+
+  transform:
+    translateY(20px)
+    scale(.988);
+
+  transition:
+
+    opacity .68s ease,
+
+    transform .68s
+      cubic-bezier(.2,.72,.2,1),
+
+    border-color .24s ease,
+
+    box-shadow .24s ease;
+}
+
+
+#mhhm-wa-masonry
+.mhhm-card.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* subtle variation */
+
+#mhhm-wa-masonry
+.mhhm-card:nth-child(3n+2){
+
+  background:
+    rgba(211,178,103,.032);
+}
+
+
+#mhhm-wa-masonry
+.mhhm-card:nth-child(5n){
+
+  border-color:
+    rgba(211,178,103,.12);
+}
+
+
+/* =========================================================
+   IMAGE
+   Natural ratio, no crop
+========================================================= */
+
+#mhhm-wa-masonry .mhhm-card img{
+
+  display:block;
+
+  width:100%;
+  height:auto;
+
+  border-radius:13px;
+
+  object-fit:contain;
+
+  background:#07191B;
+}
+
+
+/* subtle inset edge */
+
+#mhhm-wa-masonry
+.mhhm-card::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:6px;
+
+  border-radius:13px;
+
+  pointer-events:none;
+
+  box-shadow:
+    inset 0 0 0 1px
+    rgba(255,255,255,.022);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media(hover:hover){
+
+  #mhhm-wa-masonry
+  .mhhm-card.mhhm-visible:hover{
+
+    transform:
+      translateY(-4px)
+      scale(1.004);
+
+    border-color:
+      rgba(211,178,103,.22);
+
+    box-shadow:
+      0 22px 46px
+      rgba(4,20,22,.29);
+  }
+
+}
+
+
+/* =========================================================
+   CLOSING
+========================================================= */
+
+#mhhm-wa-masonry .mhhm-closing{
+
+  max-width:780px;
+
+  margin:
+    31px auto 0;
+
+  padding-top:24px;
+
+  border-top:
+    1px solid rgba(255,255,255,.07);
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(14px);
+
+  transition:
+    opacity .68s ease,
+    transform .68s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-wa-masonry
+.mhhm-closing.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-wa-masonry
+.mhhm-closing p{
+
+  margin:0;
+
+  color:
+    rgba(255,253,248,.64);
+
+  font-size:.83rem;
+
+  line-height:1.82;
+
+  font-weight:600;
+}
+
+
+#mhhm-wa-masonry
+.mhhm-closing strong{
+
+  color:#FFFDF8;
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+  #mhhm-wa-masonry{
+
+    padding:
+      74px 18px 80px;
+  }
+
+
+  #mhhm-wa-masonry
+  .mhhm-gallery{
+
+    columns:2;
+
+    column-gap:13px;
+  }
+
+
+  #mhhm-wa-masonry
+  .mhhm-card{
+
+    margin-bottom:13px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:570px){
+
+  #mhhm-wa-masonry{
+
+    padding:
+      56px 12px 62px;
+  }
+
+
+  #mhhm-wa-masonry .mhhm-head{
+
+    margin-bottom:29px;
+
+    padding:
+      0 4px;
+  }
+
+
+  #mhhm-wa-masonry .mhhm-kicker{
+
+    margin-bottom:9px;
+
+    font-size:.67rem;
+
+    gap:7px;
+  }
+
+
+  #mhhm-wa-masonry
+  .mhhm-kicker::before{
+
+    width:20px;
+
+    flex-basis:20px;
+  }
+
+
+  #mhhm-wa-masonry h2{
+
+    font-size:1.87rem;
+
+    line-height:1.28;
+  }
+
+
+  #mhhm-wa-masonry
+  .mhhm-intro{
+
+    margin-top:11px;
+
+    font-size:.81rem;
+
+    line-height:1.76;
+  }
+
+
+  #mhhm-wa-masonry
+  .mhhm-proofLabel{
+
+    margin:
+      -11px auto 23px;
+  }
+
+
+  #mhhm-wa-masonry
+  .mhhm-proofLabel span{
+
+    font-size:.56rem;
+  }
+
+
+  #mhhm-wa-masonry
+  .mhhm-gallery{
+
+    columns:1;
+  }
+
+
+  #mhhm-wa-masonry
+  .mhhm-card{
+
+    display:block;
+
+    width:min(
+      100%,
+      470px
+    );
+
+    margin:
+      0 auto 11px;
+
+    padding:5px;
+
+    border-radius:17px;
+  }
+
+
+  #mhhm-wa-masonry
+  .mhhm-card img{
+
+    border-radius:12px;
+  }
+
+
+  #mhhm-wa-masonry
+  .mhhm-card::after{
+
+    inset:5px;
+
+    border-radius:12px;
+  }
+
+
+  #mhhm-wa-masonry
+  .mhhm-closing{
+
+    margin-top:25px;
+
+    padding-top:19px;
+  }
+
+
+  #mhhm-wa-masonry
+  .mhhm-closing p{
+
+    font-size:.72rem;
+
+    line-height:1.75;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-wa-masonry .mhhm-head,
+  #mhhm-wa-masonry .mhhm-proofLabel,
+  #mhhm-wa-masonry .mhhm-card,
+  #mhhm-wa-masonry .mhhm-closing{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-wa-masonry"
+  dir="rtl"
+  lang="ar"
+  aria-label="مشاركات حقيقية من أعضاء منهج الطمأنينة"
+>
+
+  <div class="mhhm-wrap">
+
+
+    <!-- ===============================================
+         HEADER
+    ================================================ -->
+
+    <header class="mhhm-head">
+
+
+      <div class="mhhm-kicker">
+
+        من داخل مجتمع منهج الطمأنينة
+
+      </div>
+
+
+      <h2>
+
+        لحظات حقيقية
+        من داخل الرحلة
+
+      </h2>
+
+
+      <p class="mhhm-intro">
+
+        مقتطفات من رسائل ومشاركات كتبها أعضاء المنهج
+        أثناء تفاعلهم مع المحاضرات والتأملات
+        والتطبيقات خلال الرحلة.
+
+      </p>
+
+
+    </header>
+
+
+
+    <!-- ===============================================
+         AUTHENTICITY LABEL
+    ================================================ -->
+
+    <div class="mhhm-proofLabel">
+
+      <span>
+
+        مقتطفات حقيقية من مشاركات أعضاء المنهج
+
+      </span>
+
+    </div>
+
+
+
+    <!-- ===============================================
+         MASONRY GALLERY
+    ================================================ -->
+
+    <div class="mhhm-gallery">
+
+
+      <!-- 01 -->
+
+      <article class="mhhm-card">
+
+        <img
+          loading="lazy"
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad59f330b0f957cc713c32.jpeg"
+          alt="مشاركة من أحد أعضاء منهج الطمأنينة"
+        >
+
+      </article>
+
+
+
+      <!-- 02 -->
+
+      <article class="mhhm-card">
+
+        <img
+          loading="lazy"
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad59f3ff484614db2e349e.jpeg"
+          alt="مشاركة من أحد أعضاء منهج الطمأنينة"
+        >
+
+      </article>
+
+
+
+      <!-- 03 -->
+
+      <article class="mhhm-card">
+
+        <img
+          loading="lazy"
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad59f3711f85a2aab8ffcd.jpeg"
+          alt="مشاركة من أحد أعضاء منهج الطمأنينة"
+        >
+
+      </article>
+
+
+
+      <!-- 04 -->
+
+      <article class="mhhm-card">
+
+        <img
+          loading="lazy"
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad59f34091fa65e661cb29.jpeg"
+          alt="مشاركة من أحد أعضاء منهج الطمأنينة"
+        >
+
+      </article>
+
+
+
+      <!-- 05 -->
+
+      <article class="mhhm-card">
+
+        <img
+          loading="lazy"
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad59f330b0f957cc713c3c.jpeg"
+          alt="مشاركة من أحد أعضاء منهج الطمأنينة"
+        >
+
+      </article>
+
+
+
+      <!-- 06 -->
+
+      <article class="mhhm-card">
+
+        <img
+          loading="lazy"
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad59f1c813e8cb6fdfaf1f.jpeg"
+          alt="مشاركة من أحد أعضاء منهج الطمأنينة"
+        >
+
+      </article>
+
+
+
+      <!-- 07 -->
+
+      <article class="mhhm-card">
+
+        <img
+          loading="lazy"
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad59f1bdaa5e26a921ebdb.jpeg"
+          alt="مشاركة من أحد أعضاء منهج الطمأنينة"
+        >
+
+      </article>
+
+
+
+      <!-- 08 -->
+
+      <article class="mhhm-card">
+
+        <img
+          loading="lazy"
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad59f1a721ff13d5bdc741.jpeg"
+          alt="مشاركة من أحد أعضاء منهج الطمأنينة"
+        >
+
+      </article>
+
+
+
+      <!-- 09 -->
+
+      <article class="mhhm-card">
+
+        <img
+          loading="lazy"
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad59f130b0f957cc713bdf.jpeg"
+          alt="مشاركة من أحد أعضاء منهج الطمأنينة"
+        >
+
+      </article>
+
+
+
+      <!-- 10 -->
+
+      <article class="mhhm-card">
+
+        <img
+          loading="lazy"
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad59f1ff484614db2e344d.jpeg"
+          alt="مشاركة من أحد أعضاء منهج الطمأنينة"
+        >
+
+      </article>
+
+
+
+      <!-- 11 -->
+
+      <article class="mhhm-card">
+
+        <img
+          loading="lazy"
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad59f1568ea1e227306b40.jpeg"
+          alt="مشاركة من أحد أعضاء منهج الطمأنينة"
+        >
+
+      </article>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         ENDING
+    ================================================ -->
+
+    <div class="mhhm-closing">
+
+      <p>
+
+        لكل شخص أسئلته وتجربته الخاصة،
+        والمنهج يفتح مساحة
+        <strong>للفهم والمراجعة والتأمل والمشاركة.</strong>
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-wa-masonry'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var head =
+    section.querySelector(
+      '.mhhm-head'
+    );
+
+
+  var label =
+    section.querySelector(
+      '.mhhm-proofLabel'
+    );
+
+
+  var cards =
+    section.querySelectorAll(
+      '.mhhm-card'
+    );
+
+
+  var closing =
+    section.querySelector(
+      '.mhhm-closing'
+    );
+
+
+
+  /* ======================================================
+     SHOW ALL
+  ====================================================== */
+
+  function showAll(){
+
+    [
+      head,
+      label,
+      closing
+    ].forEach(
+
+      function(item){
+
+        if(item){
+
+          item.classList.add(
+            'mhhm-visible'
+          );
+
+        }
+
+      }
+
+    );
+
+
+    cards.forEach(
+
+      function(card){
+
+        card.classList.add(
+          'mhhm-visible'
+        );
+
+      }
+
+    );
+
+  }
+
+
+
+  /* ======================================================
+     FALLBACK
+  ====================================================== */
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    showAll();
+
+    return;
+  }
+
+
+
+  /* ======================================================
+     TOP
+  ====================================================== */
+
+  var topObserver =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            if(head){
+
+              head.classList.add(
+                'mhhm-visible'
+              );
+
+            }
+
+
+            setTimeout(
+
+              function(){
+
+                if(label){
+
+                  label.classList.add(
+                    'mhhm-visible'
+                  );
+
+                }
+
+              },
+
+              120
+
+            );
+
+
+            topObserver.disconnect();
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.12,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  if(head){
+
+    topObserver.observe(
+      head
+    );
+
+  }
+
+
+
+  /* ======================================================
+     SCREENSHOTS
+  ====================================================== */
+
+  var cardObserver =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            var card =
+              entry.target;
+
+
+            var index =
+              Number(
+                card.getAttribute(
+                  'data-mhhm-index'
+                )
+              ) || 0;
+
+
+            setTimeout(
+
+              function(){
+
+                card.classList.add(
+                  'mhhm-visible'
+                );
+
+              },
+
+              (index % 3) * 75
+
+            );
+
+
+            cardObserver.unobserve(
+              card
+            );
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.07,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  cards.forEach(
+
+    function(card,index){
+
+      card.setAttribute(
+        'data-mhhm-index',
+        index
+      );
+
+
+      cardObserver.observe(
+        card
+      );
+
+    }
+
+  );
+
+
+
+  /* ======================================================
+     CLOSING
+  ====================================================== */
+
+  if(closing){
+
+    var closingObserver =
+      new IntersectionObserver(
+
+        function(entries){
+
+          entries.forEach(
+
+            function(entry){
+
+              if(
+                !entry.isIntersecting
+              ){
+                return;
+              }
+
+
+              closing.classList.add(
+                'mhhm-visible'
+              );
+
+
+              closingObserver.disconnect();
+
+            }
+
+          );
+
+        },
+
+        {
+          threshold:.18
+        }
+
+      );
+
+
+    closingObserver.observe(
+      closing
+    );
+
+  }
+
+
+})();
+
+</script>

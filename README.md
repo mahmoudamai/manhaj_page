@@ -1,4 +1,9 @@
-# منهج الطمأنينة — GHL Landing Page (v3)
+# منهج الطمأنينة — GHL Landing Page
+
+> **Phase 1 (current production refactor): see [REFACTOR.md](REFACTOR.md) and `refactor/blocks/`.**
+> Below is the separate v3 redesign proposal (`src/`, `dist/`) for the next phase.
+
+## v3 redesign proposal
 
 المراجعة الكاملة والـ gaps والأرقام اللي محتاجة تأكيد موجودة في **[REVIEW.md](REVIEW.md)**.
 

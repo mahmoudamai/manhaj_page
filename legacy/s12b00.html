@@ -1,0 +1,1927 @@
+<!-- =========================================================
+     MHH MANHAJ | INTERACTIVE LIVE SESSIONS
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-live{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --blue-petrol:#294E63;
+
+  --navy:#354859;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --teal-bright:#A9DED8;
+
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+
+  --text:#5D6A70;
+  --muted:#748086;
+
+  position:relative;
+
+  overflow:hidden;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:var(--navy);
+
+  padding:
+    82px 22px 88px;
+
+  background:
+
+    radial-gradient(
+      circle at 8% 13%,
+      rgba(142,201,196,.11),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 94% 88%,
+      rgba(211,178,103,.055),
+      transparent 25%
+    ),
+
+    linear-gradient(
+      180deg,
+      #E2EBE5 0%,
+      #E8EEE8 52%,
+      #EFF1E9 100%
+    );
+}
+
+
+#mhhm-live *,
+#mhhm-live *::before,
+#mhhm-live *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   DECORATION
+========================================================= */
+
+#mhhm-live::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:430px;
+  height:430px;
+
+  top:-280px;
+  left:-220px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(30,89,96,.05);
+
+  pointer-events:none;
+}
+
+
+#mhhm-live::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:300px;
+  height:300px;
+
+  right:-180px;
+  bottom:-170px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(211,178,103,.075);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-live .mhhm-wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:1120px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#mhhm-live .mhhm-head{
+
+  max-width:790px;
+
+  margin:
+    0 auto 36px;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity .7s ease,
+    transform .7s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-live
+.mhhm-head.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* kicker */
+
+#mhhm-live .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:13px;
+
+  color:var(--petrol);
+
+  font-size:.78rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-live
+.mhhm-kicker::before{
+
+  content:"";
+
+  width:8px;
+  height:8px;
+
+  border-radius:50%;
+
+  background:#E75C4D;
+
+  box-shadow:
+    0 0 0 5px
+    rgba(231,92,77,.10);
+
+  animation:
+    mhhmLivePulse 2s ease-in-out infinite;
+}
+
+
+@keyframes mhhmLivePulse{
+
+  0%,
+  100%{
+    box-shadow:
+      0 0 0 4px
+      rgba(231,92,77,.09);
+  }
+
+  50%{
+    box-shadow:
+      0 0 0 8px
+      rgba(231,92,77,.02);
+  }
+
+}
+
+
+/* title */
+
+#mhhm-live h2{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.15rem
+    );
+
+  line-height:1.27;
+
+  letter-spacing:-.7px;
+
+  font-weight:900;
+
+  text-wrap:balance;
+}
+
+
+/* lead */
+
+#mhhm-live .mhhm-head p{
+
+  max-width:690px;
+
+  margin:
+    14px auto 0;
+
+  color:var(--text);
+
+  font-size:
+    clamp(
+      .94rem,
+      1.45vw,
+      1.05rem
+    );
+
+  line-height:1.86;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   VALUE STRIP
+========================================================= */
+
+#mhhm-live .mhhm-values{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  max-width:900px;
+
+  margin:
+    0 auto 39px;
+
+  border-top:
+    1px solid rgba(30,89,96,.12);
+
+  border-bottom:
+    1px solid rgba(30,89,96,.12);
+
+  opacity:0;
+
+  transform:
+    translateY(15px);
+
+  transition:
+    opacity .7s ease,
+    transform .7s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-live
+.mhhm-values.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-live .mhhm-value{
+
+  position:relative;
+
+  padding:
+    19px 20px;
+
+  text-align:center;
+}
+
+
+#mhhm-live
+.mhhm-value:not(:last-child){
+
+  border-left:
+    1px solid rgba(30,89,96,.10);
+}
+
+
+#mhhm-live .mhhm-value span{
+
+  display:block;
+
+  margin-bottom:5px;
+
+  color:#90784B;
+
+  font-size:.61rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-live .mhhm-value strong{
+
+  display:block;
+
+  color:var(--petrol-deep);
+
+  font-size:.84rem;
+
+  line-height:1.55;
+
+  font-weight:900;
+}
+
+
+#mhhm-live .mhhm-value p{
+
+  max-width:220px;
+
+  margin:
+    5px auto 0;
+
+  color:#708079;
+
+  font-size:.69rem;
+
+  line-height:1.65;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   SESSION HEADING
+========================================================= */
+
+#mhhm-live .mhhm-sessionHead{
+
+  display:flex;
+
+  align-items:end;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  margin-bottom:18px;
+
+  padding-bottom:15px;
+
+  border-bottom:
+    1px solid rgba(30,89,96,.12);
+}
+
+
+#mhhm-live .mhhm-sessionHead span{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:#90784B;
+
+  font-size:.65rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-live .mhhm-sessionHead h3{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      1.12rem,
+      2vw,
+      1.4rem
+    );
+
+  line-height:1.5;
+
+  font-weight:900;
+}
+
+
+#mhhm-live .mhhm-note{
+
+  color:#72817A;
+
+  font-size:.64rem;
+
+  line-height:1.4;
+
+  font-weight:800;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+#mhhm-live .mhhm-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:16px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+#mhhm-live .mhhm-card{
+
+  position:relative;
+
+  overflow:hidden;
+
+  border-radius:21px;
+
+  border:
+    1px solid rgba(30,89,96,.11);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,253,248,.98),
+      rgba(247,248,241,.95)
+    );
+
+  box-shadow:
+    0 12px 30px
+    rgba(53,72,89,.055);
+
+  opacity:0;
+
+  transform:
+    translateY(22px)
+    scale(.985);
+
+  transition:
+
+    opacity .68s ease,
+
+    transform .68s
+      cubic-bezier(.2,.72,.2,1),
+
+    box-shadow .23s ease,
+
+    border-color .23s ease;
+}
+
+
+#mhhm-live
+.mhhm-card.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* accent */
+
+#mhhm-live .mhhm-card::after{
+
+  content:"";
+
+  position:absolute;
+
+  z-index:4;
+
+  top:0;
+  right:20px;
+
+  width:46px;
+  height:2px;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      var(--petrol)
+    );
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+#mhhm-live .mhhm-media{
+
+  position:relative;
+
+  overflow:hidden;
+
+  aspect-ratio:16 / 9;
+
+  background:#E9EFEA;
+
+  border-bottom:
+    1px solid rgba(30,89,96,.07);
+}
+
+
+#mhhm-live .mhhm-media img{
+
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  object-fit:contain;
+
+  transform:scale(1);
+
+  transition:
+    transform .4s cubic-bezier(.2,.72,.2,1);
+}
+
+
+/* live badge */
+
+#mhhm-live .mhhm-liveBadge{
+
+  position:absolute;
+
+  z-index:4;
+
+  top:12px;
+  right:12px;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:6px;
+
+  padding:
+    6px 9px;
+
+  border-radius:999px;
+
+  background:
+    rgba(18,60,66,.86);
+
+  color:#FFFDF8;
+
+  font-size:.56rem;
+
+  font-weight:900;
+
+  backdrop-filter:
+    blur(8px);
+
+  -webkit-backdrop-filter:
+    blur(8px);
+}
+
+
+#mhhm-live
+.mhhm-liveBadge::before{
+
+  content:"";
+
+  width:6px;
+  height:6px;
+
+  border-radius:50%;
+
+  background:#EF6655;
+}
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+#mhhm-live .mhhm-body{
+
+  min-height:105px;
+
+  padding:
+    15px 16px 16px;
+}
+
+
+#mhhm-live .mhhm-body span{
+
+  display:block;
+
+  margin-bottom:5px;
+
+  color:#927946;
+
+  font-size:.57rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-live .mhhm-body h4{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:.88rem;
+
+  line-height:1.5;
+
+  font-weight:900;
+}
+
+
+#mhhm-live .mhhm-body p{
+
+  margin:
+    4px 0 0;
+
+  color:#6B7975;
+
+  font-size:.69rem;
+
+  line-height:1.62;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   CONTINUATION
+========================================================= */
+
+#mhhm-live .mhhm-continue{
+
+  display:grid;
+
+  grid-template-columns:
+    46px minmax(0,1fr) auto;
+
+  gap:15px;
+
+  align-items:center;
+
+  margin-top:17px;
+
+  padding:
+    21px 23px;
+
+  border-radius:19px;
+
+  border:
+    1px solid rgba(255,255,255,.12);
+
+  background:
+
+    radial-gradient(
+      circle at 8% 10%,
+      rgba(211,178,103,.10),
+      transparent 30%
+    ),
+
+    linear-gradient(
+      135deg,
+      #123C42 0%,
+      #1A5255 58%,
+      #354E42 100%
+    );
+
+  box-shadow:
+    0 18px 42px
+    rgba(18,60,66,.14);
+
+  opacity:0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity .7s ease,
+    transform .7s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-live
+.mhhm-continue.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-live .mhhm-plus{
+
+  width:44px;
+  height:44px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:14px;
+
+  border:
+    1px solid rgba(255,255,255,.13);
+
+  background:
+    rgba(255,255,255,.07);
+
+  color:#E4CA91;
+
+  font-size:1.3rem;
+}
+
+
+#mhhm-live
+.mhhm-continueCopy span{
+
+  color:#DFC78F;
+
+  font-size:.61rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-live
+.mhhm-continueCopy h4{
+
+  margin:
+    3px 0 0;
+
+  color:#FFFDF8;
+
+  font-size:.93rem;
+
+  line-height:1.5;
+
+  font-weight:900;
+}
+
+
+#mhhm-live
+.mhhm-continueCopy p{
+
+  margin:
+    4px 0 0;
+
+  color:
+    rgba(255,253,248,.67);
+
+  font-size:.69rem;
+
+  line-height:1.65;
+
+  font-weight:500;
+}
+
+
+#mhhm-live .mhhm-continueTag{
+
+  padding:
+    6px 10px;
+
+  border-radius:999px;
+
+  border:
+    1px solid rgba(169,222,216,.14);
+
+  background:
+    rgba(255,255,255,.04);
+
+  color:#C8E1DD;
+
+  font-size:.59rem;
+
+  font-weight:900;
+
+  white-space:nowrap;
+}
+
+
+/* =========================================================
+   BOTTOM STATEMENT
+========================================================= */
+
+#mhhm-live .mhhm-bottom{
+
+  max-width:790px;
+
+  margin:
+    28px auto 0;
+
+  padding-top:21px;
+
+  border-top:
+    1px solid rgba(30,89,96,.11);
+
+  text-align:center;
+}
+
+
+#mhhm-live .mhhm-bottom p{
+
+  margin:0;
+
+  color:#66756F;
+
+  font-size:.78rem;
+
+  line-height:1.75;
+
+  font-weight:600;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media(hover:hover){
+
+  #mhhm-live
+  .mhhm-card.mhhm-visible:hover{
+
+    transform:
+      translateY(-5px);
+
+    border-color:
+      rgba(30,89,96,.22);
+
+    box-shadow:
+      0 20px 45px
+      rgba(53,72,89,.09);
+  }
+
+
+  #mhhm-live
+  .mhhm-card:hover
+  .mhhm-media img{
+
+    transform:
+      scale(1.025);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:850px){
+
+  #mhhm-live{
+
+    padding:
+      70px 18px 76px;
+  }
+
+
+  #mhhm-live .mhhm-grid{
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+  }
+
+
+  #mhhm-live .mhhm-card:last-child{
+
+    grid-column:
+      1 / -1;
+
+    max-width:520px;
+
+    width:100%;
+
+    justify-self:center;
+  }
+
+
+  #mhhm-live .mhhm-continue{
+
+    grid-template-columns:
+      46px minmax(0,1fr);
+  }
+
+
+  #mhhm-live .mhhm-continueTag{
+
+    grid-column:2;
+
+    justify-self:start;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:620px){
+
+  #mhhm-live{
+
+    padding:
+      56px 13px 62px;
+  }
+
+
+  #mhhm-live .mhhm-head{
+
+    margin-bottom:28px;
+  }
+
+
+  #mhhm-live .mhhm-kicker{
+
+    margin-bottom:9px;
+
+    font-size:.68rem;
+  }
+
+
+  #mhhm-live h2{
+
+    font-size:1.82rem;
+
+    line-height:1.28;
+  }
+
+
+  #mhhm-live .mhhm-head p{
+
+    margin-top:11px;
+
+    font-size:.83rem;
+
+    line-height:1.76;
+  }
+
+
+  /* values */
+
+  #mhhm-live .mhhm-values{
+
+    grid-template-columns:1fr;
+
+    margin-bottom:30px;
+  }
+
+
+  #mhhm-live .mhhm-value{
+
+    padding:
+      14px 8px;
+  }
+
+
+  #mhhm-live
+  .mhhm-value:not(:last-child){
+
+    border-left:0;
+
+    border-bottom:
+      1px solid rgba(30,89,96,.09);
+  }
+
+
+  #mhhm-live .mhhm-value p{
+
+    font-size:.64rem;
+  }
+
+
+  /* session heading */
+
+  #mhhm-live .mhhm-sessionHead{
+
+    align-items:start;
+
+    margin-bottom:14px;
+  }
+
+
+  #mhhm-live .mhhm-sessionHead h3{
+
+    font-size:1rem;
+  }
+
+
+  #mhhm-live .mhhm-note{
+
+    font-size:.56rem;
+  }
+
+
+  /* cards */
+
+  #mhhm-live .mhhm-grid{
+
+    grid-template-columns:1fr;
+
+    gap:11px;
+  }
+
+
+  #mhhm-live .mhhm-card,
+  #mhhm-live .mhhm-card:last-child{
+
+    display:grid;
+
+    grid-template-columns:
+      minmax(125px,42%)
+      minmax(0,1fr);
+
+    max-width:none;
+
+    min-height:115px;
+
+    border-radius:17px;
+  }
+
+
+  #mhhm-live .mhhm-media{
+
+    aspect-ratio:auto;
+
+    min-height:115px;
+
+    border-bottom:0;
+
+    border-left:
+      1px solid rgba(30,89,96,.07);
+  }
+
+
+  #mhhm-live .mhhm-liveBadge{
+
+    top:8px;
+    right:8px;
+
+    padding:
+      5px 7px;
+
+    font-size:.49rem;
+  }
+
+
+  #mhhm-live .mhhm-body{
+
+    min-height:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding:
+      12px 13px;
+  }
+
+
+  #mhhm-live .mhhm-body h4{
+
+    font-size:.79rem;
+  }
+
+
+  #mhhm-live .mhhm-body p{
+
+    font-size:.63rem;
+
+    line-height:1.55;
+  }
+
+
+  /* continuation */
+
+  #mhhm-live .mhhm-continue{
+
+    grid-template-columns:
+      38px minmax(0,1fr);
+
+    gap:11px;
+
+    padding:
+      17px 15px;
+
+    border-radius:17px;
+  }
+
+
+  #mhhm-live .mhhm-plus{
+
+    width:37px;
+    height:37px;
+
+    border-radius:12px;
+
+    font-size:1.12rem;
+  }
+
+
+  #mhhm-live
+  .mhhm-continueCopy h4{
+
+    font-size:.80rem;
+  }
+
+
+  #mhhm-live
+  .mhhm-continueCopy p{
+
+    font-size:.62rem;
+  }
+
+
+  #mhhm-live .mhhm-continueTag{
+
+    grid-column:2;
+
+    font-size:.53rem;
+  }
+
+
+  #mhhm-live .mhhm-bottom{
+
+    margin-top:24px;
+
+    padding-top:18px;
+  }
+
+
+  #mhhm-live .mhhm-bottom p{
+
+    font-size:.69rem;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-live .mhhm-head,
+  #mhhm-live .mhhm-values,
+  #mhhm-live .mhhm-card,
+  #mhhm-live .mhhm-continue{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+
+  #mhhm-live
+  .mhhm-kicker::before{
+
+    animation:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-live"
+  dir="rtl"
+  lang="ar"
+  aria-label="اللقاءات التفاعلية المباشرة"
+>
+
+  <div class="mhhm-wrap">
+
+
+    <!-- ===============================================
+         HEADER
+    ================================================ -->
+
+    <header class="mhhm-head">
+
+
+      <div class="mhhm-kicker">
+
+        اللقاءات التفاعلية المباشرة
+
+      </div>
+
+
+      <h2>
+
+        لأن بعض الأسئلة تحتاج
+        مساحة للحوار
+
+      </h2>
+
+
+      <p>
+
+        لقاءات مباشرة تصاحب تقدم الرحلة،
+        للمراجعة ومناقشة الأسئلة والتفاعل
+        مع الأفكار التي يقدمها المنهج.
+
+      </p>
+
+
+    </header>
+
+
+
+    <!-- ===============================================
+         WHY LIVE MATTERS
+    ================================================ -->
+
+    <div class="mhhm-values">
+
+
+      <div class="mhhm-value">
+
+        <span>
+          01
+        </span>
+
+        <strong>
+          راجع ما تعلمته
+        </strong>
+
+        <p>
+          توقف مع أهم المعاني والأفكار
+          التي مرت خلال الرحلة.
+        </p>
+
+      </div>
+
+
+      <div class="mhhm-value">
+
+        <span>
+          02
+        </span>
+
+        <strong>
+          اسأل وناقش
+        </strong>
+
+        <p>
+          مساحة للأسئلة والتفاعل
+          مع ما يحتاج إلى فهم أعمق.
+        </p>
+
+      </div>
+
+
+      <div class="mhhm-value">
+
+        <span>
+          03
+        </span>
+
+        <strong>
+          اربط الفكرة بحياتك
+        </strong>
+
+        <p>
+          ناقش ما تتعلمه في ضوء
+          المواقف والتجارب التي تمر بها.
+        </p>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         SESSIONS HEADING
+    ================================================ -->
+
+    <div class="mhhm-sessionHead">
+
+
+      <div>
+
+        <span>
+          من اللقاءات التي تمت حتى الآن
+        </span>
+
+        <h3>
+          محطات مباشرة داخل رحلة المنهج
+        </h3>
+
+      </div>
+
+
+      <div class="mhhm-note">
+
+        وتستمر مع تقدم المحتوى
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         SESSIONS
+    ================================================ -->
+
+    <div class="mhhm-grid">
+
+
+      <!-- SESSION 01 -->
+
+      <article class="mhhm-card">
+
+
+        <div class="mhhm-media">
+
+          <img
+            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd2ed1438d5c4eda0ae0.jpg"
+            alt="مقدمة تعريفية عن منهج الطمأنينة"
+            loading="lazy"
+          >
+
+          <div class="mhhm-liveBadge">
+            لقاء مباشر
+          </div>
+
+        </div>
+
+
+        <div class="mhhm-body">
+
+          <span>
+            اللقاء 01
+          </span>
+
+          <h4>
+            اللقاء التفاعلي الأول
+          </h4>
+
+          <p>
+            مقدمة تعريفية عن منهج الطمأنينة
+          </p>
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- SESSION 02 -->
+
+      <article class="mhhm-card">
+
+
+        <div class="mhhm-media">
+
+          <img
+            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a68bd30d1438d5c4eda0b28.jpg"
+            alt="اللقاء التفاعلي الثاني"
+            loading="lazy"
+          >
+
+          <div class="mhhm-liveBadge">
+            لقاء مباشر
+          </div>
+
+        </div>
+
+
+        <div class="mhhm-body">
+
+          <span>
+            اللقاء 02
+          </span>
+
+          <h4>
+            اللقاء التفاعلي الثاني
+          </h4>
+
+          <p>
+            مراجعة وتفاعل وأسئلة حول ما تم تقديمه
+          </p>
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- SESSION 03 -->
+
+      <article class="mhhm-card">
+
+
+        <div class="mhhm-media">
+
+          <img
+            src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a7f1c48f762745222c63896.jpg"
+            alt="اللقاء التفاعلي الثالث"
+            loading="lazy"
+          >
+
+          <div class="mhhm-liveBadge">
+            لقاء مباشر
+          </div>
+
+        </div>
+
+
+        <div class="mhhm-body">
+
+          <span>
+            اللقاء 03
+          </span>
+
+          <h4>
+            اللقاء التفاعلي الثالث
+          </h4>
+
+          <p>
+            مراجعة وتفاعل وأسئلة حول ما تم تقديمه
+          </p>
+
+        </div>
+
+
+      </article>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         CONTINUATION
+    ================================================ -->
+
+    <div class="mhhm-continue">
+
+
+      <div class="mhhm-plus">
+
+        +
+
+      </div>
+
+
+      <div class="mhhm-continueCopy">
+
+        <span>
+          اللقاءات مستمرة
+        </span>
+
+        <h4>
+          لقاءات أخرى تصاحب تقدم الرحلة
+        </h4>
+
+        <p>
+
+          للمراجعة والتفاعل ومناقشة الأسئلة
+          مع استمرار محاضرات المنهج ومحتواه.
+
+        </p>
+
+      </div>
+
+
+      <div class="mhhm-continueTag">
+
+        ضمن رحلة العام
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         CLOSING
+    ================================================ -->
+
+    <div class="mhhm-bottom">
+
+      <p>
+
+        التعلم هنا لا يقتصر على المشاهدة فقط؛
+        فهناك مساحات ترجع فيها إلى ما تعلمته،
+        تسأل، تناقش، وتراجع فهمك أثناء الرحلة.
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-live'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var head =
+    section.querySelector(
+      '.mhhm-head'
+    );
+
+
+  var values =
+    section.querySelector(
+      '.mhhm-values'
+    );
+
+
+  var cards =
+    section.querySelectorAll(
+      '.mhhm-card'
+    );
+
+
+  var continuation =
+    section.querySelector(
+      '.mhhm-continue'
+    );
+
+
+
+  /* ======================================================
+     FALLBACK
+  ====================================================== */
+
+  function showAll(){
+
+    if(head){
+      head.classList.add(
+        'mhhm-visible'
+      );
+    }
+
+
+    if(values){
+      values.classList.add(
+        'mhhm-visible'
+      );
+    }
+
+
+    cards.forEach(
+
+      function(card){
+
+        card.classList.add(
+          'mhhm-visible'
+        );
+
+      }
+
+    );
+
+
+    if(continuation){
+
+      continuation.classList.add(
+        'mhhm-visible'
+      );
+
+    }
+
+  }
+
+
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    showAll();
+
+    return;
+  }
+
+
+
+  /* ======================================================
+     TOP
+  ====================================================== */
+
+  var topObserver =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            if(head){
+
+              head.classList.add(
+                'mhhm-visible'
+              );
+
+            }
+
+
+            setTimeout(
+
+              function(){
+
+                if(values){
+
+                  values.classList.add(
+                    'mhhm-visible'
+                  );
+
+                }
+
+              },
+
+              130
+
+            );
+
+
+            topObserver.disconnect();
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.12,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  if(head){
+
+    topObserver.observe(
+      head
+    );
+
+  }
+
+
+
+  /* ======================================================
+     CARDS
+  ====================================================== */
+
+  var cardObserver =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            var card =
+              entry.target;
+
+
+            var index =
+              Number(
+                card.getAttribute(
+                  'data-mhhm-index'
+                )
+              ) || 0;
+
+
+            setTimeout(
+
+              function(){
+
+                card.classList.add(
+                  'mhhm-visible'
+                );
+
+              },
+
+              index * 90
+
+            );
+
+
+            cardObserver.unobserve(
+              card
+            );
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.12,
+
+        rootMargin:
+          '0px 0px -30px 0px'
+
+      }
+
+    );
+
+
+  cards.forEach(
+
+    function(card,index){
+
+      card.setAttribute(
+        'data-mhhm-index',
+        index
+      );
+
+
+      cardObserver.observe(
+        card
+      );
+
+    }
+
+  );
+
+
+
+  /* ======================================================
+     CONTINUATION
+  ====================================================== */
+
+  if(continuation){
+
+    var continueObserver =
+      new IntersectionObserver(
+
+        function(entries){
+
+          entries.forEach(
+
+            function(entry){
+
+              if(
+                !entry.isIntersecting
+              ){
+                return;
+              }
+
+
+              continuation.classList.add(
+                'mhhm-visible'
+              );
+
+
+              continueObserver.disconnect();
+
+            }
+
+          );
+
+        },
+
+        {
+          threshold:.15
+        }
+
+      );
+
+
+    continueObserver.observe(
+      continuation
+    );
+
+  }
+
+
+})();
+
+</script>

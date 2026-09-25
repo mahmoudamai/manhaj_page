@@ -1,0 +1,1263 @@
+<!-- =========================================================
+     MHH MANHAJ | SURAH YUSUF
+     DARK SIGNATURE CONTENT SECTION
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-yusuf{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --blue-petrol:#294E63;
+
+  --navy:#354859;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --teal-bright:#A9DED8;
+
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+  --ivory:#F6F2E8;
+
+  position:relative;
+
+  overflow:hidden;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:var(--paper);
+
+  padding:
+    92px 22px 96px;
+
+  background:
+
+    radial-gradient(
+      circle at 12% 20%,
+      rgba(169,222,216,.07),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(211,178,103,.06),
+      transparent 25%
+    ),
+
+    linear-gradient(
+      135deg,
+      #102F35 0%,
+      #123C42 45%,
+      #1B5157 100%
+    );
+}
+
+
+#mhhm-yusuf *,
+#mhhm-yusuf *::before,
+#mhhm-yusuf *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   AMBIENT BACKGROUND
+========================================================= */
+
+#mhhm-yusuf::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:560px;
+  height:560px;
+
+  top:-350px;
+  left:-230px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(255,255,255,.045);
+
+  box-shadow:
+    0 0 0 70px rgba(255,255,255,.012);
+
+  pointer-events:none;
+}
+
+
+#mhhm-yusuf::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:370px;
+  height:370px;
+
+  right:-220px;
+  bottom:-230px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(211,178,103,.08);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-yusuf .mhhm-wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:1120px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   LAYOUT
+========================================================= */
+
+#mhhm-yusuf .mhhm-layout{
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1.42fr)
+    minmax(280px,.72fr);
+
+  gap:64px;
+
+  align-items:center;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+#mhhm-yusuf .mhhm-content{
+
+  opacity:0;
+
+  transform:
+    translateX(22px);
+
+  transition:
+
+    opacity .78s ease,
+
+    transform .78s
+      cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-yusuf
+.mhhm-content.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateX(0);
+}
+
+
+/* kicker */
+
+#mhhm-yusuf .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:15px;
+
+  color:#DEC58B;
+
+  font-size:.77rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-yusuf
+.mhhm-kicker::before{
+
+  content:"";
+
+  width:30px;
+  height:1px;
+
+  flex:0 0 30px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(211,178,103,.18),
+      var(--gold)
+    );
+}
+
+
+/* heading */
+
+#mhhm-yusuf h2{
+
+  max-width:800px;
+
+  margin:0;
+
+  color:#FFFDF8;
+
+  font-size:
+    clamp(
+      2.1rem,
+      4.2vw,
+      3.55rem
+    );
+
+  line-height:1.24;
+
+  letter-spacing:-.8px;
+
+  font-weight:900;
+
+  text-wrap:balance;
+}
+
+
+/* question */
+
+#mhhm-yusuf .mhhm-question{
+
+  max-width:760px;
+
+  margin:
+    22px 0 0;
+
+  color:#EAD9B2;
+
+  font-size:
+    clamp(
+      1.08rem,
+      2vw,
+      1.42rem
+    );
+
+  line-height:1.8;
+
+  font-weight:800;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+#mhhm-yusuf .mhhm-divider{
+
+  width:0;
+  height:1px;
+
+  margin:
+    27px 0 25px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(211,178,103,.85)
+    );
+
+  transition:
+    width .8s
+    cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-yusuf
+.mhhm-divider.mhhm-visible{
+
+  width:78px;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+#mhhm-yusuf .mhhm-body{
+
+  max-width:790px;
+}
+
+
+#mhhm-yusuf .mhhm-body p{
+
+  margin:
+    0 0 15px;
+
+  color:
+    rgba(255,253,248,.74);
+
+  font-size:
+    clamp(
+      .94rem,
+      1.55vw,
+      1.06rem
+    );
+
+  line-height:1.95;
+
+  font-weight:500;
+}
+
+
+#mhhm-yusuf .mhhm-body strong{
+
+  color:#FFFDF8;
+
+  font-weight:800;
+}
+
+
+/* =========================================================
+   RIYADAT AL-FIKR
+========================================================= */
+
+#mhhm-yusuf .mhhm-practice{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-top:5px;
+
+  padding:
+    8px 13px;
+
+  border:
+    1px solid rgba(169,222,216,.16);
+
+  border-radius:999px;
+
+  background:
+    rgba(255,255,255,.045);
+
+  color:#C8E3DF;
+
+  font-size:.72rem;
+
+  line-height:1.4;
+
+  font-weight:800;
+}
+
+
+#mhhm-yusuf .mhhm-practice span{
+
+  color:#E3C98F;
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   FOOT
+========================================================= */
+
+#mhhm-yusuf .mhhm-foot{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  margin-top:23px;
+
+  color:
+    rgba(221,232,220,.65);
+
+  font-size:.75rem;
+
+  line-height:1.6;
+
+  font-weight:700;
+}
+
+
+#mhhm-yusuf .mhhm-foot::before{
+
+  content:"";
+
+  width:23px;
+  height:1px;
+
+  flex:0 0 23px;
+
+  background:
+    rgba(167,188,166,.55);
+}
+
+
+/* =========================================================
+   VISUAL PANEL
+========================================================= */
+
+#mhhm-yusuf .mhhm-visual{
+
+  position:relative;
+
+  min-height:410px;
+
+  display:grid;
+
+  place-items:center;
+
+  opacity:0;
+
+  transform:
+    translateX(-20px)
+    scale(.98);
+
+  transition:
+
+    opacity .82s ease,
+
+    transform .82s
+      cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-yusuf
+.mhhm-visual.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateX(0)
+    scale(1);
+}
+
+
+/* main visual surface */
+
+#mhhm-yusuf .mhhm-visualCore{
+
+  position:relative;
+
+  width:100%;
+  max-width:315px;
+
+  aspect-ratio:1 / 1.12;
+
+  overflow:hidden;
+
+  border-radius:
+    44% 44% 42% 42%
+    / 33% 33% 48% 48%;
+
+  border:
+    1px solid rgba(255,255,255,.09);
+
+  background:
+
+    radial-gradient(
+      circle at 50% 25%,
+      rgba(169,222,216,.14),
+      transparent 27%
+    ),
+
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.055),
+      rgba(255,255,255,.018)
+    );
+
+  box-shadow:
+
+    inset 0 1px 0
+    rgba(255,255,255,.07),
+
+    0 30px 70px
+    rgba(5,27,30,.20);
+}
+
+
+/* path */
+
+#mhhm-yusuf .mhhm-path{
+
+  position:absolute;
+
+  inset:0;
+}
+
+
+#mhhm-yusuf .mhhm-path svg{
+
+  width:100%;
+  height:100%;
+
+  display:block;
+}
+
+
+/* word */
+
+#mhhm-yusuf .mhhm-surah{
+
+  position:absolute;
+
+  z-index:3;
+
+  top:50%;
+  left:50%;
+
+  transform:
+    translate(-50%,-50%);
+
+  text-align:center;
+}
+
+
+#mhhm-yusuf .mhhm-surah small{
+
+  display:block;
+
+  margin-bottom:3px;
+
+  color:
+    rgba(255,253,248,.48);
+
+  font-size:.62rem;
+
+  font-weight:800;
+
+  letter-spacing:.2px;
+}
+
+
+#mhhm-yusuf .mhhm-surah strong{
+
+  display:block;
+
+  color:#FFFDF8;
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      2.9rem
+    );
+
+  line-height:1.2;
+
+  font-weight:900;
+}
+
+
+/* visual tag */
+
+#mhhm-yusuf .mhhm-visualTag{
+
+  position:absolute;
+
+  z-index:5;
+
+  right:-6px;
+  bottom:42px;
+
+  padding:
+    8px 13px;
+
+  border-radius:999px;
+
+  border:
+    1px solid rgba(211,178,103,.18);
+
+  background:
+    rgba(18,60,66,.78);
+
+  backdrop-filter:
+    blur(9px);
+
+  -webkit-backdrop-filter:
+    blur(9px);
+
+  color:#DFC78F;
+
+  font-size:.67rem;
+
+  font-weight:900;
+
+  box-shadow:
+    0 10px 28px
+    rgba(5,25,28,.18);
+}
+
+
+/* =========================================================
+   SUBTLE FLOAT MOTION
+========================================================= */
+
+@keyframes mhhmYusufFloat{
+
+  0%,
+  100%{
+    transform:
+      translateY(0);
+  }
+
+  50%{
+    transform:
+      translateY(-6px);
+  }
+
+}
+
+
+#mhhm-yusuf
+.mhhm-visualCore{
+
+  animation:
+    mhhmYusufFloat
+    6s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+  #mhhm-yusuf{
+
+    padding:
+      78px 18px 82px;
+  }
+
+
+  #mhhm-yusuf .mhhm-layout{
+
+    grid-template-columns:
+      minmax(0,1.3fr)
+      minmax(230px,.7fr);
+
+    gap:36px;
+  }
+
+
+  #mhhm-yusuf .mhhm-visual{
+
+    min-height:350px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:680px){
+
+  #mhhm-yusuf{
+
+    padding:
+      60px 15px 64px;
+  }
+
+
+  #mhhm-yusuf .mhhm-layout{
+
+    grid-template-columns:1fr;
+
+    gap:31px;
+  }
+
+
+  /* visual first */
+
+  #mhhm-yusuf .mhhm-visual{
+
+    order:-1;
+
+    min-height:0;
+  }
+
+
+  #mhhm-yusuf .mhhm-visualCore{
+
+    width:min(
+      82vw,
+      265px
+    );
+
+    border-radius:
+      38% 38% 40% 40%
+      / 30% 30% 44% 44%;
+  }
+
+
+  #mhhm-yusuf .mhhm-visualTag{
+
+    right:3px;
+
+    bottom:27px;
+
+    padding:
+      6px 10px;
+
+    font-size:.59rem;
+  }
+
+
+  #mhhm-yusuf .mhhm-kicker{
+
+    margin-bottom:10px;
+
+    font-size:.68rem;
+
+    gap:7px;
+  }
+
+
+  #mhhm-yusuf
+  .mhhm-kicker::before{
+
+    width:20px;
+
+    flex-basis:20px;
+  }
+
+
+  #mhhm-yusuf h2{
+
+    font-size:1.88rem;
+
+    line-height:1.27;
+  }
+
+
+  #mhhm-yusuf .mhhm-question{
+
+    margin-top:15px;
+
+    font-size:.99rem;
+
+    line-height:1.75;
+  }
+
+
+  #mhhm-yusuf .mhhm-divider{
+
+    margin:
+      21px 0 19px;
+  }
+
+
+  #mhhm-yusuf .mhhm-body p{
+
+    margin-bottom:12px;
+
+    font-size:.83rem;
+
+    line-height:1.82;
+  }
+
+
+  #mhhm-yusuf .mhhm-practice{
+
+    padding:
+      7px 11px;
+
+    font-size:.65rem;
+  }
+
+
+  #mhhm-yusuf .mhhm-foot{
+
+    margin-top:18px;
+
+    font-size:.67rem;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-yusuf .mhhm-content,
+  #mhhm-yusuf .mhhm-visual{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+
+  #mhhm-yusuf .mhhm-divider{
+
+    width:78px;
+
+    transition:none;
+  }
+
+
+  #mhhm-yusuf .mhhm-visualCore{
+
+    animation:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-yusuf"
+  dir="rtl"
+  lang="ar"
+  aria-label="من سورة يوسف داخل منهج الطمأنينة"
+>
+
+  <div class="mhhm-wrap">
+
+    <div class="mhhm-layout">
+
+
+      <!-- ===============================================
+           CONTENT
+      ================================================ -->
+
+      <div class="mhhm-content">
+
+
+        <div class="mhhm-kicker">
+
+          من داخل محتوى منهج الطمأنينة
+
+        </div>
+
+
+        <h2>
+
+          من سورة يوسف…
+          ما الذي يبني القوة النفسية؟
+
+        </h2>
+
+
+        <p class="mhhm-question">
+
+          حين يطول الطريق وتتأخر النتائج،
+          ما الذي يعين الإنسان على الثبات؟
+
+        </p>
+
+
+        <div class="mhhm-divider"></div>
+
+
+        <div class="mhhm-body">
+
+          <p>
+
+            رحلة داخل
+            <strong>منهج الطمأنينة</strong>
+            نتوقف فيها أمام معان من سورة يوسف،
+            ونربطها بما نعيشه ونفكر فيه
+            في حياتنا اليومية.
+
+          </p>
+
+
+          <p>
+
+            ومعها مزيد من الدروس النفسية
+            المستلهمة من قصص الأنبياء
+            والقرآن والسنة،
+            في طرح يجمع بين المعاني الإيمانية
+            والمعرفة النفسية.
+
+          </p>
+
+
+          <div class="mhhm-practice">
+
+            <span>رياضة الفكر</span>
+
+            تطبيقات تساعدك على ربط المعنى
+            بتجربتك وحياتك
+
+          </div>
+
+
+        </div>
+
+
+        <div class="mhhm-foot">
+
+          وهذا جانب من رحلة أوسع
+          داخل محتوى المنهج
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- ===============================================
+           ABSTRACT VISUAL
+      ================================================ -->
+
+      <div
+        class="mhhm-visual"
+        aria-hidden="true"
+      >
+
+        <div class="mhhm-visualCore">
+
+
+          <div class="mhhm-path">
+
+            <svg
+              viewBox="0 0 320 360"
+              fill="none"
+            >
+
+              <!-- outer journey -->
+
+              <path
+                d="
+                  M58 332
+                  C89 276 77 230 115 193
+                  C145 164 171 162 191 131
+                  C214 96 218 64 263 34
+                "
+                stroke="rgba(211,178,103,.60)"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+
+
+              <!-- secondary path -->
+
+              <path
+                d="
+                  M85 338
+                  C115 285 108 244 140 216
+                  C166 193 194 188 209 157
+                  C224 127 223 88 270 55
+                "
+                stroke="rgba(169,222,216,.22)"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+
+
+              <!-- layers -->
+
+              <circle
+                cx="160"
+                cy="181"
+                r="112"
+                stroke="rgba(255,255,255,.045)"
+              />
+
+              <circle
+                cx="160"
+                cy="181"
+                r="78"
+                stroke="rgba(211,178,103,.10)"
+                stroke-dasharray="4 8"
+              />
+
+
+              <!-- points -->
+
+              <circle
+                cx="80"
+                cy="293"
+                r="4"
+                fill="#D3B267"
+                opacity=".75"
+              />
+
+              <circle
+                cx="198"
+                cy="121"
+                r="3"
+                fill="#A9DED8"
+                opacity=".55"
+              />
+
+              <circle
+                cx="263"
+                cy="34"
+                r="5"
+                fill="#D3B267"
+              />
+
+            </svg>
+
+          </div>
+
+
+          <div class="mhhm-surah">
+
+            <small>
+              من قصص القرآن
+            </small>
+
+            <strong>
+              يوسف
+            </strong>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="mhhm-visualTag">
+
+          معنى • فهم • تطبيق
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-yusuf'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var content =
+    section.querySelector(
+      '.mhhm-content'
+    );
+
+
+  var visual =
+    section.querySelector(
+      '.mhhm-visual'
+    );
+
+
+  var divider =
+    section.querySelector(
+      '.mhhm-divider'
+    );
+
+
+  function showAll(){
+
+    if(content){
+      content.classList.add(
+        'mhhm-visible'
+      );
+    }
+
+
+    if(visual){
+      visual.classList.add(
+        'mhhm-visible'
+      );
+    }
+
+
+    if(divider){
+      divider.classList.add(
+        'mhhm-visible'
+      );
+    }
+
+  }
+
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    showAll();
+
+    return;
+  }
+
+
+  var observer =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            if(content){
+
+              content.classList.add(
+                'mhhm-visible'
+              );
+
+            }
+
+
+            setTimeout(
+
+              function(){
+
+                if(divider){
+
+                  divider.classList.add(
+                    'mhhm-visible'
+                  );
+
+                }
+
+              },
+
+              180
+
+            );
+
+
+            setTimeout(
+
+              function(){
+
+                if(visual){
+
+                  visual.classList.add(
+                    'mhhm-visible'
+                  );
+
+                }
+
+              },
+
+              120
+
+            );
+
+
+            observer.disconnect();
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.12,
+
+        rootMargin:
+          '0px 0px -30px 0px'
+
+      }
+
+    );
+
+
+  observer.observe(
+    section
+  );
+
+
+})();
+
+</script>

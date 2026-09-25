@@ -1,0 +1,559 @@
+<!-- =========================================================
+     MHH MANHAJ | FOOTER
+     DARK PETROL SIGNATURE
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-footer{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --blue-petrol:#294E63;
+
+  --sage:#A7BCA6;
+  --teal:#8EC9C4;
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+
+  position:relative;
+
+  overflow:hidden;
+
+  direction:rtl;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:#FFFDF8;
+
+  padding:
+    46px 20px 25px;
+
+  background:
+
+    radial-gradient(
+      circle at 8% 15%,
+      rgba(211,178,103,.075),
+      transparent 27%
+    ),
+
+    radial-gradient(
+      circle at 92% 88%,
+      rgba(169,222,216,.055),
+      transparent 27%
+    ),
+
+    linear-gradient(
+      135deg,
+      #0F3035 0%,
+      #123C42 48%,
+      #1B5157 100%
+    );
+
+  border-top:
+    1px solid rgba(255,255,255,.06);
+}
+
+
+#mhhm-footer *,
+#mhhm-footer *::before,
+#mhhm-footer *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   AMBIENT
+========================================================= */
+
+#mhhm-footer::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:320px;
+  height:320px;
+
+  top:-215px;
+  left:-165px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(255,255,255,.035);
+
+  box-shadow:
+    0 0 0 48px
+    rgba(255,255,255,.008);
+
+  pointer-events:none;
+}
+
+
+#mhhm-footer::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:250px;
+  height:250px;
+
+  right:-150px;
+  bottom:-160px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(211,178,103,.06);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-footer .mhhm-wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:1080px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+#mhhm-footer .mhhm-brand{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  text-align:center;
+}
+
+
+#mhhm-footer .mhhm-logo{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  margin-bottom:13px;
+}
+
+
+#mhhm-footer .mhhm-logo img{
+
+  display:block;
+
+  width:auto;
+
+  height:86px;
+
+  max-width:230px;
+
+  object-fit:contain;
+}
+
+
+/* small brand line */
+
+#mhhm-footer .mhhm-brandLine{
+
+  color:
+    rgba(255,253,248,.70);
+
+  font-size:.75rem;
+
+  line-height:1.7;
+
+  font-weight:500;
+}
+
+
+#mhhm-footer
+.mhhm-brandLine strong{
+
+  color:#FFFDF8;
+
+  font-weight:800;
+}
+
+
+/* =========================================================
+   SIGNATURE DIVIDER
+========================================================= */
+
+#mhhm-footer .mhhm-divider{
+
+  position:relative;
+
+  width:min(
+    520px,
+    78%
+  );
+
+  height:1px;
+
+  margin:
+    23px auto 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(211,178,103,.22),
+      rgba(169,222,216,.25),
+      rgba(211,178,103,.22),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   INFO ROW
+========================================================= */
+
+#mhhm-footer .mhhm-info{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  flex-wrap:wrap;
+
+  gap:
+    8px 18px;
+
+  margin-bottom:20px;
+}
+
+
+#mhhm-footer .mhhm-infoItem{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  color:
+    rgba(255,253,248,.53);
+
+  font-size:.62rem;
+
+  line-height:1.5;
+
+  font-weight:600;
+}
+
+
+#mhhm-footer
+.mhhm-infoItem::before{
+
+  content:"";
+
+  width:5px;
+  height:5px;
+
+  border-radius:50%;
+
+  background:var(--sage);
+
+  opacity:.85;
+}
+
+
+/* =========================================================
+   LEGAL
+========================================================= */
+
+#mhhm-footer .mhhm-bottom{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:20px;
+
+  padding-top:17px;
+
+  border-top:
+    1px solid rgba(255,255,255,.055);
+}
+
+
+#mhhm-footer .mhhm-copy{
+
+  color:
+    rgba(255,253,248,.48);
+
+  font-size:.61rem;
+
+  line-height:1.6;
+
+  font-weight:500;
+}
+
+
+#mhhm-footer .mhhm-company{
+
+  color:
+    rgba(255,253,248,.48);
+
+  font-size:.61rem;
+
+  line-height:1.6;
+
+  font-weight:600;
+}
+
+
+#mhhm-footer
+.mhhm-company strong{
+
+  color:
+    rgba(255,253,248,.68);
+
+  font-weight:800;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:620px){
+
+  #mhhm-footer{
+
+    padding:
+      36px 15px 21px;
+  }
+
+
+  #mhhm-footer .mhhm-logo img{
+
+    height:66px;
+
+    max-width:190px;
+  }
+
+
+  #mhhm-footer .mhhm-brandLine{
+
+    max-width:310px;
+
+    font-size:.67rem;
+
+    line-height:1.65;
+  }
+
+
+  #mhhm-footer .mhhm-divider{
+
+    width:84%;
+
+    margin:
+      19px auto 17px;
+  }
+
+
+  #mhhm-footer .mhhm-info{
+
+    gap:
+      6px 12px;
+
+    margin-bottom:17px;
+  }
+
+
+  #mhhm-footer .mhhm-infoItem{
+
+    font-size:.55rem;
+  }
+
+
+  #mhhm-footer .mhhm-bottom{
+
+    flex-direction:column;
+
+    gap:5px;
+
+    padding-top:14px;
+
+    text-align:center;
+  }
+
+
+  #mhhm-footer .mhhm-copy,
+  #mhhm-footer .mhhm-company{
+
+    font-size:.55rem;
+  }
+
+}
+#mhhm-footer .mhhm-brandLink{
+  color:#FFFDF8 !important;
+  font-weight:800;
+  text-decoration:none !important;
+  transition:
+    color .2s ease,
+    opacity .2s ease;
+}
+
+@media(hover:hover){
+  #mhhm-footer .mhhm-brandLink:hover{
+    color:#E4CB93 !important;
+  }
+}
+</style>
+
+
+<footer
+  id="mhhm-footer"
+  dir="rtl"
+  lang="ar"
+  aria-label="Mental Health Hub"
+>
+
+  <div class="mhhm-wrap">
+
+
+    <!-- ===============================================
+         BRAND
+    ================================================ -->
+
+    <div class="mhhm-brand">
+
+
+      <div class="mhhm-logo">
+
+        <img
+          src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/694d44e673a5e016ca18519d.png"
+          alt="Mental Health Hub"
+          loading="lazy"
+        >
+
+      </div>
+
+
+<div class="mhhm-brandLine">
+
+ محتوى تعليمي وتطبيقي لبناء الوعي النفسي والمهارات الحياتية
+
+</div>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         DIVIDER
+    ================================================ -->
+
+    <div
+      class="mhhm-divider"
+      aria-hidden="true"
+    ></div>
+
+
+
+    <!-- ===============================================
+         INFO
+    ================================================ -->
+
+    <div class="mhhm-info">
+
+
+      <span class="mhhm-infoItem">
+
+        Mental Health Hub LLC
+
+      </span>
+
+
+      <span class="mhhm-infoItem">
+
+        UAE
+
+      </span>
+
+
+      <span class="mhhm-infoItem">
+
+        منصة تعليمية وتدريبية
+
+      </span>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         COPYRIGHT
+    ================================================ -->
+
+    <div class="mhhm-bottom">
+
+
+<div
+  class="mhhm-copy"
+  dir="ltr"
+>
+  © 2026 Mental Health Hub LLC. All rights reserved.
+</div>
+
+
+      <div class="mhhm-company">
+
+        <strong>منهج الطمأنينة</strong>
+        · Mental Health Hub
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</footer>

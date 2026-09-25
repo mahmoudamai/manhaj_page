@@ -1,0 +1,1576 @@
+<!-- =========================================================
+     MHH MANHAJ | FAQ
+     EDITORIAL ACCORDION
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-faq{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --navy:#354859;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+  --ivory:#F7F3EA;
+
+  --text:#5D6A70;
+  --muted:#748086;
+
+  position:relative;
+
+  overflow:hidden;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:var(--navy);
+
+  padding:
+    82px 22px 88px;
+
+  background:
+
+    radial-gradient(
+      circle at 8% 12%,
+      rgba(211,178,103,.06),
+      transparent 27%
+    ),
+
+    radial-gradient(
+      circle at 94% 88%,
+      rgba(142,201,196,.075),
+      transparent 26%
+    ),
+
+    linear-gradient(
+      180deg,
+      #F8F4EB 0%,
+      #F5F3EA 52%,
+      #EFF2EB 100%
+    );
+}
+
+
+#mhhm-faq *,
+#mhhm-faq *::before,
+#mhhm-faq *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   AMBIENT
+========================================================= */
+
+#mhhm-faq::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:430px;
+  height:430px;
+
+  top:-285px;
+  left:-225px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(30,89,96,.045);
+
+  pointer-events:none;
+}
+
+
+#mhhm-faq::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:310px;
+  height:310px;
+
+  right:-185px;
+  bottom:-180px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(211,178,103,.065);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-faq .mhhm-wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:980px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#mhhm-faq .mhhm-head{
+
+  max-width:760px;
+
+  margin:
+    0 auto 37px;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity .72s ease,
+    transform .72s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-faq
+.mhhm-head.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-faq .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:12px;
+
+  color:var(--petrol);
+
+  font-size:.75rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-faq
+.mhhm-kicker::before{
+
+  content:"";
+
+  width:27px;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30,89,96,.13),
+      var(--gold)
+    );
+}
+
+
+#mhhm-faq h2{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.05rem
+    );
+
+  line-height:1.28;
+
+  letter-spacing:-.6px;
+
+  font-weight:900;
+}
+
+
+#mhhm-faq
+.mhhm-head p{
+
+  max-width:640px;
+
+  margin:
+    12px auto 0;
+
+  color:var(--text);
+
+  font-size:.92rem;
+
+  line-height:1.8;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   FAQ LIST
+========================================================= */
+
+#mhhm-faq .mhhm-list{
+
+  border-top:
+    1px solid rgba(30,89,96,.13);
+
+  opacity:0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity .74s ease,
+    transform .74s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-faq
+.mhhm-list.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   ITEM
+========================================================= */
+
+#mhhm-faq .mhhm-item{
+
+  position:relative;
+
+  border-bottom:
+    1px solid rgba(30,89,96,.13);
+
+  transition:
+    background .25s ease;
+}
+
+
+#mhhm-faq
+.mhhm-item.mhhm-open{
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(167,188,166,.045),
+      rgba(255,253,248,.30)
+    );
+}
+
+
+/* accent on open */
+
+#mhhm-faq
+.mhhm-item::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:18px;
+  right:0;
+
+  width:2px;
+  height:0;
+
+  border-radius:999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--gold),
+      var(--petrol)
+    );
+
+  opacity:0;
+
+  transition:
+    height .25s ease,
+    opacity .25s ease;
+}
+
+
+#mhhm-faq
+.mhhm-item.mhhm-open::before{
+
+  height:
+    calc(100% - 36px);
+
+  opacity:1;
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+#mhhm-faq .mhhm-question{
+
+  width:100%;
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1fr) 36px;
+
+  gap:15px;
+
+  align-items:center;
+
+  padding:
+    21px 4px 21px 20px;
+
+  border:0;
+
+  background:transparent;
+
+  color:var(--petrol-deep);
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  text-align:right;
+
+  cursor:pointer;
+}
+
+
+#mhhm-faq .mhhm-questionText{
+
+  font-size:.94rem;
+
+  line-height:1.65;
+
+  font-weight:900;
+}
+
+
+/* plus icon */
+
+#mhhm-faq .mhhm-plus{
+
+  position:relative;
+
+  width:34px;
+  height:34px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:11px;
+
+  border:
+    1px solid rgba(30,89,96,.10);
+
+  background:
+    rgba(255,253,248,.43);
+
+  transition:
+    background .22s ease,
+    border-color .22s ease,
+    transform .22s ease;
+}
+
+
+#mhhm-faq
+.mhhm-plus::before,
+#mhhm-faq
+.mhhm-plus::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:12px;
+  height:1.5px;
+
+  border-radius:999px;
+
+  background:var(--petrol);
+
+  transition:
+    transform .22s ease,
+    opacity .22s ease;
+}
+
+
+#mhhm-faq
+.mhhm-plus::after{
+
+  transform:
+    rotate(90deg);
+}
+
+
+#mhhm-faq
+.mhhm-item.mhhm-open
+.mhhm-plus{
+
+  border-color:
+    rgba(211,178,103,.24);
+
+  background:
+    rgba(211,178,103,.085);
+
+  transform:
+    rotate(180deg);
+}
+
+
+#mhhm-faq
+.mhhm-item.mhhm-open
+.mhhm-plus::after{
+
+  transform:
+    rotate(90deg)
+    scaleX(0);
+
+  opacity:0;
+}
+
+
+/* =========================================================
+   ANSWER
+========================================================= */
+
+#mhhm-faq .mhhm-answer{
+
+  display:grid;
+
+  grid-template-rows:0fr;
+
+  opacity:0;
+
+  transition:
+    grid-template-rows .32s cubic-bezier(.2,.72,.2,1),
+    opacity .28s ease;
+}
+
+
+#mhhm-faq
+.mhhm-item.mhhm-open
+.mhhm-answer{
+
+  grid-template-rows:1fr;
+
+  opacity:1;
+}
+
+
+#mhhm-faq
+.mhhm-answerInner{
+
+  overflow:hidden;
+}
+
+
+#mhhm-faq
+.mhhm-answerContent{
+
+  max-width:850px;
+
+  padding:
+    0 4px 23px 52px;
+
+  color:#63726D;
+
+  font-size:.81rem;
+
+  line-height:1.9;
+
+  font-weight:500;
+}
+
+
+#mhhm-faq
+.mhhm-answerContent strong{
+
+  color:var(--petrol-deep);
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   BOTTOM NOTE
+========================================================= */
+
+#mhhm-faq .mhhm-bottom{
+
+  max-width:700px;
+
+  margin:
+    28px auto 0;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(13px);
+
+  transition:
+    opacity .68s ease,
+    transform .68s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-faq
+.mhhm-bottom.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-faq .mhhm-bottom p{
+
+  margin:0;
+
+  color:#6B7975;
+
+  font-size:.72rem;
+
+  line-height:1.72;
+
+  font-weight:600;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media(hover:hover){
+
+  #mhhm-faq
+  .mhhm-item:not(.mhhm-open):hover{
+
+    background:
+      rgba(255,253,248,.26);
+  }
+
+
+  #mhhm-faq
+  .mhhm-question:hover
+  .mhhm-plus{
+
+    border-color:
+      rgba(30,89,96,.19);
+
+    background:
+      rgba(167,188,166,.08);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:620px){
+
+  #mhhm-faq{
+
+    padding:
+      56px 14px 62px;
+  }
+
+
+  #mhhm-faq .mhhm-head{
+
+    margin-bottom:29px;
+  }
+
+
+  #mhhm-faq .mhhm-kicker{
+
+    margin-bottom:8px;
+
+    font-size:.66rem;
+  }
+
+
+  #mhhm-faq
+  .mhhm-kicker::before{
+
+    width:20px;
+  }
+
+
+  #mhhm-faq h2{
+
+    font-size:1.82rem;
+  }
+
+
+  #mhhm-faq
+  .mhhm-head p{
+
+    margin-top:9px;
+
+    font-size:.79rem;
+
+    line-height:1.72;
+  }
+
+
+  #mhhm-faq .mhhm-question{
+
+    grid-template-columns:
+      minmax(0,1fr) 32px;
+
+    gap:11px;
+
+    padding:
+      17px 3px 17px 15px;
+  }
+
+
+  #mhhm-faq
+  .mhhm-questionText{
+
+    font-size:.82rem;
+
+    line-height:1.58;
+  }
+
+
+  #mhhm-faq .mhhm-plus{
+
+    width:31px;
+    height:31px;
+
+    border-radius:10px;
+  }
+
+
+  #mhhm-faq
+  .mhhm-plus::before,
+  #mhhm-faq
+  .mhhm-plus::after{
+
+    width:10px;
+  }
+
+
+  #mhhm-faq
+  .mhhm-answerContent{
+
+    padding:
+      0 3px 19px 40px;
+
+    font-size:.72rem;
+
+    line-height:1.78;
+  }
+
+
+  #mhhm-faq .mhhm-bottom{
+
+    margin-top:23px;
+  }
+
+
+  #mhhm-faq
+  .mhhm-bottom p{
+
+    font-size:.64rem;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-faq .mhhm-head,
+  #mhhm-faq .mhhm-list,
+  #mhhm-faq .mhhm-bottom{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+
+  #mhhm-faq .mhhm-answer{
+
+    transition:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-faq"
+  dir="rtl"
+  lang="ar"
+  aria-label="الأسئلة الشائعة عن منهج الطمأنينة"
+>
+
+  <div class="mhhm-wrap">
+
+
+    <!-- ===============================================
+         HEADER
+    ================================================ -->
+
+    <header class="mhhm-head">
+
+
+      <div class="mhhm-kicker">
+
+        قبل أن تبدأ
+
+      </div>
+
+
+      <h2>
+
+        الأسئلة الشائعة
+
+      </h2>
+
+
+      <p>
+
+        أهم التفاصيل التي قد تحتاج معرفتها
+        قبل الاشتراك في منهج الطمأنينة.
+
+      </p>
+
+
+    </header>
+
+
+
+    <!-- ===============================================
+         FAQ LIST
+    ================================================ -->
+
+    <div class="mhhm-list">
+
+
+      <!-- =============================================
+           01
+      ============================================== -->
+
+      <article class="mhhm-item">
+
+
+        <button
+          class="mhhm-question"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span class="mhhm-questionText">
+            ما هو «منهج الطمأنينة»؟
+          </span>
+
+          <span
+            class="mhhm-plus"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
+        <div class="mhhm-answer">
+
+          <div class="mhhm-answerInner">
+
+            <div class="mhhm-answerContent">
+
+              «منهج الطمأنينة» برنامج يقدمه كريم إسماعيل
+              يجمع بين <strong>المعاني الإيمانية والمعرفة النفسية
+              والمهارات العملية</strong> في رحلة متدرجة تساعدك
+              على بناء فهم أعمق لنفسك وللحياة،
+              وربط ما تتعلمه بما تعيشه من مواقف وتجارب.
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           02
+      ============================================== -->
+
+      <article class="mhhm-item">
+
+
+        <button
+          class="mhhm-question"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span class="mhhm-questionText">
+            ما مدة المنهج ومدة الوصول؟
+          </span>
+
+          <span
+            class="mhhm-plus"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
+        <div class="mhhm-answer">
+
+          <div class="mhhm-answerInner">
+
+            <div class="mhhm-answerContent">
+
+              المنهج مصمم كرحلة تمتد لعام كامل،
+              والاشتراك يمنحك <strong>وصولا لمدة 12 شهرا</strong>
+              من تاريخ التفعيل إلى محتوى المنهج
+              وما يضاف إليه خلال فترة وصولك.
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           03
+      ============================================== -->
+
+      <article class="mhhm-item">
+
+
+        <button
+          class="mhhm-question"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span class="mhhm-questionText">
+            هل جميع محاضرات المنهج متاحة مرة واحدة؟
+          </span>
+
+          <span
+            class="mhhm-plus"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
+        <div class="mhhm-answer">
+
+          <div class="mhhm-answerInner">
+
+            <div class="mhhm-answerContent">
+
+              لا. المحتوى يضاف <strong>تدريجيا مع تقدم الرحلة</strong>
+              خلال العام، لأن المنهج مبني كمسار متدرج
+              تتكامل فيه المحاضرات والتطبيقات واللقاءات،
+              وليس كمكتبة فيديوهات تشاهدها دفعة واحدة.
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           04
+      ============================================== -->
+
+      <article class="mhhm-item">
+
+
+        <button
+          class="mhhm-question"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span class="mhhm-questionText">
+            هل المنهج مسجل أم توجد لقاءات مباشرة؟
+          </span>
+
+          <span
+            class="mhhm-plus"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
+        <div class="mhhm-answer">
+
+          <div class="mhhm-answerInner">
+
+            <div class="mhhm-answerContent">
+
+              التجربة تجمع بين الاثنين:
+              <strong>محاضرات مسجلة</strong> يمكنك متابعتها
+              والعودة إليها، بالإضافة إلى
+              <strong>لقاءات تفاعلية مباشرة</strong>
+              تصاحب مراحل المنهج للمراجعة ومناقشة الأسئلة.
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           05
+      ============================================== -->
+
+      <article class="mhhm-item">
+
+
+        <button
+          class="mhhm-question"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span class="mhhm-questionText">
+            ما هي «رياضة الفكر»؟
+          </span>
+
+          <span
+            class="mhhm-plus"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
+        <div class="mhhm-answer">
+
+          <div class="mhhm-answerInner">
+
+            <div class="mhhm-answerContent">
+
+              «رياضة الفكر» هي ملفات وتطبيقات تصاحب
+              بعض محاضرات المنهج، وتحتوي على
+              <strong>أسئلة للتأمل والمراجعة ومساحات للكتابة</strong>
+              تساعدك على التوقف أمام ما تعلمته
+              وربطه بأفكارك وتجاربك وحياتك.
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           06
+      ============================================== -->
+
+      <article class="mhhm-item">
+
+
+        <button
+          class="mhhm-question"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span class="mhhm-questionText">
+            هل يوجد جروب أو مساحة للتفاعل مع الأعضاء؟
+          </span>
+
+          <span
+            class="mhhm-plus"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
+        <div class="mhhm-answer">
+
+          <div class="mhhm-answerInner">
+
+            <div class="mhhm-answerContent">
+
+              نعم. ضمن الاشتراك توجد
+              <strong>مساحة خاصة على تيليجرام</strong>
+              لمشاركة الأسئلة والتأملات والتفاعل حول محتوى المنهج،
+              بالإضافة إلى رسائل صوتية ومكتوبة
+              مرتبطة بمراحل الرحلة.
+
+              <br><br>
+
+              هذه المساحة تعليمية وتفاعلية،
+              ولا تشمل جلسات علاجية فردية أو متابعة شخصية علاجية.
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           07
+      ============================================== -->
+
+      <article class="mhhm-item">
+
+
+        <button
+          class="mhhm-question"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span class="mhhm-questionText">
+            هل أحتاج خلفية سابقة في علم النفس؟
+          </span>
+
+          <span
+            class="mhhm-plus"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
+        <div class="mhhm-answer">
+
+          <div class="mhhm-answerInner">
+
+            <div class="mhhm-answerContent">
+
+              لا. لا تحتاج إلى دراسة سابقة في علم النفس.
+              يبدأ المنهج من <strong>البناء التأسيسي</strong>
+              ويتدرج في الأفكار والمفاهيم والمهارات
+              خطوة بخطوة خلال الرحلة.
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           08
+      ============================================== -->
+
+      <article class="mhhm-item">
+
+
+        <button
+          class="mhhm-question"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span class="mhhm-questionText">
+            هل منهج الطمأنينة بديل عن العلاج النفسي؟
+          </span>
+
+          <span
+            class="mhhm-plus"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
+        <div class="mhhm-answer">
+
+          <div class="mhhm-answerInner">
+
+            <div class="mhhm-answerContent">
+
+              لا. منهج الطمأنينة
+              <strong>برنامج تعليمي وتطبيقي</strong>
+              يساعد على زيادة الوعي والفهم وتعلم مهارات
+              يمكن الاستفادة منها في الحياة اليومية،
+              لكنه ليس بديلا عن التقييم أو العلاج النفسي
+              المتخصص عندما تكون هناك حاجة إليه.
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           09
+      ============================================== -->
+
+      <article class="mhhm-item">
+
+
+        <button
+          class="mhhm-question"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span class="mhhm-questionText">
+            هل يمكن مشاركة الاشتراك مع شخص آخر؟
+          </span>
+
+          <span
+            class="mhhm-plus"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
+        <div class="mhhm-answer">
+
+          <div class="mhhm-answerInner">
+
+            <div class="mhhm-answerContent">
+
+              يمكن مشاهدة المحتوى داخل
+              <strong>الأسرة الواحدة</strong> على نفس الحساب،
+              مثل الزوج أو الزوجة والأبناء.
+
+              <br><br>
+
+              أما مشاركة بيانات الدخول مع الأصدقاء
+              أو إعادة نشر الفيديوهات والمحتوى خارج الحساب
+              فغير مسموح حفاظا على حقوق الملكية الفكرية.
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </article>
+
+
+
+      <!-- =============================================
+           10
+      ============================================== -->
+
+      <article class="mhhm-item">
+
+
+        <button
+          class="mhhm-question"
+          type="button"
+          aria-expanded="false"
+        >
+
+          <span class="mhhm-questionText">
+            ماذا لو اشتركت ثم وجدت أن المنهج غير مناسب لي؟
+          </span>
+
+          <span
+            class="mhhm-plus"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
+        <div class="mhhm-answer">
+
+          <div class="mhhm-answerInner">
+
+            <div class="mhhm-answerContent">
+
+              لديك <strong>7 أيام كاملة من تاريخ الشراء</strong>
+              يمكنك خلالها طلب استرداد كامل لقيمة الاشتراك
+              إذا وجدت أن المنهج غير مناسب لك،
+              من غير الحاجة إلى ذكر سبب.
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </article>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         BOTTOM
+    ================================================ -->
+
+    <div class="mhhm-bottom">
+
+      <p>
+
+        اقرأ التفاصيل التي تحتاجها،
+        واتخذ قرارك بناء على ما يناسبك وطريقة التعلم التي تبحث عنها.
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var root =
+    document.getElementById(
+      'mhhm-faq'
+    );
+
+
+  if(!root){
+    return;
+  }
+
+
+  var items =
+    root.querySelectorAll(
+      '.mhhm-item'
+    );
+
+
+  items.forEach(
+
+    function(item){
+
+      var button =
+        item.querySelector(
+          '.mhhm-question'
+        );
+
+
+      if(!button){
+        return;
+      }
+
+
+      button.addEventListener(
+
+        'click',
+
+        function(){
+
+          var isOpen =
+            item.classList.contains(
+              'mhhm-open'
+            );
+
+
+          /* close all */
+
+          items.forEach(
+
+            function(other){
+
+              other.classList.remove(
+                'mhhm-open'
+              );
+
+
+              var otherButton =
+                other.querySelector(
+                  '.mhhm-question'
+                );
+
+
+              if(otherButton){
+
+                otherButton.setAttribute(
+                  'aria-expanded',
+                  'false'
+                );
+
+              }
+
+            }
+
+          );
+
+
+          /* reopen current if it was closed */
+
+          if(!isOpen){
+
+            item.classList.add(
+              'mhhm-open'
+            );
+
+
+            button.setAttribute(
+              'aria-expanded',
+              'true'
+            );
+
+          }
+
+        }
+
+      );
+
+    }
+
+  );
+
+
+
+  /* ======================================================
+     REVEAL
+  ====================================================== */
+
+  var head =
+    root.querySelector(
+      '.mhhm-head'
+    );
+
+
+  var list =
+    root.querySelector(
+      '.mhhm-list'
+    );
+
+
+  var bottom =
+    root.querySelector(
+      '.mhhm-bottom'
+    );
+
+
+  var revealItems = [
+    head,
+    list,
+    bottom
+  ].filter(Boolean);
+
+
+
+  function showAll(){
+
+    revealItems.forEach(
+
+      function(item){
+
+        item.classList.add(
+          'mhhm-visible'
+        );
+
+      }
+
+    );
+
+  }
+
+
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    showAll();
+
+    return;
+  }
+
+
+
+  var observer =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            entry.target.classList.add(
+              'mhhm-visible'
+            );
+
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.12,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  revealItems.forEach(
+
+    function(item,index){
+
+      item.style.transitionDelay =
+        Math.min(
+          index * 80,
+          160
+        ) + 'ms';
+
+
+      observer.observe(
+        item
+      );
+
+    }
+
+  );
+
+
+})();
+
+</script>

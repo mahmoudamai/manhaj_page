@@ -1,0 +1,1040 @@
+<!-- =========================================================
+     MHH MANHAJ | 7-DAY GUARANTEE
+     RISK REVERSAL / PURCHASE REASSURANCE
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-guarantee{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --navy:#354859;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+  --ivory:#F7F3EA;
+
+  --text:#5D6A70;
+  --muted:#748086;
+
+  position:relative;
+
+  overflow:hidden;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:var(--navy);
+
+  padding:
+    72px 22px 78px;
+
+  background:
+
+    radial-gradient(
+      circle at 8% 10%,
+      rgba(142,201,196,.10),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 93% 92%,
+      rgba(211,178,103,.055),
+      transparent 25%
+    ),
+
+    linear-gradient(
+      180deg,
+      #E4ECE6 0%,
+      #EAF0E9 52%,
+      #F2F3EB 100%
+    );
+}
+
+
+#mhhm-guarantee *,
+#mhhm-guarantee *::before,
+#mhhm-guarantee *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   AMBIENT
+========================================================= */
+
+#mhhm-guarantee::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:390px;
+  height:390px;
+
+  top:-250px;
+  left:-210px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(30,89,96,.05);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-guarantee .mhhm-wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:980px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#mhhm-guarantee .mhhm-head{
+
+  max-width:720px;
+
+  margin:
+    0 auto 30px;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(17px);
+
+  transition:
+    opacity .7s ease,
+    transform .7s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-guarantee
+.mhhm-head.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-guarantee .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-bottom:11px;
+
+  color:var(--petrol);
+
+  font-size:.73rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-guarantee
+.mhhm-kicker::before{
+
+  content:"";
+
+  width:25px;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30,89,96,.13),
+      var(--gold)
+    );
+}
+
+
+#mhhm-guarantee h2{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      1.9rem,
+      3.7vw,
+      2.9rem
+    );
+
+  line-height:1.3;
+
+  letter-spacing:-.6px;
+
+  font-weight:900;
+}
+
+
+#mhhm-guarantee
+.mhhm-head p{
+
+  max-width:650px;
+
+  margin:
+    12px auto 0;
+
+  color:var(--text);
+
+  font-size:.93rem;
+
+  line-height:1.82;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   GUARANTEE CARD
+========================================================= */
+
+#mhhm-guarantee .mhhm-card{
+
+  position:relative;
+
+  overflow:hidden;
+
+  display:grid;
+
+  grid-template-columns:
+    92px minmax(0,1fr);
+
+  gap:24px;
+
+  align-items:center;
+
+  padding:
+    30px 32px;
+
+  border-radius:25px;
+
+  border:
+    1px solid rgba(255,255,255,.12);
+
+  background:
+
+    radial-gradient(
+      circle at 8% 12%,
+      rgba(211,178,103,.10),
+      transparent 27%
+    ),
+
+    radial-gradient(
+      circle at 92% 90%,
+      rgba(169,222,216,.075),
+      transparent 26%
+    ),
+
+    linear-gradient(
+      135deg,
+      #123C42 0%,
+      #1A5156 60%,
+      #354E42 100%
+    );
+
+  box-shadow:
+    0 23px 55px
+    rgba(18,60,66,.16);
+
+  opacity:0;
+
+  transform:
+    translateY(19px);
+
+  transition:
+    opacity .76s ease,
+    transform .76s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-guarantee
+.mhhm-card.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   SHIELD
+========================================================= */
+
+#mhhm-guarantee .mhhm-shield{
+
+  width:88px;
+  height:88px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:27px;
+
+  border:
+    1px solid rgba(255,255,255,.13);
+
+  background:
+    rgba(255,255,255,.06);
+
+  color:#E4CB93;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255,255,255,.06);
+}
+
+
+#mhhm-guarantee
+.mhhm-shield svg{
+
+  width:43px;
+  height:43px;
+
+  fill:none;
+
+  stroke:currentColor;
+
+  stroke-width:1.7;
+
+  stroke-linecap:round;
+
+  stroke-linejoin:round;
+}
+
+
+/* =========================================================
+   CARD COPY
+========================================================= */
+
+#mhhm-guarantee
+.mhhm-cardKicker{
+
+  display:block;
+
+  margin-bottom:5px;
+
+  color:#DFC78F;
+
+  font-size:.63rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-guarantee
+.mhhm-card h3{
+
+  margin:0;
+
+  color:#FFFDF8;
+
+  font-size:
+    clamp(
+      1.3rem,
+      2.5vw,
+      1.8rem
+    );
+
+  line-height:1.45;
+
+  font-weight:900;
+}
+
+
+#mhhm-guarantee
+.mhhm-description{
+
+  max-width:680px;
+
+  margin:
+    8px 0 0;
+
+  color:
+    rgba(255,253,248,.70);
+
+  font-size:.83rem;
+
+  line-height:1.8;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   TERMS
+========================================================= */
+
+#mhhm-guarantee .mhhm-terms{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:1px;
+
+  margin-top:20px;
+
+  overflow:hidden;
+
+  border:
+    1px solid rgba(255,255,255,.09);
+
+  border-radius:14px;
+
+  background:
+    rgba(255,255,255,.08);
+}
+
+
+#mhhm-guarantee .mhhm-term{
+
+  padding:
+    12px 14px;
+
+  background:
+    rgba(18,60,66,.46);
+}
+
+
+#mhhm-guarantee
+.mhhm-term strong{
+
+  display:block;
+
+  margin-bottom:2px;
+
+  color:#FFFDF8;
+
+  font-size:.72rem;
+
+  line-height:1.45;
+
+  font-weight:900;
+}
+
+
+#mhhm-guarantee
+.mhhm-term span{
+
+  display:block;
+
+  color:
+    rgba(255,253,248,.52);
+
+  font-size:.57rem;
+
+  line-height:1.5;
+
+  font-weight:600;
+}
+
+
+/* =========================================================
+   BOTTOM REASSURANCE
+========================================================= */
+
+#mhhm-guarantee
+.mhhm-bottom{
+
+  max-width:720px;
+
+  margin:
+    21px auto 0;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(12px);
+
+  transition:
+    opacity .65s ease,
+    transform .65s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-guarantee
+.mhhm-bottom.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-guarantee
+.mhhm-bottom p{
+
+  margin:0;
+
+  color:#66756F;
+
+  font-size:.72rem;
+
+  line-height:1.72;
+
+  font-weight:600;
+}
+
+
+#mhhm-guarantee
+.mhhm-bottom strong{
+
+  color:var(--petrol-deep);
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:620px){
+
+  #mhhm-guarantee{
+
+    padding:
+      54px 13px 60px;
+  }
+
+
+  #mhhm-guarantee .mhhm-head{
+
+    margin-bottom:25px;
+  }
+
+
+  #mhhm-guarantee
+  .mhhm-kicker{
+
+    margin-bottom:8px;
+
+    font-size:.66rem;
+  }
+
+
+  #mhhm-guarantee
+  .mhhm-kicker::before{
+
+    width:20px;
+  }
+
+
+  #mhhm-guarantee h2{
+
+    font-size:1.78rem;
+
+    line-height:1.3;
+  }
+
+
+  #mhhm-guarantee
+  .mhhm-head p{
+
+    margin-top:9px;
+
+    font-size:.80rem;
+
+    line-height:1.72;
+  }
+
+
+  #mhhm-guarantee .mhhm-card{
+
+    grid-template-columns:1fr;
+
+    gap:17px;
+
+    padding:
+      23px 17px 18px;
+
+    border-radius:21px;
+  }
+
+
+  #mhhm-guarantee .mhhm-shield{
+
+    width:63px;
+    height:63px;
+
+    border-radius:19px;
+  }
+
+
+  #mhhm-guarantee
+  .mhhm-shield svg{
+
+    width:31px;
+    height:31px;
+  }
+
+
+  #mhhm-guarantee
+  .mhhm-card h3{
+
+    font-size:1.22rem;
+  }
+
+
+  #mhhm-guarantee
+  .mhhm-description{
+
+    margin-top:6px;
+
+    font-size:.73rem;
+
+    line-height:1.7;
+  }
+
+
+  #mhhm-guarantee .mhhm-terms{
+
+    grid-template-columns:1fr;
+
+    margin-top:16px;
+  }
+
+
+  #mhhm-guarantee .mhhm-term{
+
+    padding:
+      10px 12px;
+  }
+
+
+  #mhhm-guarantee
+  .mhhm-term strong{
+
+    font-size:.67rem;
+  }
+
+
+  #mhhm-guarantee
+  .mhhm-term span{
+
+    font-size:.54rem;
+  }
+
+
+  #mhhm-guarantee
+  .mhhm-bottom{
+
+    margin-top:18px;
+  }
+
+
+  #mhhm-guarantee
+  .mhhm-bottom p{
+
+    font-size:.65rem;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-guarantee .mhhm-head,
+  #mhhm-guarantee .mhhm-card,
+  #mhhm-guarantee .mhhm-bottom{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-guarantee"
+  dir="rtl"
+  lang="ar"
+  aria-label="ضمان استرجاع قيمة الاشتراك"
+>
+
+  <div class="mhhm-wrap">
+
+
+    <!-- ===============================================
+         HEADER
+    ================================================ -->
+
+    <header class="mhhm-head">
+
+
+      <div class="mhhm-kicker">
+
+        قرارك بدون مخاطرة
+
+      </div>
+
+
+      <h2>
+
+        جرب المنهج براحة أكبر
+
+      </h2>
+
+
+      <p>
+
+        لديك 7 أيام كاملة لتتأكد بنفسك
+        أن تجربة منهج الطمأنينة مناسبة لك.
+
+      </p>
+
+
+    </header>
+
+
+
+    <!-- ===============================================
+         GUARANTEE
+    ================================================ -->
+
+    <div class="mhhm-card">
+
+
+      <!-- SHIELD -->
+
+      <div
+        class="mhhm-shield"
+        aria-hidden="true"
+      >
+
+        <svg viewBox="0 0 24 24">
+
+          <path
+            d="M12 3 19 6v5c0 4.8-3 8.3-7 10-4-1.7-7-5.2-7-10V6l7-3Z"
+          />
+
+          <path
+            d="m8.8 12.2 2.1 2.1 4.5-4.8"
+          />
+
+        </svg>
+
+      </div>
+
+
+
+      <!-- COPY -->
+
+      <div>
+
+
+        <span class="mhhm-cardKicker">
+
+          ضمان استرجاع كامل
+
+        </span>
+
+
+        <h3>
+
+          100% من قيمة اشتراكك خلال أول 7 أيام
+
+        </h3>
+
+
+        <p class="mhhm-description">
+
+          لو وجدت أن المنهج غير مناسب لك،
+          يمكنك طلب استرداد كامل لقيمة الاشتراك
+          خلال 7 أيام من تاريخ الشراء،
+          من غير الحاجة لذكر سبب.
+
+        </p>
+
+
+
+        <!-- TERMS -->
+
+        <div class="mhhm-terms">
+
+
+          <div class="mhhm-term">
+
+            <strong>
+              7 أيام
+            </strong>
+
+            <span>
+              من تاريخ الشراء
+            </span>
+
+          </div>
+
+
+          <div class="mhhm-term">
+
+            <strong>
+              استرداد كامل
+            </strong>
+
+            <span>
+              100% من قيمة الاشتراك
+            </span>
+
+          </div>
+
+
+          <div class="mhhm-term">
+
+            <strong>
+              دون أسباب
+            </strong>
+
+            <span>
+              لا تحتاج إلى تبرير طلبك
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         BOTTOM
+    ================================================ -->
+
+    <div class="mhhm-bottom">
+
+      <p>
+
+        الهدف من الضمان بسيط:
+        <strong>أن تستطيع اتخاذ قرارك وتجربة المنهج وأنت أكثر اطمئنانا.</strong>
+
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-guarantee'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var head =
+    section.querySelector(
+      '.mhhm-head'
+    );
+
+
+  var card =
+    section.querySelector(
+      '.mhhm-card'
+    );
+
+
+  var bottom =
+    section.querySelector(
+      '.mhhm-bottom'
+    );
+
+
+  var items = [
+    head,
+    card,
+    bottom
+  ].filter(Boolean);
+
+
+
+  function showAll(){
+
+    items.forEach(
+
+      function(item){
+
+        item.classList.add(
+          'mhhm-visible'
+        );
+
+      }
+
+    );
+
+  }
+
+
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    showAll();
+
+    return;
+  }
+
+
+
+  var observer =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            entry.target.classList.add(
+              'mhhm-visible'
+            );
+
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.14,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  items.forEach(
+
+    function(item,index){
+
+      item.style.transitionDelay =
+        Math.min(
+          index * 90,
+          180
+        ) + 'ms';
+
+
+      observer.observe(
+        item
+      );
+
+    }
+
+  );
+
+
+})();
+
+</script>

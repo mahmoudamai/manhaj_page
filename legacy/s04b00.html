@@ -1,0 +1,1127 @@
+<!-- =========================================================
+     MHH MANHAJ | AL-FAQAH / AL-TAYH — FINAL
+     Concept definition, NOT testimonial/quote
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-faqah{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+
+  --olive:#3C5141;
+  --olive-deep:#304338;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --teal-bright:#A9DED8;
+
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+  --cream:#F5F4EC;
+
+  --ink:#354859;
+  --text:#66747A;
+
+  position:relative;
+  overflow:hidden;
+
+  box-sizing:border-box;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:var(--paper);
+
+  padding:
+    92px 22px 94px;
+
+  background:
+
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(211,178,103,.12),
+      transparent 25%
+    ),
+
+    radial-gradient(
+      circle at 91% 84%,
+      rgba(167,188,166,.13),
+      transparent 29%
+    ),
+
+    radial-gradient(
+      circle at 53% -18%,
+      rgba(142,201,196,.08),
+      transparent 38%
+    ),
+
+    linear-gradient(
+      135deg,
+      #113B41 0%,
+      #17494A 48%,
+      #344B3D 100%
+    );
+}
+
+
+#mhhm-faqah *,
+#mhhm-faqah *::before,
+#mhhm-faqah *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   BACKGROUND ORBITS
+========================================================= */
+
+#mhhm-faqah::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:470px;
+  height:470px;
+
+  top:-310px;
+  left:-220px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(211,178,103,.13);
+
+  box-shadow:
+    0 0 0 52px rgba(211,178,103,.018);
+
+  pointer-events:none;
+}
+
+
+#mhhm-faqah::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:350px;
+  height:350px;
+
+  right:-205px;
+  bottom:-210px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(169,222,216,.09);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-faqah .mhhm-wrap{
+
+  position:relative;
+  z-index:2;
+
+  width:100%;
+  max-width:1100px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+#mhhm-faqah .mhhm-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1.12fr)
+    minmax(310px,.88fr);
+
+  gap:64px;
+
+  align-items:center;
+}
+
+
+/* =========================================================
+   MAIN COPY
+========================================================= */
+
+#mhhm-faqah .mhhm-copy{
+
+  max-width:720px;
+}
+
+
+/* kicker */
+
+#mhhm-faqah .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  margin-bottom:15px;
+
+  color:#E4CA91;
+
+  font-size:.80rem;
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-faqah .mhhm-kicker::before{
+
+  content:"";
+
+  width:31px;
+  height:1px;
+
+  flex:0 0 31px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(211,178,103,.18),
+      var(--gold)
+    );
+}
+
+
+/* heading */
+
+#mhhm-faqah h2{
+
+  max-width:720px;
+
+  margin:
+    0 0 23px;
+
+  color:#FFFDF8;
+
+  font-size:
+    clamp(
+      2.15rem,
+      4.4vw,
+      3.55rem
+    );
+
+  line-height:1.23;
+
+  letter-spacing:-.8px;
+
+  font-weight:900;
+
+  text-wrap:balance;
+}
+
+
+/* paragraphs */
+
+#mhhm-faqah .mhhm-copy p{
+
+  margin:
+    0 0 14px;
+
+  color:
+    rgba(250,248,241,.80);
+
+  font-size:
+    clamp(
+      .98rem,
+      1.45vw,
+      1.08rem
+    );
+
+  line-height:1.95;
+
+  font-weight:500;
+}
+
+
+#mhhm-faqah .mhhm-copy p:last-child{
+  margin-bottom:0;
+}
+
+
+#mhhm-faqah .mhhm-copy strong{
+
+  color:#FFF2D6;
+
+  font-weight:850;
+}
+
+
+/* =========================================================
+   CONCEPT CARD
+========================================================= */
+
+#mhhm-faqah .mhhm-concept{
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:
+    29px 29px 27px;
+
+  border-radius:27px;
+
+  border:
+    1px solid rgba(255,255,255,.26);
+
+  background:
+
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(167,188,166,.15),
+      transparent 42%
+    ),
+
+    linear-gradient(
+      180deg,
+      #FFFDF8 0%,
+      #F3F5ED 100%
+    );
+
+  box-shadow:
+    0 28px 65px rgba(5,28,30,.22);
+
+  color:var(--petrol-deep);
+}
+
+
+/* top signature */
+
+#mhhm-faqah .mhhm-concept::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  right:0;
+
+  width:100%;
+  height:3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--sage),
+      var(--gold),
+      var(--petrol)
+    );
+}
+
+
+/* very subtle word in background */
+
+#mhhm-faqah .mhhm-concept::after{
+
+  content:"الفاقة";
+
+  position:absolute;
+
+  left:-8px;
+  bottom:-25px;
+
+  color:
+    rgba(30,89,96,.035);
+
+  font-size:6.7rem;
+
+  line-height:1;
+
+  font-weight:900;
+
+  white-space:nowrap;
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   CONCEPT LABEL
+========================================================= */
+
+#mhhm-faqah .mhhm-conceptLabel{
+
+  position:relative;
+  z-index:2;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  margin-bottom:13px;
+
+  color:#788B80;
+
+  font-size:.66rem;
+
+  line-height:1.3;
+
+  font-weight:900;
+}
+
+
+#mhhm-faqah .mhhm-conceptLabel::before{
+
+  content:"";
+
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:var(--gold);
+
+  box-shadow:
+    0 0 0 4px rgba(211,178,103,.10);
+}
+
+
+/* =========================================================
+   THE WORD
+========================================================= */
+
+#mhhm-faqah .mhhm-term{
+
+  position:relative;
+  z-index:2;
+
+  margin:
+    0 0 11px;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      2.8rem
+    );
+
+  line-height:1.2;
+
+  font-weight:900;
+
+  letter-spacing:-.6px;
+}
+
+
+/* =========================================================
+   DEFINITION
+========================================================= */
+
+#mhhm-faqah .mhhm-definition{
+
+  position:relative;
+  z-index:2;
+
+  margin:0;
+
+  color:#53666A;
+
+  font-size:
+    clamp(
+      .94rem,
+      1.6vw,
+      1.06rem
+    );
+
+  line-height:1.9;
+
+  font-weight:600;
+}
+
+
+#mhhm-faqah .mhhm-definition strong{
+
+  color:var(--petrol);
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   CONCEPT DIVIDER
+========================================================= */
+
+#mhhm-faqah .mhhm-conceptLine{
+
+  position:relative;
+  z-index:2;
+
+  width:100%;
+  height:1px;
+
+  margin:
+    20px 0 17px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(30,89,96,.15),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   CONCEPT SECONDARY TEXT
+========================================================= */
+
+#mhhm-faqah .mhhm-conceptSmall{
+
+  position:relative;
+  z-index:2;
+
+  margin:0;
+
+  color:#718076;
+
+  font-size:.79rem;
+
+  line-height:1.8;
+
+  font-weight:600;
+}
+
+
+/* =========================================================
+   MINI THEMES
+========================================================= */
+
+#mhhm-faqah .mhhm-mini{
+
+  position:relative;
+  z-index:2;
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:7px;
+
+  margin-top:18px;
+}
+
+
+#mhhm-faqah .mhhm-mini span{
+
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:
+    7px 10px;
+
+  border:
+    1px solid rgba(167,188,166,.32);
+
+  border-radius:999px;
+
+  background:
+    rgba(232,240,232,.72);
+
+  color:var(--petrol);
+
+  font-size:.65rem;
+  line-height:1.3;
+
+  font-weight:850;
+}
+
+
+/* =========================================================
+   MOTION
+========================================================= */
+
+#mhhm-faqah .mhhm-reveal{
+
+  opacity:0;
+
+  transform:
+    translateY(20px);
+
+  transition:
+    opacity .75s ease,
+    transform .75s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-faqah
+.mhhm-concept.mhhm-reveal{
+
+  transform:
+    translateX(-24px)
+    scale(.98);
+}
+
+
+#mhhm-faqah
+.mhhm-reveal.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translate(0,0)
+    scale(1);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media(hover:hover){
+
+  #mhhm-faqah .mhhm-concept{
+
+    transition:
+      transform .26s ease,
+      box-shadow .26s ease;
+  }
+
+
+  #mhhm-faqah
+  .mhhm-concept:hover{
+
+    transform:
+      translateY(-3px);
+
+    box-shadow:
+      0 34px 72px rgba(5,28,30,.26);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:850px){
+
+  #mhhm-faqah{
+
+    padding:
+      76px 18px;
+  }
+
+
+  #mhhm-faqah .mhhm-grid{
+
+    grid-template-columns:1fr;
+
+    gap:38px;
+  }
+
+
+  #mhhm-faqah .mhhm-concept{
+
+    width:100%;
+    max-width:650px;
+
+    margin:0 auto;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:560px){
+
+  #mhhm-faqah{
+
+    padding:
+      60px 14px 64px;
+  }
+
+
+  #mhhm-faqah .mhhm-grid{
+
+    gap:28px;
+  }
+
+
+  #mhhm-faqah .mhhm-kicker{
+
+    margin-bottom:10px;
+
+    font-size:.69rem;
+
+    gap:7px;
+  }
+
+
+  #mhhm-faqah
+  .mhhm-kicker::before{
+
+    width:21px;
+
+    flex-basis:21px;
+  }
+
+
+  #mhhm-faqah h2{
+
+    margin-bottom:17px;
+
+    font-size:1.91rem;
+
+    line-height:1.27;
+  }
+
+
+  #mhhm-faqah .mhhm-copy p{
+
+    margin-bottom:11px;
+
+    font-size:.85rem;
+
+    line-height:1.82;
+  }
+
+
+  #mhhm-faqah .mhhm-concept{
+
+    padding:
+      23px 19px 21px;
+
+    border-radius:21px;
+  }
+
+
+  #mhhm-faqah .mhhm-conceptLabel{
+
+    margin-bottom:10px;
+
+    font-size:.60rem;
+  }
+
+
+  #mhhm-faqah .mhhm-term{
+
+    margin-bottom:8px;
+
+    font-size:2rem;
+  }
+
+
+  #mhhm-faqah .mhhm-definition{
+
+    font-size:.86rem;
+
+    line-height:1.8;
+  }
+
+
+  #mhhm-faqah .mhhm-conceptLine{
+
+    margin:
+      16px 0 14px;
+  }
+
+
+  #mhhm-faqah .mhhm-conceptSmall{
+
+    font-size:.72rem;
+
+    line-height:1.72;
+  }
+
+
+  #mhhm-faqah .mhhm-mini{
+
+    margin-top:14px;
+
+    gap:6px;
+  }
+
+
+  #mhhm-faqah .mhhm-mini span{
+
+    padding:
+      6px 9px;
+
+    font-size:.59rem;
+  }
+
+
+  #mhhm-faqah
+  .mhhm-concept::after{
+
+    left:-5px;
+    bottom:-17px;
+
+    font-size:4.9rem;
+  }
+
+
+  #mhhm-faqah
+  .mhhm-concept.mhhm-reveal{
+
+    transform:
+      translateY(18px)
+      scale(.98);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-faqah .mhhm-reveal{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-faqah"
+  dir="rtl"
+  lang="ar"
+>
+
+  <div class="mhhm-wrap">
+
+    <div class="mhhm-grid">
+
+
+      <!-- ===============================================
+           MAIN COPY
+      ================================================ -->
+
+      <div class="mhhm-copy mhhm-reveal">
+
+
+        <div class="mhhm-kicker">
+
+          وسط عالم سريع ومليان أصوات
+
+        </div>
+
+
+        <h2>
+
+          ليه دايمًا حاسس إن في حاجة ناقصة؟
+
+        </h2>
+
+
+        <p>
+
+          إحنا عايشين في وقت كل حاجة فيه بتشدّنا
+          في اتجاه:
+
+          أهداف أكتر،
+          اختيارات أكتر،
+          مقارنات أكتر،
+          ومحتوى لا ينتهي بيقول لنا
+          إزاي نعيش وإيه اللي المفروض نحققه.
+
+        </p>
+
+
+        <p>
+
+          ومع كل ده،
+          ممكن يفضل جوانا إحساس بالحيرة أو النقص…
+
+          كأننا بنسعى كتير،
+          لكن مش دايمًا عارفين
+          إحنا بندور على إيه بالضبط،
+          أو إمتى هنحس إن اللي عندنا كفاية.
+
+        </p>
+
+
+        <p>
+
+          ومن المعاني التي نتوقف عندها
+          في
+
+          <strong>
+            «منهج الطمأنينة»
+          </strong>
+
+          معنى
+
+          <strong>
+            «الفاقة»
+          </strong>
+
+          وعلاقته بالتيه،
+          وبنظرتنا لأنفسنا وللحياة،
+          وما ننتظره منها.
+
+        </p>
+
+
+        <p>
+
+          ومن هنا نبدأ في مراجعة الصورة الأوسع:
+          ما الذي نسعى إليه؟
+          ماذا ننتظر منه؟
+          وما التصورات والمهارات
+          التي نحتاجها حتى نتعامل مع أنفسنا
+          وحياتنا بوعي أكبر؟
+
+        </p>
+
+
+      </div>
+
+
+
+      <!-- ===============================================
+           CONCEPT / DEFINITION
+           NOT A QUOTE
+      ================================================ -->
+
+      <aside
+        class="mhhm-concept mhhm-reveal"
+        aria-label="تعريف مفهوم الفاقة"
+      >
+
+
+        <div class="mhhm-conceptLabel">
+
+          مفهوم مهم في الرحلة
+
+        </div>
+
+
+        <div class="mhhm-term">
+
+          الفاقة
+
+        </div>
+
+
+        <p class="mhhm-definition">
+
+          نقصد بها هنا
+
+          <strong>
+            شعورًا متكررًا بالاحتياج والنقص
+          </strong>
+
+          ؛ كأن هناك دائمًا شيئًا آخر
+          تحتاج إليه حتى تشعر بالراحة
+          أو الاكتفاء.
+
+        </p>
+
+
+        <div class="mhhm-conceptLine"></div>
+
+
+        <p class="mhhm-conceptSmall">
+
+          ومع كثرة الاختيارات والمقارنات
+          والأهداف التي تحيط بنا،
+          قد يصبح هذا الشعور أكثر حضورًا،
+          ويصعب علينا أحيانًا أن نميّز
+          بين ما نحتاجه فعلًا
+          وما نظن أنه سيمنحنا الراحة.
+
+        </p>
+
+
+        <div class="mhhm-mini">
+
+          <span>ما الذي أحتاجه؟</span>
+
+          <span>ما الذي أسعى إليه؟</span>
+
+          <span>ماذا أنتظر من الحياة؟</span>
+
+        </div>
+
+
+      </aside>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-faqah'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var items =
+    section.querySelectorAll(
+      '.mhhm-reveal'
+    );
+
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    items.forEach(
+      function(item){
+
+        item.classList.add(
+          'mhhm-visible'
+        );
+
+      }
+    );
+
+    return;
+  }
+
+
+  var observer =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            items.forEach(
+
+              function(item,index){
+
+                setTimeout(
+
+                  function(){
+
+                    item.classList.add(
+                      'mhhm-visible'
+                    );
+
+                  },
+
+                  index * 140
+
+                );
+
+              }
+
+            );
+
+
+            observer.disconnect();
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.10,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  observer.observe(section);
+
+})();
+
+</script>

@@ -1,0 +1,561 @@
+<!-- =========================================================
+     MHH MANHAJ | INLINE COMMUNITY MOMENT | RASHA
+     Editorial proof, not testimonial card
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+#mhhm-rasha-moment{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+  --text:#5D6A70;
+
+  direction:rtl;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  padding:
+    50px 20px 54px;
+
+background:
+
+  radial-gradient(
+    circle at 12% 20%,
+    rgba(142,201,196,.11),
+    transparent 30%
+  ),
+
+  linear-gradient(
+    180deg,
+    #DFE9E2 0%,
+    #E7EEE8 100%
+  );
+
+box-shadow:
+  inset 0 1px 0 rgba(255,255,255,.42),
+  inset 0 -1px 0 rgba(30,89,96,.06);
+}
+
+
+#mhhm-rasha-moment *,
+#mhhm-rasha-moment *::before,
+#mhhm-rasha-moment *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-rasha-moment .mhhm-wrap{
+
+  max-width:980px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   EDITORIAL BLOCK
+========================================================= */
+
+#mhhm-rasha-moment .mhhm-block{
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(230px,.72fr)
+    minmax(0,1.28fr);
+
+  gap:42px;
+
+  align-items:center;
+
+  padding:
+    32px 0;
+
+  border-top:
+    1px solid rgba(30,89,96,.14);
+
+  border-bottom:
+    1px solid rgba(30,89,96,.14);
+}
+
+
+/* =========================================================
+   CONTEXT
+========================================================= */
+
+#mhhm-rasha-moment .mhhm-context{
+
+  position:relative;
+
+  padding-left:22px;
+}
+
+
+#mhhm-rasha-moment .mhhm-context::after{
+
+  content:"";
+
+  position:absolute;
+
+  top:8%;
+  bottom:8%;
+
+  left:0;
+
+  width:1px;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(30,89,96,.16),
+      transparent
+    );
+}
+
+
+#mhhm-rasha-moment .mhhm-kicker{
+
+  display:block;
+
+  margin-bottom:9px;
+
+  color:#8C7A50;
+
+  font-size:.68rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-rasha-moment .mhhm-context h3{
+
+  margin:
+    0 0 9px;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      1.15rem,
+      2vw,
+      1.42rem
+    );
+
+  line-height:1.55;
+
+  font-weight:900;
+}
+
+
+#mhhm-rasha-moment .mhhm-context p{
+
+  margin:0;
+
+  color:#718078;
+
+  font-size:.82rem;
+
+  line-height:1.8;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   MEMBER MESSAGE
+========================================================= */
+
+#mhhm-rasha-moment .mhhm-message{
+
+  position:relative;
+
+  padding:
+    4px 0 4px 26px;
+}
+
+
+#mhhm-rasha-moment .mhhm-messageLabel{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-bottom:10px;
+
+  color:var(--petrol);
+
+  font-size:.67rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-rasha-moment
+.mhhm-messageLabel::before{
+
+  content:"";
+
+  width:22px;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      rgba(30,89,96,.35)
+    );
+}
+
+
+/* actual message */
+
+#mhhm-rasha-moment .mhhm-message p{
+
+  margin:
+    0 0 13px;
+
+  color:#465A57;
+
+  font-size:
+    clamp(
+      .96rem,
+      1.6vw,
+      1.08rem
+    );
+
+  line-height:1.95;
+
+  font-weight:600;
+}
+
+
+/* member name */
+
+#mhhm-rasha-moment .mhhm-name{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  color:var(--petrol-deep);
+
+  font-size:.74rem;
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-rasha-moment .mhhm-name::before{
+
+  content:"";
+
+  width:6px;
+  height:6px;
+
+  border-radius:50%;
+
+  background:var(--sage);
+}
+
+
+/* =========================================================
+   MOTION
+========================================================= */
+
+#mhhm-rasha-moment .mhhm-context,
+#mhhm-rasha-moment .mhhm-message{
+
+  opacity:0;
+
+  transform:
+    translateY(14px);
+
+  transition:
+    opacity .68s ease,
+    transform .68s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-rasha-moment
+.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:680px){
+
+  #mhhm-rasha-moment{
+
+    padding:
+      38px 15px 42px;
+  }
+
+
+  #mhhm-rasha-moment .mhhm-block{
+
+    grid-template-columns:1fr;
+
+    gap:23px;
+
+    padding:
+      25px 0;
+  }
+
+
+  #mhhm-rasha-moment .mhhm-context{
+
+    padding:
+      0 0 20px;
+
+    border-bottom:
+      1px solid rgba(30,89,96,.11);
+  }
+
+
+  #mhhm-rasha-moment
+  .mhhm-context::after{
+
+    display:none;
+  }
+
+
+  #mhhm-rasha-moment
+  .mhhm-context h3{
+
+    font-size:1.08rem;
+  }
+
+
+  #mhhm-rasha-moment
+  .mhhm-context p{
+
+    max-width:360px;
+
+    font-size:.76rem;
+
+    line-height:1.72;
+  }
+
+
+  #mhhm-rasha-moment
+  .mhhm-message{
+
+    padding:0;
+  }
+
+
+  #mhhm-rasha-moment
+  .mhhm-message p{
+
+    font-size:.88rem;
+
+    line-height:1.82;
+  }
+
+}
+
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-rasha-moment .mhhm-context,
+  #mhhm-rasha-moment .mhhm-message{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-rasha-moment"
+  dir="rtl"
+  lang="ar"
+>
+
+  <div class="mhhm-wrap">
+
+    <div class="mhhm-block">
+
+
+      <!-- CONTEXT -->
+
+      <div class="mhhm-context">
+
+        <span class="mhhm-kicker">
+          عندما يتحول المعنى إلى مراجعة شخصية
+        </span>
+
+        <h3>
+          أحيانا معنى واحد يعيد لك قراءة جزء من تجربتك.
+        </h3>
+
+        <p>
+          وهذه واحدة من المشاركات التي كتبها أعضاء المنهج
+          أثناء التفاعل مع محتواه.
+        </p>
+
+      </div>
+
+
+
+      <!-- REAL MEMBER MESSAGE -->
+
+      <div class="mhhm-message">
+
+        <div class="mhhm-messageLabel">
+          من مشاركة داخل مجتمع المنهج
+        </div>
+
+        <p>
+          نشأة الفاقة اثرت في كثيرا، لان عندما سمعتها،
+          تمثل امامي شريط حياتي، الذي لو كنت ادركت فيه
+          هذه النقاط من قبل، لقصرت على المسافة في التيه
+          الذي كنت أعيشه.
+        </p>
+
+        <div class="mhhm-name">
+          رشا محمد
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-rasha-moment'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var items =
+    section.querySelectorAll(
+      '.mhhm-context, .mhhm-message'
+    );
+
+
+  if(
+    !('IntersectionObserver' in window)
+    ||
+    window.matchMedia(
+      '(prefers-reduced-motion:reduce)'
+    ).matches
+  ){
+
+    items.forEach(function(item){
+      item.classList.add('mhhm-visible');
+    });
+
+    return;
+  }
+
+
+  var observer =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+          function(entry){
+
+            if(!entry.isIntersecting){
+              return;
+            }
+
+            items.forEach(
+              function(item,index){
+
+                setTimeout(
+                  function(){
+                    item.classList.add(
+                      'mhhm-visible'
+                    );
+                  },
+                  index * 120
+                );
+
+              }
+            );
+
+            observer.disconnect();
+
+          }
+        );
+
+      },
+
+      {
+        threshold:.15,
+        rootMargin:'0px 0px -20px 0px'
+      }
+
+    );
+
+
+  observer.observe(section);
+
+})();
+
+</script>

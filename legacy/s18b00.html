@@ -1,0 +1,2377 @@
+<!-- =========================================================
+     MHH MANHAJ | FULL INSTRUCTOR PROFILE
+     KAREEM ISMAIL
+     PROFILE + CREDENTIALS + STATS + TRUE MASONRY GALLERY
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-kareem{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --blue-petrol:#294E63;
+
+  --navy:#354859;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --gold:#D3B267;
+
+  --paper:#FFFDF8;
+
+  --text:#5D6A70;
+  --muted:#748086;
+
+  position:relative;
+
+  overflow:hidden;
+
+  direction:rtl;
+  text-align:right;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  color:var(--navy);
+
+  padding:
+    86px 22px 94px;
+
+  /*
+    Neutral page background.
+    No yellow / beige dominance.
+  */
+
+  background:
+
+    radial-gradient(
+      circle at 8% 12%,
+      rgba(142,201,196,.075),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 94% 88%,
+      rgba(167,188,166,.065),
+      transparent 27%
+    ),
+
+    linear-gradient(
+      180deg,
+      #F5F4EC 0%,
+      #F2F3EC 54%,
+      #EDF2EC 100%
+    );
+}
+
+
+#mhhm-kareem *,
+#mhhm-kareem *::before,
+#mhhm-kareem *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   AMBIENT
+========================================================= */
+
+#mhhm-kareem::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:460px;
+  height:460px;
+
+  top:-300px;
+  left:-250px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(30,89,96,.045);
+
+  pointer-events:none;
+}
+
+
+#mhhm-kareem::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:330px;
+  height:330px;
+
+  right:-195px;
+  bottom:-185px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(211,178,103,.055);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   WRAP
+========================================================= */
+
+#mhhm-kareem .mhhm-wrap{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  max-width:1160px;
+
+  margin:0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#mhhm-kareem .mhhm-head{
+
+  max-width:800px;
+
+  margin:
+    0 auto 40px;
+
+  text-align:center;
+
+  opacity:0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity .72s ease,
+    transform .72s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-kareem
+.mhhm-head.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-kareem .mhhm-kicker{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:12px;
+
+  color:var(--petrol);
+
+  font-size:.76rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-kareem
+.mhhm-kicker::before{
+
+  content:"";
+
+  width:27px;
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(30,89,96,.13),
+      var(--gold)
+    );
+}
+
+
+#mhhm-kareem .mhhm-head h2{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.2rem
+    );
+
+  line-height:1.27;
+
+  font-weight:900;
+
+  letter-spacing:-.7px;
+}
+
+
+#mhhm-kareem .mhhm-head p{
+
+  max-width:690px;
+
+  margin:
+    14px auto 0;
+
+  color:var(--text);
+
+  font-size:.96rem;
+
+  line-height:1.85;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+#mhhm-kareem .mhhm-profile{
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(330px,.90fr)
+    minmax(0,1.10fr);
+
+  gap:48px;
+
+  align-items:center;
+
+  margin-bottom:46px;
+
+  opacity:0;
+
+  transform:
+    translateY(20px);
+
+  transition:
+    opacity .78s ease,
+    transform .78s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-kareem
+.mhhm-profile.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   MAIN PHOTO
+========================================================= */
+
+#mhhm-kareem .mhhm-photo{
+
+  position:relative;
+
+  overflow:hidden;
+
+  min-height:535px;
+
+  border-radius:29px;
+
+  border:
+    1px solid rgba(30,89,96,.09);
+
+  background:var(--petrol-deep);
+
+  box-shadow:
+    0 27px 65px
+    rgba(53,72,89,.15);
+}
+
+
+#mhhm-kareem .mhhm-photo img{
+
+  display:block;
+
+  width:100%;
+  height:535px;
+
+  object-fit:cover;
+
+  object-position:center;
+
+  transform:
+    scale(1.015);
+}
+
+
+#mhhm-kareem
+.mhhm-photo::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(18,60,66,0) 45%,
+      rgba(18,60,66,.90) 100%
+    );
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   PHOTO ROLE
+========================================================= */
+
+#mhhm-kareem .mhhm-photoRole{
+
+  position:absolute;
+
+  z-index:3;
+
+  right:20px;
+  left:20px;
+  bottom:20px;
+
+  padding:
+    15px 17px;
+
+  border:
+    1px solid rgba(255,255,255,.13);
+
+  border-radius:17px;
+
+  background:
+    rgba(18,60,66,.50);
+
+  backdrop-filter:
+    blur(10px);
+
+  -webkit-backdrop-filter:
+    blur(10px);
+}
+
+
+#mhhm-kareem
+.mhhm-photoRole span{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:#DFC78F;
+
+  font-size:.60rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-kareem
+.mhhm-photoRole strong{
+
+  display:block;
+
+  color:#FFFDF8;
+
+  font-size:.88rem;
+
+  line-height:1.65;
+
+  font-weight:800;
+}
+
+
+/* =========================================================
+   PROFILE COPY
+========================================================= */
+
+#mhhm-kareem .mhhm-nameTag{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  margin-bottom:8px;
+
+  color:#947A48;
+
+  font-size:.68rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-kareem
+.mhhm-nameTag::before{
+
+  content:"";
+
+  width:16px;
+  height:1px;
+
+  background:var(--gold);
+}
+
+
+#mhhm-kareem .mhhm-profileCopy h3{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      1.8rem,
+      3.2vw,
+      2.65rem
+    );
+
+  line-height:1.25;
+
+  font-weight:900;
+}
+
+
+#mhhm-kareem .mhhm-role{
+
+  margin:
+    7px 0 0;
+
+  color:var(--petrol);
+
+  font-size:.82rem;
+
+  line-height:1.6;
+
+  font-weight:900;
+}
+
+
+#mhhm-kareem .mhhm-bio{
+
+  max-width:610px;
+
+  margin:
+    18px 0 0;
+
+  color:#5D6C68;
+
+  font-size:.93rem;
+
+  line-height:1.95;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   PHILOSOPHY
+========================================================= */
+
+#mhhm-kareem .mhhm-philosophy{
+
+  margin-top:22px;
+
+  padding:
+    18px 19px;
+
+  border-right:
+    3px solid var(--gold);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,253,248,.18),
+      rgba(255,253,248,.62)
+    );
+}
+
+
+#mhhm-kareem
+.mhhm-philosophy span{
+
+  display:block;
+
+  margin-bottom:6px;
+
+  color:#907647;
+
+  font-size:.62rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-kareem
+.mhhm-philosophy p{
+
+  margin:0;
+
+  color:#566662;
+
+  font-size:.82rem;
+
+  line-height:1.82;
+
+  font-weight:600;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+#mhhm-kareem .mhhm-stats{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,minmax(0,1fr));
+
+  gap:11px;
+
+  margin-bottom:45px;
+
+  opacity:0;
+
+  transform:
+    translateY(17px);
+
+  transition:
+    opacity .7s ease,
+    transform .7s cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-kareem
+.mhhm-stats.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+#mhhm-kareem .mhhm-stat{
+
+  position:relative;
+
+  overflow:hidden;
+
+  min-height:128px;
+
+  padding:
+    17px 15px;
+
+  border-radius:18px;
+
+  border:
+    1px solid rgba(30,89,96,.10);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,253,248,.90),
+      rgba(243,246,239,.88)
+    );
+
+  box-shadow:
+    0 10px 25px
+    rgba(53,72,89,.045);
+}
+
+
+#mhhm-kareem .mhhm-stat::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  right:15px;
+
+  width:35px;
+  height:2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      var(--petrol)
+    );
+}
+
+
+#mhhm-kareem .mhhm-statValue{
+
+  color:var(--petrol-deep);
+
+  font-size:1.12rem;
+
+  line-height:1.3;
+
+  font-weight:900;
+}
+
+
+#mhhm-kareem .mhhm-statLabel{
+
+  margin-top:7px;
+
+  color:#708079;
+
+  font-size:.65rem;
+
+  line-height:1.65;
+
+  font-weight:600;
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+#mhhm-kareem .mhhm-details{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:34px;
+
+  margin-bottom:57px;
+}
+
+
+#mhhm-kareem .mhhm-detail{
+
+  padding-top:20px;
+
+  border-top:
+    1px solid rgba(30,89,96,.13);
+}
+
+
+#mhhm-kareem .mhhm-detailHead{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:15px;
+
+  margin-bottom:15px;
+}
+
+
+#mhhm-kareem .mhhm-detailHead h4{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:1.05rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-kareem .mhhm-detailNo{
+
+  color:#957A48;
+
+  font-size:.62rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-kareem .mhhm-detail ul{
+
+  display:grid;
+
+  gap:9px;
+
+  margin:0;
+
+  padding:0;
+
+  list-style:none;
+}
+
+
+#mhhm-kareem .mhhm-detail li{
+
+  position:relative;
+
+  padding-right:19px;
+
+  color:#62716D;
+
+  font-size:.76rem;
+
+  line-height:1.7;
+
+  font-weight:600;
+}
+
+
+#mhhm-kareem
+.mhhm-detail li::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:.72em;
+  right:0;
+
+  width:6px;
+  height:6px;
+
+  border-radius:50%;
+
+  background:var(--sage);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(167,188,166,.08);
+}
+
+
+/* =========================================================
+   GALLERY HEADER
+========================================================= */
+
+#mhhm-kareem .mhhm-galleryHead{
+
+  max-width:760px;
+
+  margin:
+    0 auto 25px;
+
+  text-align:center;
+}
+
+
+#mhhm-kareem .mhhm-galleryKicker{
+
+  display:block;
+
+  margin-bottom:7px;
+
+  color:#917748;
+
+  font-size:.66rem;
+
+  font-weight:900;
+}
+
+
+#mhhm-kareem
+.mhhm-galleryHead h3{
+
+  margin:0;
+
+  color:var(--petrol-deep);
+
+  font-size:
+    clamp(
+      1.45rem,
+      2.7vw,
+      2.15rem
+    );
+
+  line-height:1.4;
+
+  font-weight:900;
+}
+
+
+#mhhm-kareem
+.mhhm-galleryHead p{
+
+  max-width:650px;
+
+  margin:
+    8px auto 0;
+
+  color:#6B7975;
+
+  font-size:.80rem;
+
+  line-height:1.75;
+
+  font-weight:500;
+}
+
+
+/* =========================================================
+   TRUE MASONRY GRID
+========================================================= */
+
+#mhhm-kareem .mhhm-gallery{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,minmax(0,1fr));
+
+  /*
+    Tiny automatic rows.
+    JS calculates how many rows each natural image needs.
+  */
+
+  grid-auto-rows:6px;
+
+  grid-auto-flow:dense;
+
+  gap:10px;
+
+  align-items:start;
+}
+
+
+/* =========================================================
+   EVENT
+========================================================= */
+
+#mhhm-kareem .mhhm-event{
+
+  position:relative;
+
+  overflow:hidden;
+
+  width:100%;
+
+  margin:0;
+
+  min-width:0;
+
+  border-radius:17px;
+
+  border:
+    1px solid rgba(30,89,96,.07);
+
+  background:#DDE6E0;
+
+  box-shadow:
+    0 10px 25px
+    rgba(53,72,89,.07);
+
+  opacity:0;
+
+  transform:
+    translateY(17px)
+    scale(.985);
+
+  transition:
+    opacity .65s ease,
+    transform .65s cubic-bezier(.2,.72,.2,1),
+    box-shadow .25s ease;
+}
+
+
+/*
+   Featured image:
+   bigger visual anchor on desktop.
+*/
+
+#mhhm-kareem
+.mhhm-event--featured{
+
+  grid-column:
+    span 2;
+}
+
+
+/* =========================================================
+   NATURAL IMAGE
+   NO CROP
+========================================================= */
+
+#mhhm-kareem .mhhm-event img{
+
+  display:block;
+
+  width:100%;
+
+  /*
+    Critical:
+    no forced height.
+  */
+
+  height:auto;
+
+  max-width:100%;
+
+  object-fit:initial;
+
+  object-position:center;
+
+  transition:
+    transform .45s
+    cubic-bezier(.2,.72,.2,1);
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+#mhhm-kareem
+.mhhm-event::after{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(18,60,66,.005),
+      rgba(18,60,66,.055)
+    );
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   VISIBLE
+========================================================= */
+
+#mhhm-kareem
+.mhhm-event.mhhm-visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+@media(hover:hover){
+
+  #mhhm-kareem
+  .mhhm-event:hover{
+
+    box-shadow:
+      0 18px 38px
+      rgba(53,72,89,.12);
+  }
+
+
+  #mhhm-kareem
+  .mhhm-event:hover img{
+
+    transform:
+      scale(1.025);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:950px){
+
+  #mhhm-kareem{
+
+    padding:
+      74px 18px 80px;
+  }
+
+
+  #mhhm-kareem .mhhm-profile{
+
+    grid-template-columns:
+      minmax(280px,.85fr)
+      minmax(0,1.15fr);
+
+    gap:32px;
+  }
+
+
+  #mhhm-kareem .mhhm-photo,
+  #mhhm-kareem .mhhm-photo img{
+
+    min-height:470px;
+
+    height:470px;
+  }
+
+
+  #mhhm-kareem .mhhm-stats{
+
+    grid-template-columns:
+      repeat(3,minmax(0,1fr));
+  }
+
+
+  #mhhm-kareem .mhhm-gallery{
+
+    grid-template-columns:
+      repeat(3,minmax(0,1fr));
+
+    gap:9px;
+
+    grid-auto-rows:6px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:680px){
+
+  #mhhm-kareem{
+
+    padding:
+      56px 13px 62px;
+  }
+
+
+  #mhhm-kareem .mhhm-head{
+
+    margin-bottom:30px;
+  }
+
+
+  #mhhm-kareem .mhhm-head h2{
+
+    font-size:1.82rem;
+  }
+
+
+  #mhhm-kareem .mhhm-head p{
+
+    font-size:.81rem;
+
+    line-height:1.75;
+  }
+
+
+
+  /* =====================================================
+     PROFILE
+  ===================================================== */
+
+  #mhhm-kareem .mhhm-profile{
+
+    grid-template-columns:1fr;
+
+    gap:27px;
+
+    margin-bottom:37px;
+  }
+
+
+  #mhhm-kareem .mhhm-profileCopy{
+
+    order:-1;
+  }
+
+
+  #mhhm-kareem
+  .mhhm-profileCopy h3{
+
+    font-size:1.72rem;
+  }
+
+
+  #mhhm-kareem .mhhm-bio{
+
+    font-size:.80rem;
+
+    line-height:1.8;
+  }
+
+
+  #mhhm-kareem .mhhm-philosophy{
+
+    margin-top:17px;
+
+    padding:
+      14px 15px;
+  }
+
+
+  #mhhm-kareem
+  .mhhm-philosophy p{
+
+    font-size:.72rem;
+  }
+
+
+  #mhhm-kareem .mhhm-photo{
+
+    min-height:390px;
+
+    border-radius:22px;
+  }
+
+
+  #mhhm-kareem
+  .mhhm-photo img{
+
+    height:390px;
+
+    min-height:390px;
+  }
+
+
+  #mhhm-kareem .mhhm-photoRole{
+
+    right:14px;
+    left:14px;
+    bottom:14px;
+
+    padding:
+      12px 13px;
+
+    border-radius:14px;
+  }
+
+
+  #mhhm-kareem
+  .mhhm-photoRole strong{
+
+    font-size:.74rem;
+  }
+
+
+
+  /* =====================================================
+     STATS
+  ===================================================== */
+
+  #mhhm-kareem .mhhm-stats{
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+
+    gap:8px;
+
+    margin-bottom:36px;
+  }
+
+
+  #mhhm-kareem
+  .mhhm-stat:last-child{
+
+    grid-column:
+      1 / -1;
+
+    width:
+      calc(50% - 4px);
+
+    justify-self:center;
+  }
+
+
+  #mhhm-kareem .mhhm-stat{
+
+    min-height:110px;
+
+    padding:
+      14px 12px;
+  }
+
+
+  #mhhm-kareem
+  .mhhm-statValue{
+
+    font-size:.94rem;
+  }
+
+
+  #mhhm-kareem
+  .mhhm-statLabel{
+
+    font-size:.58rem;
+  }
+
+
+
+  /* =====================================================
+     DETAILS
+  ===================================================== */
+
+  #mhhm-kareem .mhhm-details{
+
+    grid-template-columns:1fr;
+
+    gap:28px;
+
+    margin-bottom:43px;
+  }
+
+
+  #mhhm-kareem .mhhm-detail{
+
+    padding-top:16px;
+  }
+
+
+  #mhhm-kareem .mhhm-detail li{
+
+    font-size:.68rem;
+  }
+
+
+
+  /* =====================================================
+     GALLERY HEADER
+  ===================================================== */
+
+  #mhhm-kareem
+  .mhhm-galleryHead h3{
+
+    font-size:1.35rem;
+  }
+
+
+  #mhhm-kareem
+  .mhhm-galleryHead p{
+
+    font-size:.72rem;
+  }
+
+
+
+  /* =====================================================
+     MOBILE MASONRY
+  ===================================================== */
+
+  #mhhm-kareem .mhhm-gallery{
+
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+
+    grid-auto-rows:5px;
+
+    gap:8px;
+  }
+
+
+  #mhhm-kareem
+  .mhhm-event{
+
+    border-radius:14px;
+  }
+
+
+  /*
+    First image:
+    full width on mobile.
+  */
+
+  #mhhm-kareem
+  .mhhm-event--featured{
+
+    grid-column:
+      1 / -1;
+  }
+
+
+  /*
+    12 items total:
+    make final item full width,
+    preventing a lonely final card.
+  */
+
+  #mhhm-kareem
+  .mhhm-event:last-child{
+
+    grid-column:
+      1 / -1;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:370px){
+
+  #mhhm-kareem .mhhm-gallery{
+
+    gap:7px;
+
+    grid-auto-rows:5px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-kareem .mhhm-head,
+  #mhhm-kareem .mhhm-profile,
+  #mhhm-kareem .mhhm-stats,
+  #mhhm-kareem .mhhm-event{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+}
+
+</style>
+
+
+<section
+  id="mhhm-kareem"
+  dir="rtl"
+  lang="ar"
+  aria-label="تعرف على كريم إسماعيل"
+>
+
+  <div class="mhhm-wrap">
+
+
+    <!-- ===============================================
+         HEADER
+    ================================================ -->
+
+    <header class="mhhm-head">
+
+      <div class="mhhm-kicker">
+        عن مقدم المنهج
+      </div>
+
+      <h2>
+        تعرف على كريم إسماعيل
+      </h2>
+
+      <p>
+        أكثر من عشر سنوات من التدريب والمحاضرات
+        وبناء المحتوى في مجالات الوعي النفسي
+        والتطوير الشخصي.
+      </p>
+
+    </header>
+
+
+
+    <!-- ===============================================
+         PROFILE
+    ================================================ -->
+
+    <div class="mhhm-profile">
+
+
+      <!-- PHOTO -->
+
+      <div class="mhhm-photo">
+
+        <img
+          src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/68ed118ca296246de435e289.jpeg"
+          alt="كريم إسماعيل"
+          loading="lazy"
+        >
+
+        <div class="mhhm-photoRole">
+
+          <span>
+            كريم إسماعيل
+          </span>
+
+          <strong>
+            مدرب ومحاضر في الصحة النفسية وبناء الوعي
+            ومؤسس Mental Health Hub
+          </strong>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- COPY -->
+
+      <div class="mhhm-profileCopy">
+
+        <div class="mhhm-nameTag">
+          خبرة تمتد لأكثر من 10 سنوات
+        </div>
+
+        <h3>
+          كريم إسماعيل
+        </h3>
+
+        <p class="mhhm-role">
+          مدرب ومحاضر في الصحة النفسية وبناء الوعي
+        </p>
+
+        <p class="mhhm-bio">
+
+          يقدم كريم طرحا يربط المعرفة النفسية
+          بالخبرة العملية وتفاصيل الحياة اليومية،
+          بعيدا عن التنظير والحلول السطحية.
+
+          وخلال سنوات عمله قدم محاضرات وورش عمل
+          وبرامج تدريبية لجمهور واسع في عدد من الدول العربية،
+          إلى جانب تأسيس منصة Mental Health Hub.
+
+        </p>
+
+
+        <div class="mhhm-philosophy">
+
+          <span>
+            رؤيته في تقديم المحتوى
+          </span>
+
+          <p>
+
+            فهم الإنسان لا يبدأ من زاوية واحدة؛
+            بل من النظر إلى أفكاره وعلاقاته وتربيته
+            وعمله والضغوط التي يعيشها داخل سياق
+            حياته الكامل.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         STATS
+    ================================================ -->
+
+    <div
+      class="mhhm-stats"
+      aria-label="إحصائيات كريم إسماعيل"
+    >
+
+      <div class="mhhm-stat">
+
+        <div class="mhhm-statValue">
+          +10 دول
+        </div>
+
+        <div class="mhhm-statLabel">
+          حضور وتدريب في دول عربية مختلفة
+        </div>
+
+      </div>
+
+
+      <div class="mhhm-stat">
+
+        <div class="mhhm-statValue">
+          +100 ألف
+        </div>
+
+        <div class="mhhm-statLabel">
+          متدرب من خلال البرامج والمحاضرات
+        </div>
+
+      </div>
+
+
+      <div class="mhhm-stat">
+
+        <div class="mhhm-statValue">
+          +200
+        </div>
+
+        <div class="mhhm-statLabel">
+          محاضرة وورشة عمل على منصات مختلفة
+        </div>
+
+      </div>
+
+
+      <div class="mhhm-stat">
+
+        <div class="mhhm-statValue">
+          +6 مليون
+        </div>
+
+        <div class="mhhm-statLabel">
+          متابع عبر منصات التواصل الاجتماعي
+        </div>
+
+      </div>
+
+
+      <div class="mhhm-stat">
+
+        <div class="mhhm-statValue">
+          +70 مليون
+        </div>
+
+        <div class="mhhm-statLabel">
+          تفاعل مع المحتوى التعليمي والتدريبي
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ===============================================
+         DETAILS
+    ================================================ -->
+
+    <div class="mhhm-details">
+
+
+      <!-- CREDENTIALS -->
+
+      <section class="mhhm-detail">
+
+        <div class="mhhm-detailHead">
+
+          <h4>
+            اعتمادات مهنية
+          </h4>
+
+          <span class="mhhm-detailNo">
+            01
+          </span>
+
+        </div>
+
+
+        <ul>
+
+          <li>
+            ACC — International Coaching Federation (ICF)
+          </li>
+
+          <li>
+            Certified Life Coach — ICF
+          </li>
+
+          <li>
+            Certified Relationship Coach — ICF
+          </li>
+
+          <li>
+            Certified Parenting Coach — ICF
+          </li>
+
+          <li>
+            Certified Business & Career Coach — ICF
+          </li>
+
+          <li>
+            Certified CliftonStrengths Coach — Gallup
+          </li>
+
+          <li>
+            Positive Discipline Educator — PDA
+          </li>
+
+        </ul>
+
+      </section>
+
+
+
+      <!-- EXPERIENCE -->
+
+      <section class="mhhm-detail">
+
+        <div class="mhhm-detailHead">
+
+          <h4>
+            خبرة ومشروعات
+          </h4>
+
+          <span class="mhhm-detailNo">
+            02
+          </span>
+
+        </div>
+
+
+        <ul>
+
+          <li>
+            مؤسس منصة Mental Health Hub
+            المتخصصة في بناء الوعي النفسي
+          </li>
+
+          <li>
+            تقديم محاضرات وورش عمل وبرامج تدريبية
+            لجمهور واسع داخل الوطن العربي
+          </li>
+
+          <li>
+            التعاون مع جامعات ومؤسسات
+            في تصميم وتقديم برامج تدريبية
+          </li>
+
+          <li>
+            بناء مجتمع رقمي يتجاوز
+            6 ملايين متابع
+          </li>
+
+          <li>
+            محتوى تعليمي حقق
+            أكثر من 70 مليون تفاعل
+          </li>
+
+          <li>
+            مؤلف كتاب «استراحة نفسية»
+          </li>
+
+        </ul>
+
+      </section>
+
+
+    </div>
+
+
+
+    <!-- ===============================================
+         GALLERY HEADER
+    ================================================ -->
+
+    <div class="mhhm-galleryHead">
+
+      <span class="mhhm-galleryKicker">
+        من أرض الواقع
+      </span>
+
+      <h3>
+        محاضرات وفعاليات وورش عمل مباشرة
+      </h3>
+
+      <p>
+        لقطات من بعض المحاضرات والفعاليات
+        التي قدمها كريم إسماعيل أمام الجمهور.
+      </p>
+
+    </div>
+
+
+
+    <!-- ===============================================
+         TRUE MASONRY GALLERY
+    ================================================ -->
+
+    <div class="mhhm-gallery">
+
+
+      <!-- 01 FEATURED -->
+
+      <figure
+        class="
+          mhhm-event
+          mhhm-event--featured
+        "
+      >
+
+        <img
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d65640534248c59554c7.jpg"
+          alt="كريم إسماعيل في فعالية تدريبية"
+          loading="lazy"
+        >
+
+      </figure>
+
+
+
+      <!-- 02 -->
+
+      <figure class="mhhm-event">
+
+        <img
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d656c5c98840c847c9cc.jpg"
+          alt="كريم إسماعيل أمام الجمهور"
+          loading="lazy"
+        >
+
+      </figure>
+
+
+
+      <!-- 03 -->
+
+      <figure class="mhhm-event">
+
+        <img
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d656fab44d402051d28a.jpg"
+          alt="كريم إسماعيل أثناء محاضرة"
+          loading="lazy"
+        >
+
+      </figure>
+
+
+
+      <!-- 04 -->
+
+      <figure class="mhhm-event">
+
+        <img
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/68ed1180a6b7f922f5a187c8.jpeg"
+          alt="ورشة عمل لكريم إسماعيل"
+          loading="lazy"
+        >
+
+      </figure>
+
+
+
+      <!-- 05 -->
+
+      <figure class="mhhm-event">
+
+        <img
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d656c428703a0416fda6.jpg"
+          alt="إحدى فعاليات كريم إسماعيل"
+          loading="lazy"
+        >
+
+      </figure>
+
+
+
+      <!-- 06 -->
+
+      <figure class="mhhm-event">
+
+        <img
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d656d696846120dff92c.jpg"
+          alt="كريم إسماعيل خلال فعالية مباشرة"
+          loading="lazy"
+        >
+
+      </figure>
+
+
+
+      <!-- 07 -->
+
+      <figure class="mhhm-event">
+
+        <img
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/69f0d65667b2088f5007f914.jpg"
+          alt="محاضرة مباشرة لكريم إسماعيل"
+          loading="lazy"
+        >
+
+      </figure>
+
+
+
+
+
+
+      <!-- 09 -->
+
+      <figure class="mhhm-event">
+
+        <img
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad9959711f85a2aabf96bc.jpeg"
+          alt="لقطة من محاضرة مباشرة"
+          loading="lazy"
+        >
+
+      </figure>
+
+
+
+      <!-- 10 -->
+
+      <figure class="mhhm-event">
+
+        <img
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad9956568ea1e2273721a9.jpeg"
+          alt="كريم إسماعيل أثناء إحدى الفعاليات"
+          loading="lazy"
+        >
+
+      </figure>
+
+
+
+      <!-- 11 -->
+
+      <figure class="mhhm-event">
+
+        <img
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad995616266d0c3a799ce3.jpeg"
+          alt="تفاعل كريم إسماعيل مع الجمهور"
+          loading="lazy"
+        >
+
+      </figure>
+
+
+
+      <!-- 12 -->
+
+      <figure class="mhhm-event">
+
+        <img
+          src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6aad9956de8ed1c29f5d9edf.jpeg"
+          alt="فعالية تدريبية مباشرة"
+          loading="lazy"
+        >
+
+      </figure>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-kareem'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var head =
+    section.querySelector(
+      '.mhhm-head'
+    );
+
+
+  var profile =
+    section.querySelector(
+      '.mhhm-profile'
+    );
+
+
+  var stats =
+    section.querySelector(
+      '.mhhm-stats'
+    );
+
+
+  var gallery =
+    section.querySelector(
+      '.mhhm-gallery'
+    );
+
+
+  var events =
+    section.querySelectorAll(
+      '.mhhm-event'
+    );
+
+
+  var resizeTimer;
+
+
+
+  /* ======================================================
+     MASONRY
+  ====================================================== */
+
+  function getGalleryGap(){
+
+    if(!gallery){
+      return 10;
+    }
+
+
+    var style =
+      window.getComputedStyle(
+        gallery
+      );
+
+
+    var gap =
+      parseFloat(
+        style.rowGap
+      );
+
+
+    return isNaN(gap)
+      ? 10
+      : gap;
+  }
+
+
+
+  function getRowHeight(){
+
+    if(!gallery){
+      return 6;
+    }
+
+
+    var style =
+      window.getComputedStyle(
+        gallery
+      );
+
+
+    var row =
+      parseFloat(
+        style.gridAutoRows
+      );
+
+
+    return isNaN(row)
+      ? 6
+      : row;
+  }
+
+
+
+  function resizeMasonryItem(item){
+
+    if(
+      !item ||
+      !gallery
+    ){
+      return;
+    }
+
+
+    var img =
+      item.querySelector(
+        'img'
+      );
+
+
+    if(!img){
+      return;
+    }
+
+
+    /*
+      Wait until the real image dimensions
+      are available.
+    */
+
+    if(
+      !img.complete ||
+      img.naturalWidth === 0
+    ){
+      return;
+    }
+
+
+    /*
+      Reset old span first,
+      so browser can calculate natural height.
+    */
+
+    item.style.gridRowEnd =
+      'auto';
+
+
+    var rowHeight =
+      getRowHeight();
+
+
+    var gap =
+      getGalleryGap();
+
+
+    var contentHeight =
+      img.getBoundingClientRect().height;
+
+
+    var span =
+      Math.ceil(
+        (contentHeight + gap) /
+        (rowHeight + gap)
+      );
+
+
+    item.style.gridRowEnd =
+      'span ' + span;
+
+  }
+
+
+
+  function resizeAllMasonry(){
+
+    events.forEach(
+
+      function(item){
+
+        resizeMasonryItem(
+          item
+        );
+
+      }
+
+    );
+
+  }
+
+
+
+  /* ======================================================
+     IMAGE LOAD
+  ====================================================== */
+
+  events.forEach(
+
+    function(item){
+
+      var img =
+        item.querySelector(
+          'img'
+        );
+
+
+      if(!img){
+        return;
+      }
+
+
+      if(img.complete){
+
+        resizeMasonryItem(
+          item
+        );
+
+      }else{
+
+        img.addEventListener(
+
+          'load',
+
+          function(){
+
+            resizeMasonryItem(
+              item
+            );
+
+          },
+
+          {
+            once:true
+          }
+
+        );
+
+      }
+
+    }
+
+  );
+
+
+
+  /* ======================================================
+     RESIZE
+  ====================================================== */
+
+  window.addEventListener(
+
+    'resize',
+
+    function(){
+
+      clearTimeout(
+        resizeTimer
+      );
+
+
+      resizeTimer =
+        setTimeout(
+
+          function(){
+
+            resizeAllMasonry();
+
+          },
+
+          100
+
+        );
+
+    }
+
+  );
+
+
+
+  /* ======================================================
+     SHOW ALL
+  ====================================================== */
+
+  function showAll(){
+
+    [
+      head,
+      profile,
+      stats
+    ].forEach(
+
+      function(item){
+
+        if(item){
+
+          item.classList.add(
+            'mhhm-visible'
+          );
+
+        }
+
+      }
+
+    );
+
+
+    events.forEach(
+
+      function(item){
+
+        item.classList.add(
+          'mhhm-visible'
+        );
+
+      }
+
+    );
+
+
+    resizeAllMasonry();
+
+  }
+
+
+
+  /* ======================================================
+     FALLBACK
+  ====================================================== */
+
+  if(
+
+    !(
+      'IntersectionObserver'
+      in window
+    )
+
+    ||
+
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+
+  ){
+
+    showAll();
+
+    return;
+  }
+
+
+
+  /* ======================================================
+     MAIN OBSERVER
+  ====================================================== */
+
+  var observer =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              !entry.isIntersecting
+            ){
+              return;
+            }
+
+
+            entry.target.classList.add(
+              'mhhm-visible'
+            );
+
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        );
+
+      },
+
+      {
+
+        threshold:.10,
+
+        rootMargin:
+          '0px 0px -25px 0px'
+
+      }
+
+    );
+
+
+  [
+    head,
+    profile,
+    stats
+  ].forEach(
+
+    function(item){
+
+      if(item){
+
+        observer.observe(
+          item
+        );
+
+      }
+
+    }
+
+  );
+
+
+
+  /* ======================================================
+     GALLERY ANIMATION
+  ====================================================== */
+
+  events.forEach(
+
+    function(item,index){
+
+      item.style.transitionDelay =
+        ((index % 4) * 50) + 'ms';
+
+
+      observer.observe(
+        item
+      );
+
+    }
+
+  );
+
+
+
+  /* ======================================================
+     GHL / LATE LAYOUT CHECKS
+  ====================================================== */
+
+  window.setTimeout(
+    resizeAllMasonry,
+    150
+  );
+
+
+  window.setTimeout(
+    resizeAllMasonry,
+    600
+  );
+
+
+  window.setTimeout(
+    resizeAllMasonry,
+    1200
+  );
+
+
+})();
+
+</script>

@@ -1,0 +1,1521 @@
+<!-- =========================================================
+     MHH MANHAJ | HERO INTRO
+     STRONG PETROL CROWN V2
+     CLEAN CENTER + SIDE ORNAMENTS
+========================================================= -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+#mhhm-videoIntro{
+
+  --petrol:#1E5960;
+  --petrol-deep:#123C42;
+  --blue-petrol:#294E63;
+  --navy:#354859;
+
+  --sage:#A7BCA6;
+  --sage-soft:#DDE8DC;
+
+  --teal:#8EC9C4;
+  --teal-bright:#A9DED8;
+
+  --gold:#D3B267;
+  --gold-soft:#E9D8A8;
+
+  --ivory:#FBF7EF;
+  --paper:#FFFDF8;
+  --cloud:#EEF3F1;
+
+  --text:#5D6A70;
+
+  direction:rtl;
+  text-align:center;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif !important;
+
+  width:100vw;
+
+  margin-left:
+    calc(50% - 50vw);
+
+  margin-right:
+    calc(50% - 50vw);
+
+  position:relative;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #FBF7EF 0%,
+      #F7F5EE 48%,
+      #EFF4F1 100%
+    );
+}
+
+
+#mhhm-videoIntro *,
+#mhhm-videoIntro *::before,
+#mhhm-videoIntro *::after{
+  box-sizing:border-box;
+}
+
+
+/* =========================================================
+   TOP SIGNATURE LINE
+========================================================= */
+
+#mhhm-videoIntro .topLine{
+
+  position:absolute;
+
+  top:0;
+  left:0;
+  right:0;
+
+  height:4px;
+
+  z-index:20;
+
+  pointer-events:none;
+
+  background:
+    linear-gradient(
+      90deg,
+      #123C42 0%,
+      #1E5960 22%,
+      #A7BCA6 40%,
+      #D3B267 50%,
+      #A7BCA6 60%,
+      #1E5960 78%,
+      #123C42 100%
+    );
+}
+
+
+/* =========================================================
+   DARK TOP CROWN
+========================================================= */
+
+#mhhm-videoIntro .crown{
+
+  position:relative;
+
+  z-index:2;
+
+  min-height:255px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:flex-start;
+
+  padding:
+    34px 20px 68px;
+
+  overflow:hidden;
+
+  background:
+
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(169,222,216,.15),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 11% 72%,
+      rgba(167,188,166,.12),
+      transparent 29%
+    ),
+
+    radial-gradient(
+      circle at 90% 26%,
+      rgba(211,178,103,.10),
+      transparent 23%
+    ),
+
+    linear-gradient(
+      135deg,
+      #123C42 0%,
+      #194A51 42%,
+      #294E63 100%
+    );
+
+  border-radius:
+    0 0 48% 48% / 0 0 16% 16%;
+
+  box-shadow:
+    inset 0 -1px 0 rgba(255,255,255,.07),
+    0 20px 50px rgba(32,60,68,.09);
+}
+
+
+/* =========================================================
+   INNER FRAME
+========================================================= */
+
+#mhhm-videoIntro .crown::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:
+    15px 18px 22px;
+
+  z-index:0;
+
+  pointer-events:none;
+
+  border:
+    1px solid rgba(255,255,255,.075);
+
+  border-radius:
+    26px 26px 38% 38% / 26px 26px 14% 14%;
+}
+
+
+/* =========================================================
+   CLEAN CENTER GLOW
+   no graphic behind logo
+========================================================= */
+
+#mhhm-videoIntro .crown::after{
+
+  content:"";
+
+  position:absolute;
+
+  top:-52px;
+
+  left:50%;
+
+  transform:
+    translateX(-50%);
+
+  width:430px;
+
+  height:250px;
+
+  z-index:0;
+
+  pointer-events:none;
+
+  background:
+
+    radial-gradient(
+      ellipse at center,
+      rgba(169,222,216,.17) 0%,
+      rgba(167,188,166,.075) 34%,
+      rgba(211,178,103,.028) 52%,
+      transparent 73%
+    );
+}
+
+
+/* =========================================================
+   SIDE ORNAMENTS
+========================================================= */
+
+#mhhm-videoIntro .sideOrnament{
+
+  position:absolute;
+
+  top:20px;
+
+  width:330px;
+
+  height:225px;
+
+  z-index:1;
+
+  pointer-events:none;
+
+  opacity:.78;
+
+  background-repeat:no-repeat;
+
+  background-size:contain;
+
+  background-position:center;
+}
+
+
+/* LEFT */
+
+#mhhm-videoIntro .sideOrnament.left{
+
+  left:-38px;
+
+  background-image:
+    url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 250' fill='none'>\
+      \
+      <path d='M32 214C88 112 158 62 264 42' stroke='%238EC9C4' stroke-width='1.8' opacity='.48' stroke-linecap='round'/>\
+      <path d='M18 178C92 92 168 54 278 48' stroke='%23A7BCA6' stroke-width='1.55' opacity='.38' stroke-linecap='round'/>\
+      <path d='M42 236C110 146 178 112 292 102' stroke='%23D3B267' stroke-width='1.35' opacity='.31' stroke-linecap='round'/>\
+      \
+      <path d='M112 178C142 128 182 98 234 86' stroke='%238EC9C4' stroke-width='1.35' opacity='.30' stroke-linecap='round'/>\
+      \
+      <circle cx='238' cy='85' r='40' stroke='%23A7BCA6' stroke-width='1.25' opacity='.24'/>\
+      <circle cx='238' cy='85' r='24' stroke='%23D3B267' stroke-width='1.15' opacity='.28'/>\
+      \
+      <path d='M238 57C243 69 251 77 263 82C251 87 243 95 238 107C233 95 225 87 213 82C225 77 233 69 238 57Z' stroke='%23A9DED8' stroke-width='1.45' opacity='.40'/>\
+      \
+      <circle cx='104' cy='151' r='3.4' fill='%23D3B267' opacity='.55'/>\
+      <circle cx='144' cy='115' r='2.2' fill='%238EC9C4' opacity='.50'/>\
+      <circle cx='73' cy='188' r='2.4' fill='%23A7BCA6' opacity='.45'/>\
+    </svg>");
+}
+
+
+/* RIGHT — mirrored counterpart */
+
+#mhhm-videoIntro .sideOrnament.right{
+
+  right:-38px;
+
+  transform:
+    scaleX(-1);
+
+  background-image:
+    url("data:image/svg+xml;utf8,\
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 250' fill='none'>\
+      \
+      <path d='M32 214C88 112 158 62 264 42' stroke='%238EC9C4' stroke-width='1.8' opacity='.48' stroke-linecap='round'/>\
+      <path d='M18 178C92 92 168 54 278 48' stroke='%23A7BCA6' stroke-width='1.55' opacity='.38' stroke-linecap='round'/>\
+      <path d='M42 236C110 146 178 112 292 102' stroke='%23D3B267' stroke-width='1.35' opacity='.31' stroke-linecap='round'/>\
+      \
+      <path d='M112 178C142 128 182 98 234 86' stroke='%238EC9C4' stroke-width='1.35' opacity='.30' stroke-linecap='round'/>\
+      \
+      <circle cx='238' cy='85' r='40' stroke='%23A7BCA6' stroke-width='1.25' opacity='.24'/>\
+      <circle cx='238' cy='85' r='24' stroke='%23D3B267' stroke-width='1.15' opacity='.28'/>\
+      \
+      <path d='M238 57C243 69 251 77 263 82C251 87 243 95 238 107C233 95 225 87 213 82C225 77 233 69 238 57Z' stroke='%23A9DED8' stroke-width='1.45' opacity='.40'/>\
+      \
+      <circle cx='104' cy='151' r='3.4' fill='%23D3B267' opacity='.55'/>\
+      <circle cx='144' cy='115' r='2.2' fill='%238EC9C4' opacity='.50'/>\
+      <circle cx='73' cy='188' r='2.4' fill='%23A7BCA6' opacity='.45'/>\
+    </svg>");
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+#mhhm-videoIntro .logoWrap{
+
+  position:relative;
+
+  z-index:4;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  width:fit-content;
+
+  margin:
+    4px auto 17px;
+
+  padding:
+    13px 20px;
+
+  border-radius:21px;
+
+  border:
+    1px solid rgba(169,222,216,.25);
+
+  background:
+
+    radial-gradient(
+      circle at 30% 0%,
+      rgba(169,222,216,.17),
+      transparent 46%
+    ),
+
+    linear-gradient(
+      145deg,
+      rgba(14,53,58,.96),
+      rgba(35,92,98,.96)
+    );
+
+  box-shadow:
+
+    0 19px 46px rgba(6,33,36,.28),
+
+    0 0 0 7px rgba(255,255,255,.035),
+
+    inset 0 1px 0 rgba(255,255,255,.09);
+
+  animation:
+    mhhHeroLogoFloat
+    5s ease-in-out infinite;
+}
+
+
+#mhhm-videoIntro .logo{
+
+  display:block;
+
+  width:128px;
+}
+
+
+/* =========================================================
+   KICKER
+========================================================= */
+
+#mhhm-videoIntro .kicker{
+
+  position:relative;
+
+  z-index:4;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:8px;
+
+  margin:0 auto;
+
+  padding:
+    8px 17px;
+
+  border-radius:999px;
+
+  border:
+    1px solid rgba(169,222,216,.22);
+
+  background:
+    rgba(255,255,255,.075);
+
+  backdrop-filter:
+    blur(10px);
+
+  -webkit-backdrop-filter:
+    blur(10px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.07);
+
+  color:
+    #F7FBFA;
+
+  font-size:.87rem;
+
+  font-weight:800;
+}
+
+
+#mhhm-videoIntro .kicker span{
+
+  color:
+    var(--gold);
+
+  font-size:.82rem;
+}
+
+
+#mhhm-videoIntro .kicker strong{
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   LIGHT BODY
+========================================================= */
+
+#mhhm-videoIntro .heroBody{
+
+  position:relative;
+
+  z-index:3;
+
+  max-width:1280px;
+
+  margin:
+    -28px auto 0;
+
+  padding:
+    70px 24px 38px;
+}
+
+
+/* light-body central glow */
+
+#mhhm-videoIntro .heroBody::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+
+  left:50%;
+
+  transform:
+    translateX(-50%);
+
+  width:620px;
+
+  height:240px;
+
+  z-index:0;
+
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(167,188,166,.13),
+      rgba(142,201,196,.055) 38%,
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+#mhhm-videoIntro h1{
+
+  position:relative;
+
+  z-index:3;
+
+  max-width:1180px;
+
+  margin:
+    0 auto;
+
+  color:
+    #2E4951;
+
+  font-size:
+    clamp(
+      2.2rem,
+      3.65vw,
+      3.65rem
+    );
+
+  line-height:1.16;
+
+  font-weight:900;
+
+  letter-spacing:-.9px;
+
+  text-wrap:balance;
+}
+
+
+#mhhm-videoIntro .heroTitleLine{
+
+  display:block;
+}
+
+
+#mhhm-videoIntro .heroTitleLine:last-child{
+
+  color:
+    #355A58;
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+#mhhm-videoIntro .subtitle{
+
+  position:relative;
+
+  z-index:3;
+
+  max-width:930px;
+
+  margin:
+    19px auto 0;
+
+  color:
+    var(--text);
+
+  font-size:
+    clamp(
+      1rem,
+      1.2vw,
+      1.14rem
+    );
+
+  line-height:1.92;
+
+  font-weight:600;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+#mhhm-videoIntro .heroDivider{
+
+  position:relative;
+
+  z-index:3;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:9px;
+
+  width:128px;
+
+  margin:
+    21px auto 0;
+
+  opacity:.76;
+}
+
+
+#mhhm-videoIntro .heroDivider::before,
+#mhhm-videoIntro .heroDivider::after{
+
+  content:"";
+
+  width:42px;
+
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(30,89,96,.50)
+    );
+}
+
+
+#mhhm-videoIntro .heroDivider::after{
+
+  transform:
+    scaleX(-1);
+}
+
+
+#mhhm-videoIntro .heroDivider span{
+
+  width:7px;
+
+  height:7px;
+
+  border-radius:50%;
+
+  background:
+    var(--gold);
+
+  box-shadow:
+
+    0 0 0 5px rgba(211,178,103,.12),
+
+    0 0 20px rgba(211,178,103,.12);
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+#mhhm-videoIntro .reveal{
+
+  opacity:0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+
+    opacity .74s ease,
+
+    transform .74s
+    cubic-bezier(.2,.72,.2,1);
+}
+
+
+#mhhm-videoIntro .reveal.visible{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   LOGO FLOAT
+========================================================= */
+
+@keyframes mhhHeroLogoFloat{
+
+  0%,
+  100%{
+    transform:
+      translateY(0);
+  }
+
+  50%{
+    transform:
+      translateY(-4px);
+  }
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media(min-width:1200px){
+
+  #mhhm-videoIntro .crown{
+
+    min-height:265px;
+
+    padding-top:36px;
+  }
+
+
+  #mhhm-videoIntro .sideOrnament{
+
+    width:380px;
+
+    height:245px;
+
+    top:15px;
+
+    opacity:.82;
+  }
+
+
+  #mhhm-videoIntro .sideOrnament.left{
+
+    left:-42px;
+  }
+
+
+  #mhhm-videoIntro .sideOrnament.right{
+
+    right:-42px;
+  }
+
+
+  #mhhm-videoIntro .heroBody{
+
+    padding-top:76px;
+
+    padding-bottom:42px;
+  }
+
+
+  #mhhm-videoIntro h1{
+
+    max-width:1200px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:980px){
+
+  #mhhm-videoIntro .sideOrnament{
+
+    width:270px;
+
+    height:200px;
+
+    opacity:.68;
+  }
+
+
+  #mhhm-videoIntro .sideOrnament.left{
+
+    left:-75px;
+  }
+
+
+  #mhhm-videoIntro .sideOrnament.right{
+
+    right:-75px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:768px){
+
+  #mhhm-videoIntro .crown{
+
+    min-height:205px;
+
+    padding:
+      24px 16px 50px;
+
+    border-radius:
+      0 0 46% 46% / 0 0 11% 11%;
+  }
+
+
+  #mhhm-videoIntro .crown::before{
+
+    inset:
+      10px 10px 17px;
+
+    border-radius:
+      20px 20px 36% 36% / 20px 20px 10% 10%;
+  }
+
+
+  #mhhm-videoIntro .crown::after{
+
+    width:280px;
+
+    height:180px;
+
+    top:-40px;
+  }
+
+
+  /*
+    Side ornaments stay visible on mobile,
+    but become corner accents.
+  */
+
+  #mhhm-videoIntro .sideOrnament{
+
+    top:22px;
+
+    width:165px;
+
+    height:145px;
+
+    opacity:.68;
+  }
+
+
+  #mhhm-videoIntro .sideOrnament.left{
+
+    left:-78px;
+  }
+
+
+  #mhhm-videoIntro .sideOrnament.right{
+
+    right:-78px;
+  }
+
+
+  #mhhm-videoIntro .logoWrap{
+
+    margin-top:2px;
+
+    margin-bottom:14px;
+
+    padding:
+      10px 15px;
+
+    border-radius:17px;
+  }
+
+
+  #mhhm-videoIntro .logo{
+
+    width:106px;
+  }
+
+
+  #mhhm-videoIntro .kicker{
+
+    padding:
+      7px 13px;
+
+    font-size:.77rem;
+  }
+
+
+  #mhhm-videoIntro .heroBody{
+
+    max-width:455px;
+
+    margin-top:-24px;
+
+    padding:
+      57px 16px 27px;
+  }
+
+
+  #mhhm-videoIntro .heroBody::before{
+
+    width:330px;
+
+    height:170px;
+  }
+
+
+  #mhhm-videoIntro .heroTitleLine{
+
+    display:inline;
+  }
+
+
+  #mhhm-videoIntro
+  .heroTitleLine +
+  .heroTitleLine::before{
+
+    content:" ";
+  }
+
+
+  #mhhm-videoIntro h1{
+
+    max-width:420px;
+
+    font-size:1.74rem;
+
+    line-height:1.30;
+
+    letter-spacing:-.4px;
+  }
+
+
+  #mhhm-videoIntro .subtitle{
+
+    max-width:390px;
+
+    margin-top:14px;
+
+    font-size:.92rem;
+
+    line-height:1.82;
+  }
+
+
+  #mhhm-videoIntro .heroDivider{
+
+    margin-top:17px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:390px){
+
+  #mhhm-videoIntro .crown{
+
+    min-height:196px;
+  }
+
+
+  #mhhm-videoIntro .sideOrnament{
+
+    width:145px;
+
+    height:130px;
+
+    opacity:.60;
+  }
+
+
+  #mhhm-videoIntro h1{
+
+    font-size:1.58rem;
+  }
+
+
+  #mhhm-videoIntro .subtitle{
+
+    font-size:.89rem;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  #mhhm-videoIntro .reveal{
+
+    opacity:1;
+
+    transform:none;
+
+    transition:none;
+  }
+
+
+  #mhhm-videoIntro .logoWrap{
+
+    animation:none;
+  }
+
+}
+  
+  
+  /* =========================================================
+   DESKTOP HERO HEIGHT COMPRESSION
+   Keep the same visual concept, show more video above fold
+========================================================= */
+
+@media(min-width:769px){
+
+  /* Dark crown shorter */
+  #mhhm-videoIntro .crown{
+    min-height:205px !important;
+
+    padding:
+      24px 20px 48px !important;
+  }
+
+
+  /* Inner frame follows shorter crown */
+  #mhhm-videoIntro .crown::before{
+    inset:
+      12px 18px 17px !important;
+  }
+
+
+  /* Side ornaments slightly smaller */
+  #mhhm-videoIntro .sideOrnament{
+    width:300px !important;
+    height:190px !important;
+    top:8px !important;
+  }
+
+
+  /* Logo slightly tighter */
+  #mhhm-videoIntro .logoWrap{
+    margin:
+      0 auto 12px !important;
+
+    padding:
+      10px 17px !important;
+  }
+
+
+  #mhhm-videoIntro .logo{
+    width:116px !important;
+  }
+
+
+  /* Kicker a little tighter */
+  #mhhm-videoIntro .kicker{
+    padding:
+      7px 15px !important;
+
+    font-size:.83rem !important;
+  }
+
+
+  /* Light body starts sooner */
+  #mhhm-videoIntro .heroBody{
+    margin-top:
+      -22px !important;
+
+    padding:
+      48px 24px 12px !important;
+  }
+
+
+  /* Title slightly less tall */
+  #mhhm-videoIntro h1{
+    font-size:
+      clamp(2.05rem, 3.25vw, 3.35rem) !important;
+
+    line-height:
+      1.13 !important;
+  }
+
+
+  /* Subtitle closer to title */
+  #mhhm-videoIntro .subtitle{
+    margin-top:
+      13px !important;
+
+    line-height:
+      1.78 !important;
+  }
+
+
+  /* Divider closer */
+  #mhhm-videoIntro .heroDivider{
+    margin-top:
+      14px !important;
+  }
+
+}
+
+  
+  /* =========================================================
+   SIDE ORNAMENTS — LONGER / MORE INWARD
+========================================================= */
+
+/* Desktop */
+@media(min-width:769px){
+
+  #mhhm-videoIntro .sideOrnament{
+    width:420px !important;
+    height:230px !important;
+    top:6px !important;
+
+    opacity:.86 !important;
+
+    background-size:contain !important;
+    background-position:center !important;
+  }
+
+  #mhhm-videoIntro .sideOrnament.left{
+    left:-8px !important;
+  }
+
+  #mhhm-videoIntro .sideOrnament.right{
+    right:-8px !important;
+  }
+
+}
+
+
+/* Large desktop */
+@media(min-width:1200px){
+
+  #mhhm-videoIntro .sideOrnament{
+    width:500px !important;
+    height:250px !important;
+    top:2px !important;
+
+    opacity:.90 !important;
+  }
+
+  #mhhm-videoIntro .sideOrnament.left{
+    left:-6px !important;
+  }
+
+  #mhhm-videoIntro .sideOrnament.right{
+    right:-6px !important;
+  }
+
+}
+
+
+/* Mobile */
+@media(max-width:768px){
+
+  #mhhm-videoIntro .sideOrnament{
+    width:215px !important;
+    height:160px !important;
+    top:18px !important;
+
+    opacity:.72 !important;
+  }
+
+  #mhhm-videoIntro .sideOrnament.left{
+    left:-42px !important;
+  }
+
+  #mhhm-videoIntro .sideOrnament.right{
+    right:-42px !important;
+  }
+
+}
+
+
+/* Small mobile */
+@media(max-width:390px){
+
+  #mhhm-videoIntro .sideOrnament{
+    width:185px !important;
+    height:145px !important;
+    top:18px !important;
+
+    opacity:.66 !important;
+  }
+
+  #mhhm-videoIntro .sideOrnament.left{
+    left:-48px !important;
+  }
+
+  #mhhm-videoIntro .sideOrnament.right{
+    right:-48px !important;
+  }
+
+}
+  
+  /* =========================================================
+   MOBILE HERO — SHORTER / TIGHTER
+========================================================= */
+
+@media(max-width:768px){
+
+  /* shorter dark crown */
+  #mhhm-videoIntro .crown{
+    min-height:172px !important;
+
+    padding:
+      18px 14px 38px !important;
+
+    border-radius:
+      0 0 46% 46% / 0 0 9% 9% !important;
+  }
+
+
+  /* inner outline tighter */
+  #mhhm-videoIntro .crown::before{
+    inset:
+      8px 9px 13px !important;
+
+    border-radius:
+      17px 17px 34% 34% / 17px 17px 8% 8% !important;
+  }
+
+
+  /* keep side graphics wide, but lower height */
+  #mhhm-videoIntro .sideOrnament{
+    width:210px !important;
+    height:125px !important;
+
+    top:11px !important;
+
+    opacity:.72 !important;
+  }
+
+
+  #mhhm-videoIntro .sideOrnament.left{
+    left:-40px !important;
+  }
+
+  #mhhm-videoIntro .sideOrnament.right{
+    right:-40px !important;
+  }
+
+
+  /* cleaner center glow */
+  #mhhm-videoIntro .crown::after{
+    width:245px !important;
+    height:125px !important;
+
+    top:-31px !important;
+  }
+
+
+  /* smaller logo block */
+  #mhhm-videoIntro .logoWrap{
+    margin:
+      0 auto 9px !important;
+
+    padding:
+      8px 13px !important;
+
+    border-radius:
+      15px !important;
+  }
+
+
+  #mhhm-videoIntro .logo{
+    width:96px !important;
+  }
+
+
+  /* kicker tighter */
+  #mhhm-videoIntro .kicker{
+    padding:
+      6px 11px !important;
+
+    font-size:
+      .73rem !important;
+
+    gap:
+      6px !important;
+  }
+
+
+  /* light part also comes up */
+  #mhhm-videoIntro .heroBody{
+    margin-top:
+      -18px !important;
+
+    padding:
+      46px 15px 12px !important;
+  }
+
+
+  #mhhm-videoIntro h1{
+    font-size:
+      1.64rem !important;
+
+    line-height:
+      1.27 !important;
+  }
+
+
+  #mhhm-videoIntro .subtitle{
+    margin-top:
+      11px !important;
+
+    font-size:
+      .89rem !important;
+
+    line-height:
+      1.74 !important;
+  }
+
+
+  #mhhm-videoIntro .heroDivider{
+    margin-top:
+      13px !important;
+  }
+
+}
+</style>
+
+
+
+<section
+  id="mhhm-videoIntro"
+  dir="rtl"
+>
+
+  <div class="topLine"></div>
+
+
+  <div class="crown">
+
+
+    <!-- LEFT DECORATION -->
+    <div
+      class="sideOrnament left"
+      aria-hidden="true"
+    ></div>
+
+
+    <!-- RIGHT DECORATION -->
+    <div
+      class="sideOrnament right"
+      aria-hidden="true"
+    ></div>
+
+
+    <div class="logoWrap reveal">
+
+      <img
+        class="logo"
+        src="https://assets.cdn.filesafe.space/25e9iURIgsa3JiXdcvsZ/media/6a031a054d2085f898b0a491.png"
+        alt="منهج الطمأنينة"
+      >
+
+    </div>
+
+
+    <div class="kicker reveal">
+
+      <span>✦</span>
+
+      <strong>
+        من التيه إلى الطمأنينة
+      </strong>
+
+      <span>✦</span>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="heroBody">
+
+
+    <h1 class="reveal">
+
+      <span class="heroTitleLine">
+        رحلة علمية إيمانية
+      </span>
+
+      <span class="heroTitleLine">
+        تعيد ترتيب فهمك لنفسك ولحياتك
+      </span>
+
+    </h1>
+
+
+    <p class="subtitle reveal">
+
+      من خلال دراسة عميقة للنفس من منظور إيماني تساعدك تنتقل
+      من التشتت والإرهاق الدائم إلى الطمأنينة والهدوء
+
+    </p>
+  </div>
+
+</section>
+
+
+
+<script>
+
+(function(){
+
+  var section =
+    document.getElementById(
+      'mhhm-videoIntro'
+    );
+
+
+  if(!section){
+    return;
+  }
+
+
+  var items =
+    section.querySelectorAll(
+      '.reveal'
+    );
+
+
+  if(
+    !(
+      'IntersectionObserver'
+      in window
+    )
+    ||
+    window
+      .matchMedia(
+        '(prefers-reduced-motion:reduce)'
+      )
+      .matches
+  ){
+
+    items.forEach(
+      function(item){
+
+        item.classList.add(
+          'visible'
+        );
+
+      }
+    );
+
+    return;
+  }
+
+
+  var observer =
+    new IntersectionObserver(
+
+      function(entries){
+
+        entries.forEach(
+
+          function(entry){
+
+            if(
+              entry.isIntersecting
+            ){
+
+              var local =
+                section.querySelectorAll(
+                  '.reveal'
+                );
+
+
+              local.forEach(
+
+                function(
+                  item,
+                  index
+                ){
+
+                  setTimeout(
+
+                    function(){
+
+                      item
+                        .classList
+                        .add(
+                          'visible'
+                        );
+
+                    },
+
+                    index * 90
+
+                  );
+
+                }
+
+              );
+
+
+              observer.disconnect();
+
+            }
+
+          }
+
+        );
+
+      },
+
+      {
+        threshold:.10
+      }
+
+    );
+
+
+  observer.observe(
+    section
+  );
+
+})();
+
+</script>
