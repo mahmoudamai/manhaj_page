@@ -212,7 +212,8 @@
 /* ---- sessions held so far: a slim strip ---- */
 #m4-live .m4-live__sessions {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);   /* one row, however many sessions */
   gap: 10px;
   margin: 36px 0 0;
   padding: 0;
@@ -270,9 +271,15 @@
   }
 
   #m4-live .m4-live__sessions {
+    grid-auto-flow: row;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     margin-top: 22px;
     gap: 8px;
+  }
+
+  /* the dashed "more" item takes the full row when it would sit alone */
+  #m4-live .m4-live__sessions .is-more:nth-child(odd) {
+    grid-column: 1 / -1;
   }
 
   #m4-live .m4-live__sessions li {
@@ -343,7 +350,7 @@
         </video>
         <span class="m4-live__badge"><i aria-hidden="true"></i>لقاء مباشر</span>
         <figcaption class="m4-live__caption">
-          <strong>3 لقاءات حتى الآن</strong>
+          <strong>4 لقاءات حتى الآن</strong>
           <span>ولقاءات أخرى تصاحب تقدم الرحلة خلال العام</span>
         </figcaption>
       </figure>
@@ -354,6 +361,7 @@
       <li><b>اللقاء 01</b><span>مقدمة تعريفية عن منهج الطمأنينة</span></li>
       <li><b>اللقاء 02</b><span>مراجعة وتفاعل وأسئلة</span></li>
       <li><b>اللقاء 03</b><span>مراجعة وتفاعل وأسئلة</span></li>
+      <li><b>اللقاء 04</b><span>مراجعة وتفاعل وأسئلة</span></li>
       <li class="is-more"><b>+ اللقاءات مستمرة</b><span>مع تقدم محتوى المنهج</span></li>
     </ol>
 
