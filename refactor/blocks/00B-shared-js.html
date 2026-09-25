@@ -231,6 +231,15 @@
               " did not load (GHL probably cut the code). Use the split version.";
       }
     }
+    // per section: which blocks are on the page but got none of their CSS?
+    var unstyled = [];
+    each(doc.querySelectorAll(".m4-section[id^='m4-']"), function (el) {
+      if (!getComputedStyle(el).getPropertyValue("--m4-styled").trim()) unstyled.push("#" + el.id);
+    });
+    if (unstyled.length) {
+      msg += (msg ? "  " : "") + "M4: no CSS reached " + unstyled.join(", ") +
+             " — Block 00 on this page is an older/other copy, or GHL dropped that part.";
+    }
     if (!msg) return;
     if (window.console) console.warn(msg);
     if (!/\/preview\/|[?&]m4-debug=1/.test(location.href)) return;

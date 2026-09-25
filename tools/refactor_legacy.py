@@ -625,7 +625,8 @@ def main():
     section_css = []
     for i, (fname, slug, old_id, label) in enumerate(BLOCKS, 1):
         nodes, body, _ = process_block(fname, slug, old_id, label)
-        section_css.append((i, slug, label, dump(nodes)))
+        marker = f"\n\n/* self-check marker */\n#m4-{slug} {{\n  --m4-styled: {i};\n}}" if old_id else ""
+        section_css.append((i, slug, label, dump(nodes) + marker))
         header = (f"<!-- =====================================================================\n"
                   f"     M4 · BLOCK {i:02d} — {label}\n"
                   f"     HTML only. Styles live in Block 00 (Main CSS), behaviour in Block 00B.\n"
