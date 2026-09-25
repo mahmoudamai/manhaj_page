@@ -406,6 +406,7 @@ leaves, and keeps the poster with reduced motion or data saver.
 - The headings font now applies to section titles only (h1/h2 + the member-story title); card titles stay in the text font.
 - Full table + the lines to make one permanent: `themes/HOW-TO-CHANGE-THEME.md` §3.
 
-### Readability: Blocks 09 and 18 (tools/m4_readability.py)
+### Readability: Blocks 09, 18, 10, 21, 23 (tools/m4_readability.py, m4_faq_v2.py)
 - Card explanations were 12–13px (≈11px on phones). They are now ≈15px on desktop and ≈14px on phones. Lists, tags and small labels were scaled up to match.
 - Block 09 on desktop is now a grid (right cards | goal | left cards) instead of fixed absolute spots, so longer text can no longer make the cards overlap. The look is unchanged.
+- Phones: Yusuf's text 13.3 → ~14.7px, with the practice and footer lines 10.5 → ~12.8px. The price section's "what's included" list 9.8 → ~12.8px. FAQ answers 12.8 → ~13.8px.

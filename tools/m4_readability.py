@@ -1,4 +1,4 @@
-"""Bigger explanation text in Block 09 (four axes) and Block 18 (the year) —
+"""Bigger reading text in Blocks 09 (four axes), 18 (the year), 10 (Yusuf) and 21 (offer list) —
 the card paragraphs were 12–13px on desktop and ~11px on phones. Layout,
 spacing and headings stay as they are; only reading text, lists and tags grow."""
 
@@ -173,6 +173,75 @@ CSS = {
 
   #m4-year .m4-year__closing p {
     font-size: calc(.84rem * var(--m4-type-scale));
+  }
+}
+""",
+    "10-yusuf.html": r"""
+/* ---------------- readability · larger reading text ---------------- */
+#m4-yusuf .m4-yusuf__practice {
+  font-size: calc(.82rem * var(--m4-type-scale));
+  line-height: 1.8;
+}
+
+#m4-yusuf .m4-yusuf__foot {
+  font-size: calc(.84rem * var(--m4-type-scale));
+  line-height: 1.8;
+}
+
+@media (max-width: 680px) {
+  #m4-yusuf .m4-yusuf__kicker {
+    font-size: calc(.74rem * var(--m4-type-scale));
+  }
+
+  #m4-yusuf .m4-yusuf__question {
+    font-size: calc(1.06rem * var(--m4-type-scale));
+  }
+
+  #m4-yusuf .m4-yusuf__body p {
+    font-size: calc(.92rem * var(--m4-type-scale));
+    line-height: 1.9;
+  }
+
+  #m4-yusuf .m4-yusuf__practice,
+  #m4-yusuf .m4-yusuf__foot {
+    font-size: calc(.8rem * var(--m4-type-scale));
+  }
+}
+""",
+    "21-offer.html": r"""
+/* ---------------- readability · the "what's included" list was ~10px ---------------- */
+#m4-offer .m4-offer__details-intro {
+  font-size: calc(.86rem * var(--m4-type-scale));
+}
+
+#m4-offer .m4-offer__item strong {
+  font-size: calc(.92rem * var(--m4-type-scale));
+}
+
+#m4-offer .m4-offer__item p {
+  font-size: calc(.84rem * var(--m4-type-scale));
+  line-height: 1.75;
+}
+
+#m4-offer .m4-offer__stats span {
+  font-size: calc(.8rem * var(--m4-type-scale));
+}
+
+@media (max-width: 600px) {
+  #m4-offer .m4-offer__kicker {
+    font-size: calc(.74rem * var(--m4-type-scale));
+  }
+
+  #m4-offer .m4-offer__item strong {
+    font-size: calc(.88rem * var(--m4-type-scale));
+  }
+
+  #m4-offer .m4-offer__item p {
+    font-size: calc(.8rem * var(--m4-type-scale));
+  }
+
+  #m4-offer .m4-offer__stats span {
+    font-size: calc(.74rem * var(--m4-type-scale));
   }
 }
 """,

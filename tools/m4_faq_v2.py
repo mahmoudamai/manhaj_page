@@ -322,7 +322,7 @@ CSS = r"""
 
   #m4-faq .m4-faq__answer-content {
     padding: 0 16px 16px 16px;
-    font-size: calc(.8rem * var(--m4-type-scale));
+    font-size: calc(.86rem * var(--m4-type-scale));
     line-height: 1.85;
   }
 }
