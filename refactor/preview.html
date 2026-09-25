@@ -2286,8 +2286,15 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
        (full colour on hover), so a big logo can't dominate the row
      · slow continuous scroll with faded edges; pauses on hover; stands
        still (and wraps) for visitors who turned motion off
-     To change the logos: edit the <img> list ONCE in .m4-logos__set — the
-     second set is the same list again (it makes the loop seamless).
+     Each logo sits in a <span> sized to the logo's own drawing (not the
+     image's empty margins): --w/--h = visible size in px, --iw/--ih = the
+     full image size, --x/--y = how far the empty margin is shifted out.
+     Sizes follow the logo's shape (wide logos lower, square ones taller)
+     so they all look about equally big.
+     To add a logo: copy a line and set --w/--h (e.g. --w:90;--h:28 for a
+     wide logo, --w:50;--h:44 for a square one) with --iw/--ih the same and
+     --x/--y 0 — then add the same line (alt="") to the second set, which
+     only repeats the first so the loop is seamless.
      Section styles are scoped to #m4-logos. Colours, fonts, sizes and
      speeds come from Block 00 — edit the theme there, not here.
      ===================================================================== -->
@@ -2295,8 +2302,9 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 #m4-logos {
   direction: rtl;
   font-family: var(--m4-font-primary) !important;
-  padding: calc(18px * var(--m4-space-scale)) 0 calc(34px * var(--m4-space-scale));
+  padding: calc(14px * var(--m4-space-scale)) 0 calc(34px * var(--m4-space-scale));
   background: transparent;
+  --s: 1;
 }
 
 #m4-logos *,
@@ -2306,42 +2314,26 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 }
 
 #m4-logos .m4-logos__wrap {
-  max-width: 1100px;
+  max-width: 1160px;
   margin: 0 auto;
   padding: 0 20px;
-}
-
-#m4-logos .m4-logos__label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin: 0 0 14px;
-  color: var(--m4-text-muted);
-  font-size: calc(.78rem * var(--m4-type-scale));
-  font-weight: 700;
-  text-align: center;
-}
-
-#m4-logos .m4-logos__label::before,
-#m4-logos .m4-logos__label::after {
-  content: "";
-  flex: 0 1 90px;
-  height: 1px;
-  background: color-mix(in srgb, var(--m4-primary) 16%, transparent);
 }
 
 #m4-logos .m4-logos__viewport {
   overflow: hidden;
   direction: ltr;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
-          mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+  padding: 6px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 10%, #000 90%, transparent 100%);
 }
 
 #m4-logos .m4-logos__track {
   display: flex;
   width: max-content;
-  animation: m4-logos-scroll calc(38s * var(--m4-motion-scale)) linear infinite;
+  /* the moving track is its own layer, so the logos' white backgrounds can
+     only "multiply" away against a colour on it: the hero's bottom tone */
+  background: var(--m4-bg-cream);
+  animation: m4-logos-scroll calc(95s * var(--m4-motion-scale)) linear infinite;
 }
 
 #m4-logos .m4-logos__viewport:hover .m4-logos__track {
@@ -2351,24 +2343,40 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 #m4-logos .m4-logos__set {
   display: flex;
   align-items: center;
-  gap: 64px;
-  padding-right: 64px;
+  gap: calc(58px * var(--s));
+  padding-right: calc(58px * var(--s));
 }
 
-/* one visual height for every logo; wide logos are capped in width */
+/* the visible part of each logo (the image's empty margins are cut off) */
+#m4-logos .m4-logos__set > span {
+  flex: 0 0 auto;
+  display: block;
+  width: calc(var(--w) * 1px * var(--s));
+  height: calc(var(--h) * 1px * var(--s));
+  overflow: hidden;
+}
+
 #m4-logos .m4-logos__set img {
   display: block;
-  height: 34px;
-  width: auto;
-  max-width: 130px;
-  object-fit: contain;
-  filter: grayscale(1) contrast(1.1);
-  opacity: .55;
+  width: calc(var(--iw) * 1px * var(--s)) !important;
+  height: calc(var(--ih) * 1px * var(--s)) !important;
+  max-width: none !important;
+  margin: calc(var(--y) * 1px * var(--s)) 0 0 calc(var(--x) * 1px * var(--s));
+  object-fit: fill;
+  /* one quiet tone for all logos; full colour on hover */
+  filter: grayscale(1) contrast(1.25);
+  opacity: .6;
   mix-blend-mode: multiply;
   transition: filter calc(.3s * var(--m4-motion-scale)) var(--m4-ease), opacity calc(.3s * var(--m4-motion-scale)) var(--m4-ease);
 }
 
-#m4-logos .m4-logos__set img:hover {
+/* a logo printed on a solid colour block: inverted so the block turns
+   white (and disappears) and the lettering turns dark */
+#m4-logos .m4-logos__set > .is-block img {
+  filter: grayscale(1) invert(1) contrast(2.2) brightness(1.15);
+}
+
+#m4-logos .m4-logos__set > span:hover img {
   filter: none;
   opacity: 1;
 }
@@ -2379,31 +2387,16 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
 
 @media (max-width: 680px) {
   #m4-logos {
-    padding: calc(12px * var(--m4-space-scale)) 0 calc(26px * var(--m4-space-scale));
+    --s: .74;
+    padding: calc(8px * var(--m4-space-scale)) 0 calc(26px * var(--m4-space-scale));
   }
 
-  #m4-logos .m4-logos__label {
-    margin-bottom: 10px;
-    font-size: calc(.72rem * var(--m4-type-scale));
-  }
-
-  #m4-logos .m4-logos__label::before,
-  #m4-logos .m4-logos__label::after {
-    flex-basis: 24px;
-  }
-
-  #m4-logos .m4-logos__set {
-    gap: 40px;
-    padding-right: 40px;
-  }
-
-  #m4-logos .m4-logos__set img {
-    height: 26px;
-    max-width: 96px;
+  #m4-logos .m4-logos__wrap {
+    padding: 0;
   }
 }
 
-/* motion off: no scrolling — one centred, wrapping row, second set hidden */
+/* motion off: no scrolling — a centred, wrapping grid of the logos */
 @media (prefers-reduced-motion: reduce) {
   #m4-logos .m4-logos__viewport {
     -webkit-mask-image: none;
@@ -2441,30 +2434,64 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   aria-label="جهات ومؤسسات"
 >
   <div class="m4-logos__wrap">
-
-    <p class="m4-logos__label">جهات ومؤسسات تعاون معها كريم إسماعيل</p>
-
     <div class="m4-logos__viewport">
       <div class="m4-logos__track">
         <div class="m4-logos__set">
-          <img src="LOGO_URL_1" alt="جامعة عجمان" loading="lazy">
-          <img src="LOGO_URL_2" alt="جامعة العين" loading="lazy">
-          <img src="LOGO_URL_3" alt="سديم" loading="lazy">
-          <img src="LOGO_URL_4" alt="Rexona" loading="lazy">
-          <img src="LOGO_URL_5" alt="L'Oréal Paris" loading="lazy">
-          <img src="LOGO_URL_6" alt="The British University in Egypt" loading="lazy">
+          <span style="--w:89;--h:28;--iw:98.2;--ih:29.7;--x:-4.3;--y:-0.9"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001f68d106399cc6a9.png" alt="Dell" loading="lazy"></span>
+          <span style="--w:77;--h:32;--iw:77.6;--ih:32.6;--x:-0.2;--y:-0.1"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001fd827391f3ca96a.png" alt="YouTube" loading="lazy"></span>
+          <span style="--w:54;--h:44;--iw:54.5;--ih:44.9;--x:-0.2;--y:-0.3"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e8400f7a8770bdfca6587.png" alt="Twitter" loading="lazy"></span>
+          <span style="--w:101;--h:25;--iw:101.6;--ih:27.0;--x:-0.8;--y:-0.8"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7caa5ef7e0824.png" alt="Vodafone" loading="lazy"></span>
+          <span style="--w:128;--h:20;--iw:128.0;--ih:19.6;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e8400f7a877ae3dca6585.png" alt="Organon" loading="lazy"></span>
+          <span style="--w:58;--h:43;--iw:77.0;--ih:54.5;--x:-9.2;--y:-5.5"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001311f6c0c53fc04e.png" alt="مبادرات محمد بن راشد آل مكتوم العالمية" loading="lazy"></span>
+          <span style="--w:90;--h:28;--iw:90.0;--ih:47.2;--x:-0.0;--y:-9.7"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e8400f7a877cef2ca6588.jpg" alt="1 Billion Followers Summit" loading="lazy"></span>
+          <span style="--w:86;--h:29;--iw:88.1;--ih:30.1;--x:-1.0;--y:-0.6"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e83ff1f68d10fff9cc696.png" alt="بيت الفلسفة – الفجيرة" loading="lazy"></span>
+          <span style="--w:87;--h:29;--iw:87.0;--ih:28.7;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7caad847e0808.png" alt="saib" loading="lazy"></span>
+          <span style="--w:128;--h:20;--iw:141.8;--ih:50.4;--x:-6.9;--y:-18.3"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7cac73b7e081e.png" alt="System One" loading="lazy"></span>
+          <span style="--w:64;--h:39;--iw:84.7;--ih:84.7;--x:-11.9;--y:-21.2"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7ca35bd7e0822.png" alt="The American University in Cairo" loading="lazy"></span>
+          <span style="--w:76;--h:33;--iw:76.3;--ih:32.9;--x:-0.3;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001f68d112679cc6ad.png" alt="مكتبة الإسكندرية" loading="lazy"></span>
+          <span style="--w:28;--h:44;--iw:59.0;--ih:59.0;--x:-15.4;--y:-7.3"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001311f6f8043fc04d.jpeg" alt="مركز الشباب – Youth Hub" loading="lazy"></span>
+          <span style="--w:90;--h:28;--iw:90.2;--ih:27.8;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7ca9c2a7e0826.png" alt="nafsi" loading="lazy"></span>
+          <span style="--w:100;--h:25;--iw:121.6;--ih:56.4;--x:-5.8;--y:-15.7"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e83fff7a8770d8dca657c.jpg" alt="معرض الشارقة الدولي للكتاب" loading="lazy"></span>
+          <span style="--w:81;--h:31;--iw:99.9;--ih:36.2;--x:-10.2;--y:-2.3"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7ca655b7e0825.png" alt="Ethos International School" loading="lazy"></span>
+          <span style="--w:73;--h:34;--iw:79.6;--ih:38.0;--x:-2.9;--y:-2.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001f68d161da9cc6c0.png" alt="صناع الأمل" loading="lazy"></span>
+          <span style="--w:55;--h:44;--iw:55.3;--ih:44.0;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001fd82799853ca977.png" alt="Mazaya Developments" loading="lazy"></span>
+          <span style="--w:87;--h:29;--iw:87.0;--ih:29.8;--x:-0.1;--y:-1.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7ca0d947e0823.png" alt="German University in Cairo" loading="lazy"></span>
+          <span style="--w:85;--h:30;--iw:85.8;--ih:35.7;--x:-0.9;--y:-4.1"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001fd827b5fa3ca96b.png" alt="The British University in Egypt" loading="lazy"></span>
+          <span style="--w:97;--h:26;--iw:99.1;--ih:55.7;--x:-1.2;--y:-15.6"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001f68d1cf379cc6b8.png" alt="L'Oréal Paris" loading="lazy"></span>
+          <span style="--w:45;--h:44;--iw:44.8;--ih:44.0;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001fd8279db63ca96d.png" alt="Rexona" loading="lazy"></span>
+          <span class="is-block" style="--w:67;--h:38;--iw:66.7;--ih:37.5;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e8400f7a8770067ca6586.jpg" alt="سديم" loading="lazy"></span>
+          <span style="--w:54;--h:44;--iw:78.4;--ih:55.4;--x:-12.4;--y:-5.8"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001fd82706fc3ca96c.png" alt="جامعة العين" loading="lazy"></span>
+          <span style="--w:89;--h:28;--iw:88.8;--ih:28.2;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001fd8274d343ca978.png" alt="جامعة عجمان" loading="lazy"></span>
         </div>
         <div class="m4-logos__set" aria-hidden="true">
-          <img src="LOGO_URL_1" alt="" loading="lazy">
-          <img src="LOGO_URL_2" alt="" loading="lazy">
-          <img src="LOGO_URL_3" alt="" loading="lazy">
-          <img src="LOGO_URL_4" alt="" loading="lazy">
-          <img src="LOGO_URL_5" alt="" loading="lazy">
-          <img src="LOGO_URL_6" alt="" loading="lazy">
+          <span style="--w:89;--h:28;--iw:98.2;--ih:29.7;--x:-4.3;--y:-0.9"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001f68d106399cc6a9.png" alt="" loading="lazy"></span>
+          <span style="--w:77;--h:32;--iw:77.6;--ih:32.6;--x:-0.2;--y:-0.1"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001fd827391f3ca96a.png" alt="" loading="lazy"></span>
+          <span style="--w:54;--h:44;--iw:54.5;--ih:44.9;--x:-0.2;--y:-0.3"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e8400f7a8770bdfca6587.png" alt="" loading="lazy"></span>
+          <span style="--w:101;--h:25;--iw:101.6;--ih:27.0;--x:-0.8;--y:-0.8"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7caa5ef7e0824.png" alt="" loading="lazy"></span>
+          <span style="--w:128;--h:20;--iw:128.0;--ih:19.6;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e8400f7a877ae3dca6585.png" alt="" loading="lazy"></span>
+          <span style="--w:58;--h:43;--iw:77.0;--ih:54.5;--x:-9.2;--y:-5.5"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001311f6c0c53fc04e.png" alt="" loading="lazy"></span>
+          <span style="--w:90;--h:28;--iw:90.0;--ih:47.2;--x:-0.0;--y:-9.7"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e8400f7a877cef2ca6588.jpg" alt="" loading="lazy"></span>
+          <span style="--w:86;--h:29;--iw:88.1;--ih:30.1;--x:-1.0;--y:-0.6"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e83ff1f68d10fff9cc696.png" alt="" loading="lazy"></span>
+          <span style="--w:87;--h:29;--iw:87.0;--ih:28.7;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7caad847e0808.png" alt="" loading="lazy"></span>
+          <span style="--w:128;--h:20;--iw:141.8;--ih:50.4;--x:-6.9;--y:-18.3"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7cac73b7e081e.png" alt="" loading="lazy"></span>
+          <span style="--w:64;--h:39;--iw:84.7;--ih:84.7;--x:-11.9;--y:-21.2"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7ca35bd7e0822.png" alt="" loading="lazy"></span>
+          <span style="--w:76;--h:33;--iw:76.3;--ih:32.9;--x:-0.3;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001f68d112679cc6ad.png" alt="" loading="lazy"></span>
+          <span style="--w:28;--h:44;--iw:59.0;--ih:59.0;--x:-15.4;--y:-7.3"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001311f6f8043fc04d.jpeg" alt="" loading="lazy"></span>
+          <span style="--w:90;--h:28;--iw:90.2;--ih:27.8;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7ca9c2a7e0826.png" alt="" loading="lazy"></span>
+          <span style="--w:100;--h:25;--iw:121.6;--ih:56.4;--x:-5.8;--y:-15.7"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e83fff7a8770d8dca657c.jpg" alt="" loading="lazy"></span>
+          <span style="--w:81;--h:31;--iw:99.9;--ih:36.2;--x:-10.2;--y:-2.3"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7ca655b7e0825.png" alt="" loading="lazy"></span>
+          <span style="--w:73;--h:34;--iw:79.6;--ih:38.0;--x:-2.9;--y:-2.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001f68d161da9cc6c0.png" alt="" loading="lazy"></span>
+          <span style="--w:55;--h:44;--iw:55.3;--ih:44.0;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001fd82799853ca977.png" alt="" loading="lazy"></span>
+          <span style="--w:87;--h:29;--iw:87.0;--ih:29.8;--x:-0.1;--y:-1.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e840066e7ca0d947e0823.png" alt="" loading="lazy"></span>
+          <span style="--w:85;--h:30;--iw:85.8;--ih:35.7;--x:-0.9;--y:-4.1"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001fd827b5fa3ca96b.png" alt="" loading="lazy"></span>
+          <span style="--w:97;--h:26;--iw:99.1;--ih:55.7;--x:-1.2;--y:-15.6"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001f68d1cf379cc6b8.png" alt="" loading="lazy"></span>
+          <span style="--w:45;--h:44;--iw:44.8;--ih:44.0;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001fd8279db63ca96d.png" alt="" loading="lazy"></span>
+          <span class="is-block" style="--w:67;--h:38;--iw:66.7;--ih:37.5;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e8400f7a8770067ca6586.jpg" alt="" loading="lazy"></span>
+          <span style="--w:54;--h:44;--iw:78.4;--ih:55.4;--x:-12.4;--y:-5.8"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001fd82706fc3ca96c.png" alt="" loading="lazy"></span>
+          <span style="--w:89;--h:28;--iw:88.8;--ih:28.2;--x:-0.0;--y:-0.0"><img src="https://storage.googleapis.com/msgsndr/25e9iURIgsa3JiXdcvsZ/media/697e84001fd8274d343ca978.png" alt="" loading="lazy"></span>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 

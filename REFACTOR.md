@@ -414,5 +414,5 @@ leaves, and keeps the poster with reduced motion or data saver.
 ### Block 03B — logos strip (replaces the GHL logos marquee)
 - Lives at the bottom of the GHL hero section (after Block 03), on the hero's background (no separate band), so the dark Kareem intro follows straight after.
 - All logos are the same height and one muted grey tone (full colour on hover). They scroll slowly with faded edges, pause on hover, and stand still for reduced motion.
-- The `LOGO_URL_1…6` placeholders must be replaced with the real logo links before pasting into GHL.
+- 25 real logos (links from GHL). Each is sized to its own drawing (the empty image margins are cut off), and there is no caption.
 - Pain: «قلق/خوف» merged into one «خوف وقلق» chip; the escape paragraph (أكل/موبايل/راحة مؤقتة) was removed.
