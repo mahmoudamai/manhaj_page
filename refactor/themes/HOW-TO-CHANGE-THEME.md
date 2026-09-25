@@ -46,50 +46,72 @@ Only you see this, because only you open that link. Visitors keep seeing the nor
 
 ---
 
-## 3 · Change the font (e.g. Tajawal)
+## 3 · Change the fonts
 
-**Try it without editing:** add `?m4-font=tajawal` to the URL.
-You can combine it with a theme: `?m4-theme=sage&m4-font=tajawal`.
+**Default:** the whole page is in **Tajawal** (titles, text and quotes).
 
-**Make it permanent:** paste this at the **end** of Custom CSS:
+### Try a ready-made combination (no editing)
 
-```css
-:root {
-  --m4-font-primary: "Tajawal", sans-serif;
-}
-```
+Add `?m4-fonts=NAME` to the page URL (works on the live GHL page and on `preview.html`,
+which also has a small font picker in the corner):
 
-The page uses 3 font roles. Change one or all of them:
+| NAME | Titles | Text | Quotes | Feel |
+|---|---|---|---|---|
+| `tajawal` *(default)* | Tajawal | Tajawal | Tajawal | one clean family |
+| `alexandria` | Alexandria | Tajawal | Tajawal | strong, modern titles |
+| `readex` | Readex Pro | Tajawal | Tajawal | soft, contemporary titles |
+| `plex` | Tajawal | IBM Plex Sans Arabic | Amiri | the previous look |
+| `markazi` | Markazi Text | Tajawal | Markazi Text | warm, calm naskh titles |
+| `amiri` | Amiri | Tajawal | Amiri | classic, spiritual titles |
+| `cairo` | Cairo | Cairo | Cairo | bold, familiar |
+| `almarai` | Almarai | Almarai | Almarai | simple, friendly |
+
+Can be combined with a theme: `?m4-theme=sage&m4-fonts=markazi`.
+"Titles" = section titles (h1/h2); card titles stay in the text font.
+The combinations also correct the title size (Alexandria runs wide → ×0.9,
+Markazi/Amiri run small → ×1.16/×1.08).
+
+### Make one permanent
+
+Paste its lines at the **end** of Custom CSS (after Block 00):
+
+| NAME | Paste this |
+|---|---|
+| `alexandria` | `:root{--m4-font-heading:"Alexandria",sans-serif;--m4-heading-scale:.9}` |
+| `readex` | `:root{--m4-font-heading:"Readex Pro",sans-serif;--m4-heading-scale:.96}` |
+| `plex` | `:root{--m4-font-primary:"IBM Plex Sans Arabic",sans-serif;--m4-font-heading:"Tajawal",sans-serif;--m4-font-display:"Amiri",serif}` |
+| `markazi` | `:root{--m4-font-heading:"Markazi Text",serif;--m4-font-display:"Markazi Text",serif;--m4-heading-scale:1.16}` |
+| `amiri` | `:root{--m4-font-heading:"Amiri",serif;--m4-font-display:"Amiri",serif;--m4-heading-scale:1.08}` |
+| `cairo` | `:root{--m4-font-primary:"Cairo",sans-serif;--m4-heading-scale:.96}` |
+| `almarai` | `:root{--m4-font-primary:"Almarai",sans-serif}` |
+
+(Or, in Block 00B, set `window.M4_CONFIG = { fonts: "markazi" };` before the script.)
+
+### Mix your own
+
+The page uses 3 font roles:
 
 | Variable | Used for | URL preview |
 |---|---|---|
-| `--m4-font-primary` | all text, buttons, numbers | `?m4-font=…` |
+| `--m4-font-primary` | all text, buttons, numbers, card titles | `?m4-font=…` |
 | `--m4-font-heading` | section titles (follows primary unless you set it) | `?m4-heading=…` |
-| `--m4-font-display` | quotes, testimonials, «الفاقة» (currently Amiri) | `?m4-display=…` |
+| `--m4-font-display` | member quotes, testimonials, «الفاقة» (follows primary unless you set it) | `?m4-display=…` |
 
 **Fonts already loaded, ready to use:**
 
 | Name to type in CSS | URL short name | Style |
 |---|---|---|
-| `"IBM Plex Sans Arabic"` | `plex` | clean, very readable (current) |
-| `"Tajawal"` | `tajawal` | your previous font |
+| `"Tajawal"` | `tajawal` | clean, familiar (default) |
+| `"IBM Plex Sans Arabic"` | `plex` | very readable |
 | `"Alexandria"` | `alexandria` | geometric, strong headings |
 | `"Readex Pro"` | `readex` | modern, soft |
 | `"Cairo"` | `cairo` | bold, popular |
 | `"Almarai"` | `almarai` | simple, friendly |
-| `"Amiri"` | `amiri` | classic naskh (current quotes) |
+| `"Amiri"` | `amiri` | classic naskh |
 | `"Markazi Text"` | `markazi` | modern naskh, warm |
 | `"Noto Naskh Arabic"` | `naskh` | neutral naskh |
 
-Example: Tajawal for text, Alexandria for titles, Markazi for quotes:
-
-```css
-:root {
-  --m4-font-primary: "Tajawal", sans-serif;
-  --m4-font-heading: "Alexandria", sans-serif;
-  --m4-font-display: "Markazi Text", serif;
-}
-```
+Example: `?m4-heading=alexandria&m4-display=markazi` = Alexandria titles, Tajawal text, Markazi quotes.
 
 ---
 

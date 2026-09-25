@@ -399,3 +399,9 @@ leaves, and keeps the poster with reduced motion or data saver.
 - **11 lectures** — the two members' notes (was Block 12) sit under the lecture library on desktop (fills the empty column) and after the timeline on phones. **Block 12 is gone: delete its GHL section.**
 - **22 guarantee** — a light "certificate" (double gold frame, round seal «7 أيام» with a turning text ring, three check chips) so it no longer looks like the dark price card above it.
 - **23 FAQ** — neutral cool background instead of cream, questions as separate white cards with a round +/− button, head + «لم تجد إجابة سؤالك؟» WhatsApp card in a sticky side column on desktop (after the questions on phones).
+
+### Fonts: Tajawal default + ready-made combinations
+- Default is now **Tajawal for everything** (text, titles and quotes) — `--m4-font-primary` in Block 00; heading and display follow it.
+- `?m4-fonts=NAME` (or `M4_CONFIG.fonts`) tries a combination: tajawal · alexandria · readex · plex · markazi · amiri · cairo · almarai — each sets titles/text/quotes and corrects the title size. `preview.html` has a picker in the corner.
+- The headings font now applies to section titles only (h1/h2 + the member-story title); card titles stay in the text font.
+- Full table + the lines to make one permanent: `themes/HOW-TO-CHANGE-THEME.md` §3.

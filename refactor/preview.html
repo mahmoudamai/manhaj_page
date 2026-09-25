@@ -79,10 +79,13 @@
      Already loaded, ready to use (just type the name):
        sans  : "IBM Plex Sans Arabic"  "Tajawal"  "Alexandria"  "Readex Pro"  "Cairo"  "Almarai"
        naskh : "Amiri"  "Markazi Text"  "Noto Naskh Arabic"
-     Example — whole page in Tajawal:  --m4-font-primary: "Tajawal", sans-serif; */
-  --m4-font-primary:     "IBM Plex Sans Arabic", "Tajawal", system-ui, -apple-system, "Segoe UI", sans-serif;
+     Default: the whole page in Tajawal (all three roles).
+     Ready-made combinations to try: add ?m4-fonts=NAME to the page URL
+       tajawal · alexandria · readex · plex · markazi · amiri · cairo · almarai
+     (the list and the 3 lines to paste here for each: themes/HOW-TO-CHANGE-THEME.md) */
+  --m4-font-primary:     "Tajawal", system-ui, -apple-system, "Segoe UI", sans-serif;
   --m4-font-heading:     var(--m4-font-primary);
-  --m4-font-display:     "Amiri", "Noto Naskh Arabic", serif;
+  --m4-font-display:     var(--m4-font-primary);   /* quotes — e.g. "Amiri", serif */
 
   --m4-type-scale:       1;         /* all body/UI text sizes     (0.9 – 1.15) */
   --m4-heading-scale:    1;         /* all headings & big numbers (0.85 – 1.2) */
@@ -233,14 +236,19 @@
    decided here, from the theme controls at the top.
    ===================================================================== */
 
-/* all section titles */
-.m4-section :is(h1, h2, h3, h4) {
+/* section titles (h1/h2 + the few section titles set as h3). Card titles
+   stay in the body font so a naskh heading font never reaches small text.
+   (The ?m4-fonts= combinations also adjust --m4-heading-scale for fonts
+   that run wide or small.) */
+.m4-section :is(h1, h2),
+#m4-member-story .m4-member-story__intro h3 {
   font-family: var(--m4-font-heading);
 }
 
+
 /* editorial font: member quotes, testimonials and the big "الفاقة" term */
-#m4-member-story .m4-member-story__message > p,
-#m4-lecture-notes .m4-lecture-notes__reaction > p,
+#m4-member-story blockquote,
+#m4-lectures .m4-lectures__note blockquote,
 #m4-testimonials .m4-testimonials__card > p,
 #m4-practice .m4-practice__member-note > p,
 #m4-kareem .m4-kareem__philosophy > p,
@@ -318,12 +326,36 @@ html:not(.m4-js) :is(.m4-sticky-host, .mhh-sticky-cta) {
   var themeParam = (location.search.match(/[?&]m4-theme=([a-z-]+)/) || [])[1] || cfg.theme;
   if (themeParam) root.setAttribute("data-m4-theme", themeParam);
 
-  // font preview: ?m4-font=tajawal  ?m4-heading=alexandria  ?m4-display=markazi
+  // single-role font preview: ?m4-font=tajawal  ?m4-heading=alexandria  ?m4-display=markazi
   var FONTS = {
     plex: '"IBM Plex Sans Arabic", sans-serif', tajawal: '"Tajawal", sans-serif', alexandria: '"Alexandria", sans-serif',
     readex: '"Readex Pro", sans-serif', cairo: '"Cairo", sans-serif', almarai: '"Almarai", sans-serif',
     amiri: '"Amiri", serif', markazi: '"Markazi Text", serif', naskh: '"Noto Naskh Arabic", serif'
   };
+  // ready-made combinations: ?m4-fonts=NAME (or M4_CONFIG.fonts = "NAME")
+  // → [headings, body, quotes, heading size correction (wide fonts smaller, naskh bigger)]
+  var FONT_SETS = {
+    tajawal:    ["tajawal",    "tajawal", "tajawal", 1],
+    alexandria: ["alexandria", "tajawal", "tajawal", .9],
+    readex:     ["readex",     "tajawal", "tajawal", .96],
+    plex:       ["tajawal",    "plex",    "amiri",   1],
+    markazi:    ["markazi",    "tajawal", "markazi", 1.16],
+    amiri:      ["amiri",      "tajawal", "amiri",   1.08],
+    cairo:      ["cairo",      "cairo",   "cairo",   .96],
+    almarai:    ["almarai",    "almarai", "almarai", 1]
+  };
+  var setName = (location.search.match(/[?&]m4-fonts=([a-z-]+)/) || [])[1] || cfg.fonts;
+  var fontSet = setName && FONT_SETS[setName];
+  if (fontSet) {
+    root.style.setProperty("--m4-font-heading", FONTS[fontSet[0]]);
+    root.style.setProperty("--m4-font-primary", FONTS[fontSet[1]]);
+    root.style.setProperty("--m4-font-display", FONTS[fontSet[2]]);
+    if (fontSet[3] !== 1) {
+      var hs = parseFloat(getComputedStyle(root).getPropertyValue("--m4-heading-scale")) || 1;
+      root.style.setProperty("--m4-heading-scale", String(Math.round(hs * fontSet[3] * 100) / 100));
+    }
+    root.setAttribute("data-m4-fonts", setName);
+  }
   [["m4-font", "--m4-font-primary"], ["m4-heading", "--m4-font-heading"], ["m4-display", "--m4-font-display"]].forEach(function (pair) {
     var v = (location.search.match(new RegExp("[?&]" + pair[0] + "=([a-z-]+)")) || [])[1];
     if (v && FONTS[v]) root.style.setProperty(pair[1], FONTS[v]);
@@ -15504,5 +15536,17 @@ and
 
 </div>
 </div>
+<label style="position:fixed;top:10px;left:10px;z-index:1000;display:flex;gap:6px;align-items:center;padding:6px 10px;border-radius:10px;background:rgba(18,60,66,.92);color:#fff;font:600 13px system-ui,sans-serif;direction:ltr;box-shadow:0 6px 18px rgba(0,0,0,.25)">
+  Fonts
+  <select id="m4-font-picker" style="font:13px system-ui,sans-serif;border-radius:6px;border:0;padding:3px 4px">
+    <option value="">tajawal (default)</option><option>alexandria</option><option>readex</option><option>plex</option>
+    <option>markazi</option><option>amiri</option><option>cairo</option><option>almarai</option>
+  </select>
+</label>
+<script>
+(function(){var s=document.getElementById("m4-font-picker"),u=new URL(location.href);
+s.value=u.searchParams.get("m4-fonts")||"";
+s.onchange=function(){if(s.value)u.searchParams.set("m4-fonts",s.value);else u.searchParams.delete("m4-fonts");location.href=u.toString();};})();
+</script>
 </body>
 </html>

@@ -625,6 +625,22 @@ FONTS_IMPORT = ('@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+
                 '/* fonts are only downloaded when a font is actually used */\n\n')
 
 
+# preview.html only (never pasted into GHL): a small picker for the ?m4-fonts= combinations
+FONT_PICKER = """<label style="position:fixed;top:10px;left:10px;z-index:1000;display:flex;gap:6px;align-items:center;padding:6px 10px;border-radius:10px;background:rgba(18,60,66,.92);color:#fff;font:600 13px system-ui,sans-serif;direction:ltr;box-shadow:0 6px 18px rgba(0,0,0,.25)">
+  Fonts
+  <select id="m4-font-picker" style="font:13px system-ui,sans-serif;border-radius:6px;border:0;padding:3px 4px">
+    <option value="">tajawal (default)</option><option>alexandria</option><option>readex</option><option>plex</option>
+    <option>markazi</option><option>amiri</option><option>cairo</option><option>almarai</option>
+  </select>
+</label>
+<script>
+(function(){var s=document.getElementById("m4-font-picker"),u=new URL(location.href);
+s.value=u.searchParams.get("m4-fonts")||"";
+s.onchange=function(){if(s.value)u.searchParams.set("m4-fonts",s.value);else u.searchParams.delete("m4-fonts");location.href=u.toString();};})();
+</script>
+"""
+
+
 def main():
     blocks = OUT / "blocks"
     blocks.mkdir(parents=True, exist_ok=True)
@@ -785,7 +801,8 @@ def main():
             + (blocks / "00-theme.html").read_text(encoding="utf-8")
             + (blocks / "00B-shared-js.html").read_text(encoding="utf-8")
             + "</head>\n<body>\n" + "\n".join(parts)
-            + '\n<div class="m4-sticky-host" style="position:fixed;left:0;right:0;bottom:0;z-index:999">' + sticky + "</div>\n</body>\n</html>\n")
+            + '\n<div class="m4-sticky-host" style="position:fixed;left:0;right:0;bottom:0;z-index:999">' + sticky + "</div>\n"
+            + FONT_PICKER + "</body>\n</html>\n")
     (OUT / "preview.html").write_text(page, encoding="utf-8")
     print("colors:", color_stats, "literals left:", sorted(literal_left))
     print("Block 00:", len(theme), "chars; largest blocks:", sorted(sizes, key=lambda x: -x[1])[:4])

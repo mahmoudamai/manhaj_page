@@ -63,10 +63,13 @@
      Already loaded, ready to use (just type the name):
        sans  : "IBM Plex Sans Arabic"  "Tajawal"  "Alexandria"  "Readex Pro"  "Cairo"  "Almarai"
        naskh : "Amiri"  "Markazi Text"  "Noto Naskh Arabic"
-     Example — whole page in Tajawal:  --m4-font-primary: "Tajawal", sans-serif; */
-  --m4-font-primary:     "IBM Plex Sans Arabic", "Tajawal", system-ui, -apple-system, "Segoe UI", sans-serif;
+     Default: the whole page in Tajawal (all three roles).
+     Ready-made combinations to try: add ?m4-fonts=NAME to the page URL
+       tajawal · alexandria · readex · plex · markazi · amiri · cairo · almarai
+     (the list and the 3 lines to paste here for each: themes/HOW-TO-CHANGE-THEME.md) */
+  --m4-font-primary:     "Tajawal", system-ui, -apple-system, "Segoe UI", sans-serif;
   --m4-font-heading:     var(--m4-font-primary);
-  --m4-font-display:     "Amiri", "Noto Naskh Arabic", serif;
+  --m4-font-display:     var(--m4-font-primary);   /* quotes — e.g. "Amiri", serif */
 
   --m4-type-scale:       1;         /* all body/UI text sizes     (0.9 – 1.15) */
   --m4-heading-scale:    1;         /* all headings & big numbers (0.85 – 1.2) */

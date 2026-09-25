@@ -24,12 +24,36 @@
   var themeParam = (location.search.match(/[?&]m4-theme=([a-z-]+)/) || [])[1] || cfg.theme;
   if (themeParam) root.setAttribute("data-m4-theme", themeParam);
 
-  // font preview: ?m4-font=tajawal  ?m4-heading=alexandria  ?m4-display=markazi
+  // single-role font preview: ?m4-font=tajawal  ?m4-heading=alexandria  ?m4-display=markazi
   var FONTS = {
     plex: '"IBM Plex Sans Arabic", sans-serif', tajawal: '"Tajawal", sans-serif', alexandria: '"Alexandria", sans-serif',
     readex: '"Readex Pro", sans-serif', cairo: '"Cairo", sans-serif', almarai: '"Almarai", sans-serif',
     amiri: '"Amiri", serif', markazi: '"Markazi Text", serif', naskh: '"Noto Naskh Arabic", serif'
   };
+  // ready-made combinations: ?m4-fonts=NAME (or M4_CONFIG.fonts = "NAME")
+  // → [headings, body, quotes, heading size correction (wide fonts smaller, naskh bigger)]
+  var FONT_SETS = {
+    tajawal:    ["tajawal",    "tajawal", "tajawal", 1],
+    alexandria: ["alexandria", "tajawal", "tajawal", .9],
+    readex:     ["readex",     "tajawal", "tajawal", .96],
+    plex:       ["tajawal",    "plex",    "amiri",   1],
+    markazi:    ["markazi",    "tajawal", "markazi", 1.16],
+    amiri:      ["amiri",      "tajawal", "amiri",   1.08],
+    cairo:      ["cairo",      "cairo",   "cairo",   .96],
+    almarai:    ["almarai",    "almarai", "almarai", 1]
+  };
+  var setName = (location.search.match(/[?&]m4-fonts=([a-z-]+)/) || [])[1] || cfg.fonts;
+  var fontSet = setName && FONT_SETS[setName];
+  if (fontSet) {
+    root.style.setProperty("--m4-font-heading", FONTS[fontSet[0]]);
+    root.style.setProperty("--m4-font-primary", FONTS[fontSet[1]]);
+    root.style.setProperty("--m4-font-display", FONTS[fontSet[2]]);
+    if (fontSet[3] !== 1) {
+      var hs = parseFloat(getComputedStyle(root).getPropertyValue("--m4-heading-scale")) || 1;
+      root.style.setProperty("--m4-heading-scale", String(Math.round(hs * fontSet[3] * 100) / 100));
+    }
+    root.setAttribute("data-m4-fonts", setName);
+  }
   [["m4-font", "--m4-font-primary"], ["m4-heading", "--m4-font-heading"], ["m4-display", "--m4-font-display"]].forEach(function (pair) {
     var v = (location.search.match(new RegExp("[?&]" + pair[0] + "=([a-z-]+)")) || [])[1];
     if (v && FONTS[v]) root.style.setProperty(pair[1], FONTS[v]);
