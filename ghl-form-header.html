@@ -1,6 +1,4 @@
-<!-- MHH | GHL form header · today-only offer with a live countdown.
-     Paste this whole block into the Custom HTML element at the top of the GHL form (replaces the previous header).
-     The countdown runs to midnight Dubai time (UTC+04:00), the same day boundary the daily TAM… codes use. -->
+<!-- MHH | GHL form header · Replace the previous header snippet with this entire block. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -18,25 +16,14 @@
     <span class="mhh-offer-form-head__spark mhh-offer-form-head__spark--two">✦</span>
   </div>
 
-  <h2>جهّزنالك خصم إضافي <span dir="ltr">20%</span></h2>
-
-  <!-- Urgency strip: live countdown to the end of today. -->
-  <div class="mhh-offer-form-head__urgent" role="timer" aria-label="الوقت الباقي على نهاية العرض">
-    <div class="mhh-offer-form-head__urgent-copy">
-      <i aria-hidden="true"></i>
-      <span><strong>عرض النهارده بس</strong>بينتهي خلال</span>
-    </div>
-    <div class="mhh-offer-form-head__clock" dir="ltr">
-      <span><b data-mhh-h>00</b><small>ساعة</small></span>
-      <em aria-hidden="true">:</em>
-      <span><b data-mhh-m>00</b><small>دقيقة</small></span>
-      <em aria-hidden="true">:</em>
-      <span><b data-mhh-s>00</b><small>ثانية</small></span>
-    </div>
-    <div class="mhh-offer-form-head__track" aria-hidden="true"><span data-mhh-bar></span></div>
+  <div class="mhh-offer-form-head__eyebrow">
+    <i aria-hidden="true"></i>
+    <span>عرض خاص ليك</span>
+    <strong>متاح لنهاية اليوم فقط</strong>
   </div>
 
-  <p>سجّل بياناتك وهتاخد كود الخصم على طول — <strong>الكود بيتلغي الساعة 12 بالليل ومش هيتكرر</strong></p>
+  <h2>جهزنا لك خصم إضافي <span dir="ltr">20%</span></h2>
+  <p>سجل بياناتك للحصول على كود الخصم الخاص بك</p>
 </div>
 
 <style>
@@ -62,7 +49,7 @@
   isolation: isolate;
   width: 100%;
   margin: 0 auto 14px;
-  padding: 12px 14px 14px;
+  padding: 14px 16px 16px;
   overflow: hidden;
   border: 1px solid rgba(142, 201, 196, .4);
   border-radius: 18px;
@@ -89,8 +76,8 @@
 .mhh-offer-form-head__gift {
   position: relative;
   width: 84px;
-  height: 70px;
-  margin: 0 auto 2px;
+  height: 74px;
+  margin: 0 auto 5px;
   direction: ltr;
   pointer-events: none;
 }
@@ -104,7 +91,7 @@
 
 .mhh-offer-form-head__box {
   position: absolute;
-  top: 34px;
+  top: 36px;
   left: 18px;
   width: 48px;
   height: 33px;
@@ -137,7 +124,7 @@
 .mhh-offer-form-head__lid {
   position: absolute;
   z-index: 2;
-  top: 27px;
+  top: 29px;
   left: 14px;
   width: 56px;
   height: 12px;
@@ -173,7 +160,7 @@
 .mhh-offer-form-head__badge {
   position: absolute;
   z-index: 3;
-  top: 0;
+  top: 1px;
   left: -1px;
   display: grid;
   place-items: center;
@@ -203,11 +190,57 @@
 .mhh-offer-form-head__spark--one { top: 11px; right: 1px; font-size: 13px; }
 .mhh-offer-form-head__spark--two { bottom: 10px; right: 4px; font-size: 8px; color: #69aaa4; }
 
+/* Offer line: same wording, but "today only" now reads first and in red. */
+.mhh-offer-form-head__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 100%;
+  margin-bottom: 9px;
+  padding: 6px 14px;
+  border: 1px solid #ffc6bd;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fff6f3, #ffece7);
+  box-shadow: 0 4px 12px rgba(255, 59, 48, .07);
+  color: #7c5b55;
+  font-size: 12.5px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.mhh-offer-form-head__eyebrow > i {
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff3b30;
+  animation: mhhOfferPulse 1.5s infinite;
+}
+
+.mhh-offer-form-head__eyebrow > strong {
+  position: relative;
+  padding-inline-start: 9px;
+  color: #d0271e;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.mhh-offer-form-head__eyebrow > strong::before {
+  content: "";
+  position: absolute;
+  top: 18%;
+  bottom: 18%;
+  right: 0;
+  width: 1px;
+  background: #f3b0a6;
+}
+
 .mhh-offer-form-head h2 {
   margin: 0;
   color: #1f303d;
   font-size: 30px;
-  line-height: 1.35;
+  line-height: 1.4;
   font-weight: 900;
 }
 
@@ -219,128 +252,13 @@
   unicode-bidi: isolate;
 }
 
-/* ---------- Urgency strip ---------- */
-.mhh-offer-form-head__urgent {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin: 10px 0 0;
-  padding: 9px 12px 13px;
-  overflow: hidden;
-  border: 1px solid #ffc2b8;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #fff5f2, #ffe9e4);
-  box-shadow: 0 6px 16px rgba(255, 59, 48, .08);
-}
-
-.mhh-offer-form-head__urgent-copy {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  min-width: 0;
-  color: #9c3a31;
-  font-size: 13px;
-  line-height: 1.4;
-  font-weight: 700;
-  text-align: right;
-}
-
-.mhh-offer-form-head__urgent-copy strong {
-  display: block;
-  color: #d0271e;
-  font-size: 15px;
-  font-weight: 900;
-}
-
-.mhh-offer-form-head__urgent-copy > i {
-  flex: 0 0 9px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #ff3b30;
-  animation: mhhUrgentPulse 1.4s infinite;
-}
-
-.mhh-offer-form-head__clock {
-  display: flex;
-  align-items: flex-start;
-  gap: 3px;
-  flex-shrink: 0;
-}
-
-.mhh-offer-form-head__clock > span {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 44px;
-  padding: 4px 2px 3px;
-  border-radius: 9px;
-  background: linear-gradient(145deg, #ff4b41, #d92d27);
-  box-shadow: 0 4px 10px rgba(217, 45, 39, .22);
-}
-
-.mhh-offer-form-head__clock b {
-  color: #ffffff;
-  font: 900 22px/1 Arial, sans-serif !important;
-  font-variant-numeric: tabular-nums;
-}
-
-.mhh-offer-form-head__clock small {
-  margin-top: 2px;
-  color: #ffe3df;
-  font-size: 9px;
-  line-height: 1.2;
-  font-weight: 700;
-}
-
-.mhh-offer-form-head__clock > em {
-  margin-top: 3px;
-  color: #e2463d;
-  font: 900 19px/1 Arial, sans-serif !important;
-  font-style: normal;
-  animation: mhhColon 1s steps(1) infinite;
-}
-
-/* Thin bar showing how much of today is left. */
-.mhh-offer-form-head__track {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 4px;
-  background: rgba(255, 59, 48, .12);
-}
-
-.mhh-offer-form-head__track > span {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  border-radius: 999px 0 0 999px;
-  background: linear-gradient(90deg, #ff3b30, #ff7a6b);
-  transition: width 1s linear;
-}
-
-/* Last 3 hours of the day: the clock pulses. */
-.mhh-offer-form-head__urgent.is-urgent .mhh-offer-form-head__clock > span {
-  animation: mhhClockUrgent 1s ease-in-out infinite;
-}
-
 .mhh-offer-form-head > p {
-  max-width: 440px;
-  margin: 9px auto 0;
+  max-width: 430px;
+  margin: 5px auto 0;
   color: #5d707b;
   font-size: 13px;
   line-height: 1.65;
   font-weight: 600;
-}
-
-.mhh-offer-form-head > p strong {
-  color: #c42d24;
-  font-weight: 800;
 }
 
 /* Short entrance sequence, followed by a gentle loop on the stars only. */
@@ -348,7 +266,6 @@
 .mhh-offer-form-head--play .mhh-offer-form-head__lid { animation: mhhPremiumLid 1.1s .2s ease-in-out both; }
 .mhh-offer-form-head--play .mhh-offer-form-head__badge { animation: mhhPremiumBadge .65s .55s cubic-bezier(.22, 1, .36, 1) both; }
 .mhh-offer-form-head--play .mhh-offer-form-head__box::after { animation: mhhPremiumShine 1s 1.1s ease-in-out both; }
-.mhh-offer-form-head--play .mhh-offer-form-head__urgent { animation: mhhUrgentIn .5s .35s cubic-bezier(.2, .9, .2, 1.2) both; }
 .mhh-offer-form-head--play .mhh-offer-form-head__spark {
   animation:
     mhhPremiumSpark 1.1s .45s ease-in-out both,
@@ -385,17 +302,9 @@
   0%, 100% { opacity: .7; transform: scale(1) rotate(0); }
   50% { opacity: 1; transform: scale(1.2) rotate(10deg); }
 }
-@keyframes mhhUrgentIn {
-  from { opacity: 0; transform: translateY(6px) scale(.97); }
-  to { opacity: 1; transform: none; }
-}
-@keyframes mhhUrgentPulse {
+@keyframes mhhOfferPulse {
   0% { box-shadow: 0 0 0 0 rgba(255, 59, 48, .5); }
-  75%, 100% { box-shadow: 0 0 0 8px rgba(255, 59, 48, 0); }
-}
-@keyframes mhhColon { 50% { opacity: .25; } }
-@keyframes mhhClockUrgent {
-  50% { box-shadow: 0 0 0 4px rgba(255, 59, 48, .18), 0 4px 10px rgba(217, 45, 39, .3); }
+  75%, 100% { box-shadow: 0 0 0 7px rgba(255, 59, 48, 0); }
 }
 
 /* Apply the original form spacing only inside an iframe. */
@@ -418,76 +327,41 @@ html.mhh-offer-iframe #_builder-form {
 html.mhh-offer-iframe .ghl-form-wrap { overflow: visible !important; }
 
 @media (max-width: 600px) {
-  .mhh-offer-form-head { margin-bottom: 12px; padding: 10px 10px 12px; border-radius: 16px; }
-  .mhh-offer-form-head__gift { transform: scale(.88); margin-bottom: -2px; }
+  .mhh-offer-form-head { margin-bottom: 12px; padding: 12px 12px 14px; border-radius: 16px; }
+  .mhh-offer-form-head__gift { margin-bottom: 3px; }
+  .mhh-offer-form-head__eyebrow { gap: 7px; padding: 5px 11px; font-size: 11.5px; margin-bottom: 7px; }
+  .mhh-offer-form-head__eyebrow > strong { padding-inline-start: 7px; font-size: 13px; }
   .mhh-offer-form-head h2 { font-size: clamp(22px, 5.6vw, 27px); }
-  .mhh-offer-form-head__urgent { gap: 6px; padding: 8px 9px 12px; }
-  .mhh-offer-form-head__urgent-copy { gap: 6px; font-size: 11.5px; }
-  .mhh-offer-form-head__urgent-copy strong { font-size: 13.5px; }
-  .mhh-offer-form-head__clock > span { width: 38px; }
-  .mhh-offer-form-head__clock b { font-size: 19px !important; }
-  .mhh-offer-form-head__clock > em { font-size: 16px !important; }
-  .mhh-offer-form-head > p { max-width: 330px; font-size: 12px; margin-top: 8px; }
+  .mhh-offer-form-head > p { max-width: 330px; font-size: 12px; margin-top: 4px; }
   html.mhh-offer-iframe body { padding: 8px 10px 16px !important; }
-}
-
-@media (max-width: 360px) {
-  .mhh-offer-form-head__urgent { flex-direction: column; }
-  .mhh-offer-form-head__urgent-copy { justify-content: center; text-align: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .mhh-offer-form-head *,
   .mhh-offer-form-head *::before,
-  .mhh-offer-form-head *::after { animation: none !important; transition: none !important; }
+  .mhh-offer-form-head *::after { animation: none !important; }
 }
 </style>
 
 <script>
 (function () {
-  /* Same day boundary as the daily coupon codes: midnight Dubai time (UTC+04:00, no DST). */
-  var TZ_OFFSET_HOURS = 4;
-  var URGENT_UNDER_HOURS = 3;
-  var DAY = 86400000;
-
   /* Never change the parent sales page's body padding. */
   if (window.self !== window.top) {
     document.documentElement.classList.add('mhh-offer-iframe');
   }
 
-  var pad = function (n) { return String(n).padStart(2, '0'); };
-
+  /* Replay when the header becomes visible; no form data is accessed. */
   document.querySelectorAll('.mhh-offer-form-head').forEach(function (header) {
     if (header.dataset.mhhMotionReady) return;
     header.dataset.mhhMotionReady = 'true';
-
-    /* Live countdown to the end of today. */
-    var urgent = header.querySelector('.mhh-offer-form-head__urgent');
-    var h = header.querySelector('[data-mhh-h]');
-    var m = header.querySelector('[data-mhh-m]');
-    var s = header.querySelector('[data-mhh-s]');
-    var bar = header.querySelector('[data-mhh-bar]');
-
-    function tick() {
-      var local = Date.now() + TZ_OFFSET_HOURS * 3600000;
-      var left = DAY - (local % DAY);
-      var t = Math.max(0, Math.floor(left / 1000));
-      h.textContent = pad(Math.floor(t / 3600));
-      m.textContent = pad(Math.floor(t % 3600 / 60));
-      s.textContent = pad(t % 60);
-      bar.style.width = (left / DAY * 100).toFixed(2) + '%';
-      urgent.classList.toggle('is-urgent', left <= URGENT_UNDER_HOURS * 3600000);
-    }
-    tick();
-    setInterval(tick, 1000);
-
-    /* Replay the entrance when the header becomes visible; no form data is accessed. */
     if (!('IntersectionObserver' in window)) return;
+
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         header.classList.toggle('mhh-offer-form-head--play', entry.isIntersecting);
       });
     }, { threshold: 0 });
+
     observer.observe(header);
   });
 })();
