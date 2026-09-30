@@ -267,6 +267,21 @@
   stroke-linejoin: round;
 }
 
+/* ---------------- a GHL popup (e.g. the discount form) is open ----------------
+   The preview sits on the page with a very high z-index (so GHL's player can't
+   cover it) — that also put it above popups. While any GHL popup is showing,
+   the script below adds .mhh-popup-open to <html>: the preview hides and the
+   floating PiP steps behind the popup. */
+html.mhh-popup-open #mhh-preview-portal {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transition: none !important;
+}
+
+html.mhh-popup-open .mhh-pip-float {
+  z-index: 1 !important;
+}
+
 @media (max-width: 900px) {
   :is(.hero_main_video [class*="cvideo-"], .hero_main_video[class*="cvideo-"], .mhh-hero-video) {
     --mhh-r: 22px;
@@ -570,7 +585,7 @@
       place(el, PIP);
       closeBtns = findCloseButtons();
       closeBtns.forEach(function (c) {
-        c.style.setProperty("z-index", "10001", "important");
+        c.style.setProperty("z-index", window.__MHH_POPUP_OPEN__ ? "1" : "10001", "important");
         place(c, CLOSE);
       });
       if (debug && !check.logged) {
@@ -611,5 +626,31 @@
   }, 100);
   // safety net while the page is open (cheap: one computed-style read)
   setInterval(request, 700);
+})();
+/* ---------------- GHL popups: keep the video behind them ----------------
+   GHL shows a popup form by displaying an element whose id starts with
+   "popup-" (the form iframe and its "-div" / "-wrapper" frames). While one is
+   visible, <html> gets .mhh-popup-open (see the CSS above). */
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  function popupOpen() {
+    var list = document.querySelectorAll('[id^="popup-"], [data-layout*="POPUP"]');
+    for (var i = 0; i < list.length; i++) {
+      var el = list[i], cs = getComputedStyle(el);
+      if (cs.display === "none" || cs.visibility === "hidden" || +cs.opacity === 0) continue;
+      var r = el.getBoundingClientRect();
+      if (r.width > 40 && r.height > 40) return true;
+    }
+    return false;
+  }
+  function update() {
+    var open = popupOpen();
+    window.__MHH_POPUP_OPEN__ = open;
+    root.classList.toggle("mhh-popup-open", open);
+  }
+  setInterval(update, 300);
+  window.addEventListener("scroll", update, { passive: true });
+  update();
 })();
 </script>
