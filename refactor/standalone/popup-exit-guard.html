@@ -1,0 +1,242 @@
+<!-- =====================================================================
+     POPUP EXIT GUARD — for GHL popup forms
+     Put this code RIGHT AFTER the popup embed code (same Code Element or a
+     new one on the same page).
+
+     While the popup is open, a click/tap OUTSIDE the form (on the dark
+     background) or the Esc key no longer closes it. Instead a small message
+     asks: keep going, or close and lose the offer.
+       · "أكمل…"  → the message closes, the form stays open
+       · "إغلاق…" → the popup closes normally (GHL's own close)
+     The form's own ✕ button still closes it straight away.
+
+     Edit the texts in SETTINGS below. FORM_ID = the id in the embed code.
+     ===================================================================== -->
+<style>
+#pxg-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(8, 20, 22, .55);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  direction: rtl;
+  font-family: "Tajawal", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+#pxg-overlay.is-open {
+  display: flex;
+  animation: pxg-fade .2s ease both;
+}
+
+#pxg-box {
+  width: 100%;
+  max-width: 380px;
+  padding: 26px 22px 20px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  text-align: center;
+  box-shadow: 0 30px 70px -20px rgba(6, 18, 20, .55);
+  animation: pxg-pop .25s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+#pxg-box .pxg-icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: #FDECEA;
+  color: #D8432F;
+  font-size: 26px;
+  line-height: 1;
+}
+
+#pxg-box h3 {
+  margin: 0 0 8px;
+  color: #123C42;
+  font-size: 19px;
+  line-height: 1.5;
+  font-weight: 800;
+}
+
+#pxg-box p {
+  margin: 0 0 18px;
+  color: #5D6A70;
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+#pxg-box .pxg-stay {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  border: 0;
+  border-radius: 14px;
+  background: #FF3B30;
+  color: #FFFFFF;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 26px -10px rgba(255, 59, 48, .6);
+}
+
+#pxg-box .pxg-stay:focus {
+  outline: 3px solid rgba(255, 59, 48, .28);
+  outline-offset: 3px;
+}
+
+#pxg-box .pxg-leave {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 6px;
+  border: 0;
+  background: none;
+  color: #748086;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+@keyframes pxg-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pxg-pop { from { opacity: 0; transform: translateY(10px) scale(.97); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  #pxg-overlay.is-open,
+  #pxg-box {
+    animation: none;
+  }
+}
+</style>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- SETTINGS ---------------- */
+  var FORM_ID = "4mylnx0sMEHN43X0uecH";     // the form id from the popup embed code
+  var TITLE   = "لحظة… خصم اليوم ما زال متاحًا لك";
+  var MESSAGE = "إذا أغلقت النافذة الآن سيضيع عليك عرض اليوم.";
+  var STAY    = "أكمل واحصل على الخصم";
+  var LEAVE   = "إغلاق وخسارة العرض";
+
+  if (window.__PXG__) return;
+  window.__PXG__ = true;
+
+  var BOX_ID = "popup-" + FORM_ID + "-div";  // GHL's frame around the form (holds the form and its ✕)
+  var overlay, pending = null, replaying = false;
+
+  function formBox() {
+    var el = document.getElementById(BOX_ID);
+    if (!el) return null;
+    var cs = getComputedStyle(el);
+    if (cs.display === "none" || cs.visibility === "hidden") return null;
+    var r = el.getBoundingClientRect();
+    return (r.width > 40 && r.height > 40) ? el : null;
+  }
+
+  function isInside(el, x, y) {
+    var r = el.getBoundingClientRect();
+    return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
+  }
+
+  function point(ev) {
+    var t = ev.touches && ev.touches[0] || ev.changedTouches && ev.changedTouches[0];
+    return t ? { x: t.clientX, y: t.clientY } : { x: ev.clientX, y: ev.clientY };
+  }
+
+  function build() {
+    overlay = document.createElement("div");
+    overlay.id = "pxg-overlay";
+    overlay.setAttribute("role", "alertdialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.innerHTML =
+      '<div id="pxg-box">' +
+        '<span class="pxg-icon" aria-hidden="true">!</span>' +
+        '<h3>' + TITLE + '</h3>' +
+        '<p>' + MESSAGE + '</p>' +
+        '<button type="button" class="pxg-stay">' + STAY + '</button>' +
+        '<button type="button" class="pxg-leave">' + LEAVE + '</button>' +
+      '</div>';
+    document.body.appendChild(overlay);
+    overlay.querySelector(".pxg-stay").addEventListener("click", stay);
+    overlay.querySelector(".pxg-leave").addEventListener("click", leave);
+    overlay.addEventListener("click", function (ev) { if (ev.target === overlay) stay(); });
+  }
+
+  function ask(action) {
+    if (!overlay) build();
+    pending = action;
+    overlay.classList.add("is-open");
+    setTimeout(function () { overlay.querySelector(".pxg-stay").focus(); }, 30);
+  }
+
+  function stay() {
+    pending = null;
+    overlay.classList.remove("is-open");
+  }
+
+  // close for real: let GHL's own handler see the original click / Esc again
+  function leave() {
+    overlay.classList.remove("is-open");
+    var action = pending;
+    pending = null;
+    if (!action) return;
+    replaying = true;
+    try { action(); } finally { setTimeout(function () { replaying = false; }, 60); }
+  }
+
+  function replayClick(target, x, y) {
+    return function () {
+      ["pointerdown", "mousedown", "pointerup", "mouseup", "click"].forEach(function (type) {
+        var Ctor = type.indexOf("pointer") === 0 && window.PointerEvent ? PointerEvent : MouseEvent;
+        target.dispatchEvent(new Ctor(type, { bubbles: true, cancelable: true, clientX: x, clientY: y, view: window }));
+      });
+    };
+  }
+
+  // outside clicks/taps while the popup is open: stop them before GHL sees them
+  function guard(ev) {
+    if (replaying) return;
+    if (overlay && overlay.contains(ev.target)) return;
+    var box = formBox();
+    if (!box) return;
+    var p = point(ev);
+    if (box.contains(ev.target) || isInside(box, p.x, p.y)) return;   // inside the form (or its ✕): allowed
+    ev.preventDefault();
+    ev.stopPropagation();
+    if (ev.stopImmediatePropagation) ev.stopImmediatePropagation();
+    // a click (mouse) or the end of a tap (touch; blocking the touch also stops its click)
+    if ((ev.type === "click" || ev.type === "touchend") && !(overlay && overlay.classList.contains("is-open"))) {
+      ask(replayClick(ev.target, p.x, p.y));
+    }
+  }
+
+  ["pointerdown", "mousedown", "touchstart", "pointerup", "mouseup", "touchend", "click"].forEach(function (type) {
+    window.addEventListener(type, guard, { capture: true, passive: false });
+  });
+
+  // Esc while the popup is open
+  window.addEventListener("keydown", function (ev) {
+    if (replaying || (ev.key !== "Escape" && ev.key !== "Esc")) return;
+    if (overlay && overlay.classList.contains("is-open")) { ev.preventDefault(); stay(); return; }
+    if (!formBox()) return;
+    ev.preventDefault();
+    ev.stopPropagation();
+    if (ev.stopImmediatePropagation) ev.stopImmediatePropagation();
+    ask(function () {
+      document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", code: "Escape", keyCode: 27, which: 27, bubbles: true }));
+    });
+  }, true);
+})();
+</script>
